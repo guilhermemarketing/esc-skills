@@ -33,15 +33,15 @@ Coleção de skills para agentes AI (Gemini, Claude Code, Cursor, Windsurf, Clin
 | **gh-address-comments** | Endereça review/issue comments em PRs do GitHub |
 | **gh-fix-ci** | Debug e fix de checks de CI falhando no GitHub Actions |
 | **gsap** | GSAP — timelines, ScrollTrigger, stagger, transforms |
-| **gtm-expert** | Criar, editar, validar containers GTM JSON |
-| **gtm-expert-template-guimarketing** | Template GTM Leads 2025 para novos clientes |
+| **guimkt-gtm-expert** | Criar, editar, validar containers GTM JSON |
+| **guimkt-gtm-expert-template** | Template GTM Leads 2025 para novos clientes |
 | **guimkt-classic-ad-creative** | Conceitos criativos para Meta Ads e Google Ads |
 | **guimkt-design-system-extractor** | Extrai design systems completos de websites |
-| **guimarketing-landing-page-optimization** | Landing Page Optimization (LPO) — análise, auditoria, criação, copy, frameworks de copywriting, fórmula de conversão |
+| **guimkt-landing-page-optimization** | Landing Page Optimization (LPO) — análise, auditoria, criação, copy, frameworks de copywriting, fórmula de conversão |
 | **interaction-design** | Microinterações, motion design, transições |
 | **javascript-typescript** | JS/TS com ES6+, Node.js, React, frameworks modernos |
 | **jira-assistant** | Operações Jira via Atlassian MCP |
-| **make-blueprint-expert** | Criar, editar, debugar e otimizar blueprints Make.com via JSON. HTTP modules, routers, roleta, Facebook Lead Ads |
+| **guimkt-make-blueprint-expert** | Criar, editar, debugar e otimizar blueprints Make.com via JSON. HTTP modules, routers, roleta, Facebook Lead Ads |
 | **matterjs** | Matter.js — física 2D, Engine/World, bodies e constraints |
 | **netlify-deploy** | Deploy em Netlify via CLI |
 | **nx-ci-monitor** | Monitor Nx Cloud CI com self-healing |

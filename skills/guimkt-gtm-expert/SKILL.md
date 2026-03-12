@@ -1,5 +1,5 @@
 ---
-name: gtm-expert
+name: guimkt-gtm-expert
 description: Create, edit, validate, and manage Google Tag Manager container JSON files for import/export. Use when the user wants to create a GTM container from scratch, modify an existing GTM JSON (rename tags, add variables, inject scripts, swap IDs), bulk-edit tags/triggers/variables, templatize containers for multi-client use, or troubleshoot GTM import errors. Also triggers for tasks involving GTM Custom HTML tags, dataLayer variable setup, conversion tracking configuration (Google Ads, Meta Pixel, GA4), or server-side GTM transport configuration. Covers both GTM Web and sGTM container types.
 ---
 
