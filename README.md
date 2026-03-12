@@ -20,7 +20,6 @@ Coleção de skills para agentes AI (Gemini, Claude Code, Cursor, Windsurf, Clin
 | **confluence-assistant** | Operações Confluence via Atlassian MCP |
 | **core-web-vitals** | Otimização de Core Web Vitals (LCP, INP, CLS) |
 | **css-border-gradient** | Gradient borders CSS com pseudo-element mask |
-| **cursor-skill-creator** | Cria skills para Cursor editor (.cursor/skills/) |
 | **cursor-subagent-creator** | Cria subagents para Cursor editor (.cursor/agents/) |
 | **decomposition-planning-roadmap** | Plans e roadmaps de decomposição de monolitos |
 | **docs-writer** | Escrita e revisão de documentação (.md) |
@@ -42,6 +41,7 @@ Coleção de skills para agentes AI (Gemini, Claude Code, Cursor, Windsurf, Clin
 | **interaction-design** | Microinterações, motion design, transições |
 | **javascript-typescript** | JS/TS com ES6+, Node.js, React, frameworks modernos |
 | **jira-assistant** | Operações Jira via Atlassian MCP |
+| **make-blueprint-expert** | Criar, editar, debugar e otimizar blueprints Make.com via JSON. HTTP modules, routers, roleta, Facebook Lead Ads |
 | **matterjs** | Matter.js — física 2D, Engine/World, bodies e constraints |
 | **netlify-deploy** | Deploy em Netlify via CLI |
 | **nx-ci-monitor** | Monitor Nx Cloud CI com self-healing |
