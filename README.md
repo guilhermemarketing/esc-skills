@@ -1,6 +1,20 @@
-# 🧠 ESC Skills - Estrategista Social Club
+<p align="center">
+  <h1 align="center">🧠 ESC Skills - Estrategista Social Club</h1>
+  <p align="center">
+    <strong>66+ AI agent skills for digital marketing professionals who think like strategists.</strong>
+  </p>
+</p>
 
-> **[English](#english)** | **[Português](#português)**
+<p align="center">
+  <a href="#english">English</a> · <a href="#português">Português</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/skills-66%2B-blueviolet?style=for-the-badge" alt="Skills">
+  <img src="https://img.shields.io/github/stars/guilhermemarketing/esc-skills?style=for-the-badge&color=gold" alt="Stars">
+  <img src="https://img.shields.io/badge/license-internal-informational?style=for-the-badge" alt="License">
+  <img src="https://img.shields.io/badge/ESC-Estrategista%20Social%20Club-ff6b35?style=for-the-badge" alt="ESC">
+</p>
 
 ---
 
@@ -8,55 +22,75 @@
 
 ## 🇺🇸 English
 
-A collection of AI agent skills (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and more) for digital marketing professionals: CRO, SEO, Google Ads, Meta Ads, Performance Marketing, Google Tag Manager & Advanced Tracking, Design, Web Development, Security & Architecture, and DevOps.
+A collection of 66+ AI agent skills (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and more) built for digital marketing professionals: CRO, SEO, Google Ads, Meta Ads, Performance Marketing, Google Tag Manager & Advanced Tracking, Design, Web Development, Security & Architecture, and DevOps.
 
-The [Estrategista Social Club](https://comunidade.gui.marketing/esc) is the club where marketing professionals learn to think, test, and convert like strategists — not like button pushers.
+Built by the [Estrategista Social Club](https://comunidade.gui.marketing/esc) — the club where marketing professionals learn to think, test, and convert like strategists — not like button pushers.
 
 Strategic content, real-world analysis, high-level discussions, and zero bullshit for those who take marketing seriously (as a lifelong career).
 
+> **Methodology tested with 100+ clients. R$400MI+ in sales influenced.**
+
 ---
 
-### Table of Contents
+### 📑 Table of Contents
 
 - [What Are Skills?](#what-are-skills)
-- [Featured Skills](#featured-skills)
-- [Available Skills](#available-skills)
-- [Installation](#installation)
-- [AI Agent Setup](#ai-agent-setup)
-- [Updates](#updates)
-- [Star History](#star-history)
+- [Why Star This Repo?](#-why-star-this-repo)
+- [Featured Skills](#-featured-skills)
+- [All Available Skills (66+)](#-all-available-skills-66)
+- [Quick Start](#-quick-start)
+- [AI Agent Setup](#-ai-agent-setup)
+- [Updates](#-updates)
+- [Star History](#-star-history)
 
 ---
 
 ### What Are Skills?
 
-**Skills** are instruction packages that extend the capabilities of AI coding agents. Each skill is a folder containing a `SKILL.md` file (and optionally reference files, scripts, and assets) that teaches the agent _how_ to execute a specific task — with context, rules, examples, and quality criteria.
+**Before skills:** You write long, detailed prompts from scratch every time. The agent gives generic output. You spend more time editing the result than you would doing the work yourself.
 
-Think of skills as **plug-and-play expertise modules**: instead of prompting the agent from scratch every time, you load a skill and the agent already knows the methodology, constraints, and best practices.
+**After skills:** You load one file and the agent becomes a specialist — with methodology, constraints, examples, and quality criteria baked in. Output is structured, consistent, and production-ready.
+
+**The bridge:** A **skill** is a plug-and-play expertise module. It's a folder with a `SKILL.md` file (plus optional references, scripts, and assets) that teaches the AI agent _how_ to execute a specific task like a senior professional.
 
 **How they work:**
-1. The agent detects the skill is relevant (via trigger keywords) or you explicitly load it
-2. The agent reads `SKILL.md` and any reference files
+1. The agent detects the skill is relevant (via trigger keywords) or you load it explicitly
+2. The agent reads `SKILL.md` and reference files
 3. The agent follows the documented process step-by-step, producing structured deliverables
 
-Skills work with any agent that supports file reading — Gemini, Claude Code, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and others.
+Works with **any agent that supports file reading** — Gemini, Claude Code, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and others.
 
 ---
 
-### Featured Skills
+### ⭐ Why Star This Repo?
+
+- 🆓 **66+ skills, free and open** — years of methodology packed into ready-to-use modules
+- 🧪 **Battle-tested** — built from real campaigns with 100+ clients across B2B and B2C
+- 🔄 **Frequently updated** — new skills added as the marketing and dev landscape evolves
+- 🔔 **Star = notifications** — get notified when new skills drop
+- 🤝 **Part of the ESC ecosystem** — backed by the [Estrategista Social Club](https://comunidade.gui.marketing/esc) community
+
+> ⭐ **Star this repo to stay updated with new skills and updates.**
+
+---
+
+### 🏆 Featured Skills
 
 | Skill | What It Does |
 |-------|-------------|
+| **guimkt-classic-ad-creative** | Full creative concepts for Meta Ads and Google Ads — copy, visual concept, reference sketches |
+| **guimkt-design-system-extractor** | Extract complete design systems from any website — colors, typography, components, CSS variables |
 | **guimkt-google-ads** | Full Google Ads Search pipeline: ICP → Keywords → Negatives → RSA ads. Multi-brand support |
-| **guimkt-landing-page-optimization** | Landing Page Optimization — audits, copy frameworks (AIDA, PAS, FAB), conversion formula |
-| **guimkt-gtm-expert** | Create, edit, and validate GTM container JSON files. Custom HTML, dataLayer, conversions |
+| **guimkt-gtm-expert** | Create, edit, and validate GTM container JSON files. Custom HTML, dataLayer, conversion tracking |
+| **guimkt-gtm-expert-template** | Customize the GTM Leads 2025 template for new client onboarding. GA4 + Meta Pixel + Google Ads + sGTM |
+| **guimkt-landing-page-optimization** | Landing Page Optimization — audits, copy frameworks (AIDA, PAS, FAB, BAB), conversion formula C=4m+3v+2(i-f)-2a |
 | **guimkt-make-blueprint-expert** | Create, debug, and optimize Make.com scenario blueprints via JSON |
-| **skill-creator** | Create, test, and optimize new AI skills from scratch |
-| **ui-ux-pro-max** | UI/UX design intelligence — 50 styles, 21 palettes, 9 tech stacks |
+| **skill-creator** | Create, test, benchmark, and optimize new AI skills from scratch |
+| **ui-ux-pro-max** | UI/UX design intelligence — 50 styles, 21 palettes, 50 font pairings, 9 tech stacks |
 
 ---
 
-### Available Skills
+### 📦 All Available Skills (66+)
 
 | Skill | Description |
 |-------|-------------|
@@ -92,7 +126,7 @@ Skills work with any agent that supports file reading — Gemini, Claude Code, C
 | **guimkt-google-ads** | Google Ads Search for lead generation (SQLs). 4-phase pipeline: ICP, Keywords, Negatives, RSA. Multi-brand |
 | **guimkt-gtm-expert** | Create, edit, validate GTM container JSON files |
 | **guimkt-gtm-expert-template** | GTM Leads 2025 template for new clients |
-| **guimkt-landing-page-optimization** | Landing Page Optimization (LPO) — audits, copy, conversion frameworks |
+| **guimkt-landing-page-optimization** | Landing Page Optimization (LPO) — audits, copy, conversion formula |
 | **guimkt-make-blueprint-expert** | Create, debug, and optimize Make.com blueprints via JSON |
 | **interaction-design** | Microinteractions, motion design, transitions |
 | **javascript-typescript** | JS/TS with ES6+, Node.js, React, modern frameworks |
@@ -129,15 +163,16 @@ Skills work with any agent that supports file reading — Gemini, Claude Code, C
 
 ---
 
-### Installation
-
-#### Option 1: Quick script (recommended)
+### 🚀 Quick Start
 
 ```bash
 curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash
 ```
 
-#### Option 2: Git Submodule
+<details>
+<summary><strong>Other installation methods</strong></summary>
+
+#### Git Submodule
 
 ```bash
 # Add as submodule (stays synced)
@@ -147,7 +182,7 @@ git submodule add https://github.com/guilhermemarketing/esc-skills.git .agent/ex
 git submodule update --remote
 ```
 
-#### Option 3: Manual clone
+#### Manual clone
 
 ```bash
 git clone https://github.com/guilhermemarketing/esc-skills.git /tmp/esc-skills
@@ -155,9 +190,11 @@ cp -r /tmp/esc-skills/skills/* .agent/skills/
 rm -rf /tmp/esc-skills
 ```
 
+</details>
+
 ---
 
-### AI Agent Setup
+### 🤖 AI Agent Setup
 
 Add to your `.instructions` or project configuration file:
 
@@ -170,17 +207,18 @@ Load skills with `view_file` on the corresponding SKILL.md file.
 
 ---
 
-### Updates
+### 🔄 Updates
 
-New skills are added as needed. To get updates:
+New skills are added as the marketing and dev landscape evolves. To stay updated:
 
+- **⭐ Star this repo** — get notified of new releases
 - **Submodule:** `git submodule update --remote`
 - **Script:** Re-run `install.sh`
 - **Clone:** Re-clone the repository
 
 ---
 
-### Star History
+### 📈 Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=guilhermemarketing/esc-skills&type=Date)](https://star-history.com/#guilhermemarketing/esc-skills&Date)
 
@@ -190,55 +228,75 @@ New skills are added as needed. To get updates:
 
 ## 🇧🇷 Português
 
-Coleção de skills para agentes AI (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, etc.) para profissionais de marketing digital: CRO, SEO, Google Ads, Meta Ads, Marketing de Performance, Google Tag Manager & Tracking Avançado, Design, Desenvolvimento Web, Segurança & Arquitetura e DevOps.
+Coleção de 66+ skills para agentes AI (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, etc.) para profissionais de marketing digital: CRO, SEO, Google Ads, Meta Ads, Marketing de Performance, Google Tag Manager & Tracking Avançado, Design, Desenvolvimento Web, Segurança & Arquitetura e DevOps.
 
-O [Estrategista Social Club](https://comunidade.gui.marketing/esc) é o clube onde profissionais de marketing aprendem a pensar, testar e converter como estrategistas — não como apertadores de botões.
+Criado pelo [Estrategista Social Club](https://comunidade.gui.marketing/esc) — o clube onde profissionais de marketing aprendem a pensar, testar e converter como estrategistas — não como apertadores de botões.
 
 Conteúdo estratégico, análises reais, discussões de alto nível e zero bullshit para quem leva marketing a sério (como uma carreira pra vida).
 
+> **Metodologia testada com 100+ clientes. R$400MI+ em vendas influenciadas.**
+
 ---
 
-### Sumário
+### 📑 Sumário
 
 - [O que são Skills?](#o-que-são-skills)
-- [Skills em Destaque](#skills-em-destaque)
-- [Skills Disponíveis](#skills-disponíveis)
-- [Instalação](#instalação)
-- [Configuração para Agentes AI](#configuração-para-agentes-ai)
-- [Atualizações](#atualizações)
-- [Star History](#star-history-1)
+- [Por que dar Star neste Repo?](#-por-que-dar-star-neste-repo)
+- [Skills em Destaque](#-skills-em-destaque)
+- [Todas as Skills Disponíveis (66+)](#-todas-as-skills-disponíveis-66)
+- [Instalação Rápida](#-instalação-rápida)
+- [Configuração para Agentes AI](#-configuração-para-agentes-ai)
+- [Atualizações](#-atualizações)
+- [Star History](#-star-history-1)
 
 ---
 
 ### O que são Skills?
 
-**Skills** são pacotes de instruções que estendem as capacidades de agentes AI de código. Cada skill é uma pasta contendo um arquivo `SKILL.md` (e opcionalmente referências, scripts e assets) que ensina o agente _como_ executar uma tarefa específica — com contexto, regras, exemplos e critérios de qualidade.
+**Antes das skills:** Você escreve prompts longos e detalhados do zero toda vez. O agente entrega output genérico. Você gasta mais tempo editando o resultado do que gastaria fazendo o trabalho sozinho.
 
-Pense em skills como **módulos de expertise plug-and-play**: em vez de promptar o agente do zero toda vez, você carrega uma skill e o agente já sabe a metodologia, restrições e boas práticas.
+**Depois das skills:** Você carrega um arquivo e o agente se torna um especialista — com metodologia, restrições, exemplos e critérios de qualidade já embutidos. O output é estruturado, consistente e production-ready.
+
+**A ponte:** Uma **skill** é um módulo de expertise plug-and-play. É uma pasta com um arquivo `SKILL.md` (mais referências, scripts e assets opcionais) que ensina o agente AI _como_ executar uma tarefa específica como um profissional sênior.
 
 **Como funcionam:**
 1. O agente detecta que a skill é relevante (via keywords de trigger) ou você carrega explicitamente
 2. O agente lê o `SKILL.md` e os arquivos de referência
 3. O agente segue o processo documentado passo a passo, produzindo deliverables estruturados
 
-Skills funcionam com qualquer agente que suporte leitura de arquivos — Gemini, Claude Code, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus e outros.
+Funciona com **qualquer agente que suporte leitura de arquivos** — Gemini, Claude Code, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus e outros.
 
 ---
 
-### Skills em Destaque
+### ⭐ Por que dar Star neste Repo?
+
+- 🆓 **66+ skills, grátis e abertas** — anos de metodologia empacotados em módulos prontos para uso
+- 🧪 **Testado em batalha** — construído a partir de campanhas reais com 100+ clientes B2B e B2C
+- 🔄 **Atualizado frequentemente** — novas skills adicionadas conforme o cenário de marketing e dev evolui
+- 🔔 **Star = notificações** — receba alertas quando novas skills forem publicadas
+- 🤝 **Parte do ecossistema ESC** — mantido pela comunidade do [Estrategista Social Club](https://comunidade.gui.marketing/esc)
+
+> ⭐ **Dê uma star para ficar atualizado com novas skills.**
+
+---
+
+### 🏆 Skills em Destaque
 
 | Skill | O que faz |
 |-------|-----------|
+| **guimkt-classic-ad-creative** | Conceitos criativos completos para Meta Ads e Google Ads — copy, conceito visual, sketches de referência |
+| **guimkt-design-system-extractor** | Extrai design systems completos de qualquer website — cores, tipografia, componentes, CSS variables |
 | **guimkt-google-ads** | Pipeline completo de Google Ads Search: ICP → Keywords → Negativas → Anúncios RSA. Suporta multi-marca |
-| **guimkt-landing-page-optimization** | Landing Page Optimization — auditorias, frameworks de copy (AIDA, PAS, FAB), fórmula de conversão |
-| **guimkt-gtm-expert** | Criar, editar e validar containers GTM JSON. Custom HTML, dataLayer, conversões |
-| **guimkt-make-blueprint-expert** | Criar, debugar e otimizar blueprints Make.com via JSON |
-| **skill-creator** | Criar, testar e otimizar novas skills AI do zero |
-| **ui-ux-pro-max** | Inteligência UI/UX — 50 estilos, 21 paletas, 9 stacks tecnológicos |
+| **guimkt-gtm-expert** | Criar, editar e validar containers GTM JSON. Custom HTML, dataLayer, tracking de conversões |
+| **guimkt-gtm-expert-template** | Template GTM Leads 2025 para onboarding de novos clientes. GA4 + Meta Pixel + Google Ads + sGTM |
+| **guimkt-landing-page-optimization** | Landing Page Optimization — auditorias, frameworks de copy (AIDA, PAS, FAB, BAB), fórmula de conversão C=4m+3v+2(i-f)-2a |
+| **guimkt-make-blueprint-expert** | Criar, debugar e otimizar blueprints de cenários Make.com via JSON |
+| **skill-creator** | Criar, testar, benchmarkar e otimizar novas skills AI do zero |
+| **ui-ux-pro-max** | Inteligência UI/UX — 50 estilos, 21 paletas, 50 font pairings, 9 stacks tecnológicos |
 
 ---
 
-### Skills Disponíveis
+### 📦 Todas as Skills Disponíveis (66+)
 
 | Skill | Descrição |
 |-------|-----------|
@@ -311,15 +369,16 @@ Skills funcionam com qualquer agente que suporte leitura de arquivos — Gemini,
 
 ---
 
-### Instalação
-
-#### Opção 1: Script rápido (recomendado)
+### 🚀 Instalação Rápida
 
 ```bash
 curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash
 ```
 
-#### Opção 2: Git Submodule
+<details>
+<summary><strong>Outros métodos de instalação</strong></summary>
+
+#### Git Submodule
 
 ```bash
 # Adicionar como submodule (mantém sincronizado)
@@ -329,7 +388,7 @@ git submodule add https://github.com/guilhermemarketing/esc-skills.git .agent/ex
 git submodule update --remote
 ```
 
-#### Opção 3: Clone manual
+#### Clone manual
 
 ```bash
 git clone https://github.com/guilhermemarketing/esc-skills.git /tmp/esc-skills
@@ -337,9 +396,11 @@ cp -r /tmp/esc-skills/skills/* .agent/skills/
 rm -rf /tmp/esc-skills
 ```
 
+</details>
+
 ---
 
-### Configuração para Agentes AI
+### 🤖 Configuração para Agentes AI
 
 Adicione ao `.instructions` ou arquivo de configuração do seu projeto:
 
@@ -352,17 +413,18 @@ Carregue skills com `view_file` no arquivo SKILL.md correspondente.
 
 ---
 
-### Atualizações
+### 🔄 Atualizações
 
-Novas skills são adicionadas conforme a necessidade. Para receber atualizações:
+Novas skills são adicionadas conforme o cenário de marketing e dev evolui. Para ficar atualizado:
 
+- **⭐ Star este repo** — receba notificações de novos releases
 - **Submodule:** `git submodule update --remote`
 - **Script:** Re-execute o `install.sh`
 - **Clone:** Re-clone o repositório
 
 ---
 
-### Star History
+### 📈 Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=guilhermemarketing/esc-skills&type=Date)](https://star-history.com/#guilhermemarketing/esc-skills&Date)
 
