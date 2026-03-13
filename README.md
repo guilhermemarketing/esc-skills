@@ -37,6 +37,7 @@ Coleção de skills para agentes AI (Gemini, Claude Code, Cursor, Windsurf, Clin
 | **guimkt-gtm-expert-template** | Template GTM Leads 2025 para novos clientes |
 | **guimkt-classic-ad-creative** | Conceitos criativos para Meta Ads e Google Ads |
 | **guimkt-design-system-extractor** | Extrai design systems completos de websites |
+| **guimkt-google-ads** | Google Ads Search para geração de leads (SQLs). Pipeline de 4 fases: ICP, Keywords, Negativas, RSA. Multi-marca |
 | **guimkt-landing-page-optimization** | Landing Page Optimization (LPO) — análise, auditoria, criação, copy, frameworks de copywriting, fórmula de conversão |
 | **interaction-design** | Microinterações, motion design, transições |
 | **javascript-typescript** | JS/TS com ES6+, Node.js, React, frameworks modernos |
