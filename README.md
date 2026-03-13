@@ -1,7 +1,7 @@
 <p align="center">
   <h1 align="center">🧠 ESC Skills - Estrategista Social Club</h1>
   <p align="center">
-    <strong>66+ AI agent skills for digital marketing professionals who think like strategists.</strong>
+    <strong>69+ AI agent skills for digital marketing professionals who think like strategists.</strong>
   </p>
 </p>
 
@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/skills-66%2B-blueviolet?style=for-the-badge" alt="Skills">
+  <img src="https://img.shields.io/badge/skills-69%2B-blueviolet?style=for-the-badge" alt="Skills">
   <img src="https://img.shields.io/github/stars/guilhermemarketing/esc-skills?style=for-the-badge&color=gold" alt="Stars">
   <img src="https://img.shields.io/badge/license-internal-informational?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/ESC-Estrategista%20Social%20Club-ff6b35?style=for-the-badge" alt="ESC">
@@ -22,7 +22,7 @@
 
 ## 🇺🇸 English
 
-A collection of 66+ AI agent skills (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and more) built for digital marketing professionals: CRO, SEO, Google Ads, Meta Ads, Performance Marketing, Google Tag Manager & Advanced Tracking, Design, Web Development, Security & Architecture, and DevOps.
+A collection of 69+ AI agent skills (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and more) built for digital marketing professionals: CRO, SEO, Google Ads, Meta Ads, Performance Marketing, Google Tag Manager & Advanced Tracking, Design, Web Development, Security & Architecture, and DevOps.
 
 Built by the [Estrategista Social Club](https://comunidade.gui.marketing/esc) — the club where marketing professionals learn to think, test, and convert like strategists — not like button pushers.
 
@@ -37,7 +37,7 @@ Strategic content, real-world analysis, high-level discussions, and zero bullshi
 - [What Are Skills?](#what-are-skills)
 - [Why Star This Repo?](#-why-star-this-repo)
 - [Featured Skills](#-featured-skills)
-- [All Available Skills (66+)](#-all-available-skills-66)
+- [All Available Skills (69+)](#-all-available-skills-69)
 - [Quick Start](#-quick-start)
 - [AI Agent Setup](#-ai-agent-setup)
 - [Updates](#-updates)
@@ -64,7 +64,7 @@ Works with **any agent that supports file reading** — Gemini, Claude Code, Cur
 
 ### ⭐ Why Star This Repo?
 
-- 🆓 **66+ skills, free and open** — years of methodology packed into ready-to-use modules
+- 🆓 **69+ skills, free and open** — years of methodology packed into ready-to-use modules
 - 🧪 **Battle-tested** — built from real campaigns with 100+ clients across B2B and B2C
 - 🔄 **Frequently updated** — new skills added as the marketing and dev landscape evolves
 - 🔔 **Star = notifications** — get notified when new skills drop
@@ -83,14 +83,17 @@ Works with **any agent that supports file reading** — Gemini, Claude Code, Cur
 | **guimkt-google-ads** | Full Google Ads Search pipeline: ICP → Keywords → Negatives → RSA ads. Multi-brand support |
 | **guimkt-gtm-expert** | Create, edit, and validate GTM container JSON files. Custom HTML, dataLayer, conversion tracking |
 | **guimkt-gtm-expert-template** | Customize the GTM Leads 2025 template for new client onboarding. GA4 + Meta Pixel + Google Ads + sGTM |
+| **guimkt-landing-page** | Full premium landing pages for lead generation (SQL) in 2 phases: Wireframe-Table (copywriting frameworks) + Premium HTML with liquid glass, micro-animations and scroll effects |
 | **guimkt-landing-page-optimization** | Landing Page Optimization — audits, copy frameworks (AIDA, PAS, FAB, BAB), conversion formula C=4m+3v+2(i-f)-2a |
 | **guimkt-make-blueprint-expert** | Create, debug, and optimize Make.com scenario blueprints via JSON |
+| **guimkt-meta-ads** | 6 complete creative concepts for Meta Ads (Facebook/Instagram) — strategy, copy, visual concept, image prompt and placement adaptations |
 | **skill-creator** | Create, test, benchmark, and optimize new AI skills from scratch |
 | **ui-ux-pro-max** | UI/UX design intelligence — 50 styles, 21 palettes, 50 font pairings, 9 tech stacks |
+| **guimkt-wireframe-landing-page** | Complete landing page wireframes for lead generation (SQL) in 2 phases: Wireframe-Table (copywriting frameworks) + Sketch HTML wireframe for client validation |
 
 ---
 
-### 📦 All Available Skills (66+)
+### 📦 All Available Skills (69+)
 
 | Skill | Description |
 |-------|-------------|
@@ -126,8 +129,10 @@ Works with **any agent that supports file reading** — Gemini, Claude Code, Cur
 | **guimkt-google-ads** | Google Ads Search for lead generation (SQLs). 4-phase pipeline: ICP, Keywords, Negatives, RSA. Multi-brand |
 | **guimkt-gtm-expert** | Create, edit, validate GTM container JSON files |
 | **guimkt-gtm-expert-template** | GTM Leads 2025 template for new clients |
+| **guimkt-landing-page** | Full premium landing pages for lead gen — Wireframe-Table + Premium HTML with liquid glass, micro-animations |
 | **guimkt-landing-page-optimization** | Landing Page Optimization (LPO) — audits, copy, conversion formula |
 | **guimkt-make-blueprint-expert** | Create, debug, and optimize Make.com blueprints via JSON |
+| **guimkt-meta-ads** | 6 complete creative concepts for Meta Ads (Facebook/Instagram) — strategy, copy, visual concept, image prompt |
 | **interaction-design** | Microinteractions, motion design, transitions |
 | **javascript-typescript** | JS/TS with ES6+, Node.js, React, modern frameworks |
 | **jira-assistant** | Jira operations via Atlassian MCP |
@@ -160,6 +165,7 @@ Works with **any agent that supports file reading** — Gemini, Claude Code, Cur
 | **vantajs** | Vanta.js — animated WebGL backgrounds |
 | **vercel-deploy** | Deploy to Vercel |
 | **web-quality-audit** | Full web quality audit (performance, a11y, SEO) |
+| **guimkt-wireframe-landing-page** | Complete landing page wireframes for lead gen — Wireframe-Table + Sketch HTML for client validation |
 
 ---
 
@@ -228,7 +234,7 @@ New skills are added as the marketing and dev landscape evolves. To stay updated
 
 ## 🇧🇷 Português
 
-Coleção de 66+ skills para agentes AI (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, etc.) para profissionais de marketing digital: CRO, SEO, Google Ads, Meta Ads, Marketing de Performance, Google Tag Manager & Tracking Avançado, Design, Desenvolvimento Web, Segurança & Arquitetura e DevOps.
+Coleção de 69+ skills para agentes AI (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, etc.) para profissionais de marketing digital: CRO, SEO, Google Ads, Meta Ads, Marketing de Performance, Google Tag Manager & Tracking Avançado, Design, Desenvolvimento Web, Segurança & Arquitetura e DevOps.
 
 Criado pelo [Estrategista Social Club](https://comunidade.gui.marketing/esc) — o clube onde profissionais de marketing aprendem a pensar, testar e converter como estrategistas — não como apertadores de botões.
 
@@ -243,7 +249,7 @@ Conteúdo estratégico, análises reais, discussões de alto nível e zero bulls
 - [O que são Skills?](#o-que-são-skills)
 - [Por que dar Star neste Repo?](#-por-que-dar-star-neste-repo)
 - [Skills em Destaque](#-skills-em-destaque)
-- [Todas as Skills Disponíveis (66+)](#-todas-as-skills-disponíveis-66)
+- [Todas as Skills Disponíveis (69+)](#-todas-as-skills-disponíveis-69)
 - [Instalação Rápida](#-instalação-rápida)
 - [Configuração para Agentes AI](#-configuração-para-agentes-ai)
 - [Atualizações](#-atualizações)
@@ -270,7 +276,7 @@ Funciona com **qualquer agente que suporte leitura de arquivos** — Gemini, Cla
 
 ### ⭐ Por que dar Star neste Repo?
 
-- 🆓 **66+ skills, grátis e abertas** — anos de metodologia empacotados em módulos prontos para uso
+- 🆓 **69+ skills, grátis e abertas** — anos de metodologia empacotados em módulos prontos para uso
 - 🧪 **Testado em batalha** — construído a partir de campanhas reais com 100+ clientes B2B e B2C
 - 🔄 **Atualizado frequentemente** — novas skills adicionadas conforme o cenário de marketing e dev evolui
 - 🔔 **Star = notificações** — receba alertas quando novas skills forem publicadas
@@ -289,14 +295,17 @@ Funciona com **qualquer agente que suporte leitura de arquivos** — Gemini, Cla
 | **guimkt-google-ads** | Pipeline completo de Google Ads Search: ICP → Keywords → Negativas → Anúncios RSA. Suporta multi-marca |
 | **guimkt-gtm-expert** | Criar, editar e validar containers GTM JSON. Custom HTML, dataLayer, tracking de conversões |
 | **guimkt-gtm-expert-template** | Template GTM Leads 2025 para onboarding de novos clientes. GA4 + Meta Pixel + Google Ads + sGTM |
+| **guimkt-landing-page** | Landing pages premium completas para geração de leads (SQL) em 2 fases: Wireframe-Tabela (frameworks de copywriting) + HTML premium com liquid glass, micro-animations e scroll effects |
 | **guimkt-landing-page-optimization** | Landing Page Optimization — auditorias, frameworks de copy (AIDA, PAS, FAB, BAB), fórmula de conversão C=4m+3v+2(i-f)-2a |
 | **guimkt-make-blueprint-expert** | Criar, debugar e otimizar blueprints de cenários Make.com via JSON |
+| **guimkt-meta-ads** | 6 conceitos criativos completos para Meta Ads (Facebook/Instagram) — estratégia, copy, conceito visual, prompt de imagem e adaptações por placement |
 | **skill-creator** | Criar, testar, benchmarkar e otimizar novas skills AI do zero |
 | **ui-ux-pro-max** | Inteligência UI/UX — 50 estilos, 21 paletas, 50 font pairings, 9 stacks tecnológicos |
+| **guimkt-wireframe-landing-page** | Wireframes completos de landing pages para leads (SQL) em 2 fases: Wireframe-Tabela (frameworks de copywriting) + Wireframe-Sketch HTML de baixa fidelidade para validação com clientes |
 
 ---
 
-### 📦 Todas as Skills Disponíveis (66+)
+### 📦 Todas as Skills Disponíveis (69+)
 
 | Skill | Descrição |
 |-------|-----------|
@@ -332,8 +341,10 @@ Funciona com **qualquer agente que suporte leitura de arquivos** — Gemini, Cla
 | **guimkt-google-ads** | Google Ads Search para geração de leads (SQLs). Pipeline de 4 fases: ICP, Keywords, Negativas, RSA. Multi-marca |
 | **guimkt-gtm-expert** | Criar, editar, validar containers GTM JSON |
 | **guimkt-gtm-expert-template** | Template GTM Leads 2025 para novos clientes |
+| **guimkt-landing-page** | Landing pages premium para geração de leads — Wireframe-Tabela + HTML premium com liquid glass, micro-animations |
 | **guimkt-landing-page-optimization** | Landing Page Optimization (LPO) — auditorias, copy, frameworks de conversão |
 | **guimkt-make-blueprint-expert** | Criar, debugar e otimizar blueprints Make.com via JSON |
+| **guimkt-meta-ads** | 6 conceitos criativos completos para Meta Ads (Facebook/Instagram) — estratégia, copy, conceito visual, prompt de imagem |
 | **interaction-design** | Microinterações, motion design, transições |
 | **javascript-typescript** | JS/TS com ES6+, Node.js, React, frameworks modernos |
 | **jira-assistant** | Operações Jira via Atlassian MCP |
@@ -366,6 +377,7 @@ Funciona com **qualquer agente que suporte leitura de arquivos** — Gemini, Cla
 | **vantajs** | Vanta.js — backgrounds WebGL animados |
 | **vercel-deploy** | Deploy em Vercel |
 | **web-quality-audit** | Audit completo de qualidade web (performance, a11y, SEO) |
+| **guimkt-wireframe-landing-page** | Wireframes completos de landing pages para leads — Wireframe-Tabela + Wireframe-Sketch HTML para validação com clientes |
 
 ---
 
