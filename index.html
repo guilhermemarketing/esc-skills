@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESC Skills — 69+ AI Agent Skills for Marketing Professionals</title>
+  <meta name="description" content="Discover 69+ AI agent skills for digital marketing professionals. CRO, SEO, Google Ads, Meta Ads, GTM, Design, Web Development and more. Battle-tested with 100+ clients.">
+  <meta property="og:title" content="ESC Skills — AI Agent Skills for Marketing Pros">
+  <meta property="og:description" content="69+ battle-tested AI agent skills for Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/guilhermemarketing/esc-skills">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #000000;
+      --bg-surface: #0a0a0a;
+      --bg-card: #111111;
+      --bg-card-hover: #1a1a1a;
+      --border: #222222;
+      --border-hover: #333333;
+      --text: #ffffff;
+      --text-secondary: #888888;
+      --text-muted: #555555;
+      --accent: #ff6b35;
+      --accent-glow: rgba(255, 107, 53, 0.15);
+      --accent-glow-strong: rgba(255, 107, 53, 0.3);
+      --accent-dim: #cc5529;
+      --featured-badge: #ff6b35;
+      --green: #22c55e;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+    
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .navbar-brand .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .navbar-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      font-family: var(--font-mono);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+    }
+
+    .navbar-links a:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .github-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: var(--text) !important;
+      padding: 6px 14px !important;
+      border-radius: 20px !important;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .github-btn:hover {
+      border-color: var(--accent) !important;
+      background: var(--accent-glow) !important;
+    }
+
+    .github-btn svg { width: 16px; height: 16px; }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 120px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .ascii-logo {
+      font-family: var(--font-mono);
+      font-size: clamp(10px, 2vw, 16px);
+      line-height: 1.15;
+      color: var(--accent);
+      margin-bottom: 32px;
+      white-space: pre;
+      display: inline-block;
+      position: relative;
+      text-shadow: 0 0 40px var(--accent-glow-strong);
+    }
+
+    .hero-tagline {
+      font-size: clamp(20px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-tagline .accent { color: var(--accent); }
+
+    .hero-subtitle {
+      color: var(--text-secondary);
+      font-size: clamp(14px, 1.6vw, 18px);
+      max-width: 580px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* ===== CLI INSTALL BOX ===== */
+    .cli-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px 12px 20px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      margin-bottom: 40px;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+    }
+
+    .cli-box:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .cli-box .prompt { color: var(--text-muted); }
+    .cli-box .cmd { color: var(--text); }
+
+    .cli-box .copy-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      transition: all var(--transition);
+    }
+
+    .cli-box .copy-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .cli-box .copy-btn.copied {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* ===== AGENT ICONS ===== */
+    .agents-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .agents-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .agent-icon {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      opacity: 0.6;
+      transition: opacity var(--transition);
+    }
+
+    .agent-icon:hover { opacity: 1; }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .stat-value .accent-num { color: var(--accent); }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    .section-header {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    /* ===== SEARCH ===== */
+    .search-container {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 16px;
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 15px;
+      padding: 16px 60px 16px 44px;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-input:focus {
+      border-bottom-color: var(--accent);
+    }
+
+    .search-shortcut {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* ===== CATEGORY FILTERS ===== */
+    .category-filters {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 32px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .category-filters::-webkit-scrollbar { display: none; }
+
+    .category-pill {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all var(--transition);
+    }
+
+    .category-pill:hover {
+      border-color: var(--text-muted);
+      color: var(--text);
+    }
+
+    .category-pill.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+      font-weight: 600;
+    }
+
+    .category-pill .count {
+      margin-left: 4px;
+      opacity: 0.6;
+    }
+
+    /* ===== RESULTS COUNT ===== */
+    .results-count {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .results-count strong { color: var(--text-secondary); }
+
+    /* ===== SKILLS GRID ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+
+    /* ===== SKILL CARD ===== */
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .skill-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .skill-card.featured:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 32px var(--accent-glow);
+    }
+
+    .skill-card-titlebar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .titlebar-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .titlebar-dot.red { background: #ff5f57; }
+    .titlebar-dot.yellow { background: #ffbd2e; }
+    .titlebar-dot.green { background: #28ca41; }
+
+    .titlebar-filename {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-left: 6px;
+      flex: 1;
+    }
+
+    .titlebar-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(255, 107, 53, 0.15);
+      color: var(--accent);
+    }
+
+    .skill-card-body {
+      padding: 16px;
+    }
+
+    .skill-card-name {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .skill-card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .skill-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .skill-card-category {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .skill-card-files {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* ===== FEATURED SECTION ===== */
+    .featured-section {
+      margin-bottom: 48px;
+    }
+
+    .featured-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .featured-header h2 {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+    }
+
+    .featured-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent-glow-strong), transparent);
+    }
+
+    /* ===== INSTALL SECTION ===== */
+    .install-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px 40px;
+      margin: 48px 0;
+      text-align: center;
+    }
+
+    .install-section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .install-section p {
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      font-size: 15px;
+    }
+
+    .install-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      text-align: left;
+    }
+
+    .install-method {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+    }
+
+    .install-method-title {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .install-method pre {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-secondary);
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .install-method pre code { color: var(--text); }
+
+    .install-method pre .copy-inline {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 2px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      transition: all var(--transition);
+    }
+
+    .install-method pre .copy-inline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .install-method pre .copy-inline.copied {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 200;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 60px 24px 24px;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      max-width: 780px;
+      width: 100%;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      position: relative;
+      animation: modal-in 0.25s ease;
+    }
+
+    @keyframes modal-in {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-family: var(--font-mono);
+      transition: all var(--transition);
+      z-index: 10;
+    }
+
+    .modal-close:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .modal-header {
+      padding: 32px 32px 0;
+    }
+
+    .modal-breadcrumb {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .modal-breadcrumb span { color: var(--text-secondary); }
+
+    .modal-skill-name {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .modal-cli {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .modal-cli .prompt { color: var(--text-muted); }
+    .modal-cli .cmd { color: var(--text); flex: 1; overflow-x: auto; }
+
+    .modal-body {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 32px;
+      padding: 0 32px 32px;
+    }
+
+    .modal-content { min-width: 0; }
+
+    .modal-content .section-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 20px;
+    }
+
+    .modal-content .file-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .modal-content h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .modal-content .description {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .modal-content .preview {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      border-left: 2px solid var(--accent);
+      padding-left: 16px;
+      margin-bottom: 24px;
+    }
+
+    .modal-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .sidebar-item {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+
+    .sidebar-item:last-child { border-bottom: none; }
+
+    .sidebar-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .sidebar-value {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .sidebar-value a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .sidebar-value a:hover { text-decoration: underline; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .footer-brand .accent { color: var(--accent); }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      font-size: 13px;
+      text-decoration: none;
+      font-family: var(--font-mono);
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    /* ===== NO RESULTS ===== */
+    .no-results {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--text-muted);
+    }
+
+    .no-results-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.3;
+    }
+
+    .no-results h3 {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    /* ===== ENTRANCE ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .stagger { transition-delay: calc(var(--i, 0) * 60ms); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .navbar-links a:not(.github-btn) { display: none; }
+      .stats-bar { gap: 24px; }
+      .stat-value { font-size: 22px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .modal-body { grid-template-columns: 1fr; }
+      .modal-sidebar { 
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .sidebar-item {
+        border-bottom: none;
+        padding-bottom: 0;
+        flex: 1;
+        min-width: 120px;
+      }
+      .install-section { padding: 32px 20px; }
+      .modal-header { padding: 24px 20px 0; }
+      .modal-body { padding: 0 20px 24px; }
+      .hero { padding: 100px 16px 40px; }
+    }
+
+    @media (max-width: 480px) {
+      .ascii-logo { font-size: 8px; }
+      .cli-box { font-size: 12px; }
+      .agents-row { gap: 12px; }
+    }
+
+    /* ===== PREFERS REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">
+      <span class="dot"></span>
+      esc-skills
+    </a>
+    <div class="navbar-links">
+      <a href="#skills-section">skills</a>
+      <a href="#install-section">install</a>
+      <a href="https://github.com/guilhermemarketing/esc-skills" target="_blank" rel="noopener" class="github-btn">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        ★ Star
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <pre class="ascii-logo reveal">
+ ███████╗███████╗ ██████╗
+ ██╔════╝██╔════╝██╔════╝
+ █████╗  ███████╗██║     
+ ██╔══╝  ╚════██║██║     
+ ███████╗███████║╚██████╗
+ ╚══════╝╚══════╝ ╚═════╝
+ ───────────────────────── 
+      S K I L L S         
+    </pre>
+
+    <h1 class="hero-tagline reveal">
+      <span class="accent">69+</span> AI Agent Skills for<br>Marketing Professionals
+    </h1>
+
+    <p class="hero-subtitle reveal">
+      Battle-tested skills for Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus and more. 
+      Built from real campaigns with <strong>100+ clients</strong>.
+    </p>
+
+    <div class="cli-box reveal" onclick="copyCommand(this, 'curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash')">
+      <span class="prompt">$</span>
+      <span class="cmd">curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash</span>
+      <button class="copy-btn">copy</button>
+    </div>
+
+    <div class="agents-section reveal">
+      <p class="agents-label">Works with any SKILL.md compatible agent</p>
+      <div class="agents-row">
+        <span class="agent-icon">Gemini</span>
+        <span class="agent-icon">Claude</span>
+        <span class="agent-icon">Cursor</span>
+        <span class="agent-icon">GPT</span>
+        <span class="agent-icon">Windsurf</span>
+        <span class="agent-icon">Cline</span>
+        <span class="agent-icon">Antigravity</span>
+        <span class="agent-icon">Trae</span>
+        <span class="agent-icon">Manus</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat reveal">
+      <div class="stat-value"><span class="accent-num" id="stat-skills">69</span>+</div>
+      <div class="stat-label">Skills</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-value" id="stat-categories">13</div>
+      <div class="stat-label">Categories</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-value">100+</div>
+      <div class="stat-label">Clients Tested</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-value">R$400M<span class="accent-num">+</span></div>
+      <div class="stat-label">Sales Influenced</div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- FEATURED SECTION -->
+    <section class="featured-section" id="featured-section">
+      <div class="featured-header">
+        <h2>★ Featured Skills</h2>
+        <div class="featured-line"></div>
+      </div>
+      <div class="skills-grid" id="featured-grid"></div>
+    </section>
+
+    <!-- ALL SKILLS SECTION -->
+    <section id="skills-section">
+      <p class="section-header">Skills Directory</p>
+
+      <!-- Search -->
+      <div class="search-container">
+        <span class="search-icon">⌕</span>
+        <input type="text" class="search-input" id="search-input" placeholder="Search skills..." autocomplete="off">
+        <span class="search-shortcut">/</span>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="category-filters" id="category-filters"></div>
+
+      <!-- Results Count -->
+      <p class="results-count" id="results-count"></p>
+
+      <!-- Skills Grid -->
+      <div class="skills-grid" id="skills-grid"></div>
+
+      <!-- No Results -->
+      <div class="no-results" id="no-results" style="display:none;">
+        <div class="no-results-icon">∅</div>
+        <h3>No skills found</h3>
+        <p>Try a different search term or category</p>
+      </div>
+    </section>
+
+    <!-- INSTALL SECTION -->
+    <section class="install-section reveal" id="install-section">
+      <h2>Quick Start</h2>
+      <p>Install all 69+ skills in seconds. Choose your method:</p>
+      <div class="install-methods">
+        <div class="install-method">
+          <div class="install-method-title">$ One-liner</div>
+          <pre><code>curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash</code><button class="copy-inline" onclick="event.stopPropagation(); copyInline(this, 'curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash')">copy</button></pre>
+        </div>
+        <div class="install-method">
+          <div class="install-method-title">$ Git Submodule</div>
+          <pre><code>git submodule add https://github.com/guilhermemarketing/esc-skills.git .agent/external-skills</code><button class="copy-inline" onclick="event.stopPropagation(); copyInline(this, 'git submodule add https://github.com/guilhermemarketing/esc-skills.git .agent/external-skills')">copy</button></pre>
+        </div>
+        <div class="install-method">
+          <div class="install-method-title">$ Manual Clone</div>
+          <pre><code>git clone https://github.com/guilhermemarketing/esc-skills.git /tmp/esc-skills
+cp -r /tmp/esc-skills/skills/* .agent/skills/</code><button class="copy-inline" onclick="event.stopPropagation(); copyInline(this, 'git clone https://github.com/guilhermemarketing/esc-skills.git /tmp/esc-skills\ncp -r /tmp/esc-skills/skills/* .agent/skills/')">copy</button></pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand"><span class="accent">ESC</span> Skills</div>
+    <div class="footer-links">
+      <a href="https://github.com/guilhermemarketing/esc-skills" target="_blank">GitHub</a>
+      <a href="https://comunidade.gui.marketing/esc" target="_blank">ESC Community</a>
+      <a href="https://gui.marketing" target="_blank">gui.marketing</a>
+    </div>
+    <p class="footer-copy">© Estrategista Social Club — guimarketing</p>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close">×</button>
+      <div class="modal-header">
+        <div class="modal-breadcrumb">
+          esc-skills / skills / <span id="modal-slug"></span>
+        </div>
+        <h2 class="modal-skill-name" id="modal-name"></h2>
+        <div class="modal-cli">
+          <span class="prompt">$</span>
+          <span class="cmd" id="modal-install-cmd"></span>
+          <button class="copy-btn" id="modal-copy-btn">copy</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-content">
+          <div class="section-divider"></div>
+          <div class="file-label">📄 SKILL.md</div>
+          <h3 id="modal-title"></h3>
+          <div class="description" id="modal-description"></div>
+          <div class="preview" id="modal-preview"></div>
+        </div>
+        <aside class="modal-sidebar">
+          <div class="sidebar-item">
+            <div class="sidebar-label">Category</div>
+            <div class="sidebar-value" id="modal-category"></div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-label">Files</div>
+            <div class="sidebar-value" id="modal-files"></div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-label">Repository</div>
+            <div class="sidebar-value"><a href="https://github.com/guilhermemarketing/esc-skills" target="_blank">guilhermemarketing/esc-skills</a></div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-label">View on GitHub</div>
+            <div class="sidebar-value"><a id="modal-github-link" href="#" target="_blank">Open →</a></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATA -->
+  <script src="skills-data.js"></script>
+
+  <!-- APP -->
+  <script>
+    // ===== STATE =====
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    // ===== INIT =====
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCategoryFilters();
+      renderFeaturedGrid();
+      renderSkillsGrid();
+      setupSearch();
+      setupKeyboardShortcuts();
+      setupModal();
+      setupRevealAnimations();
+      updateStats();
+    });
+
+    // ===== STATS =====
+    function updateStats() {
+      document.getElementById('stat-skills').textContent = TOTAL_SKILLS;
+      document.getElementById('stat-categories').textContent = CATEGORIES.length;
+    }
+
+    // ===== CATEGORY FILTERS =====
+    function renderCategoryFilters() {
+      const container = document.getElementById('category-filters');
+      let html = `<button class="category-pill active" data-cat="all" onclick="filterCategory('all')">All <span class="count">${TOTAL_SKILLS}</span></button>`;
+      
+      CATEGORIES.forEach(cat => {
+        html += `<button class="category-pill" data-cat="${cat.id}" onclick="filterCategory('${cat.id}')">${cat.icon} ${cat.label.replace(/^[^ ]+ /, '')} <span class="count">${cat.count}</span></button>`;
+      });
+      
+      container.innerHTML = html;
+    }
+
+    function filterCategory(catId) {
+      activeCategory = catId;
+      document.querySelectorAll('.category-pill').forEach(pill => {
+        pill.classList.toggle('active', pill.dataset.cat === catId);
+      });
+      renderSkillsGrid();
+    }
+
+    // ===== SEARCH =====
+    function setupSearch() {
+      const input = document.getElementById('search-input');
+      let debounce;
+      input.addEventListener('input', () => {
+        clearTimeout(debounce);
+        debounce = setTimeout(() => {
+          searchQuery = input.value.trim().toLowerCase();
+          renderSkillsGrid();
+        }, 150);
+      });
+    }
+
+    function setupKeyboardShortcuts() {
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && !e.ctrlKey && !e.metaKey) {
+          const active = document.activeElement;
+          if (active.tagName !== 'INPUT' && active.tagName !== 'TEXTAREA') {
+            e.preventDefault();
+            document.getElementById('search-input').focus();
+          }
+        }
+        if (e.key === 'Escape') {
+          closeModal();
+          document.getElementById('search-input').blur();
+        }
+      });
+    }
+
+    // ===== RENDER FEATURED =====
+    function renderFeaturedGrid() {
+      const grid = document.getElementById('featured-grid');
+      const featured = SKILLS_DATA.filter(s => s.isFeatured);
+      grid.innerHTML = featured.map((s, i) => createCard(s, i, true)).join('');
+    }
+
+    // ===== RENDER SKILLS GRID =====
+    function renderSkillsGrid() {
+      const grid = document.getElementById('skills-grid');
+      const noResults = document.getElementById('no-results');
+      const countEl = document.getElementById('results-count');
+
+      let filtered = SKILLS_DATA;
+
+      if (activeCategory !== 'all') {
+        filtered = filtered.filter(s => s.category.id === activeCategory);
+      }
+
+      if (searchQuery) {
+        filtered = filtered.filter(s =>
+          s.name.toLowerCase().includes(searchQuery) ||
+          s.description.toLowerCase().includes(searchQuery) ||
+          s.category.label.toLowerCase().includes(searchQuery)
+        );
+      }
+
+      countEl.innerHTML = `Showing <strong>${filtered.length}</strong> of ${TOTAL_SKILLS} skills`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        noResults.style.display = 'block';
+        return;
+      }
+
+      noResults.style.display = 'none';
+      grid.innerHTML = filtered.map((s, i) => createCard(s, i, false)).join('');
+
+      // Stagger animation
+      requestAnimationFrame(() => {
+        grid.querySelectorAll('.skill-card.reveal').forEach((card, i) => {
+          card.style.setProperty('--i', i);
+          requestAnimationFrame(() => card.classList.add('visible'));
+        });
+      });
+    }
+
+    // ===== CARD HTML =====
+    function createCard(skill, index, isFeaturedSection) {
+      return `
+        <div class="skill-card ${skill.isFeatured ? 'featured' : ''} reveal stagger" 
+             style="--i:${index}" 
+             onclick="openModal('${skill.slug}')">
+          <div class="skill-card-titlebar">
+            <span class="titlebar-dot red"></span>
+            <span class="titlebar-dot yellow"></span>
+            <span class="titlebar-dot green"></span>
+            <span class="titlebar-filename">SKILL.md</span>
+            ${skill.isFeatured ? '<span class="titlebar-badge">★ featured</span>' : ''}
+          </div>
+          <div class="skill-card-body">
+            <div class="skill-card-name">${skill.name}</div>
+            <div class="skill-card-desc">${escapeHtml(skill.shortDescription)}</div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="skill-card-category">${skill.category.icon} ${skill.category.label.replace(/^[^ ]+ /, '')}</span>
+            <span class="skill-card-files">${skill.fileCount} file${skill.fileCount > 1 ? 's' : ''}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    // ===== MODAL =====
+    function setupModal() {
+      document.getElementById('modal-close').addEventListener('click', closeModal);
+      document.getElementById('modal-overlay').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) closeModal();
+      });
+    }
+
+    function openModal(slug) {
+      const skill = SKILLS_DATA.find(s => s.slug === slug);
+      if (!skill) return;
+
+      document.getElementById('modal-slug').textContent = slug;
+      document.getElementById('modal-name').textContent = skill.name;
+      document.getElementById('modal-title').textContent = skill.name;
+      document.getElementById('modal-description').textContent = skill.description;
+      document.getElementById('modal-preview').textContent = skill.preview || '';
+      document.getElementById('modal-category').textContent = skill.category.label;
+      document.getElementById('modal-files').textContent = skill.fileCount + ' files';
+      document.getElementById('modal-github-link').href = skill.githubUrl;
+
+      const installCmd = `curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash`;
+      document.getElementById('modal-install-cmd').textContent = installCmd;
+
+      const copyBtn = document.getElementById('modal-copy-btn');
+      copyBtn.textContent = 'copy';
+      copyBtn.classList.remove('copied');
+      copyBtn.onclick = () => {
+        navigator.clipboard.writeText(installCmd);
+        copyBtn.textContent = 'copied!';
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+          copyBtn.textContent = 'copy';
+          copyBtn.classList.remove('copied');
+        }, 2000);
+      };
+
+      document.getElementById('modal-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ===== COPY =====
+    function copyCommand(el, cmd) {
+      const btn = el.querySelector('.copy-btn');
+      navigator.clipboard.writeText(cmd);
+      btn.textContent = 'copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    }
+
+    function copyInline(btn, cmd) {
+      navigator.clipboard.writeText(cmd);
+      btn.textContent = 'copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    }
+
+    // ===== REVEAL ANIMATIONS =====
+    function setupRevealAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    // ===== UTILS =====
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+  </script>
+
+</body>
+</html>
