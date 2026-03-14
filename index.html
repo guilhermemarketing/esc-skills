@@ -9,9 +9,10 @@
   <meta property="og:description" content="69+ battle-tested AI agent skills for Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity and more.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://github.com/guilhermemarketing/esc-skills">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,13 +27,16 @@
       --text: #ffffff;
       --text-secondary: #888888;
       --text-muted: #555555;
-      --accent: #ff6b35;
-      --accent-glow: rgba(255, 107, 53, 0.15);
-      --accent-glow-strong: rgba(255, 107, 53, 0.3);
-      --accent-dim: #cc5529;
-      --featured-badge: #ff6b35;
+      --accent: #864DF9;
+      --accent-glow: rgba(134, 77, 249, 0.15);
+      --accent-glow-strong: rgba(134, 77, 249, 0.3);
+      --accent-dim: #6b3bc7;
+      --featured-badge: #F7E397;
+      --featured-badge-text: #000000;
+      --yellow: #F7E397;
       --green: #22c55e;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-sans: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Barlow Condensed', Impact, sans-serif;
       --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
       --radius: 12px;
       --radius-sm: 8px;
@@ -78,11 +82,18 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-family: var(--font-mono);
+      font-family: var(--font-display);
       font-weight: 700;
-      font-size: 15px;
+      font-size: 17px;
       color: var(--text);
       text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .navbar-brand img {
+      height: 28px;
+      width: auto;
     }
 
     .navbar-brand .dot {
@@ -123,19 +134,22 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border);
-      color: var(--text) !important;
-      padding: 6px 14px !important;
-      border-radius: 20px !important;
+      background: var(--yellow);
+      border: 2px solid #000;
+      color: #000 !important;
+      padding: 6px 16px !important;
+      border-radius: 100px !important;
       font-size: 13px;
+      font-weight: 700;
       cursor: pointer;
       transition: all var(--transition);
     }
 
     .github-btn:hover {
-      border-color: var(--accent) !important;
-      background: var(--accent-glow) !important;
+      background: #ffe9a0 !important;
+      border-color: #000 !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(247, 227, 151, 0.3);
     }
 
     .github-btn svg { width: 16px; height: 16px; }
@@ -174,12 +188,14 @@
     }
 
     .hero-tagline {
-      font-size: clamp(20px, 4vw, 42px);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
       margin-bottom: 16px;
-      max-width: 680px;
+      max-width: 780px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -286,10 +302,11 @@
     }
 
     .stat-value {
-      font-family: var(--font-mono);
-      font-size: 28px;
+      font-family: var(--font-display);
+      font-size: 32px;
       font-weight: 700;
       color: var(--text);
+      text-transform: uppercase;
     }
 
     .stat-value .accent-num { color: var(--accent); }
@@ -310,10 +327,10 @@
     }
 
     .section-header {
-      font-family: var(--font-mono);
-      font-size: 11px;
+      font-family: var(--font-display);
+      font-size: 16px;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.08em;
       color: var(--text-muted);
       margin-bottom: 20px;
     }
@@ -403,7 +420,7 @@
     .category-pill.active {
       background: var(--accent);
       border-color: var(--accent);
-      color: #000;
+      color: #fff;
       font-weight: 600;
     }
 
@@ -447,8 +464,8 @@
     }
 
     .skill-card.featured:hover {
-      border-color: var(--accent);
-      box-shadow: 0 8px 32px var(--accent-glow);
+      border-color: var(--yellow);
+      box-shadow: 0 8px 32px rgba(247, 227, 151, 0.15);
     }
 
     .skill-card-titlebar {
@@ -485,8 +502,9 @@
       letter-spacing: 0.05em;
       padding: 2px 8px;
       border-radius: 10px;
-      background: rgba(255, 107, 53, 0.15);
-      color: var(--accent);
+      background: var(--featured-badge);
+      color: var(--featured-badge-text);
+      font-weight: 600;
     }
 
     .skill-card-body {
@@ -544,17 +562,17 @@
     }
 
     .featured-header h2 {
-      font-family: var(--font-mono);
-      font-size: 11px;
+      font-family: var(--font-display);
+      font-size: 16px;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
+      letter-spacing: 0.08em;
+      color: var(--yellow);
     }
 
     .featured-line {
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, var(--accent-glow-strong), transparent);
+      background: linear-gradient(90deg, rgba(247, 227, 151, 0.3), transparent);
     }
 
     /* ===== INSTALL SECTION ===== */
@@ -568,8 +586,11 @@
     }
 
     .install-section h2 {
-      font-size: 24px;
+      font-family: var(--font-display);
+      font-size: 32px;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
       margin-bottom: 8px;
     }
 
@@ -819,18 +840,139 @@
 
     .sidebar-value a:hover { text-decoration: underline; }
 
-    /* ===== FOOTER ===== */
-    .footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 24px;
+    /* ===== ESC COMMUNITY SECTION ===== */
+    .esc-section {
+      background: #ffffff;
+      color: #000000;
+      border: 7px solid var(--accent);
+      box-shadow: 10px 12px 0px #45218d;
+      border-radius: var(--radius);
+      padding: 56px 40px;
+      margin: 48px 0;
       text-align: center;
     }
 
-    .footer-brand {
-      font-family: var(--font-mono);
-      font-size: 14px;
-      font-weight: 600;
+    .esc-section .esc-description {
+      color: #333;
+    }
+
+    .esc-section .esc-description strong {
+      color: #000;
+    }
+
+    .esc-headline {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3.5vw, 40px);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+
+    .esc-subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .esc-subtitle .esc-letter {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .esc-description {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+
+    .esc-description strong {
       color: var(--text);
+    }
+
+    .esc-images {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .esc-images img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+    }
+
+    .esc-images a {
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .esc-images a:hover {
+      transform: scale(1.08);
+    }
+
+    @keyframes esc-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .esc-images .esc-badge-link {
+      animation: esc-pulse 2s ease-in-out infinite;
+    }
+
+    .esc-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 32px;
+      background: var(--yellow);
+      color: #000;
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 100px;
+      border: 2px solid #000;
+      transition: all var(--transition);
+    }
+
+    .esc-cta:hover {
+      background: #ffe9a0;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(247, 227, 151, 0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 60px 24px 40px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      display: block;
+      width: 120px;
+      height: auto;
+      margin: 0 auto 16px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       margin-bottom: 8px;
     }
 
@@ -937,8 +1079,8 @@
   <!-- NAVBAR -->
   <nav class="navbar">
     <a href="#" class="navbar-brand">
-      <span class="dot"></span>
-      esc-skills
+      <img src="logo-guimarketing.gif" alt="gui.marketing logo" />
+      ESC Skills
     </a>
     <div class="navbar-links">
       <a href="#skills-section">skills</a>
@@ -1075,10 +1217,34 @@ cp -r /tmp/esc-skills/skills/* .agent/skills/</code><button class="copy-inline" 
       </div>
     </section>
 
+    <!-- ESC COMMUNITY SECTION -->
+    <section class="esc-section reveal" id="esc-section">
+      <h2 class="esc-headline">Acesso à Inteligência Coletiva do Guiverso:</h2>
+      <p class="esc-subtitle">
+        <span class="esc-letter">E</span>strategista
+        <span class="esc-letter">S</span>ocial
+        <span class="esc-letter">C</span>lub
+      </p>
+      <p class="esc-description">
+        <strong>Todo profissional chega a um ponto onde precisa apertar ESC:</strong>
+        sair da zona de execução e pensar como estrategista.
+      </p>
+      <div class="esc-images">
+        <a href="https://comunidade.gui.marketing/esc" target="_blank" rel="noopener" class="esc-badge-link">
+          <img src="esc-badge.png" alt="ESC — Estrategista Social Club badge" />
+        </a>
+        <img src="esc-key.png" alt="ESC keyboard key" />
+      </div>
+      <a href="https://comunidade.gui.marketing/esc" target="_blank" rel="noopener" class="esc-cta">
+        Conhecer o ESC →
+      </a>
+    </section>
+
   </main>
 
   <!-- FOOTER -->
   <footer class="footer">
+    <img src="logo-guimarketing.gif" alt="gui.marketing logo" class="footer-logo" />
     <div class="footer-brand"><span class="accent">ESC</span> Skills</div>
     <div class="footer-links">
       <a href="https://github.com/guilhermemarketing/esc-skills" target="_blank">GitHub</a>
