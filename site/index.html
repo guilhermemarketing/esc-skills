@@ -952,6 +952,87 @@
       box-shadow: 0 4px 12px rgba(247, 227, 151, 0.3);
     }
 
+    /* ===== FAQ SECTION ===== */
+    .faq-section {
+      margin: 48px 0;
+    }
+
+    .faq-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 32px;
+      letter-spacing: -0.01em;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+
+    .faq-item:hover {
+      border-color: var(--accent);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: var(--bg-surface);
+      border: none;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      text-align: left;
+      padding: 18px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background var(--transition);
+    }
+
+    .faq-question:hover {
+      background: rgba(134, 77, 249, 0.08);
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+
+    .faq-item.open .faq-question::after {
+      content: '−';
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer p {
+      padding: 0 20px 18px;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
     /* ===== FOOTER ===== */
     .footer {
       border-top: 1px solid var(--border);
@@ -1073,6 +1154,112 @@
       .reveal { opacity: 1; transform: none; }
     }
   </style>
+
+  <!-- FAQ STRUCTURED DATA (Rich Snippets) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are AI agent skills for marketing professionals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI agent skills are specialized instruction sets that program AI assistants like Claude, Gemini, and GPT to execute marketing tasks with expert-level precision. Install skills to transform generic AI into a strategic marketing operator that delivers consistent, high-quality outputs every time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do marketing skills prevent AI-generated SLOP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Skills inject domain expertise, brand guidelines, and quality frameworks directly into AI context. Instead of producing generic, repetitive content, the AI follows proven methodologies and constraints. Stop settling for mediocre outputs — use skills to enforce real strategic value in every deliverable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is an MCP server and how does it enhance AI agents?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MCP (Model Context Protocol) servers connect AI agents to external tools, APIs, and live data sources. They extend your agent's capabilities beyond text generation — enabling real-time analytics, CRM integration, ad platform management, and automated reporting directly from your AI workspace."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do Global Rules differ from individual skills?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Global Rules apply universal behavior constraints across every AI interaction — like brand voice, formatting standards, and safety guardrails. Skills are task-specific instruction sets for particular jobs. Combine both to create a disciplined AI marketing operator with deep specialization."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why should marketing teams adopt AI agent skills?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Marketing teams using skills eliminate the gap between AI potential and real output quality. Skills encode proven frameworks, client-specific knowledge, and industry best practices. Your team executes faster, maintains brand consistency, and scales operations without sacrificing strategic depth."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which AI platforms support ESC Skills?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ESC Skills work with every major AI coding agent: Claude, Gemini, GPT, Cursor, Windsurf, Cline, and Antigravity. Skills use a universal SKILL.md format that any agent reads natively. Install once and use across your entire AI toolkit without platform lock-in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do AI skills ensure output quality and consistency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Each skill defines explicit quality criteria, output structures, and validation checklists. The AI follows these constraints as non-negotiable rules, producing standardized deliverables every time. Eliminate random quality variance and build a repeatable system that scales reliably across your marketing operations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I create custom AI marketing skills for my agency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Use the skill-creator skill to build custom skills encoding your agency's proprietary methodologies, client playbooks, and unique processes. Document your expertise once, then deploy it at scale — every team member and AI agent operates with your best practices built in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What marketing tasks can AI agent skills automate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Skills cover the full marketing spectrum: landing page creation, Meta Ads creative development, Google Ads campaigns, GTM container configuration, wireframe generation, copywriting, SEO optimization, and performance reporting. Each skill handles end-to-end execution with professional-grade output quality."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do skills improve AI agent performance in Claude and Gemini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Skills provide structured context that dramatically improves AI reasoning and output relevance. Instead of vague prompts, your agent receives expert-level instructions with examples, constraints, and decision frameworks. The result is faster execution, fewer iterations, and consistently superior marketing deliverables."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between AI skills and simple prompt templates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prompt templates are static, one-shot instructions. Skills are comprehensive knowledge systems with decision trees, output validation, multi-step workflows, and domain expertise. Skills adapt to context, enforce quality standards, and chain complex operations — far beyond what any single prompt can achieve."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I install ESC Skills on my AI agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Run a single command to install all 69+ skills instantly. Use the one-liner curl script, add as a git submodule, or clone manually. Skills are stored in your project's .agent/skills/ directory and your AI agent detects them automatically — zero configuration required."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -1238,6 +1425,72 @@ cp -r /tmp/esc-skills/skills/* .agent/skills/</code><button class="copy-inline" 
       <a href="https://comunidade.gui.marketing/esc" target="_blank" rel="noopener" class="esc-cta">
         Conhecer o ESC →
       </a>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section reveal" id="faq">
+      <h2 class="faq-section-title">Frequently Asked Questions About <span class="accent">AI Agent Marketing Skills</span></h2>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What are AI agent skills for marketing professionals?</button>
+        <div class="faq-answer"><p>AI agent skills are specialized instruction sets that program AI assistants like Claude, Gemini, and GPT to execute marketing tasks with expert-level precision. Install skills to transform generic AI into a strategic marketing operator that delivers consistent, high-quality outputs every time.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How do marketing skills prevent AI-generated SLOP?</button>
+        <div class="faq-answer"><p>Skills inject domain expertise, brand guidelines, and quality frameworks directly into AI context. Instead of producing generic, repetitive content, the AI follows proven methodologies and constraints. Stop settling for mediocre outputs — use skills to enforce real strategic value in every deliverable.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What is an MCP server and how does it enhance AI agents?</button>
+        <div class="faq-answer"><p>MCP (Model Context Protocol) servers connect AI agents to external tools, APIs, and live data sources. They extend your agent's capabilities beyond text generation — enabling real-time analytics, CRM integration, ad platform management, and automated reporting directly from your AI workspace.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How do Global Rules differ from individual skills?</button>
+        <div class="faq-answer"><p>Global Rules apply universal behavior constraints across every AI interaction — like brand voice, formatting standards, and safety guardrails. Skills are task-specific instruction sets for particular jobs. Combine both to create a disciplined AI marketing operator with deep specialization.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Why should marketing teams adopt AI agent skills?</button>
+        <div class="faq-answer"><p>Marketing teams using skills eliminate the gap between AI potential and real output quality. Skills encode proven frameworks, client-specific knowledge, and industry best practices. Your team executes faster, maintains brand consistency, and scales operations without sacrificing strategic depth.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Which AI platforms support ESC Skills?</button>
+        <div class="faq-answer"><p>ESC Skills work with every major AI coding agent: Claude, Gemini, GPT, Cursor, Windsurf, Cline, and Antigravity. Skills use a universal SKILL.md format that any agent reads natively. Install once and use across your entire AI toolkit without platform lock-in.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How do AI skills ensure output quality and consistency?</button>
+        <div class="faq-answer"><p>Each skill defines explicit quality criteria, output structures, and validation checklists. The AI follows these constraints as non-negotiable rules, producing standardized deliverables every time. Eliminate random quality variance and build a repeatable system that scales reliably across your marketing operations.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I create custom AI marketing skills for my agency?</button>
+        <div class="faq-answer"><p>Absolutely. Use the skill-creator skill to build custom skills encoding your agency's proprietary methodologies, client playbooks, and unique processes. Document your expertise once, then deploy it at scale — every team member and AI agent operates with your best practices built in.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What marketing tasks can AI agent skills automate?</button>
+        <div class="faq-answer"><p>Skills cover the full marketing spectrum: landing page creation, Meta Ads creative development, Google Ads campaigns, GTM container configuration, wireframe generation, copywriting, SEO optimization, and performance reporting. Each skill handles end-to-end execution with professional-grade output quality.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How do skills improve AI agent performance in Claude and Gemini?</button>
+        <div class="faq-answer"><p>Skills provide structured context that dramatically improves AI reasoning and output relevance. Instead of vague prompts, your agent receives expert-level instructions with examples, constraints, and decision frameworks. The result is faster execution, fewer iterations, and consistently superior marketing deliverables.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What is the difference between AI skills and simple prompt templates?</button>
+        <div class="faq-answer"><p>Prompt templates are static, one-shot instructions. Skills are comprehensive knowledge systems with decision trees, output validation, multi-step workflows, and domain expertise. Skills adapt to context, enforce quality standards, and chain complex operations — far beyond what any single prompt can achieve.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How do I install ESC Skills on my AI agent?</button>
+        <div class="faq-answer"><p>Run a single command to install all 69+ skills instantly. Use the one-liner curl script, add as a git submodule, or clone manually. Skills are stored in your project's .agent/skills/ directory and your AI agent detects them automatically — zero configuration required.</p></div>
+      </div>
+
     </section>
 
   </main>
