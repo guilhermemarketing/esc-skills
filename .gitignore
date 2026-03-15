@@ -19,10 +19,10 @@ keys/
 # Docs internos
 docs/
 
-# Arquivos do site (gerados pelo build)
+# Arquivos do showcase site (admin-only, deploy via rsync)
 /index.html
 /skills-data.js
-site/skills-data-v*.js
+/skills-data-v*.js
 
 # OS
 .DS_Store
