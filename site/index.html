@@ -257,6 +257,14 @@
       cursor: pointer;
       transition: all var(--transition);
       position: relative;
+      max-width: 100%;
+      overflow-x: auto;
+      box-sizing: border-box;
+    }
+
+    .cli-box .cmd {
+      white-space: nowrap;
+      min-width: 0;
     }
 
     .cli-box:hover {
@@ -268,9 +276,9 @@
     .cli-box .cmd { color: var(--text); }
 
     .cli-box .copy-btn {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
+      background: var(--accent);
+      border: 1px solid #fff;
+      color: #fff;
       padding: 4px 8px;
       border-radius: 6px;
       cursor: pointer;
@@ -280,8 +288,9 @@
     }
 
     .cli-box .copy-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      background: #9b6dff;
+      border-color: #fff;
+      color: #fff;
     }
 
     .cli-box .copy-btn.copied {
@@ -1714,7 +1723,7 @@ cp -r /tmp/esc-skills/skills/* .agent/skills/</code><button class="copy-inline" 
         if (I18N[aKey]) aP.innerHTML = I18N[aKey][lang];
       });
 
-      // Re-render skill grids
+      // Re-render skill grids (skip animations on language switch)
       renderFeaturedGrid();
       renderSkillsGrid();
     }
@@ -1739,6 +1748,9 @@ cp -r /tmp/esc-skills/skills/* .agent/skills/</code><button class="copy-inline" 
       setupModal();
       setupRevealAnimations();
       updateStats();
+
+      // Mark first render complete
+      isFirstRender = false;
 
       // Apply language after DOM is ready
       if (currentLang !== 'en') {
@@ -1802,10 +1814,11 @@ cp -r /tmp/esc-skills/skills/* .agent/skills/</code><button class="copy-inline" 
     }
 
     // ===== RENDER FEATURED =====
+    let isFirstRender = true;
     function renderFeaturedGrid() {
       const grid = document.getElementById('featured-grid');
       const featured = SKILLS_DATA.filter(s => s.isFeatured);
-      grid.innerHTML = featured.map((s, i) => createCard(s, i, true)).join('');
+      grid.innerHTML = featured.map((s, i) => createCard(s, i, true, !isFirstRender)).join('');
     }
 
     // ===== RENDER SKILLS GRID =====
@@ -1837,21 +1850,30 @@ cp -r /tmp/esc-skills/skills/* .agent/skills/</code><button class="copy-inline" 
       }
 
       noResults.style.display = 'none';
-      grid.innerHTML = filtered.map((s, i) => createCard(s, i, false)).join('');
+      grid.innerHTML = filtered.map((s, i) => createCard(s, i, false, !isFirstRender)).join('');
 
-      // Stagger animation
-      requestAnimationFrame(() => {
-        grid.querySelectorAll('.skill-card.reveal').forEach((card, i) => {
-          card.style.setProperty('--i', i);
-          requestAnimationFrame(() => card.classList.add('visible'));
+      // Stagger animation — only for first render
+      if (isFirstRender) {
+        requestAnimationFrame(() => {
+          grid.querySelectorAll('.skill-card.reveal:not(.visible)').forEach((card, i) => {
+            card.style.setProperty('--i', i);
+            requestAnimationFrame(() => card.classList.add('visible'));
+          });
         });
-      });
+      }
     }
 
     // ===== CARD HTML =====
-    function createCard(skill, index, isFeaturedSection) {
+    function createCard(skill, index, isFeaturedSection, skipAnimation) {
+      const revealClass = skipAnimation ? 'reveal visible' : 'reveal stagger';
+      const desc = currentLang === 'pt' && skill.shortDescriptionPt 
+        ? skill.shortDescriptionPt 
+        : skill.shortDescription;
+      const filesLabel = skill.fileCount > 1 
+        ? I18N.card_files_plural[currentLang] 
+        : I18N.card_files[currentLang];
       return `
-        <div class="skill-card ${skill.isFeatured ? 'featured' : ''} reveal stagger" 
+        <div class="skill-card ${skill.isFeatured ? 'featured' : ''} ${revealClass}" 
              style="--i:${index}" 
              onclick="openModal('${skill.slug}')">
           <div class="skill-card-titlebar">
@@ -1863,11 +1885,11 @@ cp -r /tmp/esc-skills/skills/* .agent/skills/</code><button class="copy-inline" 
           </div>
           <div class="skill-card-body">
             <div class="skill-card-name">${skill.name}</div>
-            <div class="skill-card-desc">${escapeHtml(currentLang === 'pt' && skill.shortDescriptionPt ? skill.shortDescriptionPt : skill.shortDescription)}</div>
+            <div class="skill-card-desc">${escapeHtml(desc)}</div>
           </div>
           <div class="skill-card-footer">
             <span class="skill-card-category">${skill.category.icon} ${skill.category.label.replace(/^[^ ]+ /, '')}</span>
-            <span class="skill-card-files">${skill.fileCount} file${skill.fileCount > 1 ? 's' : ''}</span>
+            <span class="skill-card-files">${skill.fileCount} ${filesLabel}</span>
           </div>
         </div>
       `;
