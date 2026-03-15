@@ -430,15 +430,11 @@
     /* ===== CATEGORY FILTERS ===== */
     .category-filters {
       display: flex;
-      gap: 4px;
+      flex-wrap: wrap;
+      gap: 6px;
       margin-bottom: 32px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+      justify-content: center;
     }
-
-    .category-filters::-webkit-scrollbar { display: none; }
 
     .category-pill {
       background: transparent;
@@ -1608,7 +1604,7 @@ cp -r /tmp/esc-skills/skills/* .agent/skills/</code><button class="copy-inline" 
   </div>
 
   <!-- DATA -->
-  <script src="skills-data-v3.js"></script>
+  <script src="skills-data-v4.js"></script>
 
   <!-- APP -->
   <script>
@@ -1830,14 +1826,21 @@ cp -r /tmp/esc-skills/skills/* .agent/skills/</code><button class="copy-inline" 
       let filtered = SKILLS_DATA;
 
       if (activeCategory !== 'all') {
-        filtered = filtered.filter(s => s.category.id === activeCategory);
+        filtered = filtered.filter(s => {
+          if (s.category.id === activeCategory) return true;
+          if (s.extraCategories) {
+            return s.extraCategories.some(ec => ec.id === activeCategory);
+          }
+          return false;
+        });
       }
 
       if (searchQuery) {
         filtered = filtered.filter(s =>
           s.name.toLowerCase().includes(searchQuery) ||
           s.description.toLowerCase().includes(searchQuery) ||
-          s.category.label.toLowerCase().includes(searchQuery)
+          s.category.label.toLowerCase().includes(searchQuery) ||
+          (s.extraCategories && s.extraCategories.some(ec => ec.label.toLowerCase().includes(searchQuery)))
         );
       }
 
@@ -1888,7 +1891,7 @@ cp -r /tmp/esc-skills/skills/* .agent/skills/</code><button class="copy-inline" 
             <div class="skill-card-desc">${escapeHtml(desc)}</div>
           </div>
           <div class="skill-card-footer">
-            <span class="skill-card-category">${skill.category.icon} ${skill.category.label.replace(/^[^ ]+ /, '')}</span>
+            <span class="skill-card-category">${skill.category.icon} ${skill.category.label.replace(/^[^ ]+ /, '')}${skill.extraCategories ? skill.extraCategories.map(ec => ' · ' + ec.icon + ' ' + ec.label.replace(/^[^ ]+ /, '')).join('') : ''}</span>
             <span class="skill-card-files">${skill.fileCount} ${filesLabel}</span>
           </div>
         </div>

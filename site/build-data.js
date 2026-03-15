@@ -27,11 +27,29 @@ const CATEGORY_RULES = [
 ];
 
 const FEATURED_SKILLS = [
-  'guimkt-classic-ad-creative', 'guimkt-design-system-extractor', 'guimkt-google-ads',
+  'guimkt-classic-ad-creative', 'guimkt-classic-ad-creative-final',
+  'guimkt-design-system-extractor', 'guimkt-google-ads',
   'guimkt-gtm-expert', 'guimkt-gtm-expert-template', 'guimkt-landing-page',
   'guimkt-landing-page-optimization', 'guimkt-make-blueprint-expert', 'guimkt-meta-ads',
   'skill-creator', 'ui-ux-pro-max', 'guimkt-wireframe-landing-page'
 ];
+
+// Extra categories for skills that belong to multiple categories
+const EXTRA_CATEGORIES = {
+  'guimkt-design-system-extractor': [
+    { id: 'design', label: '🎨 Design & UI', icon: '🎨' }
+  ],
+  'guimkt-meta-ads': [
+    { id: 'ads', label: '📣 Ads & PPC', icon: '📣' },
+    { id: 'copywriting', label: '✍️ Copywriting', icon: '✍️' },
+    { id: 'design', label: '🎨 Design', icon: '🎨' }
+  ],
+  'guimkt-classic-ad-creative-final': [
+    { id: 'ads', label: '📣 Ads & PPC', icon: '📣' },
+    { id: 'copywriting', label: '✍️ Copywriting', icon: '✍️' },
+    { id: 'design', label: '🎨 Design', icon: '🎨' }
+  ]
+};
 
 function parseFrontmatter(content) {
   const match = content.match(/^---\n([\s\S]*?)\n---/);
@@ -120,6 +138,24 @@ function countFiles(skillDir) {
   return count;
 }
 
+// Load existing translations and EN overrides from previous build
+let existingOverrides = {};
+try {
+  const existingContent = fs.readFileSync(OUTPUT_FILE, 'utf-8');
+  const match = existingContent.match(/const SKILLS_DATA = (\[[\s\S]*?\n\]);/);
+  if (match) {
+    const existingSkills = JSON.parse(match[1]);
+    for (const s of existingSkills) {
+      existingOverrides[s.slug] = {
+        shortDescription: s.shortDescription,
+        shortDescriptionPt: s.shortDescriptionPt,
+        descriptionPt: s.descriptionPt
+      };
+    }
+    console.log(`📖 Loaded ${Object.keys(existingOverrides).length} existing overrides`);
+  }
+} catch (e) { /* No existing file — skip */ }
+
 // Build
 const skillDirs = fs.readdirSync(SKILLS_DIR, { withFileTypes: true })
   .filter(d => d.isDirectory())
@@ -148,26 +184,46 @@ for (const dirName of skillDirs) {
     shortDesc = description.substring(0, 120) + '…';
   }
   
+  const skillName = name || dirName;
+  const extraCats = EXTRA_CATEGORIES[skillName] || [];
+  const existing = existingOverrides[dirName] || {};
+
+  // Use existing EN shortDescription if available (preserves manual translations)
+  const finalShortDesc = existing.shortDescription || shortDesc;
+
   skills.push({
     slug: dirName,
-    name: name || dirName,
+    name: skillName,
     description,
-    shortDescription: shortDesc,
+    shortDescription: finalShortDesc,
+    shortDescriptionPt: existing.shortDescriptionPt || undefined,
+    descriptionPt: existing.descriptionPt || undefined,
     preview,
     category,
+    extraCategories: extraCats.length > 0 ? extraCats : undefined,
     fileCount,
     isFeatured,
     githubUrl: `https://github.com/guilhermemarketing/esc-skills/tree/main/skills/${dirName}`
   });
 }
 
-// Generate categories list
+// Generate categories list (including extra categories)
 const categoriesMap = {};
 for (const s of skills) {
+  // Count primary category
   if (!categoriesMap[s.category.id]) {
     categoriesMap[s.category.id] = { ...s.category, count: 0 };
   }
   categoriesMap[s.category.id].count++;
+  // Count extra categories
+  if (s.extraCategories) {
+    for (const ec of s.extraCategories) {
+      if (!categoriesMap[ec.id]) {
+        categoriesMap[ec.id] = { ...ec, count: 0 };
+      }
+      categoriesMap[ec.id].count++;
+    }
+  }
 }
 const categories = Object.values(categoriesMap).sort((a, b) => b.count - a.count);
 
