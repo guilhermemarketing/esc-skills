@@ -79,6 +79,7 @@ Works with **any agent that supports file reading** — Gemini, Claude Code, Cur
 | Skill | What It Does |
 |-------|-------------|
 | **guimkt-classic-ad-creative** | Full creative concepts for Meta Ads and Google Ads — copy, visual concept, reference sketches |
+| **guimkt-classic-ad-creative-final** | Creative concepts for paid media using classic advertising principles adapted to the feed. Static images, carousels, and video scripts |
 | **guimkt-design-system-extractor** | Extract complete design systems from any website — colors, typography, components, CSS variables |
 | **guimkt-google-ads** | Full Google Ads Search pipeline: ICP → Keywords → Negatives → RSA ads. Multi-brand support |
 | **guimkt-gtm-expert** | Create, edit, and validate GTM container JSON files. Custom HTML, dataLayer, conversion tracking |
@@ -125,6 +126,7 @@ Works with **any agent that supports file reading** — Gemini, Claude Code, Cur
 | **gh-fix-ci** | Debug and fix failing GitHub Actions CI checks |
 | **gsap** | GSAP — timelines, ScrollTrigger, stagger, transforms |
 | **guimkt-classic-ad-creative** | Creative concepts for Meta Ads and Google Ads |
+| **guimkt-classic-ad-creative-final** | Creative concepts for paid media — classic advertising principles adapted to the feed |
 | **guimkt-design-system-extractor** | Extract complete design systems from websites |
 | **guimkt-google-ads** | Google Ads Search for lead generation (SQLs). 4-phase pipeline: ICP, Keywords, Negatives, RSA. Multi-brand |
 | **guimkt-gtm-expert** | Create, edit, validate GTM container JSON files |
@@ -291,6 +293,7 @@ Funciona com **qualquer agente que suporte leitura de arquivos** — Gemini, Cla
 | Skill | O que faz |
 |-------|-----------|
 | **guimkt-classic-ad-creative** | Conceitos criativos completos para Meta Ads e Google Ads — copy, conceito visual, sketches de referência |
+| **guimkt-classic-ad-creative-final** | Conceitos criativos para mídia paga usando princípios da publicidade clássica adaptados ao feed. Imagens estáticas, carrosséis e roteiros de vídeo |
 | **guimkt-design-system-extractor** | Extrai design systems completos de qualquer website — cores, tipografia, componentes, CSS variables |
 | **guimkt-google-ads** | Pipeline completo de Google Ads Search: ICP → Keywords → Negativas → Anúncios RSA. Suporta multi-marca |
 | **guimkt-gtm-expert** | Criar, editar e validar containers GTM JSON. Custom HTML, dataLayer, tracking de conversões |
@@ -337,6 +340,7 @@ Funciona com **qualquer agente que suporte leitura de arquivos** — Gemini, Cla
 | **gh-fix-ci** | Debug e fix de checks de CI falhando no GitHub Actions |
 | **gsap** | GSAP — timelines, ScrollTrigger, stagger, transforms |
 | **guimkt-classic-ad-creative** | Conceitos criativos para Meta Ads e Google Ads |
+| **guimkt-classic-ad-creative-final** | Conceitos criativos para mídia paga — princípios da publicidade clássica adaptados ao feed |
 | **guimkt-design-system-extractor** | Extrai design systems completos de websites |
 | **guimkt-google-ads** | Google Ads Search para geração de leads (SQLs). Pipeline de 4 fases: ICP, Keywords, Negativas, RSA. Multi-marca |
 | **guimkt-gtm-expert** | Criar, editar, validar containers GTM JSON |

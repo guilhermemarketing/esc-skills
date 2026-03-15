@@ -106,15 +106,37 @@ Editar array `FEATURED_SKILLS` em `site/build-data.js`:
 
 ```javascript
 const FEATURED_SKILLS = [
-  'guimkt-classic-ad-creative', 'guimkt-design-system-extractor',
-  'guimkt-google-ads', 'guimkt-gtm-expert', 'guimkt-gtm-expert-template',
-  'guimkt-landing-page', 'guimkt-landing-page-optimization',
-  'guimkt-make-blueprint-expert', 'guimkt-meta-ads',
+  'guimkt-classic-ad-creative', 'guimkt-classic-ad-creative-final',
+  'guimkt-design-system-extractor', 'guimkt-google-ads',
+  'guimkt-gtm-expert', 'guimkt-gtm-expert-template', 'guimkt-landing-page',
+  'guimkt-landing-page-optimization', 'guimkt-make-blueprint-expert', 'guimkt-meta-ads',
   'skill-creator', 'ui-ux-pro-max', 'guimkt-wireframe-landing-page'
 ];
 ```
 
 Depois: `node build-data.js` + deploy.
+
+### Multi-categoria (Extra Categories)
+
+Skills podem pertencer a múltiplas categorias via `EXTRA_CATEGORIES` em `site/build-data.js`:
+
+```javascript
+const EXTRA_CATEGORIES = {
+  'guimkt-design-system-extractor': [
+    { id: 'design', label: '🎨 Design & UI', icon: '🎨' }
+  ],
+  'guimkt-meta-ads': [
+    { id: 'ads', label: '📣 Ads & PPC', icon: '📣' },
+    { id: 'copywriting', label: '✍️ Copywriting', icon: '✍️' },
+    { id: 'design', label: '🎨 Design', icon: '🎨' }
+  ]
+};
+```
+
+O build gera `extraCategories` no JSON, e o index.html filtra e exibe todas.
+
+> [!NOTE]
+> O build preserva automaticamente traduções EN/PT existentes do `skills-data.js` anterior.
 
 ### Adicionar Nova Categoria
 
