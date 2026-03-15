@@ -1,7 +1,7 @@
 <p align="center">
-  <h1 align="center">🧠 ESC Skills - Estrategista Social Club</h1>
+  <h1 align="center">🧠 ESC Skills — AI Marketing Skills for Agents</h1>
   <p align="center">
-    <strong>70+ AI agent skills for digital marketing professionals who think like strategists.</strong>
+    <strong>70+ battle-tested AI marketing skills for digital marketing professionals who think like strategists.</strong>
   </p>
 </p>
 
@@ -22,7 +22,7 @@
 
 ## 🇺🇸 English
 
-A collection of 70+ AI agent skills (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and more) built for digital marketing professionals: CRO, SEO, Google Ads, Meta Ads, Performance Marketing, Google Tag Manager & Advanced Tracking, Design, Web Development, Security & Architecture, and DevOps.
+The largest open collection of **AI marketing skills** for AI agents (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and more) — purpose-built for digital marketing professionals: CRO, SEO, Google Ads, Meta Ads, Performance Marketing, Google Tag Manager & Advanced Tracking, Design, Web Development, Security & Architecture, and DevOps.
 
 Built by the [Estrategista Social Club](https://comunidade.gui.marketing/esc) — the club where marketing professionals learn to think, test, and convert like strategists — not like button pushers.
 
@@ -34,26 +34,27 @@ Strategic content, real-world analysis, high-level discussions, and zero bullshi
 
 ### 📑 Table of Contents
 
-- [What Are Skills?](#what-are-skills)
+- [What Are AI Marketing Skills?](#what-are-ai-marketing-skills)
 - [How Skills Connect](#-how-skills-connect)
 - [Workflow: /esc-start](#-workflow-esc-start)
 - [Why Star This Repo?](#-why-star-this-repo)
-- [Featured Skills](#-featured-skills)
+- [Featured AI Marketing Skills](#-featured-ai-marketing-skills)
 - [All Available Skills (70+)](#-all-available-skills-70)
 - [Quick Start](#-quick-start)
 - [AI Agent Setup](#-ai-agent-setup)
 - [Updates](#-updates)
+- [FAQ](#-frequently-asked-questions)
 - [Star History](#-star-history)
 
 ---
 
-### What Are Skills?
+### What Are AI Marketing Skills?
 
 **Before skills:** You write long, detailed prompts from scratch every time. The agent gives generic output. You spend more time editing the result than you would doing the work yourself.
 
 **After skills:** You load one file and the agent becomes a specialist — with methodology, constraints, examples, and quality criteria baked in. Output is structured, consistent, and production-ready.
 
-**The bridge:** A **skill** is a plug-and-play expertise module. It's a folder with a `SKILL.md` file (plus optional references, scripts, and assets) that teaches the AI agent _how_ to execute a specific task like a senior professional.
+**The bridge:** An **AI marketing skill** is a plug-and-play expertise module. It's a folder with a `SKILL.md` file (plus optional references, scripts, and assets) that teaches the AI agent _how_ to execute a specific marketing task like a senior professional.
 
 **How they work:**
 1. The agent detects the skill is relevant (via trigger keywords) or you load it explicitly
@@ -101,7 +102,7 @@ graph TD
     DSE -.->|extracts styles for| LP
 ```
 
-<details><summary>📖 Quick view (ASCII)</summary>
+<details open><summary>📖 Quick view (ASCII)</summary>
 
 ```
                     💡 marketing-psychology
@@ -137,6 +138,8 @@ graph TD
 ```
 
 </details>
+
+**How to read this map:**
 - **Solid arrows** (`→`) = direct dependency (output of one feeds the next)
 - **Dashed arrows** (`⇢`) = enrichment (optional but recommended)
 - **ICP is the foundation** — run it first, then any combination of downstream skills
@@ -177,7 +180,7 @@ flowchart LR
     style S6 fill:#1a1a2e,stroke:#43aa8b,color:#fff
 ```
 
-<details><summary>📖 Quick view (ASCII)</summary>
+<details open><summary>📖 Quick view (ASCII)</summary>
 
 ```
         │
@@ -209,6 +212,8 @@ flowchart LR
 
 </details>
 
+**How it works:**
+
 | Step | Skill | Input | Output |
 |------|-------|-------|--------|
 | **1. ICP** | `guimkt-icp-ideal-customer-profile` | Client briefing | `icp-consolidado-{{CLIENT}}.md` |
@@ -224,17 +229,18 @@ flowchart LR
 
 ### ⭐ Why Star This Repo?
 
-- 🆓 **69+ skills, free and open** — years of methodology packed into ready-to-use modules
+- 🆓 **70+ AI marketing skills, free and open** — years of methodology packed into ready-to-use modules
 - 🧪 **Battle-tested** — built from real campaigns with 100+ clients across B2B and B2C
-- 🔄 **Frequently updated** — new skills added as the marketing and dev landscape evolves
+- 🔄 **Frequently updated** — new AI marketing skills added as the marketing and dev landscape evolves
 - 🔔 **Star = notifications** — get notified when new skills drop
+- 🌍 **Works with any AI agent** — Gemini, Claude, Cursor, GPT, Windsurf, Cline, and more
 - 🤝 **Part of the ESC ecosystem** — backed by the [Estrategista Social Club](https://comunidade.gui.marketing/esc) community
 
 > ⭐ **Star this repo to stay updated with new skills and updates.**
 
 ---
 
-### 🏆 Featured Skills
+### 🏆 Featured AI Marketing Skills
 
 | Skill | What It Does |
 |-------|-------------|
@@ -477,7 +483,7 @@ graph TD
     DSE -.->|extrai estilos para| LP
 ```
 
-<details><summary>📖 Visualização rápida (ASCII)</summary>
+<details open><summary>📖 Visualização rápida (ASCII)</summary>
 
 ```
                            · · ·
@@ -511,6 +517,8 @@ graph TD
 ```
 
 </details>
+
+**Como ler este mapa:**
 - **Setas sólidas** (`→`) = dependência direta (output de uma alimenta a próxima)
 - **Setas tracejadas** (`⇢`) = enriquecimento (opcional mas recomendado)
 - **ICP é a fundação** — rode primeiro, depois qualquer combinação de skills downstream
@@ -551,7 +559,7 @@ flowchart LR
     style S6 fill:#1a1a2e,stroke:#43aa8b,color:#fff
 ```
 
-<details><summary>📖 Visualização rápida (ASCII)</summary>
+<details open><summary>📖 Visualização rápida (ASCII)</summary>
 
 ```
         │
@@ -582,6 +590,8 @@ flowchart LR
 ```
 
 </details>
+
+**Como funciona:**
 
 | Etapa | Skill | Input | Output |
 |-------|-------|-------|--------|
@@ -759,6 +769,38 @@ Novas skills são adicionadas conforme o cenário de marketing e dev evolui. Par
 - **Submodule:** `git submodule update --remote`
 - **Script:** Re-execute o `install.sh`
 - **Clone:** Re-clone o repositório
+
+---
+
+### ❓ Frequently Asked Questions
+
+**What are AI marketing skills?**
+
+AI marketing skills are plug-and-play expertise modules (`.md` files + references) that teach AI agents how to perform specific marketing tasks like a senior professional. Instead of writing long prompts from scratch, you load a skill and the agent follows a battle-tested methodology — producing structured, consistent, production-ready output.
+
+**Which AI agents are compatible?**
+
+Any agent that supports file reading: Gemini, Claude Code, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and others. Skills are agent-agnostic — they work across platforms.
+
+**How do I install AI marketing skills from this repo?**
+
+Run `curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash` in any project directory. The script copies all skills into your `.agent/skills/` folder, ready for your AI agent to use.
+
+**Do I need to use all 70+ skills?**
+
+No. Each skill is independent — pick only what you need. However, running the ICP (Ideal Customer Profile) skill first makes every downstream skill better by providing audience context.
+
+**What is the `/esc-start` workflow?**
+
+`/esc-start` orchestrates 6 AI marketing skills in sequence — from ICP definition to Google Ads, landing page wireframe, premium HTML page, Meta Ads concepts, and classic ad creatives. Each step feeds context to the next, ensuring zero hallucinations and maximum consistency.
+
+**Can these AI marketing skills generate real campaign assets?**
+
+Yes. Skills produce production-ready deliverables: keyword lists and RSA ads for Google Ads, 6 complete creative concepts for Meta Ads, premium HTML landing pages with glassmorphism and micro-animations, GTM container JSON files, and full wireframe-to-page pipelines.
+
+**Are these skills free?**
+
+Yes. The ESC Skills collection is free and open. Star the repo to receive notifications when new AI marketing skills are added.
 
 ---
 
