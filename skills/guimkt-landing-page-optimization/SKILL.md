@@ -24,25 +24,6 @@ Esta skill cobre todo o espectro de Landing Page Optimization:
 6. **Aplicação de frameworks** de copywriting e persuasão
 7. **Planejamento de testes A/B** e experimentação
 
-**ICP como referência:** Se `icp-consolidado-{{CLIENTE}}.md` existir, carregar e usar para:
-- Avaliar message match entre anúncio/fonte e LP
-- Verificar alinhamento do nível de consciência do público
-- Validar se dores, objeções e critérios de decisão estão endereçados na página
-
-Se não existir, recomendar ao usuário rodar a skill `guimkt-icp-ideal-customer-profile` para enriquecer a análise.
-
-### Skills Complementares (Ecossistema guimkt)
-
-Verificar se estas skills estão disponíveis. Se alguma estiver ausente, **recomendar a instalação ao usuário** com a justificativa:
-
-| Skill | Status | Justificativa |
-|-------|--------|---------------|
-| `guimkt-icp-ideal-customer-profile` | **Recomendada** | Define dores, objeções, critérios de decisão e nível de consciência. Sem ICP, a análise de message match e awareness será limitada. |
-| `guimkt-landing-page` | **Recomendada** | Implementa LPs premium com design glassmorphism e micro-animations. Após otimizar/auditar com esta skill, usar `guimkt-landing-page` para construir ou reconstruir a LP. |
-| `guimkt-wireframe-landing-page` | Opcional | Gera wireframes estruturados. Útil para reestruturar LPs existentes após auditoria. |
-| `guimkt-design-system-extractor` | Opcional | Extrai design system do site existente para manter consistência. |
-| `marketing-psychology` | Opcional | 70+ modelos mentais para diagnóstico de fricção emocional e persuasão. |
-
 ---
 
 ## Arquitetura da Skill
@@ -286,3 +267,18 @@ Avalie sua proposta de valor em 4 níveis:
 - Priorize clareza sobre criatividade em toda comunicação
 - Questione suposições e identifique vieses do briefing
 - Quando houver múltiplas abordagens, recomende a melhor com justificativa
+
+---
+
+## Output HTML (Apresentação ao Cliente)
+
+Além do output em Markdown (relatório de auditoria), **gerar versão HTML estilizada** para apresentação ao cliente quando solicitado:
+
+### Regras do HTML:
+1. Usar o design system gui.marketing (Inter Tight/Inter, bg `#f7f3ed`, accent `#864df9`)
+2. Organizar scores, recomendações e checklist em cards/tabelas com o layout brand
+3. Header logo com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-landing-page-optimization&utm_content=header-logo`
+4. Footer com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-landing-page-optimization&utm_content=footer`
+5. Salvar como `lpo-audit-{{CLIENTE}}.html`
+
+> **IMPORTANTE:** O output `.md` DEVE continuar sendo gerado normalmente. O HTML é um output adicional para exibição.

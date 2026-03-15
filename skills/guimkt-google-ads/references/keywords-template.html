@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads Keywords — {{CLIENTE}}</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style id="table-tools-inline">
+/* Table Tools - Estilos para filtro, ordenação e cópia de colunas */
+
+/* Header interativo */
+.table-tools-th {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s ease;
+}
+
+.table-tools-th:hover {
+    background: rgba(129, 140, 248, 0.2) !important;
+}
+
+/* Container de controles no header */
+.th-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+.th-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+/* Ícone de ordenação */
+.sort-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.4;
+    transition: opacity 0.2s, transform 0.2s;
+    flex-shrink: 0;
+}
+
+.table-tools-th:hover .sort-icon {
+    opacity: 0.8;
+}
+
+.sort-icon.asc {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.sort-icon.desc {
+    opacity: 1;
+    transform: rotate(180deg);
+}
+
+/* Botões de ação */
+.th-actions {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.th-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #a1a1aa;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.th-btn:hover {
+    background: rgba(129, 140, 248, 0.3);
+    color: #c084fc;
+}
+
+.th-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+.th-btn.copied {
+    background: rgba(52, 211, 153, 0.3);
+    color: #34d399;
+}
+
+/* Dropdown de filtro */
+.filter-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    min-width: 200px;
+    background: rgba(26, 26, 46, 0.95);
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 4px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: none;
+}
+
+.filter-dropdown.active {
+    display: block;
+    animation: dropdownFadeIn 0.2s ease;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.filter-input {
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    border-radius: 6px;
+    color: #e4e4e7;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.filter-input::placeholder {
+    color: #71717a;
+}
+
+.filter-input:focus {
+    border-color: #818cf8;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.filter-btn {
+    flex: 1;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn-apply {
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    color: white;
+}
+
+.filter-btn-apply:hover {
+    filter: brightness(1.1);
+}
+
+.filter-btn-clear {
+    background: rgba(255, 255, 255, 0.05);
+    color: #a1a1aa;
+}
+
+.filter-btn-clear:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e4e4e7;
+}
+
+/* Linha oculta por filtro */
+tr.filtered-out {
+    display: none !important;
+}
+
+/* Indicador de coluna filtrada */
+.th-filtered .th-btn[data-action="filter"] {
+    background: rgba(129, 140, 248, 0.3);
+    color: #818cf8;
+}
+
+/* Toast de feedback */
+.table-tools-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 12px 20px;
+    background: rgba(26, 26, 46, 0.95);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    border-radius: 8px;
+    color: #34d399;
+    font-size: 13px;
+    font-weight: 500;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    animation: toastSlideIn 0.3s ease;
+}
+
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-tools-toast.fade-out {
+    animation: toastFadeOut 0.3s ease forwards;
+}
+
+@keyframes toastFadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .th-actions {
+        display: none;
+    }
+    
+    .filter-dropdown {
+        min-width: 160px;
+        padding: 10px;
+    }
+}
+    </style>
+<style>
+        :root {
+            --brand-bg: #f7f3ed;
+            --brand-text: #1a1a1a;
+            --brand-accent: #864df9;
+            --brand-gold: #F7E397;
+            --brand-pink: #efcde5;
+            --brand-lilac: #dcd3ef;
+            --brand-lavender: #c7b9ff;
+            --brand-mint: #b0e4da;
+            --brand-font-title: 'Inter Tight', sans-serif;
+            --brand-font-body: 'Inter', sans-serif;
+            --gradient: linear-gradient(135deg, #F7E397, #efcde5, #864df9);
+            --gradient-expanded: linear-gradient(135deg, #F7E397, #efcde5, #b0e4da, #864df9);
+            --card-shadow: 0 2px 16px rgba(134, 77, 249, .08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--brand-font-body);
+            background: var(--brand-bg);
+            color: var(--brand-text);
+            line-height: 1.65;
+            padding: 0;
+        }
+
+        /* ── HEADER ────────────────────────────────────── */
+        .page-header {
+            text-align: center;
+            padding: 48px 24px 32px;
+        }
+
+        .page-header img {
+            width: 180px;
+            margin-bottom: 24px;
+        }
+
+        .page-header h1 {
+            font-family: var(--brand-font-title);
+            font-size: 2rem;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .page-header .subtitle {
+            font-size: .95rem;
+            color: #666;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ── CONTAINER ─────────────────────────────────── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 64px;
+        }
+
+        /* ── STATS ────────────────────────────────────── */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px 16px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            border-top: 4px solid var(--brand-accent);
+        }
+
+        .stat-card.marca1 {
+            border-top-color: var(--brand-lilac);
+        }
+
+        .stat-card.marca2 {
+            border-top-color: var(--brand-gold);
+        }
+
+        .stat-card.marca3 {
+            border-top-color: var(--brand-mint);
+        }
+
+        .stat-value {
+            font-family: var(--brand-font-title);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--brand-accent);
+        }
+
+        .stat-label {
+            font-size: .78rem;
+            color: #888;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        /* ── BRAND SECTION HEADER ─────────────────────── */
+        .brand-section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 20px 24px;
+            margin: 40px 0 16px;
+            border-radius: 16px;
+            color: #fff;
+        }
+
+        .brand-section-header.marca1 {
+            background: linear-gradient(135deg, #7b42e6, #a06af8);
+        }
+
+        .brand-section-header.marca2 {
+            background: linear-gradient(135deg, #b8960a, #d4b42e);
+        }
+
+        .brand-section-header.marca3 {
+            background: linear-gradient(135deg, #1a8a6e, #2db896);
+        }
+
+        .brand-section-header h2 {
+            font-family: var(--brand-font-title);
+            font-size: 1.3rem;
+        }
+
+        .brand-section-header .brand-stats {
+            font-size: .85rem;
+            opacity: .9;
+            margin-left: auto;
+        }
+
+        /* ── SECTION ───────────────────────────────────── */
+        .section-title {
+            font-family: var(--brand-font-title);
+            font-size: 1.15rem;
+            margin: 28px 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-desc {
+            color: #666;
+            font-size: .85rem;
+            margin-bottom: 16px;
+        }
+
+        /* ── TABLE ─────────────────────────────────────── */
+        .kw-table-wrap {
+            overflow-x: auto;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            background: #fff;
+            margin-bottom: 28px;
+        }
+
+        table.kw-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .86rem;
+        }
+
+        table.kw-table thead th {
+            font-family: var(--brand-font-title);
+            font-weight: 700;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            padding: 14px 16px;
+            color: #fff;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            white-space: nowrap;
+            background: var(--brand-accent);
+        }
+
+        .table-marca1 thead th {
+            background: #7b42e6;
+        }
+
+        .table-marca2 thead th {
+            background: #b8960a;
+        }
+
+        .table-marca3 thead th {
+            background: #1a8a6e;
+        }
+
+        table.kw-table thead th:first-child {
+            border-radius: 16px 0 0 0;
+        }
+
+        table.kw-table thead th:last-child {
+            border-radius: 0 16px 0 0;
+        }
+
+        table.kw-table tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f0ebe4;
+            vertical-align: middle;
+        }
+
+        table.kw-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.kw-table tbody tr:hover {
+            background: #faf8f5;
+        }
+
+        tr.ampla-row {
+            background: rgba(134, 77, 249, .04);
+        }
+
+        tr.ampla-row td {
+            border-bottom: 2px solid var(--brand-lavender) !important;
+        }
+
+        table.kw-table tbody td:first-child {
+            font-weight: 600;
+            color: var(--brand-accent);
+            text-align: center;
+            width: 40px;
+        }
+
+        /* ── TAGS ──────────────────────────────────────── */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .3px;
+        }
+
+        .tag-ampla {
+            background: rgba(134, 77, 249, .12);
+            color: var(--brand-accent);
+        }
+
+        .tag-frase {
+            background: rgba(247, 227, 151, .4);
+            color: #8a6d0a;
+        }
+
+        .tag-exata {
+            background: rgba(176, 228, 218, .4);
+            color: #1a6b5a;
+        }
+
+        /* ── SINERGIA BANNER ──────────────────────────── */
+        .sinergia-banner {
+            background: var(--brand-accent);
+            border-radius: 16px;
+            padding: 28px 24px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .sinergia-banner h2 {
+            font-family: var(--brand-font-title);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .sinergia-banner p {
+            font-size: .88rem;
+            max-width: 640px;
+            margin: 0 auto;
+            opacity: .95;
+        }
+
+        /* ── FOOTER ────────────────────────────────────── */
+        .page-footer {
+            text-align: center;
+            padding: 24px;
+            font-size: .78rem;
+            color: #999;
+        }
+
+        /* ── RESPONSIVE ────────────────────────────────── */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+
+            table.kw-table {
+                font-size: .8rem;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .kw-table-wrap {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <a href="https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=keywords&utm_content=header-logo"><img src="https://gui.marketing/wp-content/uploads/2025/02/gui.marketing-1640-x-263-px-1080-x-1080-px.gif"
+            alt="guimarketing"></a>
+        <h1>Google Ads Keywords</h1>
+        <p class="subtitle">Cliente: {{CLIENTE}} • Gerado em: {{DATA}}</p>
+    </header>
+
+    <div class="container">
+
+        <!-- STATS -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value">30</div>
+                <div class="stat-label">Total Keywords</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">1</div>
+                <div class="stat-label">Ampla</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">29</div>
+                <div class="stat-label">Frase/Exata</div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- MARCA ÚNICA — TABELA DE KEYWORDS           -->
+        <!-- ═══════════════════════════════════════════ -->
+        <h3 class="section-title">📌 Lista Estratégica de Palavras-chave</h3>
+        <p class="section-desc">30 keywords categorizadas por tipo e correspondência.</p>
+
+        <div class="kw-table-wrap">
+            <table class="kw-table" id="tabela-keywords">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Palavra-chave</th>
+                        <th>Correspondência</th>
+                        <th>Formato</th>
+                        <th>Justificativa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ampla (1) -->
+                    <tr>
+                        <td>1</td>
+                        <td>[keyword estratégica principal]</td>
+                        <td><span class="tag tag-ampla">Ampla</span></td>
+                        <td>[keyword estratégica principal]</td>
+                        <td>[Justificativa da escolha como ampla]</td>
+                    </tr>
+
+                    <!-- Marca/Produto -->
+                    <tr>
+                        <td>2</td>
+                        <td>[keyword de marca]</td>
+                        <td><span class="tag tag-frase">Frase</span></td>
+                        <td>"[keyword de marca]"</td>
+                        <td>[Justificativa]</td>
+                    </tr>
+
+                    <!-- Solução/Benefício -->
+                    <tr>
+                        <td>3</td>
+                        <td>[keyword de solução]</td>
+                        <td><span class="tag tag-frase">Frase</span></td>
+                        <td>"[keyword de solução]"</td>
+                        <td>[Justificativa]</td>
+                    </tr>
+
+                    <!-- Exata -->
+                    <tr>
+                        <td>4</td>
+                        <td>[keyword de alta intenção]</td>
+                        <td><span class="tag tag-exata">Exata</span></td>
+                        <td>[[keyword de alta intenção]]</td>
+                        <td>[Justificativa]</td>
+                    </tr>
+
+                    <!-- ... repetir até 30 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- MULTI-MARCA (EXEMPLO COM 2 TABELAS)        -->
+        <!-- Descomentar quando necessário               -->
+        <!-- ═══════════════════════════════════════════ -->
+
+        <!--
+        <div class="brand-section-header marca1">
+            <span style="font-size:1.6rem">🟣</span>
+            <h2>{{MARCA_1}} — [Descrição curta]</h2>
+            <span class="brand-stats">30 keywords · 1 ampla · 29 frase/exata</span>
+        </div>
+
+        <div class="kw-table-wrap">
+            <table class="kw-table table-marca1" id="tabela-keywords-marca1">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Palavra-chave</th>
+                        <th>Correspondência</th>
+                        <th>Formato</th>
+                        <th>Justificativa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>[keyword]</td>
+                        <td><span class="tag tag-ampla">Ampla</span></td>
+                        <td>[keyword]</td>
+                        <td>[Justificativa]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="brand-section-header marca2">
+            <span style="font-size:1.6rem">🟡</span>
+            <h2>{{MARCA_2}} — [Descrição curta]</h2>
+            <span class="brand-stats">30 keywords · 1 ampla · 29 frase/exata</span>
+        </div>
+
+        <div class="kw-table-wrap">
+            <table class="kw-table table-marca2" id="tabela-keywords-marca2">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Palavra-chave</th>
+                        <th>Correspondência</th>
+                        <th>Formato</th>
+                        <th>Justificativa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>[keyword]</td>
+                        <td><span class="tag tag-ampla">Ampla</span></td>
+                        <td>[keyword]</td>
+                        <td>[Justificativa]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        -->
+
+        <!-- BANNER KEYWORD AMPLA -->
+        <div class="sinergia-banner">
+            <h2>🔑 Keyword Ampla Estratégica</h2>
+            <p><strong>[keyword estratégica principal]</strong> — [Justificativa resumida da escolha]</p>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <p><a href="https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=keywords&utm_content=footer" style="color:#999;text-decoration:none;">gui.marketing</a> — Todos os direitos reservados</p>
+    </footer>
+
+    <script id="table-tools-inline">
+/**
+ * Table Tools - Filtro, Ordenação e Cópia de Colunas
+ * Auto-inicializa em todas as tabelas da página
+ */
+(function () {
+    'use strict';
+
+    // SVG Icons
+    const ICONS = {
+        sort: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7-7 7 7"/></svg>`,
+        filter: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>`,
+        copy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`,
+        check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`
+    };
+
+    class TableTools {
+        constructor(table) {
+            this.table = table;
+            this.thead = table.querySelector('thead');
+            this.tbody = table.querySelector('tbody');
+            this.sortState = {}; // { colIndex: 'asc' | 'desc' }
+            this.filterState = {}; // { colIndex: 'query' }
+            this.activeDropdown = null;
+
+            if (this.thead && this.tbody) {
+                this.init();
+            }
+        }
+
+        init() {
+            this.setupHeaders();
+            this.setupClickOutside();
+        }
+
+        setupHeaders() {
+            const headers = this.thead.querySelectorAll('th');
+            headers.forEach((th, index) => {
+                this.enhanceHeader(th, index);
+            });
+        }
+
+        enhanceHeader(th, colIndex) {
+            th.classList.add('table-tools-th');
+
+            const originalText = th.textContent.trim();
+
+            th.innerHTML = `
+                <div class="th-controls">
+                    <div class="th-label" data-action="sort" data-col="${colIndex}">
+                        <span>${originalText}</span>
+                        <span class="sort-icon">${ICONS.sort}</span>
+                    </div>
+                    <div class="th-actions">
+                        <button class="th-btn" data-action="filter" data-col="${colIndex}" title="Filtrar">
+                            ${ICONS.filter}
+                        </button>
+                        <button class="th-btn" data-action="copy" data-col="${colIndex}" title="Copiar coluna">
+                            ${ICONS.copy}
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-dropdown" data-col="${colIndex}">
+                    <input type="text" class="filter-input" placeholder="Buscar..." data-col="${colIndex}">
+                    <div class="filter-actions">
+                        <button class="filter-btn filter-btn-clear" data-action="clear-filter" data-col="${colIndex}">Limpar</button>
+                        <button class="filter-btn filter-btn-apply" data-action="apply-filter" data-col="${colIndex}">Aplicar</button>
+                    </div>
+                </div>
+            `;
+
+            // Event listeners
+            th.querySelector('[data-action="sort"]').addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.sortColumn(colIndex);
+            });
+
+            th.querySelector('[data-action="filter"]').addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.toggleFilterDropdown(colIndex, th);
+            });
+
+            th.querySelector('[data-action="copy"]').addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.copyColumn(colIndex, e.currentTarget);
+            });
+
+            th.querySelector('[data-action="apply-filter"]').addEventListener('click', (e) => {
+                e.stopPropagation();
+                const input = th.querySelector('.filter-input');
+                this.applyFilter(colIndex, input.value, th);
+            });
+
+            th.querySelector('[data-action="clear-filter"]').addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.clearFilter(colIndex, th);
+            });
+
+            th.querySelector('.filter-input').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    this.applyFilter(colIndex, e.target.value, th);
+                }
+                if (e.key === 'Escape') {
+                    this.closeAllDropdowns();
+                }
+            });
+        }
+
+        sortColumn(colIndex) {
+            const rows = Array.from(this.tbody.querySelectorAll('tr'));
+            const currentDir = this.sortState[colIndex] || 'none';
+            const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+
+            // Reset all sort icons
+            this.thead.querySelectorAll('.sort-icon').forEach(icon => {
+                icon.classList.remove('asc', 'desc');
+            });
+
+            // Set new sort state
+            this.sortState = { [colIndex]: newDir };
+
+            // Update icon
+            const th = this.thead.querySelectorAll('th')[colIndex];
+            const icon = th.querySelector('.sort-icon');
+            icon.classList.add(newDir);
+
+            // Sort rows
+            rows.sort((a, b) => {
+                const aCell = a.querySelectorAll('td')[colIndex];
+                const bCell = b.querySelectorAll('td')[colIndex];
+
+                const aText = this.getCellText(aCell);
+                const bText = this.getCellText(bCell);
+
+                // Try numeric comparison first
+                const aNum = parseFloat(aText.replace(/[^\d.-]/g, ''));
+                const bNum = parseFloat(bText.replace(/[^\d.-]/g, ''));
+
+                if (!isNaN(aNum) && !isNaN(bNum)) {
+                    return newDir === 'asc' ? aNum - bNum : bNum - aNum;
+                }
+
+                // Fallback to string comparison
+                const comparison = aText.localeCompare(bText, 'pt-BR', { sensitivity: 'base' });
+                return newDir === 'asc' ? comparison : -comparison;
+            });
+
+            // Re-append sorted rows
+            rows.forEach(row => this.tbody.appendChild(row));
+        }
+
+        toggleFilterDropdown(colIndex, th) {
+            const dropdown = th.querySelector('.filter-dropdown');
+            const isActive = dropdown.classList.contains('active');
+
+            this.closeAllDropdowns();
+
+            if (!isActive) {
+                dropdown.classList.add('active');
+                this.activeDropdown = dropdown;
+                dropdown.querySelector('.filter-input').focus();
+            }
+        }
+
+        applyFilter(colIndex, query, th) {
+            const normalizedQuery = query.toLowerCase().trim();
+
+            if (normalizedQuery) {
+                this.filterState[colIndex] = normalizedQuery;
+                th.classList.add('th-filtered');
+            } else {
+                delete this.filterState[colIndex];
+                th.classList.remove('th-filtered');
+            }
+
+            this.updateRowVisibility();
+            this.closeAllDropdowns();
+        }
+
+        clearFilter(colIndex, th) {
+            delete this.filterState[colIndex];
+            th.classList.remove('th-filtered');
+            th.querySelector('.filter-input').value = '';
+            this.updateRowVisibility();
+            this.closeAllDropdowns();
+        }
+
+        updateRowVisibility() {
+            const rows = this.tbody.querySelectorAll('tr');
+
+            rows.forEach(row => {
+                let visible = true;
+
+                for (const [colIndex, query] of Object.entries(this.filterState)) {
+                    const cell = row.querySelectorAll('td')[parseInt(colIndex)];
+                    const cellText = this.getCellText(cell).toLowerCase();
+
+                    if (!cellText.includes(query)) {
+                        visible = false;
+                        break;
+                    }
+                }
+
+                row.classList.toggle('filtered-out', !visible);
+            });
+        }
+
+        copyColumn(colIndex, button) {
+            const rows = this.tbody.querySelectorAll('tr:not(.filtered-out)');
+            const values = [];
+
+            // Detecta se a coluna é de keywords (contém múltiplos valores separados por vírgula)
+            const headerText = this.thead.querySelectorAll('th')[colIndex]?.textContent?.toLowerCase() || '';
+            const isKeywordColumn = headerText.includes('keyword') || headerText.includes('palavra');
+
+            rows.forEach(row => {
+                const cell = row.querySelectorAll('td')[colIndex];
+                if (cell) {
+                    const text = this.getCellText(cell);
+
+                    // Se é coluna de keywords e contém vírgulas, expande para múltiplas linhas
+                    if (isKeywordColumn && text.includes(',')) {
+                        const keywords = text.split(',').map(k => k.trim()).filter(k => k);
+                        keywords.forEach(kw => {
+                            values.push(this.escapeForSheets(kw));
+                        });
+                    } else {
+                        values.push(this.escapeForSheets(text));
+                    }
+                }
+            });
+
+            const text = values.join('\n');
+
+            navigator.clipboard.writeText(text).then(() => {
+                // Visual feedback on button
+                const originalHTML = button.innerHTML;
+                button.innerHTML = ICONS.check;
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                    button.classList.remove('copied');
+                }, 1500);
+
+                // Show toast
+                this.showToast(`${values.length} valores copiados!`);
+            }).catch(err => {
+                console.error('Erro ao copiar:', err);
+                this.showToast('Erro ao copiar', true);
+            });
+        }
+
+        getCellText(cell) {
+            if (!cell) return '';
+            // Get text content, removing extra whitespace
+            return cell.textContent.replace(/\s+/g, ' ').trim();
+        }
+
+        /**
+         * Converte aspas retas para aspas tipográficas (curly quotes) para
+         * compatibilidade com Google Sheets. Aspas retas " são delimitadores CSV
+         * e são removidas pelo Sheets. Aspas curvas são caracteres normais.
+         * U+201C = " (left double quotation mark)
+         * U+201D = " (right double quotation mark)
+         */
+        escapeForSheets(text) {
+            // Substitui "texto" por "texto" (aspas tipográficas)
+            return text.replace(/"([^"]*)"/g, '\u201C$1\u201D');
+        }
+
+        closeAllDropdowns() {
+            document.querySelectorAll('.filter-dropdown.active').forEach(d => {
+                d.classList.remove('active');
+            });
+            this.activeDropdown = null;
+        }
+
+        setupClickOutside() {
+            document.addEventListener('click', (e) => {
+                if (this.activeDropdown && !e.target.closest('.filter-dropdown') && !e.target.closest('[data-action="filter"]')) {
+                    this.closeAllDropdowns();
+                }
+            });
+        }
+
+        showToast(message, isError = false) {
+            // Remove existing toast
+            const existing = document.querySelector('.table-tools-toast');
+            if (existing) existing.remove();
+
+            const toast = document.createElement('div');
+            toast.className = 'table-tools-toast';
+            toast.textContent = message;
+
+            if (isError) {
+                toast.style.borderColor = 'rgba(248, 113, 113, 0.3)';
+                toast.style.color = '#f87171';
+            }
+
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('fade-out');
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+    }
+
+    // Auto-initialize on DOM ready
+    function initTableTools() {
+        document.querySelectorAll('table').forEach(table => {
+            if (!table.classList.contains('table-tools-initialized')) {
+                new TableTools(table);
+                table.classList.add('table-tools-initialized');
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTableTools);
+    } else {
+        initTableTools();
+    }
+})();
+    </script>
+</body>
+
+</html>

@@ -196,3 +196,18 @@ Consultar como referência de formato e profundidade:
 - "capturar estilo visual de {url}"
 - "design system de {marca}"
 - "gerar guia visual baseado em {url}"
+
+---
+
+## Output HTML (Apresentação ao Cliente)
+
+Além do output em Markdown, **gerar versão HTML estilizada** para apresentação ao cliente quando solicitado:
+
+### Regras do HTML:
+1. Usar o design system gui.marketing (Inter Tight/Inter, bg `#f7f3ed`, accent `#864df9`)
+2. Organizar tokens em cards/tabelas com o layout brand do gui.marketing
+3. Header logo com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-design-system-extractor&utm_content=header-logo`
+4. Footer com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-design-system-extractor&utm_content=footer`
+5. Salvar como `design-system-{{CLIENTE}}.html`
+
+> **IMPORTANTE:** O output `.md` DEVE continuar sendo gerado normalmente. O HTML é um output adicional para exibição.

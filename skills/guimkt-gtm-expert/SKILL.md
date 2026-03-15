@@ -166,3 +166,18 @@ Parameterize all client-specific values into constant variables:
 | sGTM URL | `URL de Transporte` → `https://data.domain.com` |
 
 Replace **ALL** hardcoded usages with `{{Variable Name}}` — including inside Custom HTML strings and trigger filter values. The only place a raw value appears is in the constant definition itself.
+
+---
+
+## Output HTML (Apresentação ao Cliente)
+
+Além do output em JSON (container GTM), **gerar versão HTML estilizada** quando solicitado para apresentação ao cliente:
+
+### Regras do HTML:
+1. Usar o design system gui.marketing (Inter Tight/Inter, bg `#f7f3ed`, accent `#864df9`)
+2. Organizar tags/triggers/variables em tabelas com o layout brand
+3. Header logo com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-gtm-expert&utm_content=header-logo`
+4. Footer com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-gtm-expert&utm_content=footer`
+5. Salvar como `gtm-container-{{CLIENTE}}.html`
+
+> **IMPORTANTE:** O output principal continua sendo o JSON do container GTM. O HTML é um output adicional para exibição/documentação.

@@ -400,3 +400,18 @@ for item in bp['flow']:
                 for k, v in body_json.items():
                     print(f"  {k}: {v}")
 ```
+
+---
+
+## Output HTML (Apresentação ao Cliente)
+
+Além do output em JSON (blueprint Make), **gerar versão HTML estilizada** quando solicitado para apresentação/documentação ao cliente:
+
+### Regras do HTML:
+1. Usar o design system gui.marketing (Inter Tight/Inter, bg `#f7f3ed`, accent `#864df9`)
+2. Documentar módulos, routers, filters e connections em tabelas/cards com o layout brand
+3. Header logo com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-make-blueprint-expert&utm_content=header-logo`
+4. Footer com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-make-blueprint-expert&utm_content=footer`
+5. Salvar como `make-blueprint-{{CLIENTE}}.html`
+
+> **IMPORTANTE:** O output principal continua sendo o JSON do blueprint Make. O HTML é um output adicional para documentação.

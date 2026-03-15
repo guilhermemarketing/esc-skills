@@ -153,3 +153,18 @@ The template includes a comprehensive UTM tracking system in the **🔗 UTM Trac
 - Variables: `fc_source`, `fc_medium`, `fc_campaign`, `fc_content`, `fc_fbclid`, `fc_gclid` (and `lc_*` equivalents)
 
 These are sent as GA4 event parameters automatically via the event settings variables.
+
+---
+
+## Output HTML (Apresentação ao Cliente)
+
+Além do output em JSON (container GTM), **gerar versão HTML estilizada** quando solicitado para apresentação ao cliente:
+
+### Regras do HTML:
+1. Usar o design system gui.marketing (Inter Tight/Inter, bg `#f7f3ed`, accent `#864df9`)
+2. Documentar tags, triggers e variables em tabelas com o layout brand
+3. Header logo com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-gtm-expert-template&utm_content=header-logo`
+4. Footer com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-gtm-expert-template&utm_content=footer`
+5. Salvar como `gtm-template-{{CLIENTE}}.html`
+
+> **IMPORTANTE:** O output principal continua sendo o JSON do container GTM. O HTML é um output adicional para documentação.

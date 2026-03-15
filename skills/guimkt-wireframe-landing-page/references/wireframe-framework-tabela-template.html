@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe LP — {{MARCA}}</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style id="table-tools-inline">
+/* Table Tools - Estilos para filtro, ordenação e cópia de colunas */
+
+/* Header interativo */
+.table-tools-th {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s ease;
+}
+
+.table-tools-th:hover {
+    background: rgba(129, 140, 248, 0.2) !important;
+}
+
+/* Container de controles no header */
+.th-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+.th-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+/* Ícone de ordenação */
+.sort-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.4;
+    transition: opacity 0.2s, transform 0.2s;
+    flex-shrink: 0;
+}
+
+.table-tools-th:hover .sort-icon {
+    opacity: 0.8;
+}
+
+.sort-icon.asc {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.sort-icon.desc {
+    opacity: 1;
+    transform: rotate(180deg);
+}
+
+/* Botões de ação */
+.th-actions {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.th-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #a1a1aa;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.th-btn:hover {
+    background: rgba(129, 140, 248, 0.3);
+    color: #c084fc;
+}
+
+.th-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+.th-btn.copied {
+    background: rgba(52, 211, 153, 0.3);
+    color: #34d399;
+}
+
+/* Dropdown de filtro */
+.filter-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    min-width: 200px;
+    background: rgba(26, 26, 46, 0.95);
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 4px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: none;
+}
+
+.filter-dropdown.active {
+    display: block;
+    animation: dropdownFadeIn 0.2s ease;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.filter-input {
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    border-radius: 6px;
+    color: #e4e4e7;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.filter-input::placeholder {
+    color: #71717a;
+}
+
+.filter-input:focus {
+    border-color: #818cf8;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.filter-btn {
+    flex: 1;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn-apply {
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    color: white;
+}
+
+.filter-btn-apply:hover {
+    filter: brightness(1.1);
+}
+
+.filter-btn-clear {
+    background: rgba(255, 255, 255, 0.05);
+    color: #a1a1aa;
+}
+
+.filter-btn-clear:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e4e4e7;
+}
+
+/* Linha oculta por filtro */
+tr.filtered-out {
+    display: none !important;
+}
+
+/* Indicador de coluna filtrada */
+.th-filtered .th-btn[data-action="filter"] {
+    background: rgba(129, 140, 248, 0.3);
+    color: #818cf8;
+}
+
+/* Toast de feedback */
+.table-tools-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 12px 20px;
+    background: rgba(26, 26, 46, 0.95);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    border-radius: 8px;
+    color: #34d399;
+    font-size: 13px;
+    font-weight: 500;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    animation: toastSlideIn 0.3s ease;
+}
+
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-tools-toast.fade-out {
+    animation: toastFadeOut 0.3s ease forwards;
+}
+
+@keyframes toastFadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .th-actions {
+        display: none;
+    }
+    
+    .filter-dropdown {
+        min-width: 160px;
+        padding: 10px;
+    }
+}
+    </style>
+<style>
+        :root {
+            --brand-bg: #f7f3ed;
+            --brand-text: #1a1a1a;
+            --brand-accent: #864df9;
+            --brand-gold: #F7E397;
+            --brand-pink: #efcde5;
+            --brand-lilac: #dcd3ef;
+            --brand-lavender: #c7b9ff;
+            --brand-mint: #b0e4da;
+            --brand-font-title: 'Inter Tight', sans-serif;
+            --brand-font-body: 'Inter', sans-serif;
+            --gradient: linear-gradient(135deg, #F7E397, #efcde5, #864df9);
+            --gradient-expanded: linear-gradient(135deg, #F7E397, #efcde5, #b0e4da, #864df9);
+            --card-shadow: 0 2px 16px rgba(134, 77, 249, .08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--brand-font-body);
+            background: var(--brand-bg);
+            color: var(--brand-text);
+            line-height: 1.65;
+            padding: 0;
+        }
+
+        /* ── HEADER ────────────────────────────────────── */
+        .page-header {
+            text-align: center;
+            padding: 48px 24px 32px;
+        }
+
+        .page-header img {
+            width: 180px;
+            margin-bottom: 24px;
+        }
+
+        .page-header h1 {
+            font-family: var(--brand-font-title);
+            font-size: 2rem;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .page-header .subtitle {
+            font-size: .95rem;
+            color: #666;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ── CONTAINER ─────────────────────────────────── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 64px;
+        }
+
+        /* ── BRAND BADGE ───────────────────────────────── */
+        .brand-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: .75rem;
+            letter-spacing: .3px;
+            background: var(--brand-lilac);
+            color: #4a2896;
+            margin-bottom: 24px;
+        }
+
+        /* ── WIREFRAME TABLE ──────────────────────────── */
+        .wireframe-wrap {
+            overflow-x: auto;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            background: #fff;
+            margin-bottom: 40px;
+        }
+
+        table.wireframe-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .86rem;
+        }
+
+        table.wireframe-table thead th {
+            font-family: var(--brand-font-title);
+            font-weight: 700;
+            font-size: .8rem;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            padding: 14px 16px;
+            background: var(--brand-accent);
+            color: #fff;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        table.wireframe-table thead th:first-child {
+            border-radius: 16px 0 0 0;
+        }
+
+        table.wireframe-table thead th:last-child {
+            border-radius: 0 16px 0 0;
+        }
+
+        table.wireframe-table tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #f0ebe4;
+            vertical-align: top;
+        }
+
+        table.wireframe-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.wireframe-table tbody tr:hover {
+            background: #faf8f5;
+        }
+
+        table.wireframe-table tbody td:first-child {
+            font-weight: 600;
+            font-family: var(--brand-font-title);
+            color: var(--brand-accent);
+            white-space: nowrap;
+            min-width: 140px;
+        }
+
+        table.wireframe-table tbody td:nth-child(2) {
+            font-weight: 600;
+            color: #666;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .3px;
+            white-space: nowrap;
+            min-width: 100px;
+        }
+
+        table.wireframe-table ul {
+            margin: 0;
+            padding-left: 16px;
+        }
+
+        table.wireframe-table ul li {
+            margin-bottom: 4px;
+        }
+
+        .section-separator td {
+            background: var(--brand-lilac) !important;
+            font-family: var(--brand-font-title) !important;
+            font-weight: 700 !important;
+            color: #4a2896 !important;
+            font-size: .82rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: .5px !important;
+            padding: 10px 16px !important;
+        }
+
+        /* ── DEFESA ────────────────────────────────── */
+        .defesa-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--card-shadow);
+            border-top: 4px solid var(--brand-accent);
+            margin-bottom: 40px;
+        }
+
+        .defesa-card h2 {
+            font-family: var(--brand-font-title);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--brand-accent);
+        }
+
+        .defesa-card h3 {
+            font-family: var(--brand-font-title);
+            font-size: .95rem;
+            margin: 20px 0 8px;
+            color: var(--brand-text);
+        }
+
+        .defesa-card p,
+        .defesa-card li {
+            font-size: .88rem;
+            line-height: 1.7;
+        }
+
+        .defesa-card ul {
+            padding-left: 18px;
+        }
+
+        .defesa-card ul li {
+            margin-bottom: 6px;
+        }
+
+        .tag-framework {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 12px;
+            font-size: .72rem;
+            font-weight: 700;
+            background: var(--brand-accent);
+            color: #fff;
+            letter-spacing: .3px;
+            margin-bottom: 16px;
+        }
+
+        /* ── FOOTER ────────────────────────────────────── */
+        .page-footer {
+            text-align: center;
+            padding: 24px;
+            font-size: .78rem;
+            color: #999;
+        }
+
+        /* ── RESPONSIVE ────────────────────────────────── */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+
+            table.wireframe-table {
+                font-size: .8rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .wireframe-wrap,
+            .defesa-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="page-header">
+        <a href="https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=wireframe-framework-tabela&utm_content=header-logo"><img src="https://gui.marketing/wp-content/uploads/2025/02/gui.marketing-1640-x-263-px-1080-x-1080-px.gif"
+            alt="guimarketing"></a>
+        <h1>Wireframe Landing Page — {{MARCA}}</h1>
+        <p class="subtitle">Wireframe em formato de tabela para landing page de geração de SQLs. Framework
+            <strong>{{FRAMEWORK}}</strong> — {{PRODUTO}}.
+        </p>
+    </header>
+
+    <div class="container">
+
+        <span class="brand-badge">{{MARCA}} · {{PRODUTO}}</span>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- TABELA WIREFRAME                           -->
+        <!-- ═══════════════════════════════════════════ -->
+
+        <div class="wireframe-wrap">
+            <table class="wireframe-table" id="wireframe-{{MARCA_SLUG}}">
+                <thead>
+                    <tr>
+                        <th>Seção</th>
+                        <th>Framework</th>
+                        <th>Elemento</th>
+                        <th>Conteúdo</th>
+                        <th>Notas para Designer</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- ── FRAMEWORK STEP 1 ──────────────── -->
+                    <tr class="section-separator">
+                        <td colspan="5">{{STEP_1_LABEL}} ({{STEP_1_DESC}})</td>
+                    </tr>
+
+                    <tr>
+                        <td>Hero Section</td>
+                        <td>{{STEP_1_NAME}}</td>
+                        <td>Headline (H1)</td>
+                        <td>[Headline principal — máx. 2 linhas, impacto emocional]</td>
+                        <td>Fundo escuro ou gradiente. Tipografia bold, impactante. Máximo 2 linhas.</td>
+                    </tr>
+                    <tr>
+                        <td>Hero Section</td>
+                        <td>{{STEP_1_NAME}}</td>
+                        <td>Subheadline</td>
+                        <td>[Subheadline explicativa — máx. 3 linhas]</td>
+                        <td>Texto menor abaixo da headline. Cor mais suave. Max 3 linhas.</td>
+                    </tr>
+                    <tr>
+                        <td>Hero Section</td>
+                        <td>{{STEP_1_NAME}}</td>
+                        <td>CTA Primário</td>
+                        <td>[Texto do botão CTA]</td>
+                        <td>Botão roxo (#864df9) com texto branco. Destaque visual forte.</td>
+                    </tr>
+                    <tr>
+                        <td>Hero Section</td>
+                        <td>{{STEP_1_NAME}}</td>
+                        <td>Trust Bar</td>
+                        <td>[3-4 badges ou credenciais sociais]</td>
+                        <td>Barra horizontal com 3-4 ícones/badges. Fundo levemente diferente do hero.</td>
+                    </tr>
+
+                    <!-- ── FRAMEWORK STEP 2 ──────────────── -->
+                    <tr class="section-separator">
+                        <td colspan="5">{{STEP_2_LABEL}} ({{STEP_2_DESC}})</td>
+                    </tr>
+
+                    <tr>
+                        <td>[Nome seção]</td>
+                        <td>{{STEP_2_NAME}}</td>
+                        <td>Headline (H2)</td>
+                        <td>[Headline da seção]</td>
+                        <td>[Notas de design: fundo, layout, estilo]</td>
+                    </tr>
+                    <tr>
+                        <td>[Nome seção]</td>
+                        <td>{{STEP_2_NAME}}</td>
+                        <td>[Componente UI]</td>
+                        <td>[Conteúdo detalhado — pode incluir listas, cards, etc.]</td>
+                        <td>[Instruções detalhadas para o designer]</td>
+                    </tr>
+
+                    <!-- ── FRAMEWORK STEP 3 ──────────────── -->
+                    <tr class="section-separator">
+                        <td colspan="5">{{STEP_3_LABEL}} ({{STEP_3_DESC}})</td>
+                    </tr>
+
+                    <tr>
+                        <td>[Nome seção]</td>
+                        <td>{{STEP_3_NAME}}</td>
+                        <td>Headline (H2)</td>
+                        <td>[Headline da seção]</td>
+                        <td>[Notas de design]</td>
+                    </tr>
+                    <tr>
+                        <td>[Nome seção]</td>
+                        <td>{{STEP_3_NAME}}</td>
+                        <td>[Componente UI]</td>
+                        <td>[Conteúdo detalhado]</td>
+                        <td>[Instruções para designer]</td>
+                    </tr>
+
+                    <!-- ── FRAMEWORK STEP 4 ──────────────── -->
+                    <tr class="section-separator">
+                        <td colspan="5">{{STEP_4_LABEL}} ({{STEP_4_DESC}})</td>
+                    </tr>
+
+                    <tr>
+                        <td>[Nome seção]</td>
+                        <td>{{STEP_4_NAME}}</td>
+                        <td>Headline (H2)</td>
+                        <td>[Headline da seção]</td>
+                        <td>[Notas de design]</td>
+                    </tr>
+                    <tr>
+                        <td>[Nome seção]</td>
+                        <td>{{STEP_4_NAME}}</td>
+                        <td>[Componente UI]</td>
+                        <td>[Conteúdo detalhado]</td>
+                        <td>[Instruções para designer]</td>
+                    </tr>
+
+                    <!-- ── FRAMEWORK STEP 5 ──────────────── -->
+                    <tr class="section-separator">
+                        <td colspan="5">{{STEP_5_LABEL}} ({{STEP_5_DESC}})</td>
+                    </tr>
+
+                    <tr>
+                        <td>[Nome seção]</td>
+                        <td>{{STEP_5_NAME}}</td>
+                        <td>Headline (H2)</td>
+                        <td>[Headline da seção]</td>
+                        <td>[Notas de design]</td>
+                    </tr>
+                    <tr>
+                        <td>[Nome seção]</td>
+                        <td>{{STEP_5_NAME}}</td>
+                        <td>[Componente UI]</td>
+                        <td>[Conteúdo detalhado]</td>
+                        <td>[Instruções para designer]</td>
+                    </tr>
+
+                    <!-- ── FRAMEWORK STEP 6 ──────────────── -->
+                    <tr class="section-separator">
+                        <td colspan="5">{{STEP_6_LABEL}} ({{STEP_6_DESC}})</td>
+                    </tr>
+
+                    <tr>
+                        <td>Formulário</td>
+                        <td>{{STEP_6_NAME}}</td>
+                        <td>Headline do Form</td>
+                        <td>[Headline do formulário + promessa de resposta]</td>
+                        <td>Formulário em card com fundo branco, sombra e bordas arredondadas.</td>
+                    </tr>
+                    <tr>
+                        <td>Formulário</td>
+                        <td>{{STEP_6_NAME}}</td>
+                        <td>Campos do Form (Lead Scoring)</td>
+                        <td>
+                            <ul>
+                                <li>Nome completo</li>
+                                <li>E-mail corporativo</li>
+                                <li>Telefone / WhatsApp</li>
+                                <li>Empresa</li>
+                                <li>Cargo (dropdown)</li>
+                                <li>Segmento (dropdown)</li>
+                                <li>Principal desafio (dropdown)</li>
+                            </ul>
+                        </td>
+                        <td>Formulário limpo com labels claras. Dropdowns para campos de scoring. Destacar
+                            confidencialidade.</td>
+                    </tr>
+                    <tr>
+                        <td>Formulário</td>
+                        <td>{{STEP_6_NAME}}</td>
+                        <td>CTA do Form</td>
+                        <td>[Texto do botão de envio →]</td>
+                        <td>Botão grande, roxo, full-width dentro do card. Hover com leve brilho.</td>
+                    </tr>
+                    <tr>
+                        <td>Formulário</td>
+                        <td>{{STEP_6_NAME}}</td>
+                        <td>Garantia / Trust</td>
+                        <td>🔒 Seus dados são confidenciais. Respondemos em até 24h úteis. [Oferta] sem compromisso.
+                        </td>
+                        <td>Texto pequeno abaixo do botão. Ícone de cadeado. Fonte 12px, cor cinza.</td>
+                    </tr>
+
+                    <!-- ── SEÇÃO EXTRA — ECOSSISTEMA ────── -->
+                    <tr class="section-separator">
+                        <td colspan="5">SEÇÃO EXTRA — ECOSSISTEMA {{CLIENTE}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Cross-Sell</td>
+                        <td>Extra</td>
+                        <td>Banner Sinergia</td>
+                        <td>[Texto de sinergia entre as marcas do grupo]</td>
+                        <td>Banner horizontal com ícones das marcas. Fundo claro com borda gradiente sutil.</td>
+                    </tr>
+
+                    <!-- ── FOOTER ───────────────────────── -->
+                    <tr class="section-separator">
+                        <td colspan="5">FOOTER</td>
+                    </tr>
+
+                    <tr>
+                        <td>Footer</td>
+                        <td>—</td>
+                        <td>Informações</td>
+                        <td>Logo {{MARCA}} · Redes sociais · Telefone/WhatsApp · "© 2026 {{MARCA}} — {{PRODUTO}}"</td>
+                        <td>Footer minimalista, fundo escuro. Logo centralizada, links de redes e contato abaixo.</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- DEFESA DO WIREFRAME                        -->
+        <!-- ═══════════════════════════════════════════ -->
+
+        <div class="defesa-card">
+            <span class="tag-framework">{{FRAMEWORK}}</span>
+            <h2>Defesa do Wireframe: Framework {{FRAMEWORK}}</h2>
+
+            <h3>1. Justificativa da Escolha</h3>
+            <p>[Explicação de por que este framework foi escolhido entre os analisados]</p>
+            <ul>
+                <li><strong>[Ponto forte 1]</strong> — [Explicação de como se conecta ao ICP e à estratégia]</li>
+                <li><strong>[Ponto forte 2]</strong> — [Explicação de como cria prova/transformação]</li>
+                <li><strong>[Ponto forte 3]</strong> — [Explicação de como estrutura a oferta]</li>
+            </ul>
+
+            <h3>2. Adequação ao Contexto</h3>
+            <ul>
+                <li><strong>Nível de consciência:</strong> [Como o ICP chega à LP e qual nível de awareness]</li>
+                <li><strong>Natureza do produto:</strong> [Tipo de venda e como o framework se adapta]</li>
+                <li><strong>Objetivo (SQL):</strong> [Como o CTA se conecta ao funil de vendas]</li>
+                <li><strong>Canal:</strong> [Canais de tráfego e alinhamento com a LP]</li>
+            </ul>
+
+            <h3>3. Frameworks Descartados</h3>
+            <ul>
+                <li><strong>[Framework A]</strong> — [Motivo do descarte]</li>
+                <li><strong>[Framework B]</strong> — [Motivo do descarte]</li>
+                <li><strong>[Framework C]</strong> — [Motivo do descarte]</li>
+                <li><strong>[Framework D]</strong> — [Motivo do descarte]</li>
+            </ul>
+
+            <h3>4. Resultado Esperado</h3>
+            <ul>
+                <li><strong>Tempo médio na página:</strong> [Estimativa e justificativa]</li>
+                <li><strong>Taxa de conversão estimada:</strong> [Range % e benchmarks comparativos]</li>
+                <li><strong>Qualidade dos leads:</strong> [Como o formulário filtra o ICP]</li>
+                <li><strong>Custo por oportunidade:</strong> [Projeção de redução de custo]</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer class="page-footer">
+        <p><a href="https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=wireframe-framework-tabela&utm_content=footer" style="color:#999;text-decoration:none;">gui.marketing</a> — Todos os direitos reservados</p>
+    </footer>
+
+    <script id="table-tools-inline">
+/**
+ * Table Tools - Filtro, Ordenação e Cópia de Colunas
+ * Auto-inicializa em todas as tabelas da página
+ */
+(function () {
+    'use strict';
+
+    // SVG Icons
+    const ICONS = {
+        sort: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7-7 7 7"/></svg>`,
+        filter: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>`,
+        copy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`,
+        check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`
+    };
+
+    class TableTools {
+        constructor(table) {
+            this.table = table;
+            this.thead = table.querySelector('thead');
+            this.tbody = table.querySelector('tbody');
+            this.sortState = {}; // { colIndex: 'asc' | 'desc' }
+            this.filterState = {}; // { colIndex: 'query' }
+            this.activeDropdown = null;
+
+            if (this.thead && this.tbody) {
+                this.init();
+            }
+        }
+
+        init() {
+            this.setupHeaders();
+            this.setupClickOutside();
+        }
+
+        setupHeaders() {
+            const headers = this.thead.querySelectorAll('th');
+            headers.forEach((th, index) => {
+                this.enhanceHeader(th, index);
+            });
+        }
+
+        enhanceHeader(th, colIndex) {
+            th.classList.add('table-tools-th');
+
+            const originalText = th.textContent.trim();
+
+            th.innerHTML = `
+                <div class="th-controls">
+                    <div class="th-label" data-action="sort" data-col="${colIndex}">
+                        <span>${originalText}</span>
+                        <span class="sort-icon">${ICONS.sort}</span>
+                    </div>
+                    <div class="th-actions">
+                        <button class="th-btn" data-action="filter" data-col="${colIndex}" title="Filtrar">
+                            ${ICONS.filter}
+                        </button>
+                        <button class="th-btn" data-action="copy" data-col="${colIndex}" title="Copiar coluna">
+                            ${ICONS.copy}
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-dropdown" data-col="${colIndex}">
+                    <input type="text" class="filter-input" placeholder="Buscar..." data-col="${colIndex}">
+                    <div class="filter-actions">
+                        <button class="filter-btn filter-btn-clear" data-action="clear-filter" data-col="${colIndex}">Limpar</button>
+                        <button class="filter-btn filter-btn-apply" data-action="apply-filter" data-col="${colIndex}">Aplicar</button>
+                    </div>
+                </div>
+            `;
+
+            // Event listeners
+            th.querySelector('[data-action="sort"]').addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.sortColumn(colIndex);
+            });
+
+            th.querySelector('[data-action="filter"]').addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.toggleFilterDropdown(colIndex, th);
+            });
+
+            th.querySelector('[data-action="copy"]').addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.copyColumn(colIndex, e.currentTarget);
+            });
+
+            th.querySelector('[data-action="apply-filter"]').addEventListener('click', (e) => {
+                e.stopPropagation();
+                const input = th.querySelector('.filter-input');
+                this.applyFilter(colIndex, input.value, th);
+            });
+
+            th.querySelector('[data-action="clear-filter"]').addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.clearFilter(colIndex, th);
+            });
+
+            th.querySelector('.filter-input').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    this.applyFilter(colIndex, e.target.value, th);
+                }
+                if (e.key === 'Escape') {
+                    this.closeAllDropdowns();
+                }
+            });
+        }
+
+        sortColumn(colIndex) {
+            const rows = Array.from(this.tbody.querySelectorAll('tr'));
+            const currentDir = this.sortState[colIndex] || 'none';
+            const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+
+            // Reset all sort icons
+            this.thead.querySelectorAll('.sort-icon').forEach(icon => {
+                icon.classList.remove('asc', 'desc');
+            });
+
+            // Set new sort state
+            this.sortState = { [colIndex]: newDir };
+
+            // Update icon
+            const th = this.thead.querySelectorAll('th')[colIndex];
+            const icon = th.querySelector('.sort-icon');
+            icon.classList.add(newDir);
+
+            // Sort rows
+            rows.sort((a, b) => {
+                const aCell = a.querySelectorAll('td')[colIndex];
+                const bCell = b.querySelectorAll('td')[colIndex];
+
+                const aText = this.getCellText(aCell);
+                const bText = this.getCellText(bCell);
+
+                // Try numeric comparison first
+                const aNum = parseFloat(aText.replace(/[^\d.-]/g, ''));
+                const bNum = parseFloat(bText.replace(/[^\d.-]/g, ''));
+
+                if (!isNaN(aNum) && !isNaN(bNum)) {
+                    return newDir === 'asc' ? aNum - bNum : bNum - aNum;
+                }
+
+                // Fallback to string comparison
+                const comparison = aText.localeCompare(bText, 'pt-BR', { sensitivity: 'base' });
+                return newDir === 'asc' ? comparison : -comparison;
+            });
+
+            // Re-append sorted rows
+            rows.forEach(row => this.tbody.appendChild(row));
+        }
+
+        toggleFilterDropdown(colIndex, th) {
+            const dropdown = th.querySelector('.filter-dropdown');
+            const isActive = dropdown.classList.contains('active');
+
+            this.closeAllDropdowns();
+
+            if (!isActive) {
+                dropdown.classList.add('active');
+                this.activeDropdown = dropdown;
+                dropdown.querySelector('.filter-input').focus();
+            }
+        }
+
+        applyFilter(colIndex, query, th) {
+            const normalizedQuery = query.toLowerCase().trim();
+
+            if (normalizedQuery) {
+                this.filterState[colIndex] = normalizedQuery;
+                th.classList.add('th-filtered');
+            } else {
+                delete this.filterState[colIndex];
+                th.classList.remove('th-filtered');
+            }
+
+            this.updateRowVisibility();
+            this.closeAllDropdowns();
+        }
+
+        clearFilter(colIndex, th) {
+            delete this.filterState[colIndex];
+            th.classList.remove('th-filtered');
+            th.querySelector('.filter-input').value = '';
+            this.updateRowVisibility();
+            this.closeAllDropdowns();
+        }
+
+        updateRowVisibility() {
+            const rows = this.tbody.querySelectorAll('tr');
+
+            rows.forEach(row => {
+                let visible = true;
+
+                for (const [colIndex, query] of Object.entries(this.filterState)) {
+                    const cell = row.querySelectorAll('td')[parseInt(colIndex)];
+                    const cellText = this.getCellText(cell).toLowerCase();
+
+                    if (!cellText.includes(query)) {
+                        visible = false;
+                        break;
+                    }
+                }
+
+                row.classList.toggle('filtered-out', !visible);
+            });
+        }
+
+        copyColumn(colIndex, button) {
+            const rows = this.tbody.querySelectorAll('tr:not(.filtered-out)');
+            const values = [];
+
+            // Detecta se a coluna é de keywords (contém múltiplos valores separados por vírgula)
+            const headerText = this.thead.querySelectorAll('th')[colIndex]?.textContent?.toLowerCase() || '';
+            const isKeywordColumn = headerText.includes('keyword') || headerText.includes('palavra');
+
+            rows.forEach(row => {
+                const cell = row.querySelectorAll('td')[colIndex];
+                if (cell) {
+                    const text = this.getCellText(cell);
+
+                    // Se é coluna de keywords e contém vírgulas, expande para múltiplas linhas
+                    if (isKeywordColumn && text.includes(',')) {
+                        const keywords = text.split(',').map(k => k.trim()).filter(k => k);
+                        keywords.forEach(kw => {
+                            values.push(this.escapeForSheets(kw));
+                        });
+                    } else {
+                        values.push(this.escapeForSheets(text));
+                    }
+                }
+            });
+
+            const text = values.join('\n');
+
+            navigator.clipboard.writeText(text).then(() => {
+                // Visual feedback on button
+                const originalHTML = button.innerHTML;
+                button.innerHTML = ICONS.check;
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                    button.classList.remove('copied');
+                }, 1500);
+
+                // Show toast
+                this.showToast(`${values.length} valores copiados!`);
+            }).catch(err => {
+                console.error('Erro ao copiar:', err);
+                this.showToast('Erro ao copiar', true);
+            });
+        }
+
+        getCellText(cell) {
+            if (!cell) return '';
+            // Get text content, removing extra whitespace
+            return cell.textContent.replace(/\s+/g, ' ').trim();
+        }
+
+        /**
+         * Converte aspas retas para aspas tipográficas (curly quotes) para
+         * compatibilidade com Google Sheets. Aspas retas " são delimitadores CSV
+         * e são removidas pelo Sheets. Aspas curvas são caracteres normais.
+         * U+201C = " (left double quotation mark)
+         * U+201D = " (right double quotation mark)
+         */
+        escapeForSheets(text) {
+            // Substitui "texto" por "texto" (aspas tipográficas)
+            return text.replace(/"([^"]*)"/g, '\u201C$1\u201D');
+        }
+
+        closeAllDropdowns() {
+            document.querySelectorAll('.filter-dropdown.active').forEach(d => {
+                d.classList.remove('active');
+            });
+            this.activeDropdown = null;
+        }
+
+        setupClickOutside() {
+            document.addEventListener('click', (e) => {
+                if (this.activeDropdown && !e.target.closest('.filter-dropdown') && !e.target.closest('[data-action="filter"]')) {
+                    this.closeAllDropdowns();
+                }
+            });
+        }
+
+        showToast(message, isError = false) {
+            // Remove existing toast
+            const existing = document.querySelector('.table-tools-toast');
+            if (existing) existing.remove();
+
+            const toast = document.createElement('div');
+            toast.className = 'table-tools-toast';
+            toast.textContent = message;
+
+            if (isError) {
+                toast.style.borderColor = 'rgba(248, 113, 113, 0.3)';
+                toast.style.color = '#f87171';
+            }
+
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('fade-out');
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+    }
+
+    // Auto-initialize on DOM ready
+    function initTableTools() {
+        document.querySelectorAll('table').forEach(table => {
+            if (!table.classList.contains('table-tools-initialized')) {
+                new TableTools(table);
+                table.classList.add('table-tools-initialized');
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTableTools);
+    } else {
+        initTableTools();
+    }
+})();
+    </script>
+</body>
+
+</html>

@@ -2,47 +2,27 @@
 name: guimkt-google-ads
 description: >
   Skill completa de Google Ads Search para geração de leads qualificados (SQLs).
-  Pipeline sequencial em 3 fases: (1) Keywords positivas, (2) Keywords negativas,
-  (3) Anúncios responsivos (RSA). Requer ICP previamente gerado pela skill
-  guimkt-icp-ideal-customer-profile. Cada fase pode ser executada individualmente.
-  Use quando o usuário pedir para criar campanhas de Google Ads,
+  Pipeline sequencial em 4 fases: (1) ICP, (2) Keywords positivas, (3) Keywords negativas,
+  (4) Anúncios responsivos (RSA). Cada fase pode ser executada individualmente.
+  Use quando o usuário pedir para criar campanhas de Google Ads, definir ICP para mídia paga,
   gerar keywords para Google Ads, criar lista de keywords negativas, criar anúncios de texto
   responsivo, montar RSA, ou qualquer variação de "Google Ads", "campanha de pesquisa",
   "search ads", "keywords Google", "anúncios responsivos", "negativar palavras-chave",
-  "gerar leads com Google", "campanha de busca".
+  "ICP para tráfego pago", "gerar leads com Google", "campanha de busca".
   Suporta múltiplas marcas por cliente.
 ---
 
 # guimkt-google-ads
 
-Skill completa para criar campanhas de Google Ads Search focadas em geração de leads qualificados (SQLs). Pipeline de 3 fases sequenciais, cada uma executável individualmente.
+Skill completa para criar campanhas de Google Ads Search focadas em geração de leads qualificados (SQLs). Pipeline de 4 fases sequenciais, cada uma executável individualmente.
 
 ## Pipeline Overview
 
 ```
-Pré-req: ICP (guimkt-icp-ideal-customer-profile) → Fase 1: Keywords → Fase 2: Keywords Negativas → Fase 3: Anúncios RSA
+Fase 1: ICP → Fase 2: Keywords → Fase 3: Keywords Negativas → Fase 4: Anúncios RSA
 ```
 
 Cada fase produz um deliverable que alimenta a próxima. Executar na ordem; é possível pular para uma fase se os deliverables anteriores já existirem.
-
-## Pré-requisito: ICP
-
-Antes de executar qualquer fase, verificar se o arquivo `icp-consolidado-{{CLIENTE}}.md` existe.
-
-- **Se existir:** Carregar e usar como base para todas as fases.
-- **Se não existir:** **PARAR** e instruir o usuário a rodar a skill `guimkt-icp-ideal-customer-profile` primeiro. O ICP é fundamental para a qualidade das keywords e anúncios gerados.
-
-### Skills Complementares (Ecossistema guimkt)
-
-Verificar se estas skills estão disponíveis. Se ausente, **recomendar a instalação** com justificativa:
-
-| Skill | Status | Justificativa |
-|-------|--------|---------------|
-| `guimkt-icp-ideal-customer-profile` | **Obrigatória** | Define público, dores e critérios de decisão. Sem ICP, keywords serão genéricas e anúncios terão baixo Quality Score. |
-| `guimkt-landing-page` | Recomendada | Cria LPs premium para receber o tráfego dos anúncios. Anúncio sem LP otimizada = budget desperdiçado. |
-| `guimkt-landing-page-optimization` | Recomendada | Otimiza a LP existente para maximizar conversão dos leads vindos dos anúncios. |
-| `guimkt-classic-ad-creative` | Opcional | Gera conceitos visuais complementares para campanhas Display/YouTube. |
-| `marketing-psychology` | Opcional | Modelos mentais para copy de anúncios mais persuasiva. |
 
 ## Pre-flight: Coletar Briefing
 
@@ -60,15 +40,57 @@ Se o usuário fornecer um documento de briefing (PDF, DOCX, etc.), extrair essas
 
 > **Regra de ouro:** Nunca carregar briefing bruto no contexto de geração. Usar apenas o resumo compilado.
 
+## Fase 1: Definição de ICP
+
+### Objetivo
+Definir o Ideal Customer Profile para orientar todas as campanhas.
+
+### Inputs
+- Briefing compilado do cliente
+
+### Prompt de Geração
+
+Executar o seguinte prompt usando **apenas** o briefing compilado:
+
+> Pretendo criar campanhas para gerar SQLs para vender as soluções da **{{EMPRESA}}**.
+>
+> Com base nas informações do briefing fornecido, defina o ICP da **{{EMPRESA}}**.
+>
+> Escreva o ICP contendo as seguintes dimensões:
+>
+> | Dimensão | Descrição |
+> |----------|-----------|
+> | **Faixa Etária** | Idade típica do decisor |
+> | **Profissão** | Área de atuação profissional |
+> | **Cargo** | Posição hierárquica na empresa |
+> | **Setor** | Segmentos de mercado prioritários |
+> | **Formação** | Background educacional relevante |
+> | **Objetivos** | O que busca alcançar profissionalmente |
+> | **Dores** | Problemas e frustrações atuais |
+> | **Necessidades** | O que precisa para resolver suas dores |
+> | **Tópicos de Interesse** | Assuntos que consome e pesquisa |
+>
+> Enriqueça com perfil psicográfico: critérios de decisão de compra, nível de consciência sobre o problema, objeções comuns e canais de aquisição preferidos.
+
+### Critérios de Qualidade
+- Todas as 9 dimensões preenchidas
+- Informações baseadas no briefing (não inventar dados)
+- Linguagem clara e específica ao mercado do cliente
+- Perfil psicográfico inclui: critérios de decisão, nível de consciência, objeções, canais
+
+### Output
+- Tabela com as 9 dimensões + bloco psicográfico
+- Presentar ao usuário para revisão antes de avançar
+
 ---
 
-## Fase 1: Keywords Positivas (30 por marca)
+## Fase 2: Keywords Positivas (30 por marca)
 
 ### Objetivo
 Gerar lista estruturada de palavras-chave para Google Ads Search com foco em leads qualificados.
 
 ### Inputs
-- ICP (`icp-consolidado-{{CLIENTE}}.md`)
+- ICP definido na Fase 1
 - Briefing compilado
 
 ### Detecção de Marcas
@@ -122,14 +144,14 @@ Analisar o briefing e identificar quantas marcas/unidades de negócio existem:
 
 ---
 
-## Fase 2: Keywords Negativas
+## Fase 3: Keywords Negativas
 
 ### Objetivo
 Avaliar e enriquecer lista de keywords negativas para qualificar o tráfego das campanhas.
 
 ### Inputs
-- ICP (`icp-consolidado-{{CLIENTE}}.md`)
-- Keywords positivas (Fase 1)
+- ICP (Fase 1)
+- Keywords positivas (Fase 2)
 - Briefing compilado
 
 ### Prompt de Geração
@@ -165,15 +187,15 @@ Avaliar e enriquecer lista de keywords negativas para qualificar o tráfego das 
 
 ---
 
-## Fase 3: Anúncios Responsivos (RSA)
+## Fase 4: Anúncios Responsivos (RSA)
 
 ### Objetivo
 Criar anúncios de texto responsivo completos para Google Ads Search.
 
 ### Inputs
-- ICP (`icp-consolidado-{{CLIENTE}}.md`)
-- Keywords positivas (Fase 1)
-- Keywords negativas (Fase 2, recomendado)
+- ICP (Fase 1)
+- Keywords positivas (Fase 2)
+- Keywords negativas (Fase 3, recomendado)
 - Briefing compilado
 
 ### Multi-marca
@@ -256,7 +278,27 @@ Para cada marca, montar um preview simulando o anúncio no Google Search:
 - **Revisão:** Sempre apresentar output ao usuário e aguardar aprovação antes de avançar.
 - **Formato flexível:** O output pode ser em Markdown, HTML, ou outro formato conforme o contexto do projeto. A skill não impõe layout visual específico — apenas a estrutura de conteúdo.
 
+## Output HTML (Apresentação ao Cliente)
+
+Além do output em Markdown (usado para handoff entre etapas), **gerar versão HTML estilizada** para apresentação ao cliente:
+
+- **Fase 2 (Keywords):** Usar template `references/keywords-template.html`
+- **Fase 3 (Negativas):** Usar template `references/keywords-negativas-template.html`
+- **Fase 4 (Anúncios):** Usar template `references/anuncios-google-template.html`
+
+### Regras do HTML:
+1. Substituir placeholders `{{CLIENTE}}`, `{{DATA}}`, `{{MARCA}}`, etc.
+2. Preencher tabelas/cards com dados reais gerados
+3. Header logo com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-google-ads&utm_content=header-logo`
+4. Footer com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-google-ads&utm_content=footer`
+5. Salvar como `[tipo]-{{CLIENTE}}.html` (ex: `keywords-AcmeCorp.html`)
+
+> **IMPORTANTE:** O output `.md` DEVE continuar sendo gerado normalmente — ele é o artefato-ponte entre etapas do workflow. O HTML é um output adicional para exibição.
+
+---
+
 ## Referências
 
 - **Lista base de keywords negativas:** Ver [negative-keywords-base.md](references/negative-keywords-base.md) para a lista completa de ~100 termos universais como ponto de partida.
 - **Exemplos de output:** Ver [output-examples.md](references/output-examples.md) para exemplos de cada fase.
+- **Templates HTML:** Os templates `.html` estão em `references/` dentro desta skill.

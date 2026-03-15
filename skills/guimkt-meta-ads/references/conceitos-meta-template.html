@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criativos Meta Ads — {{CLIENTE}}</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style id="table-tools-inline">
+        /* Table Tools - Estilos para filtro, ordenação e cópia de colunas */
+
+        /* Header interativo */
+        .table-tools-th {
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+
+        .table-tools-th:hover {
+            background: rgba(129, 140, 248, 0.2) !important;
+        }
+
+        /* Container de controles no header */
+        .th-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: space-between;
+        }
+
+        .th-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+        }
+
+        /* Ícone de ordenação */
+        .sort-icon {
+            width: 14px;
+            height: 14px;
+            opacity: 0.4;
+            transition: opacity 0.2s, transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .table-tools-th:hover .sort-icon {
+            opacity: 0.8;
+        }
+
+        .sort-icon.asc {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+        .sort-icon.desc {
+            opacity: 1;
+            transform: rotate(180deg);
+        }
+
+        /* Botões de ação */
+        .th-actions {
+            display: flex;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+
+        .th-btn {
+            width: 24px;
+            height: 24px;
+            border: none;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #a1a1aa;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            padding: 0;
+        }
+
+        .th-btn:hover {
+            background: rgba(129, 140, 248, 0.3);
+            color: #c084fc;
+        }
+
+        .th-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .th-btn.copied {
+            background: rgba(52, 211, 153, 0.3);
+            color: #34d399;
+        }
+
+        /* Dropdown de filtro */
+        .filter-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            min-width: 200px;
+            background: rgba(26, 26, 46, 0.95);
+            border: 1px solid rgba(129, 140, 248, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 4px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            display: none;
+        }
+
+        .filter-dropdown.active {
+            display: block;
+            animation: dropdownFadeIn 0.2s ease;
+        }
+
+        @keyframes dropdownFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .filter-input {
+            width: 100%;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(129, 140, 248, 0.2);
+            border-radius: 6px;
+            color: #e4e4e7;
+            font-size: 13px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .filter-input::placeholder {
+            color: #71717a;
+        }
+
+        .filter-input:focus {
+            border-color: #818cf8;
+        }
+
+        .filter-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .filter-btn {
+            flex: 1;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn-apply {
+            background: linear-gradient(135deg, #818cf8, #c084fc);
+            color: white;
+        }
+
+        .filter-btn-apply:hover {
+            filter: brightness(1.1);
+        }
+
+        .filter-btn-clear {
+            background: rgba(255, 255, 255, 0.05);
+            color: #a1a1aa;
+        }
+
+        .filter-btn-clear:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e4e4e7;
+        }
+
+        /* Linha oculta por filtro */
+        tr.filtered-out {
+            display: none !important;
+        }
+
+        /* Indicador de coluna filtrada */
+        .th-filtered .th-btn[data-action="filter"] {
+            background: rgba(129, 140, 248, 0.3);
+            color: #818cf8;
+        }
+
+        /* Toast de feedback */
+        .table-tools-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            padding: 12px 20px;
+            background: rgba(26, 26, 46, 0.95);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            border-radius: 8px;
+            color: #34d399;
+            font-size: 13px;
+            font-weight: 500;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            z-index: 9999;
+            animation: toastSlideIn 0.3s ease;
+        }
+
+        @keyframes toastSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .table-tools-toast.fade-out {
+            animation: toastFadeOut 0.3s ease forwards;
+        }
+
+        @keyframes toastFadeOut {
+            to {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .th-actions {
+                display: none;
+            }
+
+            .filter-dropdown {
+                min-width: 160px;
+                padding: 10px;
+            }
+        }
+    </style>
+    <style>
+        :root {
+            --brand-bg: #f7f3ed;
+            --brand-text: #1a1a1a;
+            --brand-accent: #864df9;
+            --brand-gold: #F7E397;
+            --brand-pink: #efcde5;
+            --brand-lilac: #dcd3ef;
+            --brand-lavender: #c7b9ff;
+            --brand-mint: #b0e4da;
+            --brand-font-title: 'Inter Tight', sans-serif;
+            --brand-font-body: 'Inter', sans-serif;
+            --gradient: linear-gradient(135deg, #F7E397, #efcde5, #864df9);
+            --gradient-expanded: linear-gradient(135deg, #F7E397, #efcde5, #b0e4da, #864df9);
+            --card-shadow: 0 2px 16px rgba(134, 77, 249, .08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--brand-font-body);
+            background: var(--brand-bg);
+            color: var(--brand-text);
+            line-height: 1.65;
+            padding: 0;
+        }
+
+        /* ── HEADER ────────────────────────────────────── */
+        .page-header {
+            text-align: center;
+            padding: 48px 24px 32px;
+        }
+
+        .page-header img {
+            width: 180px;
+            margin-bottom: 24px;
+        }
+
+        .page-header h1 {
+            font-family: var(--brand-font-title);
+            font-size: 2rem;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .page-header .subtitle {
+            font-size: .95rem;
+            color: #666;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ── CONTAINER ─────────────────────────────────── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 64px;
+        }
+
+        /* ── SECTION ───────────────────────────────────── */
+        .section-title {
+            font-family: var(--brand-font-title);
+            font-size: 1.35rem;
+            margin: 48px 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title .emoji {
+            font-size: 1.5rem;
+        }
+
+        .section-desc {
+            color: #666;
+            font-size: .88rem;
+            margin-bottom: 20px;
+        }
+
+        /* ── SUMMARY GRID ────────────────────────────── */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-bottom: 48px;
+        }
+
+        .summary-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: var(--card-shadow);
+            border-left: 4px solid var(--brand-accent);
+        }
+
+        .summary-card .num {
+            font-family: var(--brand-font-title);
+            font-size: 1.8rem;
+            color: var(--brand-accent);
+            opacity: .2;
+            line-height: 1;
+        }
+
+        .summary-card h3 {
+            font-family: var(--brand-font-title);
+            font-size: .95rem;
+            margin: 8px 0 4px;
+        }
+
+        .summary-card .meta {
+            font-size: .78rem;
+            color: #888;
+        }
+
+        .summary-card.brand-m1 {
+            border-left-color: var(--marca1-accent);
+        }
+
+        .summary-card.brand-m2 {
+            border-left-color: var(--marca2-accent);
+        }
+
+        .summary-card.brand-m3 {
+            border-left-color: var(--marca3-accent);
+        }
+
+        .summary-card.brand-all {
+            border-left-color: var(--brand-pink);
+        }
+
+        /* ── CONCEITO SECTION ─────────────────────────── */
+        .conceito {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-top: 5px solid var(--brand-accent);
+        }
+
+        .conceito.marca-1 {
+            border-top-color: var(--marca1-accent);
+        }
+
+        .conceito.marca-2 {
+            border-top-color: var(--marca2-accent);
+        }
+
+        .conceito.marca-3 {
+            border-top-color: var(--marca3-accent);
+        }
+
+        .conceito.marca-grupo {
+            border-top-color: var(--brand-pink);
+        }
+
+        .conceito-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .conceito-header .numero {
+            font-family: var(--brand-font-title);
+            font-size: 3rem;
+            line-height: 1;
+            color: var(--brand-accent);
+            opacity: .25;
+            flex-shrink: 0;
+        }
+
+        .conceito-header .info h2 {
+            font-family: var(--brand-font-title);
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+        }
+
+        .conceito-header .info .badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: .72rem;
+            letter-spacing: .3px;
+        }
+
+        .badge-marca1 {
+            background: var(--brand-lilac);
+            color: #4a2896;
+        }
+
+        .badge-marca2 {
+            background: var(--brand-gold);
+            color: #6d5a0a;
+        }
+
+        .badge-marca3 {
+            background: var(--brand-mint);
+            color: #1a6b5a;
+        }
+
+        .badge-grupo {
+            background: var(--brand-pink);
+            color: #8a3667;
+        }
+
+        .badge-formato {
+            background: #f0ebe4;
+            color: #555;
+        }
+
+        .badge-angulo {
+            background: #e8e0f5;
+            color: #5b3da0;
+        }
+
+        /* ── ESTRATÉGIA GRID ─────────────────────────── */
+        .estrategia {
+            background: #faf8f5;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            font-size: .88rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .estrategia .field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .estrategia .field-label {
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            color: #999;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .estrategia .field-value {
+            font-weight: 500;
+        }
+
+        /* ── COPY TABLE ──────────────────────────────── */
+        .copy-table-wrap {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, .04);
+            margin-bottom: 24px;
+        }
+
+        table.copy-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .88rem;
+        }
+
+        table.copy-table thead th {
+            font-family: var(--brand-font-title);
+            font-weight: 700;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            padding: 14px 18px;
+            background: var(--brand-accent);
+            color: #fff;
+            text-align: left;
+        }
+
+        table.copy-table thead th:first-child {
+            border-radius: 12px 0 0 0;
+        }
+
+        table.copy-table thead th:last-child {
+            border-radius: 0 12px 0 0;
+        }
+
+        table.copy-table tbody td {
+            padding: 12px 18px;
+            border-bottom: 1px solid #f0ebe4;
+            vertical-align: top;
+        }
+
+        table.copy-table tbody td:first-child {
+            font-weight: 600;
+            font-family: var(--brand-font-title);
+            color: var(--brand-accent);
+            white-space: nowrap;
+            min-width: 140px;
+        }
+
+        /* ── VISUAL CONCEPT ──────────────────────────── */
+        .visual-concept {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+            align-items: start;
+        }
+
+        .visual-concept img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+        }
+
+        .visual-desc h4 {
+            font-family: var(--brand-font-title);
+            font-size: .95rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .visual-desc ul {
+            padding-left: 18px;
+            font-size: .88rem;
+        }
+
+        .visual-desc ul li {
+            margin-bottom: 6px;
+        }
+
+        /* ── ADAPTAÇÕES ──────────────────────────────── */
+        .adaptacoes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .adaptacao-card {
+            background: #faf8f5;
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .adaptacao-card h5 {
+            font-family: var(--brand-font-title);
+            font-size: .82rem;
+            margin-bottom: 6px;
+            color: var(--brand-accent);
+        }
+
+        .adaptacao-card p {
+            font-size: .82rem;
+            color: #666;
+        }
+
+        /* ── CHECKLIST ────────────────────────────────── */
+        .checklist {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 40px;
+        }
+
+        .checklist h3 {
+            font-family: var(--brand-font-title);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 8px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .85rem;
+            padding: 6px 0;
+        }
+
+        .check-item .check {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .75rem;
+            flex-shrink: 0;
+        }
+
+        /* ── FOOTER ────────────────────────────────────── */
+        .page-footer {
+            text-align: center;
+            padding: 24px;
+            font-size: .78rem;
+            color: #999;
+        }
+
+        /* ── RESPONSIVE ────────────────────────────────── */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .conceito {
+                padding: 24px;
+            }
+
+            .visual-concept {
+                grid-template-columns: 1fr;
+            }
+
+            .adaptacoes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .conceito-header {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .conceito {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            .checklist {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <a href="https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=conceitos-meta&utm_content=header-logo"><img src="https://gui.marketing/wp-content/uploads/2025/02/gui.marketing-1640-x-263-px-1080-x-1080-px.gif"
+            alt="guimarketing"></a>
+        <h1>Criativos Meta Ads — {{CLIENTE}}</h1>
+        <p class="subtitle">5 conceitos criativos para <strong>Facebook</strong> e <strong>Instagram</strong> visando
+            [objetivo] para <strong>{{MARCA_1}}</strong>.
+        </p>
+    </header>
+
+    <div class="container">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SUMÁRIO DOS 5 CONCEITOS                    -->
+        <!-- ═══════════════════════════════════════════ -->
+        <h2 class="section-title"><span class="emoji">📋</span> Sumário dos Conceitos</h2>
+        <p class="section-desc">Visão geral dos 5 conceitos com ângulos, formatos e marcas diversificados.</p>
+
+        <div class="summary-grid">
+            <div class="summary-card brand-m1">
+                <div class="num">01</div>
+                <h3>[Título Conceito 1]</h3>
+                <p class="meta">{{MARCA_1}} · [Formato] · [Ângulo]</p>
+            </div>
+            <div class="summary-card brand-m1">
+                <div class="num">02</div>
+                <h3>[Título Conceito 2]</h3>
+                <p class="meta">{{MARCA_1}} · [Formato] · [Ângulo]</p>
+            </div>
+            <div class="summary-card brand-m1">
+                <div class="num">03</div>
+                <h3>[Título Conceito 3]</h3>
+                <p class="meta">{{MARCA_1}} · [Formato] · [Ângulo]</p>
+            </div>
+            <div class="summary-card brand-m1">
+                <div class="num">04</div>
+                <h3>[Título Conceito 4]</h3>
+                <p class="meta">{{MARCA_1}} · [Formato] · [Ângulo]</p>
+            </div>
+            <div class="summary-card brand-m1">
+                <div class="num">05</div>
+                <h3>[Título Conceito 5]</h3>
+                <p class="meta">{{MARCA_1}} · [Formato] · [Ângulo]</p>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- CONCEITO 1                                 -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="conceito marca-1" id="conceito-1">
+            <div class="conceito-header">
+                <div class="numero">01</div>
+                <div class="info">
+                    <h2>[Título do Conceito 1] — [Subtítulo]</h2>
+                    <div class="badges">
+                        <span class="badge badge-marca1">{{MARCA_1}}</span>
+                        <span class="badge badge-formato">[Feed 4:5 / Stories 9:16 / 1:1]</span>
+                        <span class="badge badge-angulo">[Ângulo psicológico]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="estrategia">
+                <div class="field">
+                    <span class="field-label">Conceito</span>
+                    <span class="field-value">[Nome do conceito]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Formato</span>
+                    <span class="field-value">[Feed 4:5 (imagem estática)]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Objetivo</span>
+                    <span class="field-value">[Conversão / Tráfego / Awareness]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Ângulo</span>
+                    <span class="field-value">[Ângulo criativo + psicológico]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Psicologia</span>
+                    <span class="field-value">[Modelo mental aplicado]</span>
+                </div>
+            </div>
+
+            <div class="copy-table-wrap">
+                <table class="copy-table" id="copy-conceito-1">
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Conteúdo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Headline</td>
+                            <td>[Headline curta e impactante]</td>
+                        </tr>
+                        <tr>
+                            <td>Texto principal</td>
+                            <td>[Texto principal do anúncio — máx. 3 linhas]</td>
+                        </tr>
+                        <tr>
+                            <td>Descrição</td>
+                            <td>[Descrição curta]</td>
+                        </tr>
+                        <tr>
+                            <td>CTA</td>
+                            <td>[Texto do botão CTA]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="visual-concept">
+                <img src="esbocos/conceito1-[slug].png" alt="Esboço conceito 1">
+                <div class="visual-desc">
+                    <h4>🎨 Conceito Visual</h4>
+                    <ul>
+                        <li><strong>Cena:</strong> [Descrição detalhada da cena visual]</li>
+                        <li><strong>Paleta:</strong> [Cores principais + referências hex]</li>
+                        <li><strong>Estilo:</strong> [Estilo fotográfico ou gráfico]</li>
+                        <li><strong>Overlay:</strong> [Máx. 4 palavras de texto overlay]</li>
+                        <li><strong>Regra 20% texto:</strong> ✅ [Compliance com regra de texto]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="adaptacoes-grid">
+                <div class="adaptacao-card">
+                    <h5>📱 Stories 9:16</h5>
+                    <p>[Adaptação para Stories — composição vertical, interatividade]</p>
+                </div>
+                <div class="adaptacao-card">
+                    <h5>📐 Feed 1:1</h5>
+                    <p>[Adaptação para Feed quadrado — crop, foco]</p>
+                </div>
+                <div class="adaptacao-card">
+                    <h5>🎬 Reels</h5>
+                    <p>[Adaptação para Reels — movimento, som, transições]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- CONCEITO 2                                 -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="conceito marca-1" id="conceito-2">
+            <div class="conceito-header">
+                <div class="numero">02</div>
+                <div class="info">
+                    <h2>[Título do Conceito 2] — [Subtítulo]</h2>
+                    <div class="badges">
+                        <span class="badge badge-marca1">{{MARCA_1}}</span>
+                        <span class="badge badge-formato">[Formato]</span>
+                        <span class="badge badge-angulo">[Ângulo]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="estrategia">
+                <div class="field">
+                    <span class="field-label">Conceito</span>
+                    <span class="field-value">[Nome]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Formato</span>
+                    <span class="field-value">[Formato]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Objetivo</span>
+                    <span class="field-value">[Objetivo]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Ângulo</span>
+                    <span class="field-value">[Ângulo]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Psicologia</span>
+                    <span class="field-value">[Modelo mental]</span>
+                </div>
+            </div>
+
+            <div class="copy-table-wrap">
+                <table class="copy-table" id="copy-conceito-2">
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Conteúdo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Headline</td>
+                            <td>[Headline]</td>
+                        </tr>
+                        <tr>
+                            <td>Texto principal</td>
+                            <td>[Texto principal]</td>
+                        </tr>
+                        <tr>
+                            <td>Descrição</td>
+                            <td>[Descrição]</td>
+                        </tr>
+                        <tr>
+                            <td>CTA</td>
+                            <td>[CTA]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="visual-concept">
+                <img src="esbocos/conceito2-[slug].png" alt="Esboço conceito 2">
+                <div class="visual-desc">
+                    <h4>🎨 Conceito Visual</h4>
+                    <ul>
+                        <li><strong>Cena:</strong> [Descrição]</li>
+                        <li><strong>Paleta:</strong> [Cores]</li>
+                        <li><strong>Estilo:</strong> [Estilo]</li>
+                        <li><strong>Overlay:</strong> [Texto]</li>
+                        <li><strong>Regra 20% texto:</strong> ✅</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="adaptacoes-grid">
+                <div class="adaptacao-card">
+                    <h5>📱 Stories 9:16</h5>
+                    <p>[Adaptação Stories]</p>
+                </div>
+                <div class="adaptacao-card">
+                    <h5>📐 Feed 1:1</h5>
+                    <p>[Adaptação Feed]</p>
+                </div>
+                <div class="adaptacao-card">
+                    <h5>🎬 Reels</h5>
+                    <p>[Adaptação Reels]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- CONCEITO 3                                 -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="conceito marca-1" id="conceito-3">
+            <div class="conceito-header">
+                <div class="numero">03</div>
+                <div class="info">
+                    <h2>[Título do Conceito 3] — [Subtítulo]</h2>
+                    <div class="badges">
+                        <span class="badge badge-marca1">{{MARCA_1}}</span>
+                        <span class="badge badge-formato">[Formato]</span>
+                        <span class="badge badge-angulo">[Ângulo]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="estrategia">
+                <div class="field">
+                    <span class="field-label">Conceito</span>
+                    <span class="field-value">[Nome]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Formato</span>
+                    <span class="field-value">[Formato]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Objetivo</span>
+                    <span class="field-value">[Objetivo]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Ângulo</span>
+                    <span class="field-value">[Ângulo]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Psicologia</span>
+                    <span class="field-value">[Modelo mental]</span>
+                </div>
+            </div>
+
+            <div class="copy-table-wrap">
+                <table class="copy-table" id="copy-conceito-3">
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Conteúdo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Headline</td>
+                            <td>[Headline]</td>
+                        </tr>
+                        <tr>
+                            <td>Texto principal</td>
+                            <td>[Texto principal]</td>
+                        </tr>
+                        <tr>
+                            <td>Descrição</td>
+                            <td>[Descrição]</td>
+                        </tr>
+                        <tr>
+                            <td>CTA</td>
+                            <td>[CTA]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="visual-concept">
+                <img src="esbocos/conceito3-[slug].png" alt="Esboço conceito 3">
+                <div class="visual-desc">
+                    <h4>🎨 Conceito Visual</h4>
+                    <ul>
+                        <li><strong>Cena:</strong> [Descrição]</li>
+                        <li><strong>Paleta:</strong> [Cores]</li>
+                        <li><strong>Estilo:</strong> [Estilo]</li>
+                        <li><strong>Overlay:</strong> [Texto]</li>
+                        <li><strong>Regra 20% texto:</strong> ✅</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="adaptacoes-grid">
+                <div class="adaptacao-card">
+                    <h5>📱 Stories 9:16</h5>
+                    <p>[Adaptação Stories]</p>
+                </div>
+                <div class="adaptacao-card">
+                    <h5>📐 Feed 1:1</h5>
+                    <p>[Adaptação Feed]</p>
+                </div>
+                <div class="adaptacao-card">
+                    <h5>🎬 Reels</h5>
+                    <p>[Adaptação Reels]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- CONCEITO 4                                 -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="conceito marca-1" id="conceito-4">
+            <div class="conceito-header">
+                <div class="numero">04</div>
+                <div class="info">
+                    <h2>[Título do Conceito 4] — [Subtítulo]</h2>
+                    <div class="badges">
+                        <span class="badge badge-marca1">{{MARCA_1}}</span>
+                        <span class="badge badge-formato">[Formato]</span>
+                        <span class="badge badge-angulo">[Ângulo]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="estrategia">
+                <div class="field">
+                    <span class="field-label">Conceito</span>
+                    <span class="field-value">[Nome]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Formato</span>
+                    <span class="field-value">[Formato]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Objetivo</span>
+                    <span class="field-value">[Objetivo]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Ângulo</span>
+                    <span class="field-value">[Ângulo]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Psicologia</span>
+                    <span class="field-value">[Modelo mental]</span>
+                </div>
+            </div>
+
+            <div class="copy-table-wrap">
+                <table class="copy-table" id="copy-conceito-4">
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Conteúdo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Headline</td>
+                            <td>[Headline]</td>
+                        </tr>
+                        <tr>
+                            <td>Texto principal</td>
+                            <td>[Texto principal]</td>
+                        </tr>
+                        <tr>
+                            <td>Descrição</td>
+                            <td>[Descrição]</td>
+                        </tr>
+                        <tr>
+                            <td>CTA</td>
+                            <td>[CTA]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="visual-concept">
+                <img src="esbocos/conceito4-[slug].png" alt="Esboço conceito 4">
+                <div class="visual-desc">
+                    <h4>🎨 Conceito Visual</h4>
+                    <ul>
+                        <li><strong>Cena:</strong> [Descrição]</li>
+                        <li><strong>Paleta:</strong> [Cores]</li>
+                        <li><strong>Estilo:</strong> [Estilo]</li>
+                        <li><strong>Overlay:</strong> [Texto]</li>
+                        <li><strong>Regra 20% texto:</strong> ✅</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="adaptacoes-grid">
+                <div class="adaptacao-card">
+                    <h5>📱 Stories 9:16</h5>
+                    <p>[Adaptação Stories]</p>
+                </div>
+                <div class="adaptacao-card">
+                    <h5>📐 Feed 1:1</h5>
+                    <p>[Adaptação Feed]</p>
+                </div>
+                <div class="adaptacao-card">
+                    <h5>🎬 Reels</h5>
+                    <p>[Adaptação Reels]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- CONCEITO 5                                 -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="conceito marca-1" id="conceito-5">
+            <div class="conceito-header">
+                <div class="numero">05</div>
+                <div class="info">
+                    <h2>[Título do Conceito 5] — [Subtítulo]</h2>
+                    <div class="badges">
+                        <span class="badge badge-marca1">{{MARCA_1}}</span>
+                        <span class="badge badge-formato">[Formato]</span>
+                        <span class="badge badge-angulo">[Ângulo]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="estrategia">
+                <div class="field">
+                    <span class="field-label">Conceito</span>
+                    <span class="field-value">[Nome]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Formato</span>
+                    <span class="field-value">[Formato]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Objetivo</span>
+                    <span class="field-value">[Objetivo]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Ângulo</span>
+                    <span class="field-value">[Ângulo]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Psicologia</span>
+                    <span class="field-value">[Modelo mental]</span>
+                </div>
+            </div>
+
+            <div class="copy-table-wrap">
+                <table class="copy-table" id="copy-conceito-5">
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Conteúdo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Headline</td>
+                            <td>[Headline]</td>
+                        </tr>
+                        <tr>
+                            <td>Texto principal</td>
+                            <td>[Texto principal]</td>
+                        </tr>
+                        <tr>
+                            <td>Descrição</td>
+                            <td>[Descrição]</td>
+                        </tr>
+                        <tr>
+                            <td>CTA</td>
+                            <td>[CTA]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="visual-concept">
+                <img src="esbocos/conceito5-[slug].png" alt="Esboço conceito 5">
+                <div class="visual-desc">
+                    <h4>🎨 Conceito Visual</h4>
+                    <ul>
+                        <li><strong>Cena:</strong> [Descrição]</li>
+                        <li><strong>Paleta:</strong> [Cores]</li>
+                        <li><strong>Estilo:</strong> [Estilo]</li>
+                        <li><strong>Overlay:</strong> [Texto]</li>
+                        <li><strong>Regra 20% texto:</strong> ✅</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="adaptacoes-grid">
+                <div class="adaptacao-card">
+                    <h5>📱 Stories 9:16</h5>
+                    <p>[Adaptação Stories]</p>
+                </div>
+                <div class="adaptacao-card">
+                    <h5>📐 Feed 1:1</h5>
+                    <p>[Adaptação Feed]</p>
+                </div>
+                <div class="adaptacao-card">
+                    <h5>🎬 Reels</h5>
+                    <p>[Adaptação Reels]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- CHECKLIST DE VALIDAÇÃO                     -->
+        <!-- ═══════════════════════════════════════════ -->
+        <h2 class="section-title"><span class="emoji">✅</span> Checklist de Validação</h2>
+        <p class="section-desc">Verificação de qualidade, compliance e diversidade dos conceitos.</p>
+
+        <div class="checklist">
+            <h3>Qualidade Criativa</h3>
+            <div class="checklist-grid">
+                <div class="check-item"><span class="check">✓</span> Cada conceito tem ângulo psicológico distinto</div>
+                <div class="check-item"><span class="check">✓</span> Variação de formatos (4:5, 1:1, 9:16, carrossel)
+                </div>
+                <div class="check-item"><span class="check">✓</span> Copy dentro dos limites de caracteres</div>
+                <div class="check-item"><span class="check">✓</span> CTAs claros e orientados à conversão</div>
+                <div class="check-item"><span class="check">✓</span> Descrições visuais detalham cena, paleta e estilo
+                </div>
+                <div class="check-item"><span class="check">✓</span> Adaptações para 3+ posicionamentos por conceito
+                </div>
+            </div>
+        </div>
+
+        <div class="checklist">
+            <h3>Compliance Meta Ads</h3>
+            <div class="checklist-grid">
+                <div class="check-item"><span class="check">✓</span> Regra 20% texto respeitada em todos os conceitos
+                </div>
+                <div class="check-item"><span class="check">✓</span> Sem promessas exageradas ou garantias absolutas
+                </div>
+                <div class="check-item"><span class="check">✓</span> Sem conteúdo restrito (saúde, finanças sem
+                    disclaimer)</div>
+                <div class="check-item"><span class="check">✓</span> Linguagem respeitosa e inclusiva</div>
+            </div>
+        </div>
+
+        <div class="checklist">
+            <h3>Diversidade de Conceitos</h3>
+            <div class="checklist-grid">
+                <div class="check-item"><span class="check">✓</span> Mínimo 3 ângulos diferentes</div>
+                <div class="check-item"><span class="check">✓</span> Mínimo 3 formatos diferentes</div>
+                <div class="check-item"><span class="check">✓</span> Mix de estáticos + dinâmicos</div>
+                <div class="check-item"><span class="check">✓</span> Cobertura de topo, meio e fundo de funil</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <p><a href="https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=conceitos-meta&utm_content=footer" style="color:#999;text-decoration:none;">gui.marketing</a> — Todos os direitos reservados</p>
+    </footer>
+
+    <script id="table-tools-inline">
+        /**
+         * Table Tools - Filtro, Ordenação e Cópia de Colunas
+         * Auto-inicializa em todas as tabelas da página
+         */
+        (function () {
+            'use strict';
+
+            // SVG Icons
+            const ICONS = {
+                sort: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7-7 7 7"/></svg>`,
+                filter: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>`,
+                copy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`,
+                check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`
+            };
+
+            class TableTools {
+                constructor(table) {
+                    this.table = table;
+                    this.thead = table.querySelector('thead');
+                    this.tbody = table.querySelector('tbody');
+                    this.sortState = {}; // { colIndex: 'asc' | 'desc' }
+                    this.filterState = {}; // { colIndex: 'query' }
+                    this.activeDropdown = null;
+
+                    if (this.thead && this.tbody) {
+                        this.init();
+                    }
+                }
+
+                init() {
+                    this.setupHeaders();
+                    this.setupClickOutside();
+                }
+
+                setupHeaders() {
+                    const headers = this.thead.querySelectorAll('th');
+                    headers.forEach((th, index) => {
+                        this.enhanceHeader(th, index);
+                    });
+                }
+
+                enhanceHeader(th, colIndex) {
+                    th.classList.add('table-tools-th');
+
+                    const originalText = th.textContent.trim();
+
+                    th.innerHTML = `
+                <div class="th-controls">
+                    <div class="th-label" data-action="sort" data-col="${colIndex}">
+                        <span>${originalText}</span>
+                        <span class="sort-icon">${ICONS.sort}</span>
+                    </div>
+                    <div class="th-actions">
+                        <button class="th-btn" data-action="filter" data-col="${colIndex}" title="Filtrar">
+                            ${ICONS.filter}
+                        </button>
+                        <button class="th-btn" data-action="copy" data-col="${colIndex}" title="Copiar coluna">
+                            ${ICONS.copy}
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-dropdown" data-col="${colIndex}">
+                    <input type="text" class="filter-input" placeholder="Buscar..." data-col="${colIndex}">
+                    <div class="filter-actions">
+                        <button class="filter-btn filter-btn-clear" data-action="clear-filter" data-col="${colIndex}">Limpar</button>
+                        <button class="filter-btn filter-btn-apply" data-action="apply-filter" data-col="${colIndex}">Aplicar</button>
+                    </div>
+                </div>
+            `;
+
+                    // Event listeners
+                    th.querySelector('[data-action="sort"]').addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.sortColumn(colIndex);
+                    });
+
+                    th.querySelector('[data-action="filter"]').addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.toggleFilterDropdown(colIndex, th);
+                    });
+
+                    th.querySelector('[data-action="copy"]').addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.copyColumn(colIndex, e.currentTarget);
+                    });
+
+                    th.querySelector('[data-action="apply-filter"]').addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const input = th.querySelector('.filter-input');
+                        this.applyFilter(colIndex, input.value, th);
+                    });
+
+                    th.querySelector('[data-action="clear-filter"]').addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.clearFilter(colIndex, th);
+                    });
+
+                    th.querySelector('.filter-input').addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            this.applyFilter(colIndex, e.target.value, th);
+                        }
+                        if (e.key === 'Escape') {
+                            this.closeAllDropdowns();
+                        }
+                    });
+                }
+
+                sortColumn(colIndex) {
+                    const rows = Array.from(this.tbody.querySelectorAll('tr'));
+                    const currentDir = this.sortState[colIndex] || 'none';
+                    const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+
+                    // Reset all sort icons
+                    this.thead.querySelectorAll('.sort-icon').forEach(icon => {
+                        icon.classList.remove('asc', 'desc');
+                    });
+
+                    // Set new sort state
+                    this.sortState = { [colIndex]: newDir };
+
+                    // Update icon
+                    const th = this.thead.querySelectorAll('th')[colIndex];
+                    const icon = th.querySelector('.sort-icon');
+                    icon.classList.add(newDir);
+
+                    // Sort rows
+                    rows.sort((a, b) => {
+                        const aCell = a.querySelectorAll('td')[colIndex];
+                        const bCell = b.querySelectorAll('td')[colIndex];
+
+                        const aText = this.getCellText(aCell);
+                        const bText = this.getCellText(bCell);
+
+                        // Try numeric comparison first
+                        const aNum = parseFloat(aText.replace(/[^\d.-]/g, ''));
+                        const bNum = parseFloat(bText.replace(/[^\d.-]/g, ''));
+
+                        if (!isNaN(aNum) && !isNaN(bNum)) {
+                            return newDir === 'asc' ? aNum - bNum : bNum - aNum;
+                        }
+
+                        // Fallback to string comparison
+                        const comparison = aText.localeCompare(bText, 'pt-BR', { sensitivity: 'base' });
+                        return newDir === 'asc' ? comparison : -comparison;
+                    });
+
+                    // Re-append sorted rows
+                    rows.forEach(row => this.tbody.appendChild(row));
+                }
+
+                toggleFilterDropdown(colIndex, th) {
+                    const dropdown = th.querySelector('.filter-dropdown');
+                    const isActive = dropdown.classList.contains('active');
+
+                    this.closeAllDropdowns();
+
+                    if (!isActive) {
+                        dropdown.classList.add('active');
+                        this.activeDropdown = dropdown;
+                        dropdown.querySelector('.filter-input').focus();
+                    }
+                }
+
+                applyFilter(colIndex, query, th) {
+                    const normalizedQuery = query.toLowerCase().trim();
+
+                    if (normalizedQuery) {
+                        this.filterState[colIndex] = normalizedQuery;
+                        th.classList.add('th-filtered');
+                    } else {
+                        delete this.filterState[colIndex];
+                        th.classList.remove('th-filtered');
+                    }
+
+                    this.updateRowVisibility();
+                    this.closeAllDropdowns();
+                }
+
+                clearFilter(colIndex, th) {
+                    delete this.filterState[colIndex];
+                    th.classList.remove('th-filtered');
+                    th.querySelector('.filter-input').value = '';
+                    this.updateRowVisibility();
+                    this.closeAllDropdowns();
+                }
+
+                updateRowVisibility() {
+                    const rows = this.tbody.querySelectorAll('tr');
+
+                    rows.forEach(row => {
+                        let visible = true;
+
+                        for (const [colIndex, query] of Object.entries(this.filterState)) {
+                            const cell = row.querySelectorAll('td')[parseInt(colIndex)];
+                            const cellText = this.getCellText(cell).toLowerCase();
+
+                            if (!cellText.includes(query)) {
+                                visible = false;
+                                break;
+                            }
+                        }
+
+                        row.classList.toggle('filtered-out', !visible);
+                    });
+                }
+
+                copyColumn(colIndex, button) {
+                    const rows = this.tbody.querySelectorAll('tr:not(.filtered-out)');
+                    const values = [];
+
+                    // Detecta se a coluna é de keywords (contém múltiplos valores separados por vírgula)
+                    const headerText = this.thead.querySelectorAll('th')[colIndex]?.textContent?.toLowerCase() || '';
+                    const isKeywordColumn = headerText.includes('keyword') || headerText.includes('palavra');
+
+                    rows.forEach(row => {
+                        const cell = row.querySelectorAll('td')[colIndex];
+                        if (cell) {
+                            const text = this.getCellText(cell);
+
+                            // Se é coluna de keywords e contém vírgulas, expande para múltiplas linhas
+                            if (isKeywordColumn && text.includes(',')) {
+                                const keywords = text.split(',').map(k => k.trim()).filter(k => k);
+                                keywords.forEach(kw => {
+                                    values.push(this.escapeForSheets(kw));
+                                });
+                            } else {
+                                values.push(this.escapeForSheets(text));
+                            }
+                        }
+                    });
+
+                    const text = values.join('\n');
+
+                    navigator.clipboard.writeText(text).then(() => {
+                        // Visual feedback on button
+                        const originalHTML = button.innerHTML;
+                        button.innerHTML = ICONS.check;
+                        button.classList.add('copied');
+
+                        setTimeout(() => {
+                            button.innerHTML = originalHTML;
+                            button.classList.remove('copied');
+                        }, 1500);
+
+                        // Show toast
+                        this.showToast(`${values.length} valores copiados!`);
+                    }).catch(err => {
+                        console.error('Erro ao copiar:', err);
+                        this.showToast('Erro ao copiar', true);
+                    });
+                }
+
+                getCellText(cell) {
+                    if (!cell) return '';
+                    // Get text content, removing extra whitespace
+                    return cell.textContent.replace(/\s+/g, ' ').trim();
+                }
+
+                /**
+                 * Converte aspas retas para aspas tipográficas (curly quotes) para
+                 * compatibilidade com Google Sheets. Aspas retas " são delimitadores CSV
+                 * e são removidas pelo Sheets. Aspas curvas são caracteres normais.
+                 * U+201C = " (left double quotation mark)
+                 * U+201D = " (right double quotation mark)
+                 */
+                escapeForSheets(text) {
+                    // Substitui "texto" por "texto" (aspas tipográficas)
+                    return text.replace(/"([^"]*)"/g, '\u201C$1\u201D');
+                }
+
+                closeAllDropdowns() {
+                    document.querySelectorAll('.filter-dropdown.active').forEach(d => {
+                        d.classList.remove('active');
+                    });
+                    this.activeDropdown = null;
+                }
+
+                setupClickOutside() {
+                    document.addEventListener('click', (e) => {
+                        if (this.activeDropdown && !e.target.closest('.filter-dropdown') && !e.target.closest('[data-action="filter"]')) {
+                            this.closeAllDropdowns();
+                        }
+                    });
+                }
+
+                showToast(message, isError = false) {
+                    // Remove existing toast
+                    const existing = document.querySelector('.table-tools-toast');
+                    if (existing) existing.remove();
+
+                    const toast = document.createElement('div');
+                    toast.className = 'table-tools-toast';
+                    toast.textContent = message;
+
+                    if (isError) {
+                        toast.style.borderColor = 'rgba(248, 113, 113, 0.3)';
+                        toast.style.color = '#f87171';
+                    }
+
+                    document.body.appendChild(toast);
+
+                    setTimeout(() => {
+                        toast.classList.add('fade-out');
+                        setTimeout(() => toast.remove(), 300);
+                    }, 2000);
+                }
+            }
+
+            // Auto-initialize on DOM ready
+            function initTableTools() {
+                document.querySelectorAll('table').forEach(table => {
+                    if (!table.classList.contains('table-tools-initialized')) {
+                        new TableTools(table);
+                        table.classList.add('table-tools-initialized');
+                    }
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initTableTools);
+            } else {
+                initTableTools();
+            }
+        })();
+    </script>
+    <script>
+        // ── Copiar Tabela (Label: value) — igual HIGEX conceitos.html ──
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.copy-table').forEach(function (table) {
+                const wrapper = table.closest('.copy-table-wrap');
+                if (!wrapper) return;
+
+                var btn = document.createElement('button');
+                btn.className = 'copy-full-btn';
+                btn.innerHTML = '📋 Copiar Tabela';
+                btn.style.cssText = 'display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:8px 16px;background:#864df9;color:#fff;border:none;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;font-family: var(--brand-font-body);';
+                btn.addEventListener('mouseenter', function () { btn.style.opacity = '0.85'; });
+                btn.addEventListener('mouseleave', function () { btn.style.opacity = '1'; });
+
+                btn.addEventListener('click', function () {
+                    var rows = table.querySelectorAll('tbody tr');
+                    var parts = [];
+                    rows.forEach(function (row) {
+                        var label = row.querySelector('td:first-child')?.textContent?.trim();
+                        var value = row.querySelector('td:nth-child(2)')?.textContent?.replace(/\s+/g, ' ')?.trim();
+                        if (label && value) {
+                            parts.push(label + ': ' + value);
+                        }
+                    });
+                    var text = parts.join('\n\n');
+                    navigator.clipboard.writeText(text).then(function () {
+                        btn.innerHTML = '✅ Copiado!';
+                        setTimeout(function () { btn.innerHTML = '📋 Copiar Tabela'; }, 1500);
+                    });
+                });
+
+                wrapper.parentNode.insertBefore(btn, wrapper.nextSibling);
+            });
+
+            // ── Copiar Conceito Visual ──
+            document.querySelectorAll('.visual-concept').forEach(function (vc) {
+                var btn = document.createElement('button');
+                btn.className = 'copy-full-btn';
+                btn.innerHTML = '📋 Copiar Conceito Visual';
+                btn.style.cssText = 'display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:8px 16px;background:#864df9;color:#fff;border:none;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;font-family: var(--brand-font-body);';
+                btn.addEventListener('mouseenter', function () { btn.style.opacity = '0.85'; });
+                btn.addEventListener('mouseleave', function () { btn.style.opacity = '1'; });
+
+                btn.addEventListener('click', function () {
+                    var descEl = vc.querySelector('.visual-desc');
+                    if (!descEl) return;
+                    var items = descEl.querySelectorAll('li');
+                    var parts = [];
+                    items.forEach(function (li) {
+                        var strong = li.querySelector('strong');
+                        var label = strong ? strong.textContent.replace(/:$/, '').trim() : '';
+                        var value = li.textContent.replace(strong ? strong.textContent : '', '').trim();
+                        if (label && value) {
+                            parts.push(label + ': ' + value);
+                        }
+                    });
+                    var text = parts.join('\n');
+                    navigator.clipboard.writeText(text).then(function () {
+                        btn.innerHTML = '✅ Copiado!';
+                        setTimeout(function () { btn.innerHTML = '📋 Copiar Conceito Visual'; }, 1500);
+                    });
+                });
+
+                vc.parentNode.insertBefore(btn, vc.nextSibling);
+            });
+        });
+    </script>
+</body>
+
+</html>

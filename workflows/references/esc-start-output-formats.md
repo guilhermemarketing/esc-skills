@@ -2,6 +2,8 @@
 
 Formatos de consolidação para cada etapa do pipeline. Cada arquivo `.md` gerado deve seguir o template abaixo para garantir handoff eficiente entre etapas.
 
+> **HTML Output:** Além dos `.md`, cada etapa gera uma versão HTML estilizada para apresentação ao cliente usando os templates em `html-templates/`. O `.md` é o artefato-ponte; o `.html` é para exibição.
+
 ---
 
 ## Etapa 1 — `icp-consolidado-{{CLIENTE}}.md`
@@ -31,6 +33,8 @@ A skill `guimkt-icp-ideal-customer-profile` gera 2 arquivos:
 ```
 
 > ⚠️ O arquivo `.md` é o **artefato-ponte universal** — será enviado para TODAS as etapas seguintes.
+
+**HTML:** Usar `html-templates/icp-template.html` → salvar como `icp-{{CLIENTE}}.html`
 
 ---
 
@@ -64,6 +68,8 @@ A skill `guimkt-icp-ideal-customer-profile` gera 2 arquivos:
 [Preview simulado]
 ```
 
+**HTML:** Usar `html-templates/keywords-template.html`, `keywords-negativas-template.html`, `anuncios-google-template.html` → salvar como `keywords-{{CLIENTE}}.html`, `negativas-{{CLIENTE}}.html`, `anuncios-{{CLIENTE}}.html`
+
 ---
 
 ## Etapa 3 — `wireframe-tabela-{{CLIENTE}}.md`
@@ -94,6 +100,8 @@ A skill `guimkt-icp-ideal-customer-profile` gera 2 arquivos:
 ```
 
 > Se o Wireframe-Sketch (HTML) for gerado, salvar separadamente como `wireframe-sketch-{{CLIENTE}}.html`
+
+**HTML:** Usar `html-templates/wireframe-framework-tabela-template.html` → salvar como `wireframe-tabela-{{CLIENTE}}.html`
 
 ---
 
@@ -147,6 +155,8 @@ Adicionalmente, salvar resumo do design system:
 [Recomendação de qual testar primeiro]
 ```
 
+**HTML:** Usar `html-templates/conceitos-meta-template.html` → salvar como `conceitos-meta-{{CLIENTE}}.html`
+
 ---
 
 ## Etapa 6 — `criativos-classicos-{{CLIENTE}}.md`
@@ -171,3 +181,5 @@ Adicionalmente, salvar resumo do design system:
 ## Análise Comparativa
 [Recomendação fundamentada]
 ```
+
+**HTML:** Usar `html-templates/conceitos-classicos-template.html` → salvar como `criativos-classicos-{{CLIENTE}}.html`

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criativos Clássicos — {{CLIENTE}}</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --brand-bg: #f7f3ed;
+            --brand-text: #1a1a1a;
+            --brand-accent: #864df9;
+            --brand-gold: #F7E397;
+            --brand-pink: #efcde5;
+            --brand-lilac: #dcd3ef;
+            --brand-lavender: #c7b9ff;
+            --brand-mint: #b0e4da;
+            --brand-font-title: 'Inter Tight', sans-serif;
+            --brand-font-body: 'Inter', sans-serif;
+            --gradient: linear-gradient(135deg, #F7E397, #efcde5, #864df9);
+            --card-shadow: 0 2px 16px rgba(134, 77, 249, .08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--brand-font-body);
+            background: var(--brand-bg);
+            color: var(--brand-text);
+            line-height: 1.65;
+        }
+
+        /* ── HEADER ── */
+        .page-header {
+            text-align: center;
+            padding: 48px 24px 32px;
+        }
+        .page-header img { width: 180px; margin-bottom: 24px; }
+        .page-header h1 {
+            font-family: var(--brand-font-title);
+            font-size: 2rem;
+            color: #000;
+            margin-bottom: 8px;
+        }
+        .page-header .subtitle {
+            font-size: .95rem;
+            color: #666;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ── CONTAINER ── */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px 64px; }
+
+        /* ── SECTION ── */
+        .section-title {
+            font-family: var(--brand-font-title);
+            font-size: 1.35rem;
+            margin: 48px 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title .emoji { font-size: 1.5rem; }
+        .section-desc { color: #666; font-size: .88rem; margin-bottom: 20px; }
+
+        /* ── BRIEFING GRID ── */
+        .briefing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+        .briefing-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: var(--card-shadow);
+            border-left: 4px solid var(--brand-accent);
+        }
+        .briefing-card .label {
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            color: #999;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .briefing-card .value { font-weight: 500; font-size: .88rem; }
+
+        /* ── CONCEITO CARD ── */
+        .conceito {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-top: 5px solid var(--brand-accent);
+        }
+        .conceito-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+        .conceito-header .numero {
+            font-family: var(--brand-font-title);
+            font-size: 3rem;
+            line-height: 1;
+            color: var(--brand-accent);
+            opacity: .25;
+            flex-shrink: 0;
+        }
+        .conceito-header .info h2 {
+            font-family: var(--brand-font-title);
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+        }
+        .conceito-header .info .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: .72rem;
+            letter-spacing: .3px;
+        }
+        .badge-plataforma { background: var(--brand-lilac); color: #4a2896; }
+        .badge-formato { background: #f0ebe4; color: #555; }
+        .badge-angulo { background: #e8e0f5; color: #5b3da0; }
+        .badge-lei { background: var(--brand-gold); color: #6d5a0a; }
+
+        /* ── ESTRATÉGIA GRID ── */
+        .estrategia {
+            background: #faf8f5;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        .estrategia .field { display: flex; flex-direction: column; }
+        .estrategia .field-label {
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            color: #999;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .estrategia .field-value { font-weight: 500; font-size: .88rem; }
+
+        /* ── COPY TABLE ── */
+        .copy-table-wrap {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, .04);
+            margin-bottom: 24px;
+        }
+        table.copy-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+        table.copy-table thead th {
+            font-family: var(--brand-font-title);
+            font-weight: 700;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            padding: 14px 18px;
+            background: var(--brand-accent);
+            color: #fff;
+            text-align: left;
+        }
+        table.copy-table thead th:first-child { border-radius: 12px 0 0 0; }
+        table.copy-table thead th:last-child { border-radius: 0 12px 0 0; }
+        table.copy-table tbody td {
+            padding: 12px 18px;
+            border-bottom: 1px solid #f0ebe4;
+            vertical-align: top;
+        }
+        table.copy-table tbody td:first-child {
+            font-weight: 600;
+            font-family: var(--brand-font-title);
+            color: var(--brand-accent);
+            white-space: nowrap;
+            min-width: 140px;
+        }
+
+        /* ── VISUAL CONCEPT ── */
+        .visual-concept {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+            align-items: start;
+        }
+        .visual-concept img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+        }
+        .visual-desc h4 {
+            font-family: var(--brand-font-title);
+            font-size: .95rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .visual-desc ul { padding-left: 18px; font-size: .88rem; }
+        .visual-desc ul li { margin-bottom: 6px; }
+
+        /* ── ADAPTAÇÕES POR PLATAFORMA ── */
+        .plataformas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .plataforma-card {
+            background: #faf8f5;
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .plataforma-card h5 {
+            font-family: var(--brand-font-title);
+            font-size: .82rem;
+            margin-bottom: 6px;
+            color: var(--brand-accent);
+        }
+        .plataforma-card p { font-size: .82rem; color: #666; }
+
+        /* ── ANÁLISE CLÁSSICA ── */
+        .analise-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--card-shadow);
+            border-top: 4px solid var(--brand-accent);
+            margin-bottom: 40px;
+        }
+        .analise-card h3 {
+            font-family: var(--brand-font-title);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+        .analise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 8px;
+        }
+        .analise-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .85rem;
+            padding: 6px 0;
+        }
+        .analise-item .check {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .75rem;
+            flex-shrink: 0;
+        }
+
+        /* ── FOOTER ── */
+        .page-footer { text-align: center; padding: 24px; font-size: .78rem; color: #999; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 1.5rem; }
+            .conceito { padding: 24px; }
+            .visual-concept { grid-template-columns: 1fr; }
+            .conceito-header { flex-direction: column; gap: 12px; }
+        }
+        @media print {
+            body { background: #fff; }
+            .conceito { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <a href="https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=conceitos-classicos&utm_content=header-logo"><img src="https://gui.marketing/wp-content/uploads/2025/02/gui.marketing-1640-x-263-px-1080-x-1080-px.gif"
+            alt="guimarketing"></a>
+        <h1>Criativos Clássicos — {{CLIENTE}}</h1>
+        <p class="subtitle">Conceitos criativos baseados em princípios da publicidade clássica adaptados ao feed.
+            Plataformas: <strong>Meta</strong>, <strong>Google</strong>, <strong>TikTok</strong>, <strong>YouTube</strong>, <strong>LinkedIn</strong>.
+        </p>
+    </header>
+
+    <div class="container">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- DIAGNÓSTICO DO BRIEFING                    -->
+        <!-- ═══════════════════════════════════════════ -->
+        <h2 class="section-title"><span class="emoji">📋</span> Diagnóstico do Briefing</h2>
+        <p class="section-desc">Extração estruturada do briefing antes da criação.</p>
+
+        <div class="briefing-grid">
+            <div class="briefing-card">
+                <div class="label">Cliente</div>
+                <div class="value">{{CLIENTE}}</div>
+            </div>
+            <div class="briefing-card">
+                <div class="label">Produto/Serviço</div>
+                <div class="value">[Produto]</div>
+            </div>
+            <div class="briefing-card">
+                <div class="label">Público</div>
+                <div class="value">[Público-alvo]</div>
+            </div>
+            <div class="briefing-card">
+                <div class="label">Dor Principal</div>
+                <div class="value">[Dor]</div>
+            </div>
+            <div class="briefing-card">
+                <div class="label">Diferencial</div>
+                <div class="value">[Diferencial]</div>
+            </div>
+            <div class="briefing-card">
+                <div class="label">Plataformas</div>
+                <div class="value">[Meta, Google, TikTok...]</div>
+            </div>
+            <div class="briefing-card">
+                <div class="label">Tom de Voz</div>
+                <div class="value">[Tom]</div>
+            </div>
+            <div class="briefing-card">
+                <div class="label">Estética</div>
+                <div class="value">[Editorial / UGC / Minimalista]</div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- CONCEITO 1                                 -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="conceito" id="conceito-1">
+            <div class="conceito-header">
+                <div class="numero">01</div>
+                <div class="info">
+                    <h2>[Título do Conceito 1] — [Subtítulo]</h2>
+                    <div class="badges">
+                        <span class="badge badge-plataforma">[Plataforma]</span>
+                        <span class="badge badge-formato">[Imagem Estática / Carrossel / Vídeo]</span>
+                        <span class="badge badge-angulo">[Ângulo criativo]</span>
+                        <span class="badge badge-lei">[Lei clássica aplicada]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="estrategia">
+                <div class="field">
+                    <span class="field-label">Conceito</span>
+                    <span class="field-value">[Nome do conceito]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Formato</span>
+                    <span class="field-value">[Feed 4:5 / Stories 9:16 / Carrossel]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Plataforma</span>
+                    <span class="field-value">[Meta Ads / Google Ads / TikTok]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Lei Clássica</span>
+                    <span class="field-value">[Visual Hammer + Verbal Nail / In Media Res / etc.]</span>
+                </div>
+                <div class="field">
+                    <span class="field-label">Psicologia</span>
+                    <span class="field-value">[Modelo mental aplicado]</span>
+                </div>
+            </div>
+
+            <div class="copy-table-wrap">
+                <table class="copy-table">
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Conteúdo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Headline</td>
+                            <td>[Headline — máx. limites da plataforma]</td>
+                        </tr>
+                        <tr>
+                            <td>Texto principal</td>
+                            <td>[Texto principal do anúncio]</td>
+                        </tr>
+                        <tr>
+                            <td>Descrição</td>
+                            <td>[Descrição curta]</td>
+                        </tr>
+                        <tr>
+                            <td>CTA</td>
+                            <td>[Texto do botão CTA]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="visual-concept">
+                <img src="esbocos/conceito1-[slug].png" alt="Esboço conceito 1">
+                <div class="visual-desc">
+                    <h4>🎨 Conceito Visual</h4>
+                    <ul>
+                        <li><strong>Cena:</strong> [Descrição detalhada da cena visual]</li>
+                        <li><strong>Paleta:</strong> [Cores principais]</li>
+                        <li><strong>Estilo:</strong> [Estilo fotográfico ou gráfico]</li>
+                        <li><strong>Overlay:</strong> [Texto overlay]</li>
+                        <li><strong>Branding check:</strong> ✅ [Insubstituível — passaria no teste do logo?]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="plataformas-grid">
+                <div class="plataforma-card">
+                    <h5>📱 Meta (Feed 4:5)</h5>
+                    <p>[Adaptação para Feed Meta]</p>
+                </div>
+                <div class="plataforma-card">
+                    <h5>🔍 Google Display</h5>
+                    <p>[Adaptação para Display]</p>
+                </div>
+                <div class="plataforma-card">
+                    <h5>🎵 TikTok</h5>
+                    <p>[Adaptação para TikTok]</p>
+                </div>
+                <div class="plataforma-card">
+                    <h5>▶️ YouTube</h5>
+                    <p>[Adaptação para YouTube]</p>
+                </div>
+                <div class="plataforma-card">
+                    <h5>💼 LinkedIn</h5>
+                    <p>[Adaptação para LinkedIn]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- CONCEITOS 2-6 (repetir estrutura acima)    -->
+        <!-- ═══════════════════════════════════════════ -->
+
+        <!-- Conceito 2 -->
+        <div class="conceito" id="conceito-2">
+            <div class="conceito-header">
+                <div class="numero">02</div>
+                <div class="info">
+                    <h2>[Título do Conceito 2] — [Subtítulo]</h2>
+                    <div class="badges">
+                        <span class="badge badge-plataforma">[Plataforma]</span>
+                        <span class="badge badge-formato">[Formato]</span>
+                        <span class="badge badge-angulo">[Ângulo]</span>
+                        <span class="badge badge-lei">[Lei clássica]</span>
+                    </div>
+                </div>
+            </div>
+            <div class="estrategia">
+                <div class="field"><span class="field-label">Conceito</span><span class="field-value">[Nome]</span></div>
+                <div class="field"><span class="field-label">Formato</span><span class="field-value">[Formato]</span></div>
+                <div class="field"><span class="field-label">Plataforma</span><span class="field-value">[Plataforma]</span></div>
+                <div class="field"><span class="field-label">Lei Clássica</span><span class="field-value">[Lei]</span></div>
+                <div class="field"><span class="field-label">Psicologia</span><span class="field-value">[Modelo]</span></div>
+            </div>
+            <!-- Repetir: copy-table, visual-concept, plataformas-grid -->
+        </div>
+
+        <!-- Conceito 3 -->
+        <div class="conceito" id="conceito-3">
+            <div class="conceito-header">
+                <div class="numero">03</div>
+                <div class="info">
+                    <h2>[Título do Conceito 3] — [Subtítulo]</h2>
+                    <div class="badges">
+                        <span class="badge badge-plataforma">[Plataforma]</span>
+                        <span class="badge badge-formato">[Formato]</span>
+                        <span class="badge badge-angulo">[Ângulo]</span>
+                        <span class="badge badge-lei">[Lei clássica]</span>
+                    </div>
+                </div>
+            </div>
+            <div class="estrategia">
+                <div class="field"><span class="field-label">Conceito</span><span class="field-value">[Nome]</span></div>
+                <div class="field"><span class="field-label">Formato</span><span class="field-value">[Formato]</span></div>
+                <div class="field"><span class="field-label">Plataforma</span><span class="field-value">[Plataforma]</span></div>
+                <div class="field"><span class="field-label">Lei Clássica</span><span class="field-value">[Lei]</span></div>
+                <div class="field"><span class="field-label">Psicologia</span><span class="field-value">[Modelo]</span></div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- ANÁLISE CLÁSSICA — CHECKLIST               -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="analise-card">
+            <h3>✅ Checklist de Publicidade Clássica</h3>
+            <div class="analise-grid">
+                <div class="analise-item">
+                    <div class="check">✓</div>
+                    <span>Uma ideia por peça</span>
+                </div>
+                <div class="analise-item">
+                    <div class="check">✓</div>
+                    <span>Visual Hammer + Verbal Nail (não se repetem)</span>
+                </div>
+                <div class="analise-item">
+                    <div class="check">✓</div>
+                    <span>Mostre, não conte (não-literal)</span>
+                </div>
+                <div class="analise-item">
+                    <div class="check">✓</div>
+                    <span>In Media Res (começa no clímax)</span>
+                </div>
+                <div class="analise-item">
+                    <div class="check">✓</div>
+                    <span>Branding insubstituível (teste do logo)</span>
+                </div>
+                <div class="analise-item">
+                    <div class="check">✓</div>
+                    <span>Diversificação de ângulos</span>
+                </div>
+                <div class="analise-item">
+                    <div class="check">✓</div>
+                    <span>Diversificação de formatos</span>
+                </div>
+                <div class="analise-item">
+                    <div class="check">✓</div>
+                    <span>Diversificação de plataformas</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <p><a href="https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=conceitos-classicos&utm_content=footer" style="color:#999;text-decoration:none;">gui.marketing</a> — Todos os direitos reservados</p>
+    </footer>
+
+</body>
+
+</html>

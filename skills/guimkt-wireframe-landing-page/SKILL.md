@@ -41,26 +41,13 @@ briefing:
   site_url: [URL do site, se existir]
 ```
 
-**ICP (Ideal Customer Profile):** Se `icp-consolidado-{{CLIENTE}}.md` existir, carregar e extrair:
+Se o ICP (Ideal Customer Profile) estiver disponível, extrair também:
 - 3 principais dores do público
 - Critérios de decisão de compra
 - Nível de consciência (frio/morno/quente)
 - Objeções mais comuns
 
-Se o ICP não existir, recomendar ao usuário rodar a skill `guimkt-icp-ideal-customer-profile` antes. O wireframe será mais eficaz com ICP estruturado.
-
 **Se o briefing for insuficiente, PARAR e perguntar. Não inventar informações.**
-
-### Skills Complementares (Ecossistema guimkt)
-
-Verificar se estas skills estão disponíveis. Se ausente, **recomendar a instalação** com justificativa:
-
-| Skill | Status | Justificativa |
-|-------|--------|---------------|
-| `guimkt-icp-ideal-customer-profile` | **Recomendada** | Define dores, objeções e nível de consciência. Sem ICP, a estrutura do wireframe não será calibrada ao público. |
-| `guimkt-landing-page` | **Recomendada** | Transforma o wireframe em LP premium com design e efeitos. O wireframe é o input; a LP é o output final. |
-| `guimkt-landing-page-optimization` | Recomendada | Princípios de conversão e UX para estruturar seções com máximo impacto. |
-| `marketing-psychology` | Opcional | Modelos mentais para frameworks de copywriting e gatilhos de persuasão. |
 
 ---
 
@@ -342,3 +329,20 @@ Para template HTML detalhado, consultar `references/wireframe-sketch-template.md
 5. O formulário deve ter campos de lead scoring (dropdowns de cargo, segmento, desafio)
 6. Incluir seção de FAQ/objeções quando o produto for complexo ou de venda consultiva
 7. Nunca elogiar o próprio trabalho — apresentar com análise objetiva de forças e fraquezas
+
+---
+
+## Output HTML (Apresentação ao Cliente)
+
+Além do output em Markdown, **gerar versão HTML estilizada** para apresentação ao cliente:
+
+- **Fase 1 (Wireframe-Tabela):** Usar template `references/wireframe-framework-tabela-template.html`
+
+### Regras do HTML:
+1. Substituir placeholders `{{CLIENTE}}`, `{{DATA}}`, `{{MARCA}}`, `{{FRAMEWORK}}`, etc.
+2. Preencher tabela de seções e defesa do wireframe com dados reais
+3. Header logo com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-wireframe-landing-page&utm_content=header-logo`
+4. Footer com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-wireframe-landing-page&utm_content=footer`
+5. Salvar como `wireframe-tabela-{{CLIENTE}}.html`
+
+> **IMPORTANTE:** O output `.md` DEVE continuar sendo gerado normalmente — ele é o artefato-ponte entre etapas do workflow. O HTML é um output adicional para exibição.
