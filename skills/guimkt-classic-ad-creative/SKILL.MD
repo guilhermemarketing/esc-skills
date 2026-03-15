@@ -1,5 +1,5 @@
 ---
-name: classic-ad-creative-final
+name: guimkt-classic-ad-creative-final
 description: >
   Gera conceitos criativos para midia paga usando principios da publicidade classica
   adaptados ao feed. Transforma briefings em ativos criativos (imagem estatica, carrossel,
