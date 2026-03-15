@@ -12,8 +12,11 @@ const OUTPUT_FILE = path.join(__dirname, 'skills-data.js');
 
 // Category mapping based on skill name patterns and keywords
 const CATEGORY_RULES = [
-  { id: 'marketing', label: '🎯 Marketing', icon: '🎯', match: (name, desc) => name.startsWith('guimkt-') || ['seo', 'pricing-page'].includes(name) },
-  { id: 'design', label: '🎨 Design & UI', icon: '🎨', match: (name, desc) => /^(ui-ux|frontend-|css-|responsive-|interaction-|progressive-)/.test(name) || name === 'figma-implement-design' },
+  { id: 'ads', label: '📣 Ads & PPC', icon: '📣', match: (name, desc) => /(-ads|ad-creative|google-ads|meta-ads)/.test(name) },
+  { id: 'analytics', label: '📈 Analytics & Tracking', icon: '📈', match: (name, desc) => /(-gtm-|analytics|tracking)/.test(name) },
+  { id: 'cro', label: '🎯 CRO & LPO', icon: '🎯', match: (name, desc) => /(-landing-page|-pricing-page|wireframe-landing)/.test(name) || name === 'pricing-page' },
+  { id: 'seo', label: '🔍 SEO', icon: '🔍', match: (name, desc) => name === 'seo' },
+  { id: 'design', label: '🎨 Design & UI', icon: '🎨', match: (name, desc) => /^(ui-ux|frontend-|css-|responsive-|interaction-|progressive-)/.test(name) || name === 'figma-implement-design' || name.includes('design-system') },
   { id: 'animation', label: '⚡ Animation', icon: '⚡', match: (name, desc) => /^(gsap|animejs|threejs-|vantajs|matterjs|3d-|animation-)/.test(name) },
   { id: 'architecture', label: '🏗️ Architecture', icon: '🏗️', match: (name, desc) => /^(component-|domain-|decomposition-|technical-|tlc-)/.test(name) },
   { id: 'deploy', label: '🚀 Deploy', icon: '🚀', match: (name, desc) => /(-deploy|^cloudflare-|^netlify-|^render-|^vercel-)/.test(name) },
@@ -21,7 +24,7 @@ const CATEGORY_RULES = [
   { id: 'performance', label: '📊 Performance', icon: '📊', match: (name, desc) => /^(perf-|core-web-|web-quality-)/.test(name) },
   { id: 'devops', label: '🛠 DevOps & CI', icon: '🛠', match: (name, desc) => /^(nx-|gh-|run-nx-)/.test(name) || name === 'sentry' },
   { id: 'docs', label: '📝 Docs & Planning', icon: '📝', match: (name, desc) => /^(docs-|skill-creator|subagent-creator|cursor-)/.test(name) },
-  { id: 'integrations', label: '🔌 Integrations', icon: '🔌', match: (name, desc) => /^(figma|confluence-|jira-|feedback-)/.test(name) },
+  { id: 'integrations', label: '🔌 Integrations', icon: '🔌', match: (name, desc) => /^(figma|confluence-|jira-|feedback-|guimkt-make-)/.test(name) },
   { id: 'development', label: '💻 Development', icon: '💻', match: (name, desc) => /^(javascript-|coding-|best-practices|playwright-)/.test(name) },
   { id: 'cloud', label: '☁️ Cloud', icon: '☁️', match: (name, desc) => name.startsWith('aws-') },
 ];
@@ -36,18 +39,22 @@ const FEATURED_SKILLS = [
 
 // Extra categories for skills that belong to multiple categories
 const EXTRA_CATEGORIES = {
-  'guimkt-design-system-extractor': [
-    { id: 'design', label: '🎨 Design & UI', icon: '🎨' }
+  'guimkt-classic-ad-creative-final': [
+    { id: 'copywriting', label: '✍️ Copywriting', icon: '✍️' },
+    { id: 'design', label: '🎨 Design', icon: '🎨' }
+  ],
+  'guimkt-google-ads': [
+    { id: 'copywriting', label: '✍️ Copywriting', icon: '✍️' }
   ],
   'guimkt-meta-ads': [
-    { id: 'ads', label: '📣 Ads & PPC', icon: '📣' },
     { id: 'copywriting', label: '✍️ Copywriting', icon: '✍️' },
     { id: 'design', label: '🎨 Design', icon: '🎨' }
   ],
-  'guimkt-classic-ad-creative-final': [
-    { id: 'ads', label: '📣 Ads & PPC', icon: '📣' },
-    { id: 'copywriting', label: '✍️ Copywriting', icon: '✍️' },
-    { id: 'design', label: '🎨 Design', icon: '🎨' }
+  'guimkt-landing-page': [
+    { id: 'design', label: '🎨 Design & UI', icon: '🎨' }
+  ],
+  'guimkt-wireframe-landing-page': [
+    { id: 'design', label: '🎨 Design & UI', icon: '🎨' }
   ]
 };
 
