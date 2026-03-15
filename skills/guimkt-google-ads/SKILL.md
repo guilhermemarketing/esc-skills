@@ -2,27 +2,47 @@
 name: guimkt-google-ads
 description: >
   Skill completa de Google Ads Search para geração de leads qualificados (SQLs).
-  Pipeline sequencial em 4 fases: (1) ICP, (2) Keywords positivas, (3) Keywords negativas,
-  (4) Anúncios responsivos (RSA). Cada fase pode ser executada individualmente.
-  Use quando o usuário pedir para criar campanhas de Google Ads, definir ICP para mídia paga,
+  Pipeline sequencial em 3 fases: (1) Keywords positivas, (2) Keywords negativas,
+  (3) Anúncios responsivos (RSA). Requer ICP previamente gerado pela skill
+  guimkt-icp-ideal-customer-profile. Cada fase pode ser executada individualmente.
+  Use quando o usuário pedir para criar campanhas de Google Ads,
   gerar keywords para Google Ads, criar lista de keywords negativas, criar anúncios de texto
   responsivo, montar RSA, ou qualquer variação de "Google Ads", "campanha de pesquisa",
   "search ads", "keywords Google", "anúncios responsivos", "negativar palavras-chave",
-  "ICP para tráfego pago", "gerar leads com Google", "campanha de busca".
+  "gerar leads com Google", "campanha de busca".
   Suporta múltiplas marcas por cliente.
 ---
 
 # guimkt-google-ads
 
-Skill completa para criar campanhas de Google Ads Search focadas em geração de leads qualificados (SQLs). Pipeline de 4 fases sequenciais, cada uma executável individualmente.
+Skill completa para criar campanhas de Google Ads Search focadas em geração de leads qualificados (SQLs). Pipeline de 3 fases sequenciais, cada uma executável individualmente.
 
 ## Pipeline Overview
 
 ```
-Fase 1: ICP → Fase 2: Keywords → Fase 3: Keywords Negativas → Fase 4: Anúncios RSA
+Pré-req: ICP (guimkt-icp-ideal-customer-profile) → Fase 1: Keywords → Fase 2: Keywords Negativas → Fase 3: Anúncios RSA
 ```
 
 Cada fase produz um deliverable que alimenta a próxima. Executar na ordem; é possível pular para uma fase se os deliverables anteriores já existirem.
+
+## Pré-requisito: ICP
+
+Antes de executar qualquer fase, verificar se o arquivo `icp-consolidado-{{CLIENTE}}.md` existe.
+
+- **Se existir:** Carregar e usar como base para todas as fases.
+- **Se não existir:** **PARAR** e instruir o usuário a rodar a skill `guimkt-icp-ideal-customer-profile` primeiro. O ICP é fundamental para a qualidade das keywords e anúncios gerados.
+
+### Skills Complementares (Ecossistema guimkt)
+
+Verificar se estas skills estão disponíveis. Se ausente, **recomendar a instalação** com justificativa:
+
+| Skill | Status | Justificativa |
+|-------|--------|---------------|
+| `guimkt-icp-ideal-customer-profile` | **Obrigatória** | Define público, dores e critérios de decisão. Sem ICP, keywords serão genéricas e anúncios terão baixo Quality Score. |
+| `guimkt-landing-page` | Recomendada | Cria LPs premium para receber o tráfego dos anúncios. Anúncio sem LP otimizada = budget desperdiçado. |
+| `guimkt-landing-page-optimization` | Recomendada | Otimiza a LP existente para maximizar conversão dos leads vindos dos anúncios. |
+| `guimkt-classic-ad-creative` | Opcional | Gera conceitos visuais complementares para campanhas Display/YouTube. |
+| `marketing-psychology` | Opcional | Modelos mentais para copy de anúncios mais persuasiva. |
 
 ## Pre-flight: Coletar Briefing
 
@@ -40,57 +60,15 @@ Se o usuário fornecer um documento de briefing (PDF, DOCX, etc.), extrair essas
 
 > **Regra de ouro:** Nunca carregar briefing bruto no contexto de geração. Usar apenas o resumo compilado.
 
-## Fase 1: Definição de ICP
-
-### Objetivo
-Definir o Ideal Customer Profile para orientar todas as campanhas.
-
-### Inputs
-- Briefing compilado do cliente
-
-### Prompt de Geração
-
-Executar o seguinte prompt usando **apenas** o briefing compilado:
-
-> Pretendo criar campanhas para gerar SQLs para vender as soluções da **{{EMPRESA}}**.
->
-> Com base nas informações do briefing fornecido, defina o ICP da **{{EMPRESA}}**.
->
-> Escreva o ICP contendo as seguintes dimensões:
->
-> | Dimensão | Descrição |
-> |----------|-----------|
-> | **Faixa Etária** | Idade típica do decisor |
-> | **Profissão** | Área de atuação profissional |
-> | **Cargo** | Posição hierárquica na empresa |
-> | **Setor** | Segmentos de mercado prioritários |
-> | **Formação** | Background educacional relevante |
-> | **Objetivos** | O que busca alcançar profissionalmente |
-> | **Dores** | Problemas e frustrações atuais |
-> | **Necessidades** | O que precisa para resolver suas dores |
-> | **Tópicos de Interesse** | Assuntos que consome e pesquisa |
->
-> Enriqueça com perfil psicográfico: critérios de decisão de compra, nível de consciência sobre o problema, objeções comuns e canais de aquisição preferidos.
-
-### Critérios de Qualidade
-- Todas as 9 dimensões preenchidas
-- Informações baseadas no briefing (não inventar dados)
-- Linguagem clara e específica ao mercado do cliente
-- Perfil psicográfico inclui: critérios de decisão, nível de consciência, objeções, canais
-
-### Output
-- Tabela com as 9 dimensões + bloco psicográfico
-- Presentar ao usuário para revisão antes de avançar
-
 ---
 
-## Fase 2: Keywords Positivas (30 por marca)
+## Fase 1: Keywords Positivas (30 por marca)
 
 ### Objetivo
 Gerar lista estruturada de palavras-chave para Google Ads Search com foco em leads qualificados.
 
 ### Inputs
-- ICP definido na Fase 1
+- ICP (`icp-consolidado-{{CLIENTE}}.md`)
 - Briefing compilado
 
 ### Detecção de Marcas
@@ -144,14 +122,14 @@ Analisar o briefing e identificar quantas marcas/unidades de negócio existem:
 
 ---
 
-## Fase 3: Keywords Negativas
+## Fase 2: Keywords Negativas
 
 ### Objetivo
 Avaliar e enriquecer lista de keywords negativas para qualificar o tráfego das campanhas.
 
 ### Inputs
-- ICP (Fase 1)
-- Keywords positivas (Fase 2)
+- ICP (`icp-consolidado-{{CLIENTE}}.md`)
+- Keywords positivas (Fase 1)
 - Briefing compilado
 
 ### Prompt de Geração
@@ -187,15 +165,15 @@ Avaliar e enriquecer lista de keywords negativas para qualificar o tráfego das 
 
 ---
 
-## Fase 4: Anúncios Responsivos (RSA)
+## Fase 3: Anúncios Responsivos (RSA)
 
 ### Objetivo
 Criar anúncios de texto responsivo completos para Google Ads Search.
 
 ### Inputs
-- ICP (Fase 1)
-- Keywords positivas (Fase 2)
-- Keywords negativas (Fase 3, recomendado)
+- ICP (`icp-consolidado-{{CLIENTE}}.md`)
+- Keywords positivas (Fase 1)
+- Keywords negativas (Fase 2, recomendado)
 - Briefing compilado
 
 ### Multi-marca

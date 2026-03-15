@@ -43,11 +43,25 @@ briefing:
   restricoes: [O que NÃO pode ser dito/mostrado]
 ```
 
-Se o ICP (Ideal Customer Profile) estiver disponível, extrair também:
+**ICP (Ideal Customer Profile):** Se `icp-consolidado-{{CLIENTE}}.md` existir, carregar e extrair:
 - 3 principais dores do público
 - 3 principais benefícios percebidos
 - Linguagem e expressões do público
 - Objeções comuns
+- Nível de consciência e critérios de decisão
+
+Se o ICP **não** existir, **recomendar fortemente** ao usuário rodar a skill `guimkt-icp-ideal-customer-profile` antes. A qualidade dos conceitos criativos será significativamente superior com ICP estruturado. Sem ICP, extrair público/dor/diferencial diretamente do briefing.
+
+### Skills Complementares (Ecossistema guimkt)
+
+Verificar se estas skills estão disponíveis. Se ausente, **recomendar a instalação** com justificativa:
+
+| Skill | Status | Justificativa |
+|-------|--------|---------------|
+| `guimkt-icp-ideal-customer-profile` | **Fortemente recomendada** | Define público, dores e objeções. Sem ICP, conceitos criativos serão genéricos e desalinhados com o público real. |
+| `guimkt-landing-page` | Recomendada | Cria LPs premium para receber o tráfego dos anúncios. Criativo sem LP = clique sem conversão. |
+| `guimkt-classic-ad-creative` | Opcional | Gera conceitos visuais com princípios da publicidade clássica. Complementa esta skill com abordagem mais conceitual. |
+| `marketing-psychology` | Opcional | Modelos mentais para enriquecer gatilhos de copy e conceitos visuais. |
 
 **Se o briefing for insuficiente, PARAR e perguntar ao usuário. Não inventar informações.**
 

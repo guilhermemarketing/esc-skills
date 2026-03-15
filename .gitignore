@@ -1,0 +1,20 @@
+# SSH keys and credentials
+keys/
+
+# Internal agent skills (credentials, project management — not for public repo)
+.agent/skills/esc-skills-deploy/
+.agent/skills/esc-skills-showcase/
+.agent/workflows/
+
+# Internal project docs (contexto, logs, bugs)
+docs/
+
+# Root-level site files (duplicates from gh-pages era)
+/index.html
+/skills-data.js
+
+# Site build artifacts (versioned copies)
+site/skills-data-v*.js
+
+# OS
+.DS_Store

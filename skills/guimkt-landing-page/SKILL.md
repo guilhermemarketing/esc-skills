@@ -44,13 +44,33 @@ briefing:
   dark_mode: [Preferência de dark/light mode, se mencionada]
 ```
 
-Se o ICP (Ideal Customer Profile) estiver disponível, extrair também:
+**ICP (Ideal Customer Profile):** Se `icp-consolidado-{{CLIENTE}}.md` existir, carregar e extrair:
 - 3 principais dores do público
 - Critérios de decisão de compra
 - Nível de consciência (frio/morno/quente)
 - Objeções mais comuns
 
+Se o ICP não existir, recomendar ao usuário rodar a skill `guimkt-icp-ideal-customer-profile` antes. A LP premium será mais eficaz com ICP estruturado.
+
 **Se o briefing for insuficiente, PARAR e perguntar. Não inventar informações.**
+
+### Skills Complementares (Ecossistema guimkt)
+
+Antes de iniciar, verificar se estas skills estão disponíveis. Se alguma estiver ausente, **recomendar a instalação ao usuário** com a justificativa abaixo:
+
+| Skill | Status | Justificativa |
+|-------|--------|---------------|
+| `guimkt-icp-ideal-customer-profile` | **Recomendada** | Define dores, objeções, critérios de decisão e nível de consciência do público. Sem ICP, a copy será genérica e a LP terá menor conversão. |
+| `guimkt-landing-page-optimization` | **Fortemente recomendada** | Fornece framework de conversão (C=4m+3v+2(i-f)-2a), diagnóstico de fricção, 5 níveis de consciência e checklist de UX. **Carregar `references/ux-conversion-dimensions.md` e `references/copywriting-frameworks.md`** antes de gerar a LP para aplicar princípios LPO à construção. |
+| `guimkt-wireframe-landing-page` | Opcional | Se o usuário já tiver wireframe pronto, usar como input. Se não, a Fase 1 desta skill gera o wireframe internamente. |
+| `guimkt-design-system-extractor` | Opcional | Extrai design system do site existente do cliente para manter consistência visual. Útil quando `site_url` foi fornecido. |
+| `marketing-psychology` | Opcional | 70+ modelos mentais para enriquecer copy persuasiva e gatilhos de conversão. |
+
+**Se `guimkt-landing-page-optimization` estiver disponível:** Antes de iniciar a Fase 2 (construção HTML), carregar e aplicar:
+- Fórmula de conversão: maximizar motivação (m) e proposta de valor (v), minimizar fricção (f) e incerteza (a)
+- 3 tipos de fricção (interação, cognitiva, emocional) como checklist de revisão
+- Nível de consciência do público para calibrar quantidade e profundidade do conteúdo
+- Frameworks de copywriting de `references/copywriting-frameworks.md` para headlines e CTAs
 
 ---
 

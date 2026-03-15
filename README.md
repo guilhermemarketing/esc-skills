@@ -1,7 +1,7 @@
 <p align="center">
   <h1 align="center">🧠 ESC Skills - Estrategista Social Club</h1>
   <p align="center">
-    <strong>69+ AI agent skills for digital marketing professionals who think like strategists.</strong>
+    <strong>70+ AI agent skills for digital marketing professionals who think like strategists.</strong>
   </p>
 </p>
 
@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/skills-69%2B-blueviolet?style=for-the-badge" alt="Skills">
+  <img src="https://img.shields.io/badge/skills-70%2B-blueviolet?style=for-the-badge" alt="Skills">
   <img src="https://img.shields.io/github/stars/guilhermemarketing/esc-skills?style=for-the-badge&color=gold" alt="Stars">
   <img src="https://img.shields.io/badge/license-internal-informational?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/ESC-Estrategista%20Social%20Club-ff6b35?style=for-the-badge" alt="ESC">
@@ -22,7 +22,7 @@
 
 ## 🇺🇸 English
 
-A collection of 69+ AI agent skills (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and more) built for digital marketing professionals: CRO, SEO, Google Ads, Meta Ads, Performance Marketing, Google Tag Manager & Advanced Tracking, Design, Web Development, Security & Architecture, and DevOps.
+A collection of 70+ AI agent skills (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and more) built for digital marketing professionals: CRO, SEO, Google Ads, Meta Ads, Performance Marketing, Google Tag Manager & Advanced Tracking, Design, Web Development, Security & Architecture, and DevOps.
 
 Built by the [Estrategista Social Club](https://comunidade.gui.marketing/esc) — the club where marketing professionals learn to think, test, and convert like strategists — not like button pushers.
 
@@ -35,9 +35,10 @@ Strategic content, real-world analysis, high-level discussions, and zero bullshi
 ### 📑 Table of Contents
 
 - [What Are Skills?](#what-are-skills)
+- [How Skills Connect](#-how-skills-connect)
 - [Why Star This Repo?](#-why-star-this-repo)
 - [Featured Skills](#-featured-skills)
-- [All Available Skills (69+)](#-all-available-skills-69)
+- [All Available Skills (70+)](#-all-available-skills-70)
 - [Quick Start](#-quick-start)
 - [AI Agent Setup](#-ai-agent-setup)
 - [Updates](#-updates)
@@ -62,6 +63,52 @@ Works with **any agent that supports file reading** — Gemini, Claude Code, Cur
 
 ---
 
+### 🗺️ How Skills Connect
+
+Skills don't work in isolation — they form an interconnected ecosystem. The `guimkt` marketing skills follow a strategic pipeline where the **ICP (Ideal Customer Profile)** feeds every downstream deliverable:
+
+```mermaid
+graph TD
+    ICP["🧠 guimkt-icp-ideal-customer-profile<br/><i>Foundation — defines who the customer is</i>"]
+    PSY["💡 marketing-psychology<br/><i>70+ mental models & cognitive biases</i>"]
+
+    ICP -->|feeds| GA["📊 guimkt-google-ads<br/><i>Keywords → Negatives → RSA</i>"]
+    ICP -->|feeds| MA["📱 guimkt-meta-ads<br/><i>6 creative concepts</i>"]
+    ICP -->|feeds| CAC["🎨 guimkt-classic-ad-creative<br/><i>Classic ad principles for feed</i>"]
+    ICP -->|feeds| WF["📐 guimkt-wireframe-landing-page<br/><i>Wireframe-Table + Sketch</i>"]
+    ICP -->|feeds| LP["✨ guimkt-landing-page<br/><i>Premium HTML with effects</i>"]
+    ICP -->|feeds| LPO["🔬 guimkt-landing-page-optimization<br/><i>Audits, copy, conversion formula</i>"]
+
+    PSY -.->|enriches| ICP
+    PSY -.->|enriches| LPO
+
+    WF -->|produces wireframe for| LP
+
+    subgraph Tracking["📡 Tracking & Measurement"]
+        GTM["guimkt-gtm-expert"]
+        GTMT["guimkt-gtm-expert-template"]
+    end
+
+    subgraph Tools["🔧 Supporting Tools"]
+        DSE["guimkt-design-system-extractor"]
+        MBE["guimkt-make-blueprint-expert"]
+        SC["skill-creator"]
+    end
+
+    GA & MA & CAC -->|traffic to| LP & LPO
+    GTM -->|tracks conversions on| LP
+    DSE -.->|extracts styles for| LP
+```
+
+**How to read this map:**
+- **Solid arrows** (`→`) = direct dependency (output of one feeds the next)
+- **Dashed arrows** (`⇢`) = enrichment (optional but recommended)
+- **ICP is the foundation** — run it first, then any combination of downstream skills
+
+> 💡 **Tip:** You don't need to run all skills. Pick the ones you need — the ICP just makes each one better.
+
+---
+
 ### ⭐ Why Star This Repo?
 
 - 🆓 **69+ skills, free and open** — years of methodology packed into ready-to-use modules
@@ -81,7 +128,8 @@ Works with **any agent that supports file reading** — Gemini, Claude Code, Cur
 | **guimkt-classic-ad-creative** | Full creative concepts for Meta Ads and Google Ads — copy, visual concept, reference sketches |
 | **guimkt-classic-ad-creative-final** | Creative concepts for paid media using classic advertising principles adapted to the feed. Static images, carousels, and video scripts |
 | **guimkt-design-system-extractor** | Extract complete design systems from any website — colors, typography, components, CSS variables |
-| **guimkt-google-ads** | Full Google Ads Search pipeline: ICP → Keywords → Negatives → RSA ads. Multi-brand support |
+| **guimkt-google-ads** | Full Google Ads Search pipeline: Keywords → Negatives → RSA ads (requires ICP). Multi-brand support |
+| **guimkt-icp-ideal-customer-profile** | Consolidate the Ideal Customer Profile — 9 dimensions, psychographic profile, real vs. aspirational ICP, mental models. HTML + Markdown output |
 | **guimkt-gtm-expert** | Create, edit, and validate GTM container JSON files. Custom HTML, dataLayer, conversion tracking |
 | **guimkt-gtm-expert-template** | Customize the GTM Leads 2025 template for new client onboarding. GA4 + Meta Pixel + Google Ads + sGTM |
 | **guimkt-landing-page** | Full premium landing pages for lead generation (SQL) in 2 phases: Wireframe-Table (copywriting frameworks) + Premium HTML with liquid glass, micro-animations and scroll effects |
@@ -94,7 +142,7 @@ Works with **any agent that supports file reading** — Gemini, Claude Code, Cur
 
 ---
 
-### 📦 All Available Skills (69+)
+### 📦 All Available Skills (70+)
 
 | Skill | Description |
 |-------|-------------|
@@ -128,7 +176,8 @@ Works with **any agent that supports file reading** — Gemini, Claude Code, Cur
 | **guimkt-classic-ad-creative** | Creative concepts for Meta Ads and Google Ads |
 | **guimkt-classic-ad-creative-final** | Creative concepts for paid media — classic advertising principles adapted to the feed |
 | **guimkt-design-system-extractor** | Extract complete design systems from websites |
-| **guimkt-google-ads** | Google Ads Search for lead generation (SQLs). 4-phase pipeline: ICP, Keywords, Negatives, RSA. Multi-brand |
+| **guimkt-google-ads** | Google Ads Search for lead generation (SQLs). 3-phase pipeline: Keywords, Negatives, RSA (requires ICP). Multi-brand |
+| **guimkt-icp-ideal-customer-profile** | Consolidate Ideal Customer Profile — 9 dimensions, psychographic profile, real vs. aspirational, mental models. HTML + MD output |
 | **guimkt-gtm-expert** | Create, edit, validate GTM container JSON files |
 | **guimkt-gtm-expert-template** | GTM Leads 2025 template for new clients |
 | **guimkt-landing-page** | Full premium landing pages for lead gen — Wireframe-Table + Premium HTML with liquid glass, micro-animations |
@@ -236,7 +285,7 @@ New skills are added as the marketing and dev landscape evolves. To stay updated
 
 ## 🇧🇷 Português
 
-Coleção de 69+ skills para agentes AI (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, etc.) para profissionais de marketing digital: CRO, SEO, Google Ads, Meta Ads, Marketing de Performance, Google Tag Manager & Tracking Avançado, Design, Desenvolvimento Web, Segurança & Arquitetura e DevOps.
+Coleção de 70+ skills para agentes AI (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, etc.) para profissionais de marketing digital: CRO, SEO, Google Ads, Meta Ads, Marketing de Performance, Google Tag Manager & Tracking Avançado, Design, Desenvolvimento Web, Segurança & Arquitetura e DevOps.
 
 Criado pelo [Estrategista Social Club](https://comunidade.gui.marketing/esc) — o clube onde profissionais de marketing aprendem a pensar, testar e converter como estrategistas — não como apertadores de botões.
 
@@ -249,9 +298,10 @@ Conteúdo estratégico, análises reais, discussões de alto nível e zero bulls
 ### 📑 Sumário
 
 - [O que são Skills?](#o-que-são-skills)
+- [Como as Skills se Conectam](#-como-as-skills-se-conectam)
 - [Por que dar Star neste Repo?](#-por-que-dar-star-neste-repo)
 - [Skills em Destaque](#-skills-em-destaque)
-- [Todas as Skills Disponíveis (69+)](#-todas-as-skills-disponíveis-69)
+- [Todas as Skills Disponíveis (70+)](#-todas-as-skills-disponíveis-70)
 - [Instalação Rápida](#-instalação-rápida)
 - [Configuração para Agentes AI](#-configuração-para-agentes-ai)
 - [Atualizações](#-atualizações)
@@ -276,6 +326,52 @@ Funciona com **qualquer agente que suporte leitura de arquivos** — Gemini, Cla
 
 ---
 
+### 🗺️ Como as Skills se Conectam
+
+As skills não funcionam isoladas — elas formam um ecossistema interconectado. As skills `guimkt` de marketing seguem um pipeline estratégico onde o **ICP (Ideal Customer Profile)** alimenta todos os deliverables downstream:
+
+```mermaid
+graph TD
+    ICP["🧠 guimkt-icp-ideal-customer-profile<br/><i>Fundação — define quem é o cliente</i>"]
+    PSY["💡 marketing-psychology<br/><i>70+ modelos mentais e vieses cognitivos</i>"]
+
+    ICP -->|alimenta| GA["📊 guimkt-google-ads<br/><i>Keywords → Negativas → RSA</i>"]
+    ICP -->|alimenta| MA["📱 guimkt-meta-ads<br/><i>6 conceitos criativos</i>"]
+    ICP -->|alimenta| CAC["🎨 guimkt-classic-ad-creative<br/><i>Publicidade clássica para feed</i>"]
+    ICP -->|alimenta| WF["📐 guimkt-wireframe-landing-page<br/><i>Wireframe-Tabela + Sketch</i>"]
+    ICP -->|alimenta| LP["✨ guimkt-landing-page<br/><i>HTML premium com efeitos</i>"]
+    ICP -->|alimenta| LPO["🔬 guimkt-landing-page-optimization<br/><i>Auditorias, copy, fórmula de conversão</i>"]
+
+    PSY -.->|enriquece| ICP
+    PSY -.->|enriquece| LPO
+
+    WF -->|produz wireframe para| LP
+
+    subgraph Tracking["📡 Tracking & Mensuração"]
+        GTM["guimkt-gtm-expert"]
+        GTMT["guimkt-gtm-expert-template"]
+    end
+
+    subgraph Tools["🔧 Ferramentas de Apoio"]
+        DSE["guimkt-design-system-extractor"]
+        MBE["guimkt-make-blueprint-expert"]
+        SC["skill-creator"]
+    end
+
+    GA & MA & CAC -->|tráfego para| LP & LPO
+    GTM -->|rastreia conversões em| LP
+    DSE -.->|extrai estilos para| LP
+```
+
+**Como ler este mapa:**
+- **Setas sólidas** (`→`) = dependência direta (output de uma alimenta a próxima)
+- **Setas tracejadas** (`⇢`) = enriquecimento (opcional mas recomendado)
+- **ICP é a fundação** — rode primeiro, depois qualquer combinação de skills downstream
+
+> 💡 **Dica:** Você não precisa rodar todas as skills. Escolha as que precisa — o ICP apenas torna cada uma melhor.
+
+---
+
 ### ⭐ Por que dar Star neste Repo?
 
 - 🆓 **69+ skills, grátis e abertas** — anos de metodologia empacotados em módulos prontos para uso
@@ -295,7 +391,8 @@ Funciona com **qualquer agente que suporte leitura de arquivos** — Gemini, Cla
 | **guimkt-classic-ad-creative** | Conceitos criativos completos para Meta Ads e Google Ads — copy, conceito visual, sketches de referência |
 | **guimkt-classic-ad-creative-final** | Conceitos criativos para mídia paga usando princípios da publicidade clássica adaptados ao feed. Imagens estáticas, carrosséis e roteiros de vídeo |
 | **guimkt-design-system-extractor** | Extrai design systems completos de qualquer website — cores, tipografia, componentes, CSS variables |
-| **guimkt-google-ads** | Pipeline completo de Google Ads Search: ICP → Keywords → Negativas → Anúncios RSA. Suporta multi-marca |
+| **guimkt-google-ads** | Pipeline completo de Google Ads Search: Keywords → Negativas → RSA (requer ICP). Suporta multi-marca |
+| **guimkt-icp-ideal-customer-profile** | Consolida o Ideal Customer Profile — 9 dimensões, perfil psicográfico, ICP real vs. aspiracional, modelos mentais. Output HTML + Markdown |
 | **guimkt-gtm-expert** | Criar, editar e validar containers GTM JSON. Custom HTML, dataLayer, tracking de conversões |
 | **guimkt-gtm-expert-template** | Template GTM Leads 2025 para onboarding de novos clientes. GA4 + Meta Pixel + Google Ads + sGTM |
 | **guimkt-landing-page** | Landing pages premium completas para geração de leads (SQL) em 2 fases: Wireframe-Tabela (frameworks de copywriting) + HTML premium com liquid glass, micro-animations e scroll effects |
@@ -308,7 +405,7 @@ Funciona com **qualquer agente que suporte leitura de arquivos** — Gemini, Cla
 
 ---
 
-### 📦 Todas as Skills Disponíveis (69+)
+### 📦 Todas as Skills Disponíveis (70+)
 
 | Skill | Descrição |
 |-------|-----------|
@@ -342,7 +439,8 @@ Funciona com **qualquer agente que suporte leitura de arquivos** — Gemini, Cla
 | **guimkt-classic-ad-creative** | Conceitos criativos para Meta Ads e Google Ads |
 | **guimkt-classic-ad-creative-final** | Conceitos criativos para mídia paga — princípios da publicidade clássica adaptados ao feed |
 | **guimkt-design-system-extractor** | Extrai design systems completos de websites |
-| **guimkt-google-ads** | Google Ads Search para geração de leads (SQLs). Pipeline de 4 fases: ICP, Keywords, Negativas, RSA. Multi-marca |
+| **guimkt-google-ads** | Google Ads Search para geração de leads (SQLs). Pipeline de 3 fases: Keywords, Negativas, RSA (requer ICP). Multi-marca |
+| **guimkt-icp-ideal-customer-profile** | Consolida o Ideal Customer Profile — 9 dimensões, perfil psicográfico, ICP real vs. aspiracional, modelos mentais. Output HTML + MD |
 | **guimkt-gtm-expert** | Criar, editar, validar containers GTM JSON |
 | **guimkt-gtm-expert-template** | Template GTM Leads 2025 para novos clientes |
 | **guimkt-landing-page** | Landing pages premium para geração de leads — Wireframe-Tabela + HTML premium com liquid glass, micro-animations |

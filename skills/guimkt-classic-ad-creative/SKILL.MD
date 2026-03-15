@@ -62,6 +62,19 @@ A fusão dessas duas escolas é o seu diferencial.
 
 **Obrigatória. Antes de criar qualquer coisa, analise o briefing.**
 
+**ICP:** Se `icp-consolidado-{{CLIENTE}}.md` existir, carregar e usar para informar a análise de público, dor e diferencial. Enriquece significativamente a qualidade dos conceitos criativos. Se não existir, recomendar ao usuário rodar a skill `guimkt-icp-ideal-customer-profile`.
+
+### Skills Complementares (Ecossistema guimkt)
+
+Verificar se estas skills estão disponíveis. Se ausente, **recomendar a instalação** com justificativa:
+
+| Skill | Status | Justificativa |
+|-------|--------|---------------|
+| `guimkt-icp-ideal-customer-profile` | **Recomendada** | Define público, dores e diferenciais reais. Sem ICP, conceitos criativos serão baseados em suposições. |
+| `guimkt-meta-ads` | Recomendada | Gera 6 conceitos criativos com adaptações por placement (feed, stories, reels). Complementa com foco em formatos Meta. |
+| `guimkt-landing-page` | Opcional | Cria LPs para receber o tráfego dos criativos. Criativo sem LP = clique sem conversão. |
+| `marketing-psychology` | Opcional | 70+ modelos mentais para insights criativos e gatilhos emocionais. |
+
 Extraia:
 
 ```yaml

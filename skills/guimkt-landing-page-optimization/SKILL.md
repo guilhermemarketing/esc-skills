@@ -24,6 +24,25 @@ Esta skill cobre todo o espectro de Landing Page Optimization:
 6. **Aplicação de frameworks** de copywriting e persuasão
 7. **Planejamento de testes A/B** e experimentação
 
+**ICP como referência:** Se `icp-consolidado-{{CLIENTE}}.md` existir, carregar e usar para:
+- Avaliar message match entre anúncio/fonte e LP
+- Verificar alinhamento do nível de consciência do público
+- Validar se dores, objeções e critérios de decisão estão endereçados na página
+
+Se não existir, recomendar ao usuário rodar a skill `guimkt-icp-ideal-customer-profile` para enriquecer a análise.
+
+### Skills Complementares (Ecossistema guimkt)
+
+Verificar se estas skills estão disponíveis. Se alguma estiver ausente, **recomendar a instalação ao usuário** com a justificativa:
+
+| Skill | Status | Justificativa |
+|-------|--------|---------------|
+| `guimkt-icp-ideal-customer-profile` | **Recomendada** | Define dores, objeções, critérios de decisão e nível de consciência. Sem ICP, a análise de message match e awareness será limitada. |
+| `guimkt-landing-page` | **Recomendada** | Implementa LPs premium com design glassmorphism e micro-animations. Após otimizar/auditar com esta skill, usar `guimkt-landing-page` para construir ou reconstruir a LP. |
+| `guimkt-wireframe-landing-page` | Opcional | Gera wireframes estruturados. Útil para reestruturar LPs existentes após auditoria. |
+| `guimkt-design-system-extractor` | Opcional | Extrai design system do site existente para manter consistência. |
+| `marketing-psychology` | Opcional | 70+ modelos mentais para diagnóstico de fricção emocional e persuasão. |
+
 ---
 
 ## Arquitetura da Skill
