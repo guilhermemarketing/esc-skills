@@ -1,3 +1,12 @@
+# ──────────────────────────────────────────────────────────────
+# A pasta skills/ é um ESPELHO de .agent/skills/ usado SOMENTE
+# para publicar no GitHub. Não edite skills/ diretamente —
+# as skills reais ficam em .agent/skills/.
+# Para publicar: copiar de .agent/skills/ → skills/ e fazer
+# git add -f skills/ && git commit && git push
+# ──────────────────────────────────────────────────────────────
+skills/
+
 # Credenciais e chaves
 keys/
 
