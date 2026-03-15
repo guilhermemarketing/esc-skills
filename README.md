@@ -36,6 +36,7 @@ Strategic content, real-world analysis, high-level discussions, and zero bullshi
 
 - [What Are Skills?](#what-are-skills)
 - [How Skills Connect](#-how-skills-connect)
+- [Workflow: /esc-start](#-workflow-esc-start)
 - [Why Star This Repo?](#-why-star-this-repo)
 - [Featured Skills](#-featured-skills)
 - [All Available Skills (70+)](#-all-available-skills-70)
@@ -106,6 +107,53 @@ graph TD
 - **ICP is the foundation** — run it first, then any combination of downstream skills
 
 > 💡 **Tip:** You don't need to run all skills. Pick the ones you need — the ICP just makes each one better.
+
+---
+
+### 🚀 Workflow: /esc-start
+
+Don't want to run skills one by one? The **`/esc-start`** workflow orchestrates the **full marketing pipeline** in 6 sequential steps — from ICP definition to final ad creatives. Each step produces a consolidated `.md` file that feeds the next, ensuring **context consistency** and **zero hallucinations** between steps.
+
+```mermaid
+flowchart LR
+    B["📋 Client Briefing"] --> S1
+
+    S1["1️⃣ ICP\nguimkt-icp-ideal-customer-profile"] --> S2
+    S1 --> S3
+    S1 --> S5
+
+    S2["2️⃣ Google Ads\nguimkt-google-ads"] --> |keywords + RSA| OUT2["google-ads-consolidado.md"]
+
+    S3["3️⃣ Wireframe LP\nguimkt-wireframe-landing-page"] --> S4
+    S4["4️⃣ Landing Page\nguimkt-landing-page"] --> OUT4["landing-page.html"]
+
+    S5["5️⃣ Meta Ads\nguimkt-meta-ads"] --> S6
+    S6["6️⃣ Classic Creatives\nguimkt-classic-ad-creative-final"] --> OUT6["criativos-classicos.md"]
+
+    S1 --> |icp-consolidado.md| BRIDGE(("📄 ICP\nUniversal\nBridge"))
+    BRIDGE --> S2 & S3 & S4 & S5 & S6
+
+    style BRIDGE fill:#864df9,stroke:#6b3cc9,color:#fff
+    style S1 fill:#1a1a2e,stroke:#864df9,color:#fff
+    style S2 fill:#1a1a2e,stroke:#4ea8de,color:#fff
+    style S3 fill:#1a1a2e,stroke:#f9844a,color:#fff
+    style S4 fill:#1a1a2e,stroke:#f9844a,color:#fff
+    style S5 fill:#1a1a2e,stroke:#43aa8b,color:#fff
+    style S6 fill:#1a1a2e,stroke:#43aa8b,color:#fff
+```
+
+**How it works:**
+
+| Step | Skill | Input | Output |
+|------|-------|-------|--------|
+| **1. ICP** | `guimkt-icp-ideal-customer-profile` | Client briefing | `icp-consolidado-{{CLIENT}}.md` |
+| **2. Google Ads** | `guimkt-google-ads` (Phases 2-4) | ICP | `google-ads-consolidado-{{CLIENT}}.md` |
+| **3. Wireframe** | `guimkt-wireframe-landing-page` | ICP | `wireframe-tabela-{{CLIENT}}.md` |
+| **4. Landing Page** | `guimkt-landing-page` (Phase 2) | ICP + Wireframe | `landing-page-{{CLIENT}}.html` |
+| **5. Meta Ads** | `guimkt-meta-ads` | ICP | `meta-ads-conceitos-{{CLIENT}}.md` |
+| **6. Creatives** | `guimkt-classic-ad-creative-final` | ICP + Meta Ads | `criativos-classicos-{{CLIENT}}.md` |
+
+> Each step has a **mandatory checkpoint** — the agent presents the output and waits for your approval before proceeding.
 
 ---
 
@@ -299,6 +347,7 @@ Conteúdo estratégico, análises reais, discussões de alto nível e zero bulls
 
 - [O que são Skills?](#o-que-são-skills)
 - [Como as Skills se Conectam](#-como-as-skills-se-conectam)
+- [Workflow: /esc-start](#-workflow-esc-start-1)
 - [Por que dar Star neste Repo?](#-por-que-dar-star-neste-repo)
 - [Skills em Destaque](#-skills-em-destaque)
 - [Todas as Skills Disponíveis (70+)](#-todas-as-skills-disponíveis-70)
@@ -369,6 +418,53 @@ graph TD
 - **ICP é a fundação** — rode primeiro, depois qualquer combinação de skills downstream
 
 > 💡 **Dica:** Você não precisa rodar todas as skills. Escolha as que precisa — o ICP apenas torna cada uma melhor.
+
+---
+
+### 🚀 Workflow: /esc-start
+
+Não quer rodar skill por skill? O workflow **`/esc-start`** orquestra o **pipeline completo de marketing** em 6 etapas sequenciais — da definição do ICP aos criativos finais. Cada etapa produz um arquivo `.md` consolidado que alimenta a próxima, garantindo **consistência de contexto** e **zero alucinações** entre etapas.
+
+```mermaid
+flowchart LR
+    B["📋 Briefing do Cliente"] --> S1
+
+    S1["1️⃣ ICP\nguimkt-icp-ideal-customer-profile"] --> S2
+    S1 --> S3
+    S1 --> S5
+
+    S2["2️⃣ Google Ads\nguimkt-google-ads"] --> |keywords + RSA| OUT2["google-ads-consolidado.md"]
+
+    S3["3️⃣ Wireframe LP\nguimkt-wireframe-landing-page"] --> S4
+    S4["4️⃣ Landing Page\nguimkt-landing-page"] --> OUT4["landing-page.html"]
+
+    S5["5️⃣ Meta Ads\nguimkt-meta-ads"] --> S6
+    S6["6️⃣ Criativos Clássicos\nguimkt-classic-ad-creative-final"] --> OUT6["criativos-classicos.md"]
+
+    S1 --> |icp-consolidado.md| BRIDGE(("📄 ICP\nPonte\nUniversal"))
+    BRIDGE --> S2 & S3 & S4 & S5 & S6
+
+    style BRIDGE fill:#864df9,stroke:#6b3cc9,color:#fff
+    style S1 fill:#1a1a2e,stroke:#864df9,color:#fff
+    style S2 fill:#1a1a2e,stroke:#4ea8de,color:#fff
+    style S3 fill:#1a1a2e,stroke:#f9844a,color:#fff
+    style S4 fill:#1a1a2e,stroke:#f9844a,color:#fff
+    style S5 fill:#1a1a2e,stroke:#43aa8b,color:#fff
+    style S6 fill:#1a1a2e,stroke:#43aa8b,color:#fff
+```
+
+**Como funciona:**
+
+| Etapa | Skill | Input | Output |
+|-------|-------|-------|--------|
+| **1. ICP** | `guimkt-icp-ideal-customer-profile` | Briefing do cliente | `icp-consolidado-{{CLIENTE}}.md` |
+| **2. Google Ads** | `guimkt-google-ads` (Fases 2-4) | ICP | `google-ads-consolidado-{{CLIENTE}}.md` |
+| **3. Wireframe** | `guimkt-wireframe-landing-page` | ICP | `wireframe-tabela-{{CLIENTE}}.md` |
+| **4. Landing Page** | `guimkt-landing-page` (Fase 2) | ICP + Wireframe | `landing-page-{{CLIENTE}}.html` |
+| **5. Meta Ads** | `guimkt-meta-ads` | ICP | `meta-ads-conceitos-{{CLIENTE}}.md` |
+| **6. Criativos** | `guimkt-classic-ad-creative-final` | ICP + Meta Ads | `criativos-classicos-{{CLIENTE}}.md` |
+
+> Cada etapa tem um **checkpoint obrigatório** — o agente apresenta o output e aguarda sua aprovação antes de avançar.
 
 ---
 
