@@ -383,6 +383,38 @@ Load skills with `view_file` on the corresponding SKILL.md file.
 
 ---
 
+### ❓ Frequently Asked Questions
+
+**What are AI marketing skills?**
+
+AI marketing skills are plug-and-play expertise modules (`.md` files + references) that teach AI agents how to perform specific marketing tasks like a senior professional. Instead of writing long prompts from scratch, you load a skill and the agent follows a battle-tested methodology — producing structured, consistent, production-ready output.
+
+**Which AI agents are compatible?**
+
+Any agent that supports file reading: Gemini, Claude Code, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and others. Skills are agent-agnostic — they work across platforms.
+
+**How do I install AI marketing skills from this repo?**
+
+Run `curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash` in any project directory. The script copies all skills into your `.agent/skills/` folder, ready for your AI agent to use.
+
+**Do I need to use all 70+ skills?**
+
+No. Each skill is independent — pick only what you need. However, running the ICP (Ideal Customer Profile) skill first makes every downstream skill better by providing audience context.
+
+**What is the `/esc-start` workflow?**
+
+`/esc-start` orchestrates 6 AI marketing skills in sequence — from ICP definition to Google Ads, landing page wireframe, premium HTML page, Meta Ads concepts, and classic ad creatives. Each step feeds context to the next, ensuring zero hallucinations and maximum consistency.
+
+**Can these AI marketing skills generate real campaign assets?**
+
+Yes. Skills produce production-ready deliverables: keyword lists and RSA ads for Google Ads, 6 complete creative concepts for Meta Ads, premium HTML landing pages with glassmorphism and micro-animations, GTM container JSON files, and full wireframe-to-page pipelines.
+
+**Are these skills free?**
+
+Yes. The ESC Skills collection is free and open. Star the repo to receive notifications when new AI marketing skills are added.
+
+---
+
 ### 🔄 Updates
 
 New skills are added as the marketing and dev landscape evolves. To stay updated:
@@ -772,35 +804,35 @@ Novas skills são adicionadas conforme o cenário de marketing e dev evolui. Par
 
 ---
 
-### ❓ Frequently Asked Questions
+### ❓ Perguntas Frequentes
 
-**What are AI marketing skills?**
+**O que são AI marketing skills?**
 
-AI marketing skills are plug-and-play expertise modules (`.md` files + references) that teach AI agents how to perform specific marketing tasks like a senior professional. Instead of writing long prompts from scratch, you load a skill and the agent follows a battle-tested methodology — producing structured, consistent, production-ready output.
+AI marketing skills são módulos de expertise plug-and-play (arquivos `.md` + referências) que ensinam agentes de IA a executar tarefas específicas de marketing como um profissional sênior. Em vez de escrever prompts longos do zero, você carrega uma skill e o agente segue uma metodologia testada em campo — produzindo output estruturado, consistente e pronto para produção.
 
-**Which AI agents are compatible?**
+**Quais agentes de IA são compatíveis?**
 
-Any agent that supports file reading: Gemini, Claude Code, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, and others. Skills are agent-agnostic — they work across platforms.
+Qualquer agente que suporte leitura de arquivos: Gemini, Claude Code, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus e outros. As skills são agnósticas — funcionam em qualquer plataforma.
 
-**How do I install AI marketing skills from this repo?**
+**Como instalar as AI marketing skills deste repo?**
 
-Run `curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash` in any project directory. The script copies all skills into your `.agent/skills/` folder, ready for your AI agent to use.
+Execute `curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash` em qualquer diretório de projeto. O script copia todas as skills para a pasta `.agent/skills/`, prontas para uso.
 
-**Do I need to use all 70+ skills?**
+**Preciso usar todas as 70+ skills?**
 
-No. Each skill is independent — pick only what you need. However, running the ICP (Ideal Customer Profile) skill first makes every downstream skill better by providing audience context.
+Não. Cada skill é independente — use só o que precisar. Porém, rodar a skill de ICP (Ideal Customer Profile) primeiro torna todas as skills downstream mais eficazes, pois fornece contexto de audiência.
 
-**What is the `/esc-start` workflow?**
+**O que é o workflow `/esc-start`?**
 
-`/esc-start` orchestrates 6 AI marketing skills in sequence — from ICP definition to Google Ads, landing page wireframe, premium HTML page, Meta Ads concepts, and classic ad creatives. Each step feeds context to the next, ensuring zero hallucinations and maximum consistency.
+`/esc-start` orquestra 6 AI marketing skills em sequência — da definição do ICP até Google Ads, wireframe de landing page, HTML premium, conceitos de Meta Ads e criativos clássicos. Cada etapa alimenta contexto para a próxima, garantindo zero alucinações e máxima consistência.
 
-**Can these AI marketing skills generate real campaign assets?**
+**Essas AI marketing skills geram ativos reais de campanha?**
 
-Yes. Skills produce production-ready deliverables: keyword lists and RSA ads for Google Ads, 6 complete creative concepts for Meta Ads, premium HTML landing pages with glassmorphism and micro-animations, GTM container JSON files, and full wireframe-to-page pipelines.
+Sim. As skills produzem deliverables prontos para produção: listas de keywords e anúncios RSA para Google Ads, 6 conceitos criativos completos para Meta Ads, landing pages HTML premium com glassmorphism e micro-animações, containers GTM em JSON, e pipelines completos de wireframe para página.
 
-**Are these skills free?**
+**Essas skills são gratuitas?**
 
-Yes. The ESC Skills collection is free and open. Star the repo to receive notifications when new AI marketing skills are added.
+Sim. A coleção ESC Skills é gratuita e aberta. Dê uma estrela no repo para receber notificações quando novas AI marketing skills forem adicionadas.
 
 ---
 
