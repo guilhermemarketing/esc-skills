@@ -21,6 +21,7 @@ docs/
 
 # Arquivos do showcase site (admin-only, deploy via rsync)
 /index.html
+/build-data.js
 /skills-data.js
 /skills-data-v*.js
 
