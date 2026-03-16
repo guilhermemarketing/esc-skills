@@ -61,6 +61,10 @@ const EXTRA_CATEGORIES = {
   'guimkt-hero-videos': [
     { id: 'design', label: '🎨 Design & UI', icon: '🎨' }
   ],
+  'guimkt-gmp-cli-mcp-skill': [
+    { id: 'integrations', label: '🔌 Integrations', icon: '🔌' },
+    { id: 'ads', label: '📣 Ads & PPC', icon: '📣' }
+  ],
   'guimkt-threads-mcp-skill': [
     { id: 'integrations', label: '🔌 Integrations', icon: '🔌' }
   ]
