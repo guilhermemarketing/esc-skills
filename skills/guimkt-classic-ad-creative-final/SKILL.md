@@ -336,6 +336,98 @@ GERAL:
 
 ---
 
+## ETAPA 6 — PROMPTS DE IMAGEM (Pós-Aprovação)
+
+**Opcional. Oferecida ao usuário após a aprovação dos conceitos.**
+
+Após apresentar os conceitos e o usuário aprovar um ou mais deles, **perguntar ao usuário:**
+
+> "Deseja que eu gere o arquivo consolidado de prompts de imagem para os conceitos aprovados? Isso facilita a produção dos criativos com ferramentas de geração de imagem (Gemini Flash Image (Nano Banana), Midjourney, etc.)."
+
+Se o usuário aceitar, gerar o arquivo **apenas para os conceitos aprovados**.
+
+**Arquivo:** `prompts-imagens-{{CLIENTE}}.md`
+
+**Formato do arquivo:**
+
+```markdown
+# Prompts de Imagem — Criativos [Nome do Cliente]
+
+> Gerado em: [data]
+> Skill: guimkt-classic-ad-creative-final
+> Conceitos aprovados: [lista dos nomes]
+> Total de prompts: [N]
+
+---
+
+## Conceito [N] — [Nome do Conceito]
+
+**Formato criativo:** [Metáfora Visual | Hipérbole | etc.]
+**Plataforma:** [Meta | Google | TikTok | etc.]
+**Estética:** [nativa | editorial | premium | minimalista]
+
+### Imagem Estática
+```
+
+[prompt completo em inglês, incluindo --ar]
+
+```
+
+### Variações A/B
+```
+
+[prompt variação visual — se houver]
+
+```
+
+### Carrossel (se aplicável)
+#### Card 1
+```
+
+[prompt do card 1]
+
+```
+#### Card 2
+```
+
+[prompt do card 2, com instrução de coerência]
+
+```
+[...demais cards]
+
+### Vídeo — Frames-chave (se aplicável)
+#### Frame Hook (0-2s)
+```
+
+[prompt do frame de hook / thumbnail]
+
+```
+#### Frame Virada
+```
+
+[prompt do frame de virada]
+
+```
+
+---
+
+## Notas de Uso
+- Otimizados para: Gemini Flash Image (Nano Banana) / Midjourney / DALL-E / Ideogram
+- Aspect ratios por plataforma: 4:5 (Meta feed), 9:16 (Stories/Reels/TikTok), 16:9 (Google/YouTube), 1:1 (feed quadrado)
+- Todos os prompts pedem texturas reais para evitar "cara de IA"
+- Para carrosseis, manter instrução de coerência visual entre cards
+```
+
+**Regras:**
+
+1. **Nunca gerar automaticamente** — sempre perguntar ao usuário primeiro
+2. **Apenas conceitos aprovados** — não incluir conceitos descartados
+3. Se o usuário aprovar todos, incluir todos. Se aprovar apenas 1, incluir apenas 1
+4. Extrair os prompts já escritos na Etapa 4 — não reescrever do zero
+5. Se algum conceito aprovado não tinha prompt de imagem (ex: era só vídeo com roteiro), indicar no arquivo
+
+---
+
 ## ANTI-PADRÕES
 
 ```
@@ -446,7 +538,8 @@ Além do output em Markdown, **gerar versão HTML estilizada** para apresentaç�
 
 - Usar template `references/conceitos-classicos-template.html`
 
-### Regras do HTML:
+### Regras do HTML
+
 1. Substituir placeholders `{{CLIENTE}}`, `{{DATA}}`, etc.
 2. Preencher briefing grid, conceitos (cards), copy tables, visual concepts e plataformas
 3. Header logo com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-classic-ad-creative-final&utm_content=header-logo`
@@ -454,3 +547,15 @@ Além do output em Markdown, **gerar versão HTML estilizada** para apresentaç�
 5. Salvar como `criativos-classicos-{{CLIENTE}}.html`
 
 > **IMPORTANTE:** O output `.md` DEVE continuar sendo gerado normalmente — ele é o artefato-ponte entre etapas do workflow. O HTML é um output adicional para exibição.
+
+---
+
+## Deliverables Finais
+
+Ao concluir o workflow, os seguintes arquivos devem ser entregues:
+
+| Arquivo | Descrição | Obrigatório |
+|---------|-----------|-------------|
+| `criativos-classicos-{{CLIENTE}}.md` | Output principal com os conceitos | ✅ Sim |
+| `criativos-classicos-{{CLIENTE}}.html` | Versão HTML para apresentação | ✅ Sim |
+| `prompts-imagens-{{CLIENTE}}.md` | Prompts de imagem dos conceitos aprovados | ⚡ Opcional (pós-aprovação) |

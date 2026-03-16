@@ -44,6 +44,7 @@ briefing:
 ```
 
 Se o ICP (Ideal Customer Profile) estiver disponível, extrair também:
+
 - 3 principais dores do público
 - 3 principais benefícios percebidos
 - Linguagem e expressões do público
@@ -52,6 +53,7 @@ Se o ICP (Ideal Customer Profile) estiver disponível, extrair também:
 **Se o briefing for insuficiente, PARAR e perguntar ao usuário. Não inventar informações.**
 
 Checklist de viabilidade — se qualquer item for verdade, PARAR e perguntar:
+
 - Diferencial genérico ("qualidade e preço" não é diferencial)
 - Público vago ("homens e mulheres 25-55" não é público)
 - Dor é suposição da empresa, não dor sentida pelo público
@@ -80,6 +82,7 @@ O insight é uma VERDADE HUMANA que o público reconhece na própria vida. Não 
 3. Cruzar: onde uma frustração encontra uma verdade = insight
 
 **Validação:**
+
 - O público se reconhece? → Se não, é observação
 - Gera reação emocional? → Se não, é fato
 - O concorrente usaria o mesmo? → Se sim, refinar
@@ -195,6 +198,7 @@ Para detalhes sobre formatos, dimensões e zonas seguras, consultar `references/
 Validar TODOS os conceitos antes de entregar:
 
 **Qualidade Criativa:**
+
 - [ ] Cada conceito tem ângulo persuasivo distinto
 - [ ] Headline ≤40 caracteres
 - [ ] Texto principal ≤125 caracteres visíveis
@@ -204,21 +208,90 @@ Validar TODOS os conceitos antes de entregar:
 - [ ] Overlay ≤4 palavras
 
 **Diversidade:**
+
 - [ ] Pelo menos 4 ângulos diferentes
 - [ ] Pelo menos 2 formatos diferentes
 - [ ] Mix de estáticos + dinâmicos
 - [ ] Cobertura topo, meio e fundo de funil
 
 **Compliance Meta Ads:**
+
 - [ ] Regra 20% texto respeitada
 - [ ] Sem promessas exageradas ou garantias absolutas
 - [ ] Linguagem respeitosa e inclusiva
 - [ ] Visual e texto se complementam sem se repetir
 
 **Testes Criativos:**
+
 - [ ] Teste da frase única — cabe em 1 frase sem vírgula?
 - [ ] Teste do borrão — visto embaçado e rápido, parece interessante?
 - [ ] Teste do logo trocado — funciona com logo do concorrente? (Se sim → refazer)
+
+---
+
+### Etapa 7 — Arquivo de Prompts de Imagem
+
+**Obrigatória. Gerar junto com o output principal.**
+
+Após a validação dos 6 conceitos, consolidar TODOS os prompts de imagem utilizados em um arquivo separado:
+
+**Arquivo:** `prompts-imagens-{{CLIENTE}}.md`
+
+**Formato do arquivo:**
+
+```markdown
+# Prompts de Imagem — Meta Ads [Nome do Cliente]
+
+> Gerado em: [data]
+> Skill: guimkt-meta-ads
+> Total de prompts: [N]
+
+---
+
+## Conceito 1 — [Nome do Conceito]
+
+**Formato:** [Feed 1:1 | Feed 4:5 | Stories 9:16 | Carrossel | Reels]
+**Estilo visual:** [fotografia | ilustração | 3D | motion | tipográfico | misto]
+
+### Prompt Principal
+```
+
+[prompt completo em inglês, incluindo --ar]
+
+```
+
+### Variações
+```
+
+[prompt variação A — se houver]
+
+```
+```
+
+[prompt variação B — se houver]
+
+```
+
+---
+
+## Conceito 2 — [Nome]
+[mesma estrutura]
+
+...
+
+## Conceito 6 — [Nome]
+[mesma estrutura]
+
+---
+
+## Notas de Uso
+- Otimizados para: Gemini Flash Image (Nano Banana) / Midjourney / DALL-E / Ideogram
+- Aspect ratios: 1:1 (feed), 4:5 (feed vertical), 9:16 (stories/reels)
+- Todos os prompts pedem texturas reais para evitar "cara de IA"
+- Para sketches/wireframes, usar os prompts da seção "Geração de Esboços Visuais"
+```
+
+> **IMPORTANTE:** Este arquivo é um deliverable obrigatório. Ele permite que o designer ou o próprio cliente reutilize, adapte e itere sobre os prompts sem precisar extraí-los manualmente do documento principal.
 
 ---
 
@@ -373,7 +446,8 @@ Além do output em Markdown, **gerar versão HTML estilizada** para apresentaç�
 
 - Usar template `references/conceitos-meta-template.html`
 
-### Regras do HTML:
+### Regras do HTML
+
 1. Substituir placeholders `{{CLIENTE}}`, `{{DATA}}`, `{{MARCA_1}}`, etc.
 2. Preencher os 6 conceitos (cards), copy tables, visual concepts e adaptações
 3. Header logo com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-meta-ads&utm_content=header-logo`
@@ -381,3 +455,15 @@ Além do output em Markdown, **gerar versão HTML estilizada** para apresentaç�
 5. Salvar como `conceitos-meta-{{CLIENTE}}.html`
 
 > **IMPORTANTE:** O output `.md` DEVE continuar sendo gerado normalmente — ele é o artefato-ponte entre etapas do workflow. O HTML é um output adicional para exibição.
+
+---
+
+## Deliverables Finais
+
+Ao concluir o workflow, os seguintes arquivos devem ser entregues:
+
+| Arquivo | Descrição | Obrigatório |
+|---------|-----------|-------------|
+| `conceitos-meta-{{CLIENTE}}.md` | Output principal com os 6 conceitos | ✅ Sim |
+| `conceitos-meta-{{CLIENTE}}.html` | Versão HTML para apresentação | ✅ Sim |
+| `prompts-imagens-{{CLIENTE}}.md` | Consolidação de todos os prompts de imagem | ✅ Sim |
