@@ -255,6 +255,9 @@ flowchart LR
 | **guimkt-landing-page-optimization** | Landing Page Optimization — audits, copy frameworks (AIDA, PAS, FAB, BAB), conversion formula C=4m+3v+2(i-f)-2a |
 | **guimkt-make-blueprint-expert** | Create, debug, and optimize Make.com scenario blueprints via JSON |
 | **guimkt-meta-ads** | 6 complete creative concepts for Meta Ads (Facebook/Instagram) — strategy, copy, visual concept, image prompt and placement adaptations |
+| **guimkt-hero-videos** | Premium hero sections with background video and AI video prompt generation. Two modules: hero-pages-videobg (HTML/CSS code) + video-for-hero-pages (video prompt for Runway, Sora, Kling) |
+| **guimkt-threads-mcp-skill** | Maintain and operate the Threads MCP Server — token renewal, troubleshooting, tool usage, scheduling, and configuration across AI agents |
+| **guimkt-threads-viral-content** | Viral content for Threads (Meta) with proven templates (307+ viral posts analyzed) and ethical guidelines. Threads, posts, one-liners, listicles, provocations |
 | **skill-creator** | Create, test, benchmark, and optimize new AI skills from scratch |
 | **ui-ux-pro-max** | UI/UX design intelligence — 50 styles, 21 palettes, 50 font pairings, 9 tech stacks |
 | **guimkt-wireframe-landing-page** | Complete landing page wireframes for lead generation (SQL) in 2 phases: Wireframe-Table (copywriting frameworks) + Sketch HTML wireframe for client validation |
@@ -303,6 +306,9 @@ flowchart LR
 | **guimkt-landing-page-optimization** | Landing Page Optimization (LPO) — audits, copy, conversion formula |
 | **guimkt-make-blueprint-expert** | Create, debug, and optimize Make.com blueprints via JSON |
 | **guimkt-meta-ads** | 6 complete creative concepts for Meta Ads (Facebook/Instagram) — strategy, copy, visual concept, image prompt |
+| **guimkt-hero-videos** | Premium hero sections with background video + AI video prompt generation for Runway, Sora, Kling |
+| **guimkt-threads-mcp-skill** | Maintain and operate the Threads MCP Server — token renewal, troubleshooting, scheduling, configuration |
+| **guimkt-threads-viral-content** | Viral ethical content for Threads (Meta) — 307+ viral posts analyzed, proven templates, 4 thread subtypes, 4 post subtypes |
 | **interaction-design** | Microinteractions, motion design, transitions |
 | **javascript-typescript** | JS/TS with ES6+, Node.js, React, modern frameworks |
 | **jira-assistant** | Jira operations via Atlassian MCP |
@@ -665,6 +671,9 @@ flowchart LR
 | **guimkt-landing-page-optimization** | Landing Page Optimization — auditorias, frameworks de copy (AIDA, PAS, FAB, BAB), fórmula de conversão C=4m+3v+2(i-f)-2a |
 | **guimkt-make-blueprint-expert** | Criar, debugar e otimizar blueprints de cenários Make.com via JSON |
 | **guimkt-meta-ads** | 6 conceitos criativos completos para Meta Ads (Facebook/Instagram) — estratégia, copy, conceito visual, prompt de imagem e adaptações por placement |
+| **guimkt-hero-videos** | Hero sections premium com vídeo no background e geração de prompts de vídeo por IA. Dois módulos: hero-pages-videobg (código HTML/CSS) + video-for-hero-pages (prompt de vídeo para Runway, Sora, Kling) |
+| **guimkt-threads-mcp-skill** | Manutenção e operação do Threads MCP Server — renovação de token, troubleshooting, scheduling, configuração em agentes AI |
+| **guimkt-threads-viral-content** | Conteúdo viral ético para Threads (Meta) com templates comprovados (307+ posts virais analisados) e diretrizes éticas. Threads, posts, one-liners, listicles, provocações |
 | **skill-creator** | Criar, testar, benchmarkar e otimizar novas skills AI do zero |
 | **ui-ux-pro-max** | Inteligência UI/UX — 50 estilos, 21 paletas, 50 font pairings, 9 stacks tecnológicos |
 | **guimkt-wireframe-landing-page** | Wireframes completos de landing pages para leads (SQL) em 2 fases: Wireframe-Tabela (frameworks de copywriting) + Wireframe-Sketch HTML de baixa fidelidade para validação com clientes |
@@ -713,6 +722,9 @@ flowchart LR
 | **guimkt-landing-page-optimization** | Landing Page Optimization (LPO) — auditorias, copy, frameworks de conversão |
 | **guimkt-make-blueprint-expert** | Criar, debugar e otimizar blueprints Make.com via JSON |
 | **guimkt-meta-ads** | 6 conceitos criativos completos para Meta Ads (Facebook/Instagram) — estratégia, copy, conceito visual, prompt de imagem |
+| **guimkt-hero-videos** | Hero sections premium com vídeo no background + geração de prompts de vídeo por IA para Runway, Sora, Kling |
+| **guimkt-threads-mcp-skill** | Manutenção e operação do Threads MCP Server — renovação de token, troubleshooting, scheduling, configuração |
+| **guimkt-threads-viral-content** | Conteúdo viral ético para Threads (Meta) — 307+ posts virais analisados, templates comprovados, 4 subtipos de thread, 4 subtipos de post |
 | **interaction-design** | Microinterações, motion design, transições |
 | **javascript-typescript** | JS/TS com ES6+, Node.js, React, frameworks modernos |
 | **jira-assistant** | Operações Jira via Atlassian MCP |
