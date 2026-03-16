@@ -249,6 +249,7 @@ flowchart LR
 | **guimkt-design-system-extractor** | Extract complete design systems from any website — colors, typography, components, CSS variables |
 | **guimkt-google-ads** | Full Google Ads Search pipeline: Keywords → Negatives → RSA ads (requires ICP). Multi-brand support |
 | **guimkt-icp-ideal-customer-profile** | Consolidate the Ideal Customer Profile — 9 dimensions, psychographic profile, real vs. aspirational ICP, mental models. HTML + Markdown output |
+| **guimkt-gmp-cli-mcp-skill** | Operate the gmp-cli (Google Marketing Platform CLI) — GA4 analytics, Search Console, Google Ads, and GTM via terminal commands. Reports, GAQL queries, and output formatting |
 | **guimkt-gtm-expert** | Create, edit, and validate GTM container JSON files. Custom HTML, dataLayer, conversion tracking |
 | **guimkt-gtm-expert-template** | Customize the GTM Leads 2025 template for new client onboarding. GA4 + Meta Pixel + Google Ads + sGTM |
 | **guimkt-landing-page** | Full premium landing pages for lead generation (SQL) in 2 phases: Wireframe-Table (copywriting frameworks) + Premium HTML with liquid glass, micro-animations and scroll effects |
@@ -300,6 +301,7 @@ flowchart LR
 | **guimkt-design-system-extractor** | Extract complete design systems from websites |
 | **guimkt-google-ads** | Google Ads Search for lead generation (SQLs). 3-phase pipeline: Keywords, Negatives, RSA (requires ICP). Multi-brand |
 | **guimkt-icp-ideal-customer-profile** | Consolidate Ideal Customer Profile — 9 dimensions, psychographic profile, real vs. aspirational, mental models. HTML + MD output |
+| **guimkt-gmp-cli-mcp-skill** | Operate the gmp-cli (Google Marketing Platform CLI) — GA4, Search Console, Google Ads, GTM via CLI. Reports, GAQL queries, output formatting |
 | **guimkt-gtm-expert** | Create, edit, validate GTM container JSON files |
 | **guimkt-gtm-expert-template** | GTM Leads 2025 template for new clients |
 | **guimkt-landing-page** | Full premium landing pages for lead gen — Wireframe-Table + Premium HTML with liquid glass, micro-animations |
@@ -665,6 +667,7 @@ flowchart LR
 | **guimkt-design-system-extractor** | Extrai design systems completos de qualquer website — cores, tipografia, componentes, CSS variables |
 | **guimkt-google-ads** | Pipeline completo de Google Ads Search: Keywords → Negativas → RSA (requer ICP). Suporta multi-marca |
 | **guimkt-icp-ideal-customer-profile** | Consolida o Ideal Customer Profile — 9 dimensões, perfil psicográfico, ICP real vs. aspiracional, modelos mentais. Output HTML + Markdown |
+| **guimkt-gmp-cli-mcp-skill** | Operar o gmp-cli (Google Marketing Platform CLI) — GA4 analytics, Search Console, Google Ads e GTM via terminal. Relatórios, queries GAQL e formatação de output |
 | **guimkt-gtm-expert** | Criar, editar e validar containers GTM JSON. Custom HTML, dataLayer, tracking de conversões |
 | **guimkt-gtm-expert-template** | Template GTM Leads 2025 para onboarding de novos clientes. GA4 + Meta Pixel + Google Ads + sGTM |
 | **guimkt-landing-page** | Landing pages premium completas para geração de leads (SQL) em 2 fases: Wireframe-Tabela (frameworks de copywriting) + HTML premium com liquid glass, micro-animations e scroll effects |
@@ -716,6 +719,7 @@ flowchart LR
 | **guimkt-design-system-extractor** | Extrai design systems completos de websites |
 | **guimkt-google-ads** | Google Ads Search para geração de leads (SQLs). Pipeline de 3 fases: Keywords, Negativas, RSA (requer ICP). Multi-marca |
 | **guimkt-icp-ideal-customer-profile** | Consolida o Ideal Customer Profile — 9 dimensões, perfil psicográfico, ICP real vs. aspiracional, modelos mentais. Output HTML + MD |
+| **guimkt-gmp-cli-mcp-skill** | Operar o gmp-cli (Google Marketing Platform CLI) — GA4, Search Console, Google Ads, GTM via CLI. Relatórios, queries GAQL, formatação de output |
 | **guimkt-gtm-expert** | Criar, editar, validar containers GTM JSON |
 | **guimkt-gtm-expert-template** | Template GTM Leads 2025 para novos clientes |
 | **guimkt-landing-page** | Landing pages premium para geração de leads — Wireframe-Tabela + HTML premium com liquid glass, micro-animations |
