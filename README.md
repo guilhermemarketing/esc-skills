@@ -423,12 +423,23 @@ Yes. The ESC Skills collection is free and open. Star the repo to receive notifi
 
 ### 🔄 Updates
 
-New skills are added as the marketing and dev landscape evolves. To stay updated:
+New skills are added as the marketing and dev landscape evolves. Every skill is **semantically versioned** (`MAJOR.MINOR.PATCH`) and tracked in `manifest.json`.
+
+```bash
+# Check for updates (no changes made)
+bash install.sh check
+
+# Update all skills to latest versions
+bash install.sh update
+```
+
+The update command shows exactly what changed, including version diffs and ⚠️ breaking change warnings.
+
+**Other ways to stay updated:**
 
 - **⭐ Star this repo** — get notified of new releases
+- **GitHub Releases** — every skill update creates a tagged release with changelog
 - **Submodule:** `git submodule update --remote`
-- **Script:** Re-run `install.sh`
-- **Clone:** Re-clone the repository
 
 ---
 
@@ -807,12 +818,23 @@ Carregue skills com `view_file` no arquivo SKILL.md correspondente.
 
 ### 🔄 Atualizações
 
-Novas skills são adicionadas conforme o cenário de marketing e dev evolui. Para ficar atualizado:
+Novas skills são adicionadas conforme o cenário de marketing e dev evolui. Cada skill tem **versionamento semântico** (`MAJOR.MINOR.PATCH`) e é rastreada no `manifest.json`.
+
+```bash
+# Verificar se há atualizações (sem alterar nada)
+bash install.sh check
+
+# Atualizar todas as skills para as versões mais recentes
+bash install.sh update
+```
+
+O comando de update mostra exatamente o que mudou, incluindo diffs de versão e ⚠️ avisos de breaking changes.
+
+**Outras formas de ficar atualizado:**
 
 - **⭐ Star este repo** — receba notificações de novos releases
+- **GitHub Releases** — cada atualização de skill cria um release taggeado com changelog
 - **Submodule:** `git submodule update --remote`
-- **Script:** Re-execute o `install.sh`
-- **Clone:** Re-clone o repositório
 
 ---
 

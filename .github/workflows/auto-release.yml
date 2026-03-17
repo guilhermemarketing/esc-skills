@@ -1,0 +1,104 @@
+name: Auto Release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'manifest.json'
+      - 'CHANGELOG.md'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect changed skills
+        id: changes
+        run: |
+          # Get changed SKILL.md files
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'skills/*/SKILL.md' | sort)
+
+          if [ -z "$CHANGED" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "skip=false" >> $GITHUB_OUTPUT
+
+          # Build release notes
+          NOTES="## Updated Skills\n\n"
+          SKILL_LIST=""
+          HAS_BREAKING=false
+
+          for file in $CHANGED; do
+            SKILL_NAME=$(echo "$file" | cut -d/ -f2)
+            VERSION=$(head -1 "$file" | grep -oP 'version:\s*\K[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
+
+            # Check if breaking
+            BREAKING=$(python3 -c "
+          import json
+          m = json.load(open('manifest.json'))
+          entry = m.get('skills', {}).get('$SKILL_NAME', {})
+          print('true' if entry.get('breaking', False) else 'false')
+          " 2>/dev/null || echo "false")
+
+            if [ "$BREAKING" = "true" ]; then
+              NOTES="$NOTES- ⚠️ **$SKILL_NAME** → v$VERSION (BREAKING)\n"
+              HAS_BREAKING=true
+            else
+              NOTES="$NOTES- **$SKILL_NAME** → v$VERSION\n"
+            fi
+
+            SKILL_LIST="$SKILL_LIST $SKILL_NAME"
+          done
+
+          # Count skills
+          SKILL_COUNT=$(echo $CHANGED | wc -w | tr -d ' ')
+
+          if [ "$HAS_BREAKING" = "true" ]; then
+            NOTES="$NOTES\n> ⚠️ **Breaking changes detected.** Review CHANGELOG.md for migration instructions.\n"
+          fi
+
+          NOTES="$NOTES\n### How to update\n\n\`\`\`bash\nbash install.sh update\n\`\`\`\n\nOr check for updates: \`bash install.sh check\`"
+
+          # Generate tag (date-based with skill count)
+          TAG="v$(date +%Y%m%d)-${SKILL_COUNT}skills"
+          TITLE="$SKILL_COUNT skill(s) updated — $(date +%Y-%m-%d)"
+
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "title=$TITLE" >> $GITHUB_OUTPUT
+          echo "skill_count=$SKILL_COUNT" >> $GITHUB_OUTPUT
+
+          # Write notes to file (multiline)
+          printf "$NOTES" > /tmp/release_notes.md
+
+      - name: Create GitHub Release
+        if: steps.changes.outputs.skip != 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.changes.outputs.tag }}
+          name: ${{ steps.changes.outputs.title }}
+          body_path: /tmp/release_notes.md
+          generate_release_notes: false
+          make_latest: true
+
+      - name: Discord notification (breaking changes only)
+        if: steps.changes.outputs.skip != 'true' && env.DISCORD_WEBHOOK_URL != ''
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          # Only notify on breaking changes
+          HAS_BREAKING=$(grep -c "BREAKING" /tmp/release_notes.md 2>/dev/null || echo "0")
+          if [ "$HAS_BREAKING" -gt 0 ]; then
+            NOTES=$(cat /tmp/release_notes.md | head -20)
+            curl -s -H "Content-Type: application/json" \
+              -d "{\"content\": \"⚠️ **ESC Skills — Breaking Change**\n\n${NOTES}\n\nUpdate: \`bash install.sh update\`\"}" \
+              "$DISCORD_WEBHOOK_URL" || true
+          fi
