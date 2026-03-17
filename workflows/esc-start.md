@@ -154,7 +154,7 @@ Se o briefing for insuficiente, **PARAR e perguntar**. Não iniciar o pipeline c
 
 ## Etapa 6 — Criativos Clássicos (Multi-Plataforma)
 
-**Skill:** `guimkt-classic-ad-creative-final`
+**Skill:** `guimkt-classic-advertising-creative`
 
 **Input:** `icp-consolidado-{{CLIENTE}}.md` + `meta-ads-conceitos-{{CLIENTE}}.md`
 

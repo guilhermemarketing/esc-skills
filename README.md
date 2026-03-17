@@ -76,7 +76,7 @@ graph TD
 
     ICP -->|feeds| GA["📊 guimkt-google-ads<br/><i>Keywords → Negatives → RSA</i>"]
     ICP -->|feeds| MA["📱 guimkt-meta-ads<br/><i>6 creative concepts</i>"]
-    ICP -->|feeds| CAC["🎨 guimkt-classic-ad-creative<br/><i>Classic ad principles for feed</i>"]
+    ICP -->|feeds| CAC["🎨 guimkt-classic-advertising-creative<br/><i>Classic ad principles for feed</i>"]
     ICP -->|feeds| WF["📐 guimkt-wireframe-landing-page<br/><i>Wireframe-Table + Sketch</i>"]
     ICP -->|feeds| LP["✨ guimkt-landing-page<br/><i>Premium HTML with effects</i>"]
     ICP -->|feeds| LPO["🔬 guimkt-landing-page-optimization<br/><i>Audits, copy, conversion formula</i>"]
@@ -166,7 +166,7 @@ flowchart LR
     S4["4️⃣ Landing Page\nguimkt-landing-page"] --> OUT4["landing-page.html"]
 
     S5["5️⃣ Meta Ads\nguimkt-meta-ads"] --> S6
-    S6["6️⃣ Classic Creatives\nguimkt-classic-ad-creative-final"] --> OUT6["criativos-classicos.md"]
+    S6["6️⃣ Classic Creatives\nguimkt-classic-advertising-creative"] --> OUT6["criativos-classicos.md"]
 
     S1 --> |icp-consolidado.md| BRIDGE(("📄 ICP\nUniversal\nBridge"))
     BRIDGE --> S2 & S3 & S4 & S5 & S6
@@ -221,7 +221,7 @@ flowchart LR
 | **3. Wireframe** | `guimkt-wireframe-landing-page` | ICP | `wireframe-tabela-{{CLIENT}}.md` |
 | **4. Landing Page** | `guimkt-landing-page` (Phase 2) | ICP + Wireframe | `landing-page-{{CLIENT}}.html` |
 | **5. Meta Ads** | `guimkt-meta-ads` | ICP | `meta-ads-conceitos-{{CLIENT}}.md` |
-| **6. Creatives** | `guimkt-classic-ad-creative-final` | ICP + Meta Ads | `criativos-classicos-{{CLIENT}}.md` |
+| **6. Creatives** | `guimkt-classic-advertising-creative` | ICP + Meta Ads | `criativos-classicos-{{CLIENT}}.md` |
 
 > Each step has a **mandatory checkpoint** — the agent presents the output and waits for your approval before proceeding.
 
@@ -244,8 +244,7 @@ flowchart LR
 
 | Skill | What It Does |
 |-------|-------------|
-| **guimkt-classic-ad-creative** | Full creative concepts for Meta Ads and Google Ads — copy, visual concept, reference sketches |
-| **guimkt-classic-ad-creative-final** | Creative concepts for paid media using classic advertising principles adapted to the feed. Static images, carousels, and video scripts |
+| **guimkt-classic-advertising-creative** | Creative concepts for paid media using classic advertising principles adapted to the feed. Static images, carousels, video scripts, copy, visual concept, and reference sketches |
 | **guimkt-design-system-extractor** | Extract complete design systems from any website — colors, typography, components, CSS variables |
 | **guimkt-google-ads** | Full Google Ads Search pipeline: Keywords → Negatives → RSA ads (requires ICP). Multi-brand support |
 | **guimkt-icp-ideal-customer-profile** | Consolidate the Ideal Customer Profile — 9 dimensions, psychographic profile, real vs. aspirational ICP, mental models. HTML + Markdown output |
@@ -296,8 +295,7 @@ flowchart LR
 | **gh-address-comments** | Address review/issue comments on GitHub PRs |
 | **gh-fix-ci** | Debug and fix failing GitHub Actions CI checks |
 | **gsap** | GSAP — timelines, ScrollTrigger, stagger, transforms |
-| **guimkt-classic-ad-creative** | Creative concepts for Meta Ads and Google Ads |
-| **guimkt-classic-ad-creative-final** | Creative concepts for paid media — classic advertising principles adapted to the feed |
+| **guimkt-classic-advertising-creative** | Creative concepts for paid media — classic advertising principles adapted to the feed |
 | **guimkt-design-system-extractor** | Extract complete design systems from websites |
 | **guimkt-google-ads** | Google Ads Search for lead generation (SQLs). 3-phase pipeline: Keywords, Negatives, RSA (requires ICP). Multi-brand |
 | **guimkt-icp-ideal-customer-profile** | Consolidate Ideal Customer Profile — 9 dimensions, psychographic profile, real vs. aspirational, mental models. HTML + MD output |
@@ -497,7 +495,7 @@ graph TD
 
     ICP -->|alimenta| GA["📊 guimkt-google-ads<br/><i>Keywords → Negativas → RSA</i>"]
     ICP -->|alimenta| MA["📱 guimkt-meta-ads<br/><i>6 conceitos criativos</i>"]
-    ICP -->|alimenta| CAC["🎨 guimkt-classic-ad-creative<br/><i>Publicidade clássica para feed</i>"]
+    ICP -->|alimenta| CAC["🎨 guimkt-classic-advertising-creative<br/><i>Publicidade clássica para feed</i>"]
     ICP -->|alimenta| WF["📐 guimkt-wireframe-landing-page<br/><i>Wireframe-Tabela + Sketch</i>"]
     ICP -->|alimenta| LP["✨ guimkt-landing-page<br/><i>HTML premium com efeitos</i>"]
     ICP -->|alimenta| LPO["🔬 guimkt-landing-page-optimization<br/><i>Auditorias, copy, fórmula de conversão</i>"]
@@ -585,7 +583,7 @@ flowchart LR
     S4["4️⃣ Landing Page\nguimkt-landing-page"] --> OUT4["landing-page.html"]
 
     S5["5️⃣ Meta Ads\nguimkt-meta-ads"] --> S6
-    S6["6️⃣ Criativos Clássicos\nguimkt-classic-ad-creative-final"] --> OUT6["criativos-classicos.md"]
+    S6["6️⃣ Criativos Clássicos\nguimkt-classic-advertising-creative"] --> OUT6["criativos-classicos.md"]
 
     S1 --> |icp-consolidado.md| BRIDGE(("📄 ICP\nPonte\nUniversal"))
     BRIDGE --> S2 & S3 & S4 & S5 & S6
@@ -640,7 +638,7 @@ flowchart LR
 | **3. Wireframe** | `guimkt-wireframe-landing-page` | ICP | `wireframe-tabela-{{CLIENTE}}.md` |
 | **4. Landing Page** | `guimkt-landing-page` (Fase 2) | ICP + Wireframe | `landing-page-{{CLIENTE}}.html` |
 | **5. Meta Ads** | `guimkt-meta-ads` | ICP | `meta-ads-conceitos-{{CLIENTE}}.md` |
-| **6. Criativos** | `guimkt-classic-ad-creative-final` | ICP + Meta Ads | `criativos-classicos-{{CLIENTE}}.md` |
+| **6. Criativos** | `guimkt-classic-advertising-creative` | ICP + Meta Ads | `criativos-classicos-{{CLIENTE}}.md` |
 
 > Cada etapa tem um **checkpoint obrigatório** — o agente apresenta o output e aguarda sua aprovação antes de avançar.
 
@@ -662,8 +660,7 @@ flowchart LR
 
 | Skill | O que faz |
 |-------|-----------|
-| **guimkt-classic-ad-creative** | Conceitos criativos completos para Meta Ads e Google Ads — copy, conceito visual, sketches de referência |
-| **guimkt-classic-ad-creative-final** | Conceitos criativos para mídia paga usando princípios da publicidade clássica adaptados ao feed. Imagens estáticas, carrosséis e roteiros de vídeo |
+| **guimkt-classic-advertising-creative** | Conceitos criativos para mídia paga usando princípios da publicidade clássica adaptados ao feed. Imagens estáticas, carrosséis, roteiros de vídeo, copy, conceito visual e sketches de referência |
 | **guimkt-design-system-extractor** | Extrai design systems completos de qualquer website — cores, tipografia, componentes, CSS variables |
 | **guimkt-google-ads** | Pipeline completo de Google Ads Search: Keywords → Negativas → RSA (requer ICP). Suporta multi-marca |
 | **guimkt-icp-ideal-customer-profile** | Consolida o Ideal Customer Profile — 9 dimensões, perfil psicográfico, ICP real vs. aspiracional, modelos mentais. Output HTML + Markdown |
@@ -714,8 +711,7 @@ flowchart LR
 | **gh-address-comments** | Endereça review/issue comments em PRs do GitHub |
 | **gh-fix-ci** | Debug e fix de checks de CI falhando no GitHub Actions |
 | **gsap** | GSAP — timelines, ScrollTrigger, stagger, transforms |
-| **guimkt-classic-ad-creative** | Conceitos criativos para Meta Ads e Google Ads |
-| **guimkt-classic-ad-creative-final** | Conceitos criativos para mídia paga — princípios da publicidade clássica adaptados ao feed |
+| **guimkt-classic-advertising-creative** | Conceitos criativos para mídia paga — princípios da publicidade clássica adaptados ao feed |
 | **guimkt-design-system-extractor** | Extrai design systems completos de websites |
 | **guimkt-google-ads** | Google Ads Search para geração de leads (SQLs). Pipeline de 3 fases: Keywords, Negativas, RSA (requer ICP). Multi-marca |
 | **guimkt-icp-ideal-customer-profile** | Consolida o Ideal Customer Profile — 9 dimensões, perfil psicográfico, ICP real vs. aspiracional, modelos mentais. Output HTML + MD |

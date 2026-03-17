@@ -1,29 +1,17 @@
-# ──────────────────────────────────────────────────────────────
-# As pastas skills/ e workflows/ são ESPELHOS de .agent/skills/
-# e .agent/workflows/ usados SOMENTE para publicar no GitHub.
-# Não edite diretamente — as versões reais ficam em .agent/.
-# Para publicar: copiar de .agent/ → raiz e fazer
-# git add -f skills/ workflows/ && git commit && git push
-# ──────────────────────────────────────────────────────────────
-skills/
-workflows/
+# ─────────────────────────────────────────────
+# Repo público: somente skills/, workflows/,
+# README.md e install.sh são versionados.
+# Todo o resto é ignorado.
+# ─────────────────────────────────────────────
 
-# Credenciais e chaves
-keys/
+# Ignore everything
+*
 
-# Diretórios internos do agente (não fazem parte do repo público)
-.agent/skills/esc-skills-deploy/
-.agent/skills/esc-skills-showcase/
-.agent/workflows/
-
-# Docs internos
-docs/
-
-# Arquivos do showcase site (admin-only, deploy via rsync)
-/index.html
-/build-data.js
-/skills-data.js
-/skills-data-v*.js
-
-# OS
-.DS_Store
+# Allow these (and their contents recursively)
+!README.md
+!install.sh
+!.gitignore
+!skills/
+!skills/**
+!workflows/
+!workflows/**
