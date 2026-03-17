@@ -34,9 +34,61 @@ Se o docling não estiver disponível, tentar ler o documento diretamente e avis
 
 ## Workflow
 
-### Etapa 1 — Coletar Contexto do Cliente
+### Etapa 0 — Intake Obrigatório (ANTES de qualquer geração)
 
-Extrair do briefing ou perguntar ao usuário:
+> **⚠️ OBRIGATÓRIO:** Estas perguntas devem ser respondidas pelo usuário (ou pesquisadas pelo agente no site/briefing do cliente) ANTES de iniciar a geração do ICP. Se alguma resposta estiver faltando, **PARAR e perguntar (ou solicitar por documentos para extrair essas informações)**. Não gerar ICP com intake incompleto.
+
+O agente deve apresentar estas perguntas ao usuário como checklist. Se o usuário fornecer um briefing (documento, URL, etc.), o agente deve extrair as respostas automaticamente e confirmar com o usuário.
+
+#### Bloco 1 — Empresa & Mercado
+
+| # | Pergunta | Obrigatória |
+|---|----------|:-----------:|
+| 1 | Qual o **setor de atuação** da empresa? | ✅ |
+| 2 | **Breve descrição da empresa** (o que faz, há quanto tempo, porte) | ✅ |
+| 3 | Quais são os **principais concorrentes** da empresa? | ✅ |
+| 4 | Quais são os **principais diferenciais** da empresa em relação aos concorrentes? | ✅ |
+| 5 | Qual o **porte das empresas** que querem atingir? (Ex: fintechs, comércios locais, e-commerces de grande porte) | ✅ |
+| 6 | Quais os **setores prioritários**? | ✅ |
+
+#### Bloco 2 — Produto/Serviço & Oferta
+
+| # | Pergunta | Obrigatória |
+|---|----------|:-----------:|
+| 7 | Breve descrição do **produto ou serviço** que será ofertado nas campanhas | ✅ |
+| 8 | **Modelos de contratação** (plano por volume? mensalidade? pay-per-use? projeto fixo?) | ✅ |
+| 9 | Qual a **proposta de valor**? Como querem ser percebidos? (Ex: "reduzir chargebacks em até 99%" ou "única empresa que faz X para clientes com a dor Y") | ✅ |
+
+#### Bloco 3 — Cliente Ideal & Processo de Vendas
+
+| # | Pergunta | Obrigatória |
+|---|----------|:-----------:|
+| 10 | Quais as **dores e objetivos** do perfil de cliente ideal? | ✅ |
+| 11 | Quais os principais **objetivos e desafios** que o potencial cliente da empresa enfrenta? | ✅ |
+| 12 | Como é o **processo de vendas** hoje? (Ex: Inbound x Outbound, SDR, demos, POC) | ✅ |
+| 13 | Quais as **dúvidas mais frequentes** dos prospects e clientes no momento da negociação? | ✅ |
+| 14 | O que faz um potencial cliente **NÃO fechar negócio** com a empresa? | ✅ |
+
+#### Bloco 4 — Prova Social & Posicionamento
+
+| # | Pergunta | Obrigatória |
+|---|----------|:-----------:|
+| 15 | Qual o **principal objetivo e meta** com o marketing digital? (Ênfase em leads/vendas ou em branding?) | ✅ |
+| 16 | **Cases de sucesso**: quais podem ser divulgados em anúncios? Tem links de páginas de showcase? | ✅ |
+
+**Regras do Intake:**
+
+- Se o usuário fornecer um briefing/documento, o agente deve **preencher automaticamente** as respostas e confirmar com o usuário
+- Se o usuário fornecer um site URL, o agente deve **pesquisar no site** e preencher o máximo possível
+- Respostas vagas ou genéricas devem ser **desafiadas** — pedir exemplos concretos
+- O intake completo deve ser **compilado em YAML** e passado para a Etapa 1
+- O agente pode usar este intake como **checklist de qualidade** ao revisar o ICP final
+
+---
+
+### Etapa 1 — Coletar e Compilar Contexto do Cliente
+
+Com o intake obrigatório respondido, compilar o briefing estruturado. Extrair do intake + briefing adicional:
 
 ```yaml
 briefing:
@@ -50,9 +102,21 @@ briefing:
   tom_de_voz: [Como a marca fala]
   site_url: [URL do site, por marca]
   concorrentes: [Principais concorrentes conhecidos]
+  # Campos do intake obrigatório:
+  setor_atuacao: [Resposta da pergunta 1]
+  porte_empresas_alvo: [Resposta da pergunta 5]
+  setores_prioritarios: [Resposta da pergunta 6]
+  modelo_contratacao: [Resposta da pergunta 8]
+  proposta_valor: [Resposta da pergunta 9]
+  processo_vendas: [Resposta da pergunta 12]
+  objecoes_frequentes: [Resposta da pergunta 13]
+  motivos_nao_fechar: [Resposta da pergunta 14]
+  objetivo_marketing: [Resposta da pergunta 15]
+  cases_sucesso: [Resposta da pergunta 16]
 ```
 
 **Regras:**
+
 - Se o briefing for insuficiente (sem produto ou sem público), **PARAR e perguntar**. Não inventar informações.
 - Se houver documentos para converter, usar `docling` ou ler diretamente.
 - Compilar um resumo de no máximo **80 linhas** antes de avançar.
@@ -78,6 +142,7 @@ Usando **apenas** o briefing compilado, gerar a tabela do ICP:
 **Múltiplas marcas:** Gerar 1 coluna por marca na tabela (ex: 3 marcas = 4 colunas: Dimensão + Marca 1 + Marca 2 + Marca 3).
 
 **Critérios de qualidade:**
+
 - Todas as 9 dimensões preenchidas com informações do briefing
 - Nunca inventar dados — basear-se exclusivamente no briefing
 - Linguagem específica ao mercado do cliente (evitar genéricos)
@@ -122,6 +187,7 @@ Gerar 2 arquivos:
 Usar `assets/icp-template.html` como base. O HTML deve ser **auto-contido** (CSS + JS inline).
 
 **Seções obrigatórias:**
+
 1. Header com logo guimarketing (link UTM) + título "ICP — {{CLIENTE}}"
 2. Sinergia Banner (se múltiplas marcas)
 3. Tabela ICP — 9 Dimensões (com table-tools: filtro, ordenação, cópia)
@@ -161,8 +227,8 @@ Versão Markdown simplificada para consumo por outras skills:
 ## Leis Inegociáveis
 
 ```
-1. BRIEFING PRIMEIRO
-   Sem briefing completo, sem ICP. Perguntar.
+1. INTAKE PRIMEIRO
+   Sem intake obrigatório completo (16 perguntas), sem ICP. Perguntar.
 
 2. INFORMAÇÕES REAIS
    Nunca inventar dados. Basear-se exclusivamente no briefing.
@@ -192,6 +258,8 @@ Versão Markdown simplificada para consumo por outras skills:
 ❌ Pular psicográfico — a tabela de 9 dimensões sozinha é incompleta
 ❌ Ignorar ICP Aspiracional — filtrar qualificação é tão importante quanto definir
 ❌ Modelos mentais genéricos — selecionar os relevantes ao contexto, não os mais conhecidos
+❌ Pular intake — gerar ICP sem as 16 perguntas obrigatórias respondidas
+❌ Aceitar respostas vagas — "todo tipo de empresa" não é resposta válida para porte/setor
 ```
 
 ---
