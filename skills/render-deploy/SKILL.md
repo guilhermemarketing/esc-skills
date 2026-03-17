@@ -1,3 +1,4 @@
+<!-- skill: render-deploy | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: render-deploy
 description: Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform.

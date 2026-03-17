@@ -1,3 +1,4 @@
+<!-- skill: component-identification-sizing | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: component-identification-sizing
 description: Identifies architectural components in codebases and calculates size metrics for decomposition planning. Use when analyzing codebase structure, planning monolithic decomposition, identifying oversized components, calculating component statistics, or when the user asks about component analysis, codebase sizing, or architectural decomposition.

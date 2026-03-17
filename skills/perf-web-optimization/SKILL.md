@@ -1,3 +1,4 @@
+<!-- skill: perf-web-optimization | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: perf-web-optimization
 description: "Optimize web performance: Core Web Vitals (LCP, CLS, INP), bundle size, images, caching. Use when site is slow, optimizing for Lighthouse scores, reducing bundle size, fixing layout shifts, or improving Time to Interactive. Triggers on: web performance, Core Web Vitals, LCP, CLS, INP, FID, bundle size, page speed, slow site."

@@ -1,3 +1,4 @@
+<!-- skill: vantajs | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: vantajs
 description: Use when adding animated WebGL background effects with Vanta.js (setup, parameters, resizing, performance, integration in React/Next.js).

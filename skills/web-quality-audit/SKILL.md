@@ -1,3 +1,4 @@
+<!-- skill: web-quality-audit | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: web-quality-audit
 description: Comprehensive web quality audit covering performance, accessibility, SEO, and best practices. Use when asked to "audit my site", "review web quality", "run lighthouse audit", "check page quality", or "optimize my website".

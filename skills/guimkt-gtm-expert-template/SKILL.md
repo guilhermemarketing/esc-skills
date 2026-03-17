@@ -1,3 +1,4 @@
+<!-- skill: guimkt-gtm-expert-template | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-gtm-expert-template
 description: Customize the guimarketing GTM Leads 2025 template for new clients. Use when onboarding a new client that needs a GTM Web container with GA4, Meta Pixel, Google Ads, VisitorAPI geolocation, UTM tracking, and server-side transport (sGTM). Triggers on "new client GTM", "customize GTM template", "onboard GTM", "GTM template guimarketing", or "setup GTM for client".

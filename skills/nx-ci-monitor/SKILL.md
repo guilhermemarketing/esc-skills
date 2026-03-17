@@ -1,3 +1,4 @@
+<!-- skill: nx-ci-monitor | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: nx-ci-monitor
 description: Monitor Nx Cloud CI pipeline and handle self-healing fixes automatically. Checks for Nx Cloud connection before starting.

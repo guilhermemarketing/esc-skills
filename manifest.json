@@ -1,0 +1,450 @@
+{
+  "manifest_version": "1.0",
+  "updated_at": "2026-03-17",
+  "skills": {
+    "3d-web-experience": {
+      "version": "1.0.0",
+      "path": "skills/3d-web-experience/SKILL.md",
+      "hash": "e0186471fa9a4f48c1db88e5a3f593468c7927a80293343aa720b4f75899ce7c",
+      "breaking": false
+    },
+    "animation-systems": {
+      "version": "1.0.0",
+      "path": "skills/animation-systems/SKILL.md",
+      "hash": "368fdec14d4e3398d19bbc3046f99982a4acc0a63b8fe62eb2dad11a3a5c1525",
+      "breaking": false
+    },
+    "animejs": {
+      "version": "1.0.0",
+      "path": "skills/animejs/SKILL.md",
+      "hash": "928ed79c80a95278e5e181bf0561c148a5896514c59b7f3bb30f7ec6512c9958",
+      "breaking": false
+    },
+    "aws-advisor": {
+      "version": "1.0.0",
+      "path": "skills/aws-advisor/SKILL.md",
+      "hash": "13cc9facf6033e7e9f466688e259568b7154586c679456015d38b57831312298",
+      "breaking": false
+    },
+    "best-practices": {
+      "version": "1.0.0",
+      "path": "skills/best-practices/SKILL.md",
+      "hash": "ed5c7e134527bf5df3e3b230b44a5866327c94e380bf7c07d66fd3972bfa88e3",
+      "breaking": false
+    },
+    "cloudflare-deploy": {
+      "version": "1.0.0",
+      "path": "skills/cloudflare-deploy/SKILL.md",
+      "hash": "60aacef7e4cc0d5c1ce8ace07487a23b831bb598a7afd75f1fd2bc6cbbe8cf76",
+      "breaking": false
+    },
+    "coding-guidelines": {
+      "version": "1.0.0",
+      "path": "skills/coding-guidelines/SKILL.md",
+      "hash": "af6d64db202e3ee3f2880ecbc1be8be3248c4264708f6d8b85972bc5db40e75f",
+      "breaking": false
+    },
+    "component-common-domain-detection": {
+      "version": "1.0.0",
+      "path": "skills/component-common-domain-detection/SKILL.md",
+      "hash": "81cfb3728118c172776c8fd2b5c8ccbece76686b2a61f2df6b615d80aa08d0ba",
+      "breaking": false
+    },
+    "component-flattening-analysis": {
+      "version": "1.0.0",
+      "path": "skills/component-flattening-analysis/SKILL.md",
+      "hash": "fc040e62536e88fe641cd5f02e322f0d9815d8a6ea4a68e77a7e5b55864f286c",
+      "breaking": false
+    },
+    "component-identification-sizing": {
+      "version": "1.0.0",
+      "path": "skills/component-identification-sizing/SKILL.md",
+      "hash": "f844f0c17d4b1b133bface1e28c61c965d8d3a6ccfc84417347294d73fb9d9d8",
+      "breaking": false
+    },
+    "confluence-assistant": {
+      "version": "1.0.0",
+      "path": "skills/confluence-assistant/SKILL.md",
+      "hash": "ce2c5f5894bd8de6540a3812472fe4277154fe885308532fa713ee43f45c7d0d",
+      "breaking": false
+    },
+    "core-web-vitals": {
+      "version": "1.0.0",
+      "path": "skills/core-web-vitals/SKILL.md",
+      "hash": "162b52beaaf144e28efe11416f20a4c2a7476958bce06f194e6da3260dad346c",
+      "breaking": false
+    },
+    "css-border-gradient": {
+      "version": "1.0.0",
+      "path": "skills/css-border-gradient/SKILL.md",
+      "hash": "033d0fb2e4b31b2a6a7fe5e59bdfe1aaf0af755db2abb57c47f7838554b82c69",
+      "breaking": false
+    },
+    "cursor-subagent-creator": {
+      "version": "1.0.0",
+      "path": "skills/cursor-subagent-creator/SKILL.md",
+      "hash": "c4d48d6210e0a2b6d157022aca54cb2ad8692f5827d64b1f82c62167e0cedc0c",
+      "breaking": false
+    },
+    "decomposition-planning-roadmap": {
+      "version": "1.0.0",
+      "path": "skills/decomposition-planning-roadmap/SKILL.md",
+      "hash": "c6562e4fdc44ecb65edde2daea3cf2f32f768ce9ad74225b9579d8e47710f10c",
+      "breaking": false
+    },
+    "docs-writer": {
+      "version": "1.0.0",
+      "path": "skills/docs-writer/SKILL.md",
+      "hash": "8ef3e1fbe8045464f0bcb16d8e24c24bd6b6b62fb12ddd18104e26ef745aa6cf",
+      "breaking": false
+    },
+    "domain-analysis": {
+      "version": "1.0.0",
+      "path": "skills/domain-analysis/SKILL.md",
+      "hash": "6a2157343ee6460b629f602bcc2ad007dc748faac877210bd9f84100f7e2b1d6",
+      "breaking": false
+    },
+    "domain-identification-grouping": {
+      "version": "1.0.0",
+      "path": "skills/domain-identification-grouping/SKILL.md",
+      "hash": "79385e482969623682d30fc32f502e482460b3c8900e0f3c9f6b70c5ba421b32",
+      "breaking": false
+    },
+    "feedback-interpreter": {
+      "version": "1.0.0",
+      "path": "skills/feedback-interpreter/SKILL.md",
+      "hash": "d5b51ee5fc67ded8561598cba4c687b4edb32a78c0dc1d987ff93437bba0b709",
+      "breaking": false
+    },
+    "figma": {
+      "version": "1.0.0",
+      "path": "skills/figma/SKILL.md",
+      "hash": "1eb045bdf56158257fcf56d28460def4873450cf2b6f6d5d8a656d803a856642",
+      "breaking": false
+    },
+    "figma-implement-design": {
+      "version": "1.0.0",
+      "path": "skills/figma-implement-design/SKILL.md",
+      "hash": "31a0531082d34f16247b2b1a3788bc3e4d8827f4c541bb7d895251ad261e3124",
+      "breaking": false
+    },
+    "frontend-design": {
+      "version": "1.0.0",
+      "path": "skills/frontend-design/SKILL.md",
+      "hash": "832f803fead85869268640868e50dd8d45e7ae6ec23deaeb35194b5c2eee9f17",
+      "breaking": false
+    },
+    "frontend-ui-ux": {
+      "version": "1.0.0",
+      "path": "skills/frontend-ui-ux/SKILL.md",
+      "hash": "da32251a4dc392a55aad798a4585e9fdeb708c33cdd6e2b7a34ee2fa69c41972",
+      "breaking": false
+    },
+    "gh-address-comments": {
+      "version": "1.0.0",
+      "path": "skills/gh-address-comments/SKILL.md",
+      "hash": "61988401ecb4405e151367d89e8ad3e54ac669880079dfa115a635b01ef4e0c6",
+      "breaking": false
+    },
+    "gh-fix-ci": {
+      "version": "1.0.0",
+      "path": "skills/gh-fix-ci/SKILL.md",
+      "hash": "f52c93116350b55f3b7482124d05602e6f67393c3f5cf09f7d8ff76ba7b12d9e",
+      "breaking": false
+    },
+    "gsap": {
+      "version": "1.0.0",
+      "path": "skills/gsap/SKILL.md",
+      "hash": "2f3777f1742e42425118e38f171ee70cad7a171d59d9c879b7fe4ed71e8c72f7",
+      "breaking": false
+    },
+    "guimkt-classic-advertising-creative": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-classic-advertising-creative/SKILL.md",
+      "hash": "0d4bccb154b159af16e586ae0dc48abbd09e678969ac977f64e8745928b45566",
+      "breaking": false
+    },
+    "guimkt-design-system-extractor": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-design-system-extractor/SKILL.md",
+      "hash": "cf357ad10d236c1d6f6ff85e9082b7c541e3f76b1d8fcecabb3a06d21aa7caea",
+      "breaking": false
+    },
+    "guimkt-gmp-cli-mcp-skill": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-gmp-cli-mcp-skill/SKILL.md",
+      "hash": "5487b24ef1035642400c76e7b4a03b857c0dba432242f13782d65c61d5367812",
+      "breaking": false
+    },
+    "guimkt-google-ads": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-google-ads/SKILL.md",
+      "hash": "2c927d5aad12a0fd3fb01b3dc9db70a5d504e1ec9f729ab7c7c591a15ace2961",
+      "breaking": false
+    },
+    "guimkt-gtm-expert": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-gtm-expert/SKILL.md",
+      "hash": "26cbf0e874f68f35f39d340d17502534fc9da3a5b51d6ee7943f4bae5e6eaac7",
+      "breaking": false
+    },
+    "guimkt-gtm-expert-template": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-gtm-expert-template/SKILL.md",
+      "hash": "8a848b82bcc2a00d8dbd9f854cdf095c2566f9afb59cc328b78b5acd0bacf57a",
+      "breaking": false
+    },
+    "guimkt-hero-videos": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-hero-videos/SKILL.md",
+      "hash": "2d90c59c777f640ba48b49bedc75532eed1d748b56c6cd262f09f4deb9abfa7e",
+      "breaking": false
+    },
+    "guimkt-icp-ideal-customer-profile": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-icp-ideal-customer-profile/SKILL.md",
+      "hash": "f9230fbaffc981fa55530695ffa570229b715d1b7182942f05845a9a5deab6ec",
+      "breaking": false
+    },
+    "guimkt-landing-page": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-landing-page/SKILL.md",
+      "hash": "d5932f5eba1c78f8fe405a08b9664ae63602982a5ce8ffdc45ce0345c3130c48",
+      "breaking": false
+    },
+    "guimkt-landing-page-optimization": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-landing-page-optimization/SKILL.md",
+      "hash": "811928158c188775c37f6b328042b7a865c0e803d69661dbbe803beba301b0c0",
+      "breaking": false
+    },
+    "guimkt-make-blueprint-expert": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-make-blueprint-expert/SKILL.md",
+      "hash": "907aa9ae685f311eba0c82d1bbc2e8df1a308e9db37d97b9d3ec7a2ccb443961",
+      "breaking": false
+    },
+    "guimkt-meta-ads": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-meta-ads/SKILL.md",
+      "hash": "396ac04899ec70739d4949769c22f82c9652fa3414c62bed1f8062e703f5b72c",
+      "breaking": false
+    },
+    "guimkt-nano-banana-prompts": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-nano-banana-prompts/SKILL.md",
+      "hash": "24a903162b683e555c2fa557676ebe1ba86dd0f4f209f6bad17432a249a4f5c5",
+      "breaking": false
+    },
+    "guimkt-threads-mcp-skill": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-threads-mcp-skill/SKILL.md",
+      "hash": "539a582c7256552130b2484f538f5fb468e67a6a68e3f1dec6559e934a1f299e",
+      "breaking": false
+    },
+    "guimkt-threads-viral-content": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-threads-viral-content/SKILL.md",
+      "hash": "bdaf083db82feb61c69378691fe8833462ffd0d40674e37d13a1f233a56163a1",
+      "breaking": false
+    },
+    "guimkt-wireframe-landing-page": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-wireframe-landing-page/SKILL.md",
+      "hash": "e100f4ed524d8206ebece6e2cc59f57aaa5097fedb899eb31997a1b9ab63355a",
+      "breaking": false
+    },
+    "interaction-design": {
+      "version": "1.0.0",
+      "path": "skills/interaction-design/SKILL.md",
+      "hash": "7ae09d6ac8b2490c682379a55ca3962f6668f5954445da267c7aa6ae1ca971cd",
+      "breaking": false
+    },
+    "javascript-typescript": {
+      "version": "1.0.0",
+      "path": "skills/javascript-typescript/SKILL.md",
+      "hash": "bd27d3a4f4ac99379ca57ff4cbde61185d082f186fcdb0c9970a0b3bfa62e9f6",
+      "breaking": false
+    },
+    "jira-assistant": {
+      "version": "1.0.0",
+      "path": "skills/jira-assistant/SKILL.md",
+      "hash": "8c3d2694657c4a38e465994ecb8033555bdac60b38761a5bb2c072629db50131",
+      "breaking": false
+    },
+    "matterjs": {
+      "version": "1.0.0",
+      "path": "skills/matterjs/SKILL.md",
+      "hash": "25b86e2f329eac8b55bb48af310e244008077272489a98b4dae6cb7ba6363e3e",
+      "breaking": false
+    },
+    "netlify-deploy": {
+      "version": "1.0.0",
+      "path": "skills/netlify-deploy/SKILL.md",
+      "hash": "18da2c1031fb21280f6bd26079b11307d4775827c7c65615e52c1c9a2162a576",
+      "breaking": false
+    },
+    "nx-ci-monitor": {
+      "version": "1.0.0",
+      "path": "skills/nx-ci-monitor/SKILL.md",
+      "hash": "009025fd97aadaea39e91a3395110d717659c7194cbd131e700da76acc945d36",
+      "breaking": false
+    },
+    "nx-generate": {
+      "version": "1.0.0",
+      "path": "skills/nx-generate/SKILL.md",
+      "hash": "6c4457410882bedba6b257ed1a454ec4600f99cd02737f10ac82ed318548bab3",
+      "breaking": false
+    },
+    "nx-run-tasks": {
+      "version": "1.0.0",
+      "path": "skills/nx-run-tasks/SKILL.md",
+      "hash": "0436ec562b31cff4d23ee629939603cdc9ae8861dfc50fcfa101a400def97752",
+      "breaking": false
+    },
+    "nx-workspace": {
+      "version": "1.0.0",
+      "path": "skills/nx-workspace/SKILL.md",
+      "hash": "7427697d4dd295ec65308ee9b24b15e1cf77c496664c948ec9531ab6ee83abab",
+      "breaking": false
+    },
+    "perf-astro": {
+      "version": "1.0.0",
+      "path": "skills/perf-astro/SKILL.md",
+      "hash": "502116f0a65207c6e5bbecabd44c37f5eb37224d70a29d443bab6fbc6ed5d047",
+      "breaking": false
+    },
+    "perf-lighthouse": {
+      "version": "1.0.0",
+      "path": "skills/perf-lighthouse/SKILL.md",
+      "hash": "31f60d4031e470e630e36977b7bf38a344ce72a06b43dcbbeced5c4ef2dab202",
+      "breaking": false
+    },
+    "perf-web-optimization": {
+      "version": "1.0.0",
+      "path": "skills/perf-web-optimization/SKILL.md",
+      "hash": "53901d462edda8480c272856b944e7db8160d2955efa73235290451fcbd7bc4b",
+      "breaking": false
+    },
+    "playwright-skill": {
+      "version": "1.0.0",
+      "path": "skills/playwright-skill/SKILL.md",
+      "hash": "4519eae9523879fcc4c273688a80d179938f1ef211c040aa6a941d76d7fcd704",
+      "breaking": false
+    },
+    "pricing-page": {
+      "version": "1.0.0",
+      "path": "skills/pricing-page/SKILL.md",
+      "hash": "823e9ac68c6b435cee1dcd8e7931db9d785b113eb0cc6194932df704765ec41e",
+      "breaking": false
+    },
+    "progressive-blur": {
+      "version": "1.0.0",
+      "path": "skills/progressive-blur/SKILL.md",
+      "hash": "4696d516230e2a1159112bc3814e959544defe4ee19d7db29dd821f13ec067f5",
+      "breaking": false
+    },
+    "render-deploy": {
+      "version": "1.0.0",
+      "path": "skills/render-deploy/SKILL.md",
+      "hash": "0a993bedcf0abe2e30e9e24db12f94a4ad9b666edf3c9d5621051479a3bf983c",
+      "breaking": false
+    },
+    "responsive-design": {
+      "version": "1.0.0",
+      "path": "skills/responsive-design/SKILL.md",
+      "hash": "5eda36028012fcf774099cf310f6c70faa8eb8c321e68b2712075b14d6dd6a3d",
+      "breaking": false
+    },
+    "run-nx-generator": {
+      "version": "1.0.0",
+      "path": "skills/run-nx-generator/SKILL.md",
+      "hash": "1922d2239b18f946a60f65b7b654437a995070ed14e39aaf40c84eee0571e575",
+      "breaking": false
+    },
+    "security-best-practices": {
+      "version": "1.0.0",
+      "path": "skills/security-best-practices/SKILL.md",
+      "hash": "f983ebba885cc0715f17d27e08a4985b8990f9301d16c013cf48956cc3a1385e",
+      "breaking": false
+    },
+    "security-ownership-map": {
+      "version": "1.0.0",
+      "path": "skills/security-ownership-map/SKILL.md",
+      "hash": "e58df6491231d35467349e4b70a67d49e77e140a3ff3fa3bd2fd4982cea46975",
+      "breaking": false
+    },
+    "security-threat-model": {
+      "version": "1.0.0",
+      "path": "skills/security-threat-model/SKILL.md",
+      "hash": "81a02adfd094522eac6ec07616c9df30d30e94b4c6c19af2a8bf1b672049f248",
+      "breaking": false
+    },
+    "sentry": {
+      "version": "1.0.0",
+      "path": "skills/sentry/SKILL.md",
+      "hash": "c27b0f444b6184cfa2f8e26de41cda920b412b2e53e8cc67b4e2a1beb11522af",
+      "breaking": false
+    },
+    "seo": {
+      "version": "1.0.0",
+      "path": "skills/seo/SKILL.md",
+      "hash": "7540ed24d494c8831b71bf5342e865a092a05276a56ea940aa450ad9b81a28f4",
+      "breaking": false
+    },
+    "skill-creator": {
+      "version": "1.0.0",
+      "path": "skills/skill-creator/SKILL.md",
+      "hash": "1e2ad7c9427f921b0133ae3905b661d74ad49adda0bc8e80271456000e6ebfec",
+      "breaking": false
+    },
+    "subagent-creator": {
+      "version": "1.0.0",
+      "path": "skills/subagent-creator/SKILL.md",
+      "hash": "1e3d3dc20ac6c8d350f5dec1ebef159b1346bbf7d5812af63d8780fbd93b94c1",
+      "breaking": false
+    },
+    "technical-design-doc-creator": {
+      "version": "1.0.0",
+      "path": "skills/technical-design-doc-creator/SKILL.md",
+      "hash": "966194eec3f925387c1b2470b45b83180165e4a0a76708c6430d8164e557f691",
+      "breaking": false
+    },
+    "threejs-animation": {
+      "version": "1.0.0",
+      "path": "skills/threejs-animation/SKILL.md",
+      "hash": "1576f03d929e17e80d44895a51acde33e8249131fdfe5ed3d05bc667612d1908",
+      "breaking": false
+    },
+    "tlc-spec-driven": {
+      "version": "1.0.0",
+      "path": "skills/tlc-spec-driven/SKILL.md",
+      "hash": "631a419f81c1f0d796a364a3f09d93cf04809f9a1d41a4dda9b569be3c9cc5e4",
+      "breaking": false
+    },
+    "ui-ux-pro-max": {
+      "version": "1.0.0",
+      "path": "skills/ui-ux-pro-max/SKILL.md",
+      "hash": "b5c55d701b33cd4ec812f37199a0d29f6dfca1733297b9b451308c50999f0d51",
+      "breaking": false
+    },
+    "vantajs": {
+      "version": "1.0.0",
+      "path": "skills/vantajs/SKILL.md",
+      "hash": "6c71405dd25794495a7f36e556a7e0f37bcb1c6f95c4e513645396d8865ebe93",
+      "breaking": false
+    },
+    "vercel-deploy": {
+      "version": "1.0.0",
+      "path": "skills/vercel-deploy/SKILL.md",
+      "hash": "091bc72d1e1edf77152d6c586d2cb6e6e2de14923313e3d6ded8a61c23618c0d",
+      "breaking": false
+    },
+    "web-quality-audit": {
+      "version": "1.0.0",
+      "path": "skills/web-quality-audit/SKILL.md",
+      "hash": "b66eab3bd00912a6ca646b2eab4ce0a9a0bc747029dc43c0d53a253aae723aea",
+      "breaking": false
+    }
+  }
+}

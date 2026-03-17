@@ -1,3 +1,4 @@
+<!-- skill: guimkt-design-system-extractor | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-design-system-extractor
 description: Extrai design systems completos de websites para gerar arquivos .md que guiam agentes na criação de páginas com a identidade visual do site analisado. Captura cores, tipografia, componentes (botões, cards, navbar, footer), assets (logos, imagens de produto), layout/grid, animações, anti-patterns e gera CSS variables prontos para uso. Use quando o usuário pedir para "extrair design system", "criar design system de um site", "analisar identidade visual", "capturar estilo de um site", "design tokens de um site", "gerar guia visual de marca", ou qualquer variação de análise visual de website para replicação de identidade.

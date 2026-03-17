@@ -1,3 +1,4 @@
+<!-- skill: netlify-deploy | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: netlify-deploy
 description: Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.

@@ -1,3 +1,4 @@
+<!-- skill: decomposition-planning-roadmap | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: decomposition-planning-roadmap
 description: Creates structured decomposition plans and roadmaps for migrating monolithic applications. Use when planning decomposition, creating migration roadmaps, prioritizing decomposition work, tracking decomposition progress, or when the user asks about decomposition planning, migration strategy, or architectural roadmap.

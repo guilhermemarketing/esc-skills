@@ -1,3 +1,4 @@
+<!-- skill: perf-astro | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: perf-astro
 description: "Astro-specific performance optimizations for 95+ Lighthouse scores. Covers critical CSS inlining, compression, font loading, and LCP optimization. Triggers on: astro performance, astro lighthouse, astro optimization, astro-critters."

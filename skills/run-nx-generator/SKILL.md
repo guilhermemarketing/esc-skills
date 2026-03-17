@@ -1,3 +1,4 @@
+<!-- skill: run-nx-generator | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: run-nx-generator
 description: Run Nx generators with prioritization for workspace-plugin generators. Use this when generating code, scaffolding new features, or automating repetitive tasks in the monorepo.

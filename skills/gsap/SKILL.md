@@ -1,3 +1,4 @@
+<!-- skill: gsap | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: gsap
 description: Use when you need to add or debug professional web animations with GSAP (timelines, ScrollTrigger, stagger, transforms) in HTML/CSS/JS/React. Includes patterns for smooth motion, performance, and common pitfalls.

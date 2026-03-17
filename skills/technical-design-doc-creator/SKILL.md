@@ -1,3 +1,4 @@
+<!-- skill: technical-design-doc-creator | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 description: Creates comprehensive Technical Design Documents (TDD) following industry standards with mandatory sections, optional sections, and interactive gathering of missing information.
 name: technical-design-doc-creator

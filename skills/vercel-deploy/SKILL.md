@@ -1,3 +1,4 @@
+<!-- skill: vercel-deploy | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: vercel-deploy
 description: Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".

@@ -1,3 +1,4 @@
+<!-- skill: matterjs | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: matterjs
 description: Use when implementing 2D physics interactions with Matter.js, including Engine/World setup, Render/Runner configuration, adding bodies and constraints, and scroll/interaction-friendly canvas scenes.

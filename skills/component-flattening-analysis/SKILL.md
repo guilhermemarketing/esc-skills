@@ -1,3 +1,4 @@
+<!-- skill: component-flattening-analysis | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: component-flattening-analysis
 description: Identifies and fixes component hierarchy issues by detecting orphaned classes in root namespaces and ensuring components exist only as leaf nodes. Use when analyzing component structure, finding orphaned classes, flattening component hierarchies, removing component nesting, or when the user asks about component flattening, orphaned classes, or component structure cleanup.

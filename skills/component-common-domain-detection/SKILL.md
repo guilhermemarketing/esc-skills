@@ -1,3 +1,4 @@
+<!-- skill: component-common-domain-detection | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: component-common-domain-detection
 description: Identifies duplicate domain functionality across components and suggests consolidation opportunities. Use when finding common domain logic, detecting duplicate functionality, analyzing shared classes, planning component consolidation, or when the user asks about common components, duplicate code, or domain consolidation.

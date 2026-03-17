@@ -1,3 +1,4 @@
+<!-- skill: gh-address-comments | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: gh-address-comments
 description: Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in.

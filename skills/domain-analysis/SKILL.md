@@ -1,3 +1,4 @@
+<!-- skill: domain-analysis | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: domain-analysis
 description: Identifies subdomains and suggests bounded contexts in any codebase following DDD Strategic Design. Use when analyzing domain boundaries, identifying business subdomains, assessing domain cohesion, mapping bounded contexts, or when the user asks about DDD strategic design, domain analysis, or subdomain classification.

@@ -1,3 +1,4 @@
+<!-- skill: jira-assistant | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 description: Expert in Jira operations using Atlassian MCP - automatically detects workspace Jira configuration or prompts for project details. Use for searching, creating, updating issues, managing status transitions, and handling tasks.
 name: jira-assistant

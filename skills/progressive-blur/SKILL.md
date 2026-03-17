@@ -1,3 +1,4 @@
+<!-- skill: progressive-blur | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: progressive-blur
 description: Create a layered CSS progressive blur (top or bottom) using multiple backdrop-filter masks for depth and softness. Use when asked for "progressive blur", "gradient blur overlay", or stepped blur masks that fade from an edge of the viewport.

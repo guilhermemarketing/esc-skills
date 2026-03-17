@@ -1,3 +1,4 @@
+<!-- skill: nx-run-tasks | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: nx-run-tasks
 description: Helps with running tasks in an Nx workspace. USE WHEN the user wants to execute build, test, lint, serve, or run any other tasks defined in the workspace.
