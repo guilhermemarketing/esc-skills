@@ -1,7 +1,7 @@
 <p align="center">
   <h1 align="center">🧠 ESC Skills — AI Marketing Skills for Agents</h1>
   <p align="center">
-    <strong>70+ battle-tested AI marketing skills for digital marketing professionals who think like strategists.</strong>
+    <strong>74+ battle-tested AI marketing skills for digital marketing professionals who think like strategists.</strong>
   </p>
 </p>
 
@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/skills-70%2B-blueviolet?style=for-the-badge" alt="Skills">
+  <img src="https://img.shields.io/badge/skills-74%2B-blueviolet?style=for-the-badge" alt="Skills">
   <img src="https://img.shields.io/github/stars/guilhermemarketing/esc-skills?style=for-the-badge&color=gold" alt="Stars">
   <img src="https://img.shields.io/badge/license-internal-informational?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/ESC-Estrategista%20Social%20Club-ff6b35?style=for-the-badge" alt="ESC">
@@ -28,7 +28,7 @@ Built by the [Estrategista Social Club](https://comunidade.gui.marketing/esc) �
 
 Strategic content, real-world analysis, high-level discussions, and zero bullshit for those who take marketing seriously (as a lifelong career).
 
-> **Methodology tested with 100+ clients. R$400MI+ in sales influenced.**
+> **Built from real campaigns with 100+ clients across B2B and B2C — the same methodology behind R$400M+ in influenced sales at [gui.marketing](https://gui.marketing). These skills are how that work gets done.**
 
 ---
 
@@ -39,7 +39,7 @@ Strategic content, real-world analysis, high-level discussions, and zero bullshi
 - [Workflow: /esc-start](#-workflow-esc-start)
 - [Why Star This Repo?](#-why-star-this-repo)
 - [Featured AI Marketing Skills](#-featured-ai-marketing-skills)
-- [All Available Skills (70+)](#-all-available-skills-70)
+- [All Available Skills (74+)](#-all-available-skills-74)
 - [Quick Start](#-quick-start)
 - [AI Agent Setup](#-ai-agent-setup)
 - [Updates](#-updates)
@@ -150,7 +150,7 @@ graph TD
 
 ### 🚀 Workflow: /esc-start
 
-Don't want to run skills one by one? The **`/esc-start`** workflow orchestrates the **full marketing pipeline** in 6 sequential steps — from ICP definition to final ad creatives. Each step produces a consolidated `.md` file that feeds the next, ensuring **context consistency** and **zero hallucinations** between steps.
+Don't want to run skills one by one? The **`/esc-start`** workflow orchestrates the **full marketing pipeline** in 6 sequential steps — from ICP definition to final ad creatives. Each step produces a consolidated `.md` file that feeds the next, ensuring **context consistency** and **structured context handoff** between steps.
 
 ```mermaid
 flowchart LR
@@ -229,7 +229,7 @@ flowchart LR
 
 ### ⭐ Why Star This Repo?
 
-- 🆓 **70+ AI marketing skills, free and open** — years of methodology packed into ready-to-use modules
+- 🆓 **74+ AI marketing skills, free and open** — years of methodology packed into ready-to-use modules
 - 🧪 **Battle-tested** — built from real campaigns with 100+ clients across B2B and B2C
 - 🔄 **Frequently updated** — new AI marketing skills added as the marketing and dev landscape evolves
 - 🔔 **Star = notifications** — get notified when new skills drop
@@ -264,7 +264,7 @@ flowchart LR
 
 ---
 
-### 📦 All Available Skills (70+)
+### 📦 All Available Skills (74+)
 
 | Skill | Description |
 |-------|-------------|
@@ -403,13 +403,13 @@ Any agent that supports file reading: Gemini, Claude Code, Cursor, GPT, Windsurf
 
 Run `curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash` in any project directory. The script copies all skills into your `.agent/skills/` folder, ready for your AI agent to use.
 
-**Do I need to use all 70+ skills?**
+**Do I need to use all 74+ skills?**
 
 No. Each skill is independent — pick only what you need. However, running the ICP (Ideal Customer Profile) skill first makes every downstream skill better by providing audience context.
 
 **What is the `/esc-start` workflow?**
 
-`/esc-start` orchestrates 6 AI marketing skills in sequence — from ICP definition to Google Ads, landing page wireframe, premium HTML page, Meta Ads concepts, and classic ad creatives. Each step feeds context to the next, ensuring zero hallucinations and maximum consistency.
+`/esc-start` orchestrates 6 AI marketing skills in sequence — from ICP definition to Google Ads, landing page wireframe, premium HTML page, Meta Ads concepts, and classic ad creatives. Each step feeds context to the next, ensuring structured context handoff and maximum consistency.
 
 **Can these AI marketing skills generate real campaign assets?**
 
@@ -453,13 +453,13 @@ The update command shows exactly what changed, including version diffs and ⚠�
 
 ## 🇧🇷 Português
 
-Coleção de 70+ skills para agentes AI (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, etc.) para profissionais de marketing digital: CRO, SEO, Google Ads, Meta Ads, Marketing de Performance, Google Tag Manager & Tracking Avançado, Design, Desenvolvimento Web, Segurança & Arquitetura e DevOps.
+Coleção de 74+ skills para agentes AI (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, etc.) para profissionais de marketing digital: CRO, SEO, Google Ads, Meta Ads, Marketing de Performance, Google Tag Manager & Tracking Avançado, Design, Desenvolvimento Web, Segurança & Arquitetura e DevOps.
 
 Criado pelo [Estrategista Social Club](https://comunidade.gui.marketing/esc) — o clube onde profissionais de marketing aprendem a pensar, testar e converter como estrategistas — não como apertadores de botões.
 
 Conteúdo estratégico, análises reais, discussões de alto nível e zero bullshit para quem leva marketing a sério (como uma carreira pra vida).
 
-> **Metodologia testada com 100+ clientes. R$400MI+ em vendas influenciadas.**
+> **Construído a partir de campanhas reais com 100+ clientes B2B e B2C — a mesma metodologia por trás de R$400M+ em vendas influenciadas em [gui.marketing](https://gui.marketing). Estas skills são como esse trabalho é feito.**
 
 ---
 
@@ -470,7 +470,7 @@ Conteúdo estratégico, análises reais, discussões de alto nível e zero bulls
 - [Workflow: /esc-start](#-workflow-esc-start-1)
 - [Por que dar Star neste Repo?](#-por-que-dar-star-neste-repo)
 - [Skills em Destaque](#-skills-em-destaque)
-- [Todas as Skills Disponíveis (70+)](#-todas-as-skills-disponíveis-70)
+- [Todas as Skills Disponíveis (74+)](#-todas-as-skills-disponíveis-74)
 - [Instalação Rápida](#-instalação-rápida)
 - [Configuração para Agentes AI](#-configuração-para-agentes-ai)
 - [Atualizações](#-atualizações)
@@ -578,7 +578,7 @@ graph TD
 
 ### 🚀 Workflow: /esc-start
 
-Não quer rodar skill por skill? O workflow **`/esc-start`** orquestra o **pipeline completo de marketing** em 6 etapas sequenciais — da definição do ICP aos criativos finais. Cada etapa produz um arquivo `.md` consolidado que alimenta a próxima, garantindo **consistência de contexto** e **zero alucinações** entre etapas.
+Não quer rodar skill por skill? O workflow **`/esc-start`** orquestra o **pipeline completo de marketing** em 6 etapas sequenciais — da definição do ICP aos criativos finais. Cada etapa produz um arquivo `.md` consolidado que alimenta a próxima, garantindo **consistência de contexto** e **handoff estruturado de contexto** entre etapas.
 
 ```mermaid
 flowchart LR
@@ -657,7 +657,7 @@ flowchart LR
 
 ### ⭐ Por que dar Star neste Repo?
 
-- 🆓 **69+ skills, grátis e abertas** — anos de metodologia empacotados em módulos prontos para uso
+- 🆓 **74+ skills, grátis e abertas** — anos de metodologia empacotados em módulos prontos para uso
 - 🧪 **Testado em batalha** — construído a partir de campanhas reais com 100+ clientes B2B e B2C
 - 🔄 **Atualizado frequentemente** — novas skills adicionadas conforme o cenário de marketing e dev evolui
 - 🔔 **Star = notificações** — receba alertas quando novas skills forem publicadas
@@ -691,7 +691,7 @@ flowchart LR
 
 ---
 
-### 📦 Todas as Skills Disponíveis (70+)
+### 📦 Todas as Skills Disponíveis (74+)
 
 | Skill | Descrição |
 |-------|-----------|
@@ -858,7 +858,7 @@ Não. Cada skill é independente — use só o que precisar. Porém, rodar a ski
 
 **O que é o workflow `/esc-start`?**
 
-`/esc-start` orquestra 6 AI marketing skills em sequência — da definição do ICP até Google Ads, wireframe de landing page, HTML premium, conceitos de Meta Ads e criativos clássicos. Cada etapa alimenta contexto para a próxima, garantindo zero alucinações e máxima consistência.
+`/esc-start` orquestra 6 AI marketing skills em sequência — da definição do ICP até Google Ads, wireframe de landing page, HTML premium, conceitos de Meta Ads e criativos clássicos. Cada etapa alimenta contexto para a próxima, garantindo handoff estruturado de contexto e máxima consistência.
 
 **Essas AI marketing skills geram ativos reais de campanha?**
 

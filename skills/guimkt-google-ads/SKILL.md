@@ -303,3 +303,25 @@ Além do output em Markdown (usado para handoff entre etapas), **gerar versão H
 - **Lista base de keywords negativas:** Ver [negative-keywords-base.md](references/negative-keywords-base.md) para a lista completa de ~100 termos universais como ponto de partida.
 - **Exemplos de output:** Ver [output-examples.md](references/output-examples.md) para exemplos de cada fase.
 - **Templates HTML:** Os templates `.html` estão em `references/` dentro desta skill.
+
+---
+
+## ⚠️ Known Limitations
+
+1. **Sem acesso à API do Google Ads:** A skill gera keywords e anúncios com base no briefing — não consulta dados reais de volume de busca, CPC ou concorrência. Recomenda-se validar com o Google Keyword Planner antes de publicar.
+2. **Keywords baseadas em inferência:** As 30 keywords por marca são geradas via raciocínio sobre o ICP, não via dados de search demand real. Podem existir termos de alta intenção que o modelo não identifica sem acesso a ferramentas de pesquisa.
+3. **Limites de caracteres são checados por contagem simples:** O agente conta caracteres de texto, mas emojis, caracteres especiais e Keyword Insertion (`{KeyWord:...}`) podem se comportar diferente no Google Ads Editor.
+4. **Não substitui campaign manager:** A skill produz a matéria-prima (keywords, negativas, RSAs) mas não configura bid strategy, targeting geográfico, ad scheduling, ou extensões automáticas. Essas configurações devem ser feitas no Google Ads Editor.
+5. **Qualidade do output depende do briefing:** Se o briefing do cliente for vago ou incompleto, os assets gerados serão genéricos. A skill sinaliza isso mas não pode compensar informação ausente.
+
+---
+
+## 📋 Output Examples
+
+Veja outputs reais gerados por esta skill no showcase:
+
+- [Keywords — ACME B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2B/keywords.html)
+- [Keywords — ACME B2C](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2C/keywords.html)
+- [Keywords Negativas — ACME B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2B/keywords-negativas.html)
+- [Anúncios Google — ACME B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2B/anuncios-google.html)
+- [Anúncios Google — WHISKAS B2C](https://gui.marketing/operacao-de-marketing-ia-first/showcase/WHISKAS-B2C/anuncios-google.html)

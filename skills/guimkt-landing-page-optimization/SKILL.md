@@ -283,3 +283,13 @@ Além do output em Markdown (relatório de auditoria), **gerar versão HTML esti
 5. Salvar como `lpo-audit-{{CLIENTE}}.html`
 
 > **IMPORTANTE:** O output `.md` DEVE continuar sendo gerado normalmente. O HTML é um output adicional para exibição.
+
+---
+
+## ⚠️ Known Limitations
+
+1. **Análise baseada em heurística, não em dados:** A skill aplica frameworks de CRO (AIDA, PAS, fórmula C=4m+3v+2(i-f)-2a) mas não tem acesso a dados reais de analytics (GA4, heatmaps, session recordings). As recomendações são baseadas em best practices, não em comportamento real dos visitantes.
+2. **Sem teste A/B automatizado:** A skill sugere hipóteses de teste mas não integra com ferramentas de A/B testing (Google Optimize, VWO, Optimizely). A implementação dos testes é responsabilidade do time de CRO.
+3. **Fórmula de conversão é modelo mental, não predição:** A fórmula C=4m+3v+2(i-f)-2a é um framework de diagnóstico para identificar problemas — não prevê taxas de conversão reais. Os valores atribuídos são qualitativos.
+4. **Copy review é subjetivo:** A análise de headlines, CTAs e copy é baseada em princípios de copywriting testados mas a percepção do público-alvo pode variar. Sempre validar com dados pós-implementação.
+5. **Não avalia performance técnica:** A skill foca em UX, copy e conversão — não audita Core Web Vitals, tempo de carregamento, ou performance do formulário. Para isso, usar as skills `core-web-vitals` ou `perf-web-optimization`.

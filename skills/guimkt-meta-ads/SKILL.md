@@ -468,3 +468,24 @@ Ao concluir o workflow, os seguintes arquivos devem ser entregues:
 | `conceitos-meta-{{CLIENTE}}.md` | Output principal com os 6 conceitos | ✅ Sim |
 | `conceitos-meta-{{CLIENTE}}.html` | Versão HTML para apresentação | ✅ Sim |
 | `prompts-imagens-{{CLIENTE}}.md` | Consolidação de todos os prompts de imagem | ✅ Sim |
+
+---
+
+## ⚠️ Known Limitations
+
+1. **Sem acesso à Meta Ads API:** A skill gera conceitos criativos baseados no briefing — não consulta dados reais de audiência, CPM, frequência ou performance de campanhas anteriores. Validar com o Ads Manager antes de publicar.
+2. **Imagens são prompts, não assets finais:** Os prompts de imagem gerados precisam ser executados em ferramentas de geração (Midjourney, DALL-E, Gemini, etc.) e depois refinados pelo designer. O prompt é ponto de partida, não deliverable final.
+3. **Limites de caracteres baseados em guidelines gerais:** As regras de truncamento do Meta Ads variam por placement e são atualizadas frequentemente. Sempre validar os limites atuais na documentação oficial do Meta.
+4. **Não otimiza para A/B testing:** A skill gera 6 conceitos distintos mas não planeja variações para teste A/B sistemático (ex: mesma imagem com 3 copies). Isso é responsabilidade do media buyer.
+5. **Copy em português brasileiro:** Os conceitos são gerados em PT-BR por padrão. Campanhas em outros idiomas precisam de adaptação manual — a skill não traduz automaticamente.
+
+---
+
+## 📋 Output Examples
+
+Veja outputs reais gerados por esta skill no showcase:
+
+- [Criativos Meta — ACME B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2B/criativos-meta.html)
+- [Criativos Meta — ACME B2C](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2C/criativos-meta.html)
+- [Criativos Meta — WHISKAS B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/WHISKAS-B2B/criativos-meta.html)
+- [Criativos Meta — WHISKAS B2C](https://gui.marketing/operacao-de-marketing-ia-first/showcase/WHISKAS-B2C/criativos-meta.html)

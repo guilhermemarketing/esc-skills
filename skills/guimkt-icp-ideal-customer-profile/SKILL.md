@@ -274,3 +274,14 @@ Versão Markdown simplificada para consumo por outras skills:
 5. Nunca elogiar o próprio trabalho — análise objetiva de forças e limitações do ICP gerado
 6. Se o ICP parecer fraco (público muito amplo, dores vagas), **sinalizar ao usuário** antes de prosseguir
 7. Cada tabela HTML deve ter botão "Copiar para Google Sheets" funcional
+
+---
+
+## 📋 Output Examples
+
+Veja outputs reais gerados por esta skill no showcase:
+
+- [ICP — ACME B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2B/icp.html)
+- [ICP — ACME B2C](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2C/icp.html)
+- [ICP — WHISKAS B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/WHISKAS-B2B/icp.html)
+- [ICP — WHISKAS B2C](https://gui.marketing/operacao-de-marketing-ia-first/showcase/WHISKAS-B2C/icp.html)

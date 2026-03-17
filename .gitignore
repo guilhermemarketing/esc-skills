@@ -9,6 +9,7 @@
 
 # Allow these (and their contents recursively)
 !README.md
+!CONTRIBUTING.md
 !install.sh
 !.gitignore
 !skills/

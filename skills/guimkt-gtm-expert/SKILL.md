@@ -182,3 +182,13 @@ Além do output em JSON (container GTM), **gerar versão HTML estilizada** quand
 5. Salvar como `gtm-container-{{CLIENTE}}.html`
 
 > **IMPORTANTE:** O output principal continua sendo o JSON do container GTM. O HTML é um output adicional para exibição/documentação.
+
+---
+
+## ⚠️ Known Limitations
+
+1. **Não publica containers automaticamente:** A skill gera o JSON do container GTM mas não faz upload via GTM API. O usuário precisa importar manualmente no Google Tag Manager.
+2. **Sem validação de tags em runtime:** O JSON gerado é sintaticamente válido mas a skill não pode testar se as tags disparam corretamente no site. Recomenda-se usar GTM Preview Mode e Tag Assistant após importação.
+3. **Compatibilidade de versões:** O JSON é gerado para GTM Web v2 format. Containers de server-side GTM (sGTM) têm estrutura diferente e podem precisar de ajustes manuais.
+4. **Pixel e IDs são placeholders:** Valores como GTM-XXXXXX, AW-XXXXXXX/XXXXX, META-PIXEL-ID são placeholders que devem ser substituídos pelos IDs reais do cliente. A skill sinaliza mas não valida se a substituição foi feita.
+5. **Consent Mode não configurado por padrão:** O container gerado não inclui configuração de Consent Mode v2 (GDPR/LGPD). Para sites que precisam de compliance, a configuração de consent deve ser adicionada manualmente.

@@ -406,3 +406,24 @@ A landing page gerada (Fase 2) já é um HTML premium. Garantir que:
 3. O Wireframe-Tabela (Fase 1) deve usar template `references/wireframe-framework-tabela-template.html` para versão HTML de apresentação
 
 > **IMPORTANTE:** O output `.md` do wireframe DEVE continuar sendo gerado normalmente — ele é o artefato-ponte entre etapas do workflow.
+
+---
+
+## ⚠️ Known Limitations
+
+1. **Sem validação de performance real:** A skill gera HTML estilizado mas não roda Lighthouse, PageSpeed ou Core Web Vitals. O output pode ter imagens pesadas, CSS inline extenso ou JS que impacta LCP/CLS. Sempre validar performance antes de publicar.
+2. **Dependência do wireframe:** A Fase 2 (HTML premium) depende fortemente da qualidade do Wireframe-Tabela. Se o wireframe tiver seções vagas ou copy fraca, o HTML vai refletir isso — a skill não inventa conteúdo.
+3. **Formulários são estáticos:** Os formulários gerados são apenas HTML/CSS — não integram com CRM, RD Station, HubSpot ou GTM automaticamente. A integração precisa ser feita manualmente pelo desenvolvedor.
+4. **Responsividade básica:** O CSS gerado inclui media queries padrão, mas pode precisar de ajustes para breakpoints específicos ou devices não-convencionais. Testar em múltiplos dispositivos antes de publicar.
+5. **Assets visuais são placeholders:** Se o briefing não incluir imagens reais (fotos de produto, logo, equipe), a skill usa descrições textuais como placeholder — não gera imagens automaticamente.
+
+---
+
+## 📋 Output Examples
+
+Veja outputs reais gerados por esta skill no showcase:
+
+- [Landing Page — ACME B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2B/landing-page.html)
+- [Landing Page — ACME B2C](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2C/landing-page.html)
+- [Landing Page — WHISKAS B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/WHISKAS-B2B/landing-page.html)
+- [Landing Page — WHISKAS B2C](https://gui.marketing/operacao-de-marketing-ia-first/showcase/WHISKAS-B2C/landing-page.html)

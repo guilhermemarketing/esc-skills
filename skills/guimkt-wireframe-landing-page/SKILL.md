@@ -347,3 +347,14 @@ Além do output em Markdown, **gerar versão HTML estilizada** para apresentaç�
 5. Salvar como `wireframe-tabela-{{CLIENTE}}.html`
 
 > **IMPORTANTE:** O output `.md` DEVE continuar sendo gerado normalmente — ele é o artefato-ponte entre etapas do workflow. O HTML é um output adicional para exibição.
+
+---
+
+## 📋 Output Examples
+
+Veja outputs reais gerados por esta skill no showcase:
+
+- [Wireframe — ACME B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2B/wireframe-framework.html)
+- [Wireframe — ACME B2C](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2C/wireframe-framework.html)
+- [Wireframe — WHISKAS B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/WHISKAS-B2B/wireframe-framework.html)
+- [Wireframe — WHISKAS B2C](https://gui.marketing/operacao-de-marketing-ia-first/showcase/WHISKAS-B2C/wireframe-framework.html)
