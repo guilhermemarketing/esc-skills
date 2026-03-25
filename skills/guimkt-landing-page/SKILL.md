@@ -1,4 +1,4 @@
-<!-- skill: guimkt-landing-page | version: 1.0.0 | updated: 2026-03-17 -->
+<!-- skill: guimkt-landing-page | version: 1.1.0 | updated: 2026-03-25 -->
 ---
 name: guimkt-landing-page
 description: >

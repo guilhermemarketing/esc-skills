@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0",
-  "updated_at": "2026-03-17",
+  "updated_at": "2026-03-25",
   "skills": {
     "3d-web-experience": {
       "version": "1.0.0",
@@ -207,9 +207,9 @@
       "breaking": false
     },
     "guimkt-landing-page": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/guimkt-landing-page/SKILL.md",
-      "hash": "d5932f5eba1c78f8fe405a08b9664ae63602982a5ce8ffdc45ce0345c3130c48",
+      "hash": "4abc7300bd7bcb8f44c80e03ea8d4fc242d5525f401e0a7bf2ddd9194286b52e",
       "breaking": false
     },
     "guimkt-landing-page-optimization": {
@@ -225,9 +225,9 @@
       "breaking": false
     },
     "guimkt-meta-ads": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/guimkt-meta-ads/SKILL.md",
-      "hash": "396ac04899ec70739d4949769c22f82c9652fa3414c62bed1f8062e703f5b72c",
+      "hash": "e684656c2cca2dccbb0f28c6acbe54e34520c4af39047e14d990279ecef3a5dd",
       "breaking": false
     },
     "guimkt-nano-banana-prompts": {
@@ -249,9 +249,9 @@
       "breaking": false
     },
     "guimkt-wireframe-landing-page": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/guimkt-wireframe-landing-page/SKILL.md",
-      "hash": "e100f4ed524d8206ebece6e2cc59f57aaa5097fedb899eb31997a1b9ab63355a",
+      "hash": "a80a05c8b25ff6ac5b2e3653450f96857241a7ac78ea5f29228c46166ec6e30d",
       "breaking": false
     },
     "interaction-design": {
