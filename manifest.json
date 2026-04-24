@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0",
-  "updated_at": "2026-03-25",
+  "updated_at": "2026-04-24",
   "skills": {
     "3d-web-experience": {
       "version": "1.0.0",
@@ -164,10 +164,34 @@
       "hash": "0d4bccb154b159af16e586ae0dc48abbd09e678969ac977f64e8745928b45566",
       "breaking": false
     },
+    "guimkt-consent-mode-audit": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-consent-mode-audit/SKILL.md",
+      "hash": "d4fac02ea4299247c8220db3b97f55b8832d09c3a5b9bc8d41cc470876f40950",
+      "breaking": false
+    },
+    "guimkt-conversion-qa-auditor": {
+      "version": "1.1.0",
+      "path": "skills/guimkt-conversion-qa-auditor/SKILL.md",
+      "hash": "33415f804ecb8b7704a56f34a46a9eb136b4d29eca5eceed6145b03b471f2732",
+      "breaking": false
+    },
     "guimkt-design-system-extractor": {
       "version": "1.0.0",
       "path": "skills/guimkt-design-system-extractor/SKILL.md",
       "hash": "cf357ad10d236c1d6f6ff85e9082b7c541e3f76b1d8fcecabb3a06d21aa7caea",
+      "breaking": false
+    },
+    "guimkt-executive-performance-report": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-executive-performance-report/SKILL.md",
+      "hash": "18b886d2dc34d68940f445079edf351c75e3a18bb6431d21203a4b402525781e",
+      "breaking": false
+    },
+    "guimkt-experimentation-engine": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-experimentation-engine/SKILL.md",
+      "hash": "bf5c4271725eba92fcdf4a1f417aaa90987f048142c5f1975636604b720ca580",
       "breaking": false
     },
     "guimkt-gmp-cli-mcp-skill": {
@@ -179,13 +203,13 @@
     "guimkt-google-ads": {
       "version": "1.0.0",
       "path": "skills/guimkt-google-ads/SKILL.md",
-      "hash": "2c927d5aad12a0fd3fb01b3dc9db70a5d504e1ec9f729ab7c7c591a15ace2961",
+      "hash": "b9fd1e006cd5da616dc3ca419563c7bc178752b4e0e5f63e22b2666cb3e72b18",
       "breaking": false
     },
     "guimkt-gtm-expert": {
       "version": "1.0.0",
       "path": "skills/guimkt-gtm-expert/SKILL.md",
-      "hash": "26cbf0e874f68f35f39d340d17502534fc9da3a5b51d6ee7943f4bae5e6eaac7",
+      "hash": "6ba400f9951c24aa0c2af131a8f9be52b96485b83609797be836af7bbfb047a6",
       "breaking": false
     },
     "guimkt-gtm-expert-template": {
@@ -203,7 +227,7 @@
     "guimkt-icp-ideal-customer-profile": {
       "version": "1.0.0",
       "path": "skills/guimkt-icp-ideal-customer-profile/SKILL.md",
-      "hash": "f9230fbaffc981fa55530695ffa570229b715d1b7182942f05845a9a5deab6ec",
+      "hash": "8bbfbdd778bfa2018f569d267359414f19cebab1c39d9a2491da1fb22a4e81a6",
       "breaking": false
     },
     "guimkt-landing-page": {
@@ -215,13 +239,25 @@
     "guimkt-landing-page-optimization": {
       "version": "1.0.0",
       "path": "skills/guimkt-landing-page-optimization/SKILL.md",
-      "hash": "811928158c188775c37f6b328042b7a865c0e803d69661dbbe803beba301b0c0",
+      "hash": "93945aa590b8dca8f9bbc03667c1f75a17a8fbdd9782801dd95702b55d5ee736",
+      "breaking": false
+    },
+    "guimkt-linkedin-autoreply": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-linkedin-autoreply/SKILL.md",
+      "hash": "91ad28a3c3a7cc54b67c0f139057a3096d7a5ee01646b7005e38c82bcf1f30e3",
       "breaking": false
     },
     "guimkt-make-blueprint-expert": {
       "version": "1.0.0",
       "path": "skills/guimkt-make-blueprint-expert/SKILL.md",
       "hash": "907aa9ae685f311eba0c82d1bbc2e8df1a308e9db37d97b9d3ec7a2ccb443961",
+      "breaking": false
+    },
+    "guimkt-measurement-plan-architect": {
+      "version": "1.1.0",
+      "path": "skills/guimkt-measurement-plan-architect/SKILL.md",
+      "hash": "d1e30edfcc1419643173cb174d4acfdfecd9fb7cb434ff38af619006f9eaecca",
       "breaking": false
     },
     "guimkt-meta-ads": {
@@ -236,6 +272,18 @@
       "hash": "24a903162b683e555c2fa557676ebe1ba86dd0f4f209f6bad17432a249a4f5c5",
       "breaking": false
     },
+    "guimkt-offer-diagnosis": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-offer-diagnosis/SKILL.md",
+      "hash": "1db1d14aaa94cbf3354641f2eaa5e7b7351e15ee9d6b5f497b33c4b75ccfb1e5",
+      "breaking": false
+    },
+    "guimkt-sales-page-message-mining": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-sales-page-message-mining/SKILL.md",
+      "hash": "ac117016250df3edd09f13d11000e89aca0c8c7e0635d0db24d3f516d785c0f5",
+      "breaking": false
+    },
     "guimkt-threads-mcp-skill": {
       "version": "1.0.0",
       "path": "skills/guimkt-threads-mcp-skill/SKILL.md",
@@ -246,6 +294,12 @@
       "version": "1.0.0",
       "path": "skills/guimkt-threads-viral-content/SKILL.md",
       "hash": "bdaf083db82feb61c69378691fe8833462ffd0d40674e37d13a1f233a56163a1",
+      "breaking": false
+    },
+    "guimkt-utm-governance": {
+      "version": "1.1.0",
+      "path": "skills/guimkt-utm-governance/SKILL.md",
+      "hash": "5a1913716d4d32008decfdb286ce7535716a3eb64e918aae803e6baff32f9dc2",
       "breaking": false
     },
     "guimkt-wireframe-landing-page": {

@@ -1,7 +1,7 @@
 <p align="center">
   <h1 align="center">🧠 ESC Skills — AI Marketing Skills for Agents</h1>
   <p align="center">
-    <strong>74+ battle-tested AI marketing skills for digital marketing professionals who think like strategists.</strong>
+    <strong>83+ battle-tested AI marketing skills for digital marketing professionals who think like strategists.</strong>
   </p>
 </p>
 
@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/skills-74%2B-blueviolet?style=for-the-badge" alt="Skills">
+  <img src="https://img.shields.io/badge/skills-83%2B-blueviolet?style=for-the-badge" alt="Skills">
   <img src="https://img.shields.io/github/stars/guilhermemarketing/esc-skills?style=for-the-badge&color=gold" alt="Stars">
   <img src="https://img.shields.io/badge/license-internal-informational?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/ESC-Estrategista%20Social%20Club-ff6b35?style=for-the-badge" alt="ESC">
@@ -39,7 +39,7 @@ Strategic content, real-world analysis, high-level discussions, and zero bullshi
 - [Workflow: /esc-start](#-workflow-esc-start)
 - [Why Star This Repo?](#-why-star-this-repo)
 - [Featured AI Marketing Skills](#-featured-ai-marketing-skills)
-- [All Available Skills (74+)](#-all-available-skills-74)
+- [All Available Skills (83+)](#-all-available-skills-83)
 - [Quick Start](#-quick-start)
 - [AI Agent Setup](#-ai-agent-setup)
 - [Updates](#-updates)
@@ -150,11 +150,14 @@ graph TD
 
 ### 🚀 Workflow: /esc-start
 
-Don't want to run skills one by one? The **`/esc-start`** workflow orchestrates the **full marketing pipeline** in 6 sequential steps — from ICP definition to final ad creatives. Each step produces a consolidated `.md` file that feeds the next, ensuring **context consistency** and **structured context handoff** between steps.
+Don't want to run skills one by one? The **`/esc-start`** workflow orchestrates the **full marketing pipeline** in 10 sequential steps — from Voice of Customer research and Offer Diagnosis through ICP, ads, landing pages, measurement planning, and conversion QA. Each step produces a consolidated `.md` file that feeds the next, ensuring **context consistency** and **structured context handoff** between steps.
 
 ```mermaid
 flowchart LR
-    B["📋 Client Briefing"] --> S1
+    B["📋 Client Briefing"] --> SPre
+
+    SPre["🔍 Pre. Message Mining*\nguimkt-sales-page-message-mining"] --> S0
+    S0["🛡️ 0. Offer Diagnosis**\nguimkt-offer-diagnosis"] --> S1
 
     S1["1️⃣ ICP\nguimkt-icp-ideal-customer-profile"] --> S2
     S1 --> S3
@@ -163,21 +166,28 @@ flowchart LR
     S2["2️⃣ Google Ads\nguimkt-google-ads"] --> |keywords + RSA| OUT2["google-ads-consolidado.md"]
 
     S3["3️⃣ Wireframe LP\nguimkt-wireframe-landing-page"] --> S4
-    S4["4️⃣ Landing Page\nguimkt-landing-page"] --> OUT4["landing-page.html"]
+    S4["4️⃣ Landing Page\nguimkt-landing-page"] --> S7
 
     S5["5️⃣ Meta Ads\nguimkt-meta-ads"] --> S6
     S6["6️⃣ Classic Creatives\nguimkt-classic-advertising-creative"] --> OUT6["criativos-classicos.md"]
+
+    S7["7️⃣ Measurement Plan\nguimkt-measurement-plan-architect"] --> S8
+    S8["8️⃣ Conversion QA\nguimkt-conversion-qa-auditor"] --> OUT8["conversion-qa.md"]
 
     S1 --> |icp-consolidado.md| BRIDGE(("📄 ICP\nUniversal\nBridge"))
     BRIDGE --> S2 & S3 & S4 & S5 & S6
 
     style BRIDGE fill:#864df9,stroke:#6b3cc9,color:#fff
+    style SPre fill:#1a1a2e,stroke:#f9c74f,color:#fff
+    style S0 fill:#1a1a2e,stroke:#e63946,color:#fff
     style S1 fill:#1a1a2e,stroke:#864df9,color:#fff
     style S2 fill:#1a1a2e,stroke:#4ea8de,color:#fff
     style S3 fill:#1a1a2e,stroke:#f9844a,color:#fff
     style S4 fill:#1a1a2e,stroke:#f9844a,color:#fff
     style S5 fill:#1a1a2e,stroke:#43aa8b,color:#fff
     style S6 fill:#1a1a2e,stroke:#43aa8b,color:#fff
+    style S7 fill:#1a1a2e,stroke:#577590,color:#fff
+    style S8 fill:#1a1a2e,stroke:#577590,color:#fff
 ```
 
 <details open><summary>📖 Quick view (ASCII)</summary>
@@ -185,6 +195,18 @@ flowchart LR
 ```
         │
         ▼
+┌──────────────────────────────────────────────────────────────────┐
+│  🔍  Pre. Message Mining* (optional — if VoC material exists)   │
+│      guimkt-sales-page-message-mining                           │
+│      → produces: message-mining.md  ◄── enriches steps below    │
+└───────────────────────┬──────────────────────────────────────────┘
+                        ↓
+┌──────────────────────────────────────────────────────────────────┐
+│  🛡️  0. Offer Diagnosis** (mandatory, skippable)                │
+│      guimkt-offer-diagnosis                                      │
+│      → produces: offer-diagnosis.md                              │
+└───────────────────────┬──────────────────────────────────────────┘
+                        ↓
 ┌──────────────────────────────────────────────────────────────────┐
 │  1️⃣  ICP Deep Profile                                          │
 │      guimkt-icp-ideal-customer-profile                          │
@@ -205,8 +227,23 @@ flowchart LR
                    │    Page    │ │   Creatives    │
                    │ → HTML     │ │ → multi-plat.  │
                    │   premium  │ │   ads          │
-                   └────────────┘ └────────────────┘
+                   └─────┬──────┘ └────────────────┘
+                         ↓
+              ┌─────────────────────┐
+              │ 7️⃣  Measurement Plan│
+              │ → tracking arch.   │
+              │ → consent mode     │
+              │ → lead quality     │
+              └─────────┬──────────┘
+                        ↓
+              ┌─────────────────────┐
+              │ 8️⃣  Conversion QA   │
+              │ → go/no-go verdict │
+              │ → 70+ checks       │
+              └─────────────────────┘
 
+*  Pre: optional — runs if VoC material available
+** Step 0: mandatory, skip on explicit user request
 ✅ Each step has a mandatory checkpoint — the agent waits for your approval.
 ```
 
@@ -216,20 +253,26 @@ flowchart LR
 
 | Step | Skill | Input | Output |
 |------|-------|-------|--------|
-| **1. ICP** | `guimkt-icp-ideal-customer-profile` | Client briefing | `icp-consolidado-{{CLIENT}}.md` |
+| **Pre. Message Mining*** | `guimkt-sales-page-message-mining` | Reviews, calls, transcripts, Reddit, CRM | `message-mining-{{CLIENT}}.md` |
+| **0. Offer Diagnosis**** | `guimkt-offer-diagnosis` | Briefing (+ Message Mining) | `offer-diagnosis-{{CLIENT}}.md` |
+| **1. ICP** | `guimkt-icp-ideal-customer-profile` | Briefing + Offer (+ Message Mining) | `icp-consolidado-{{CLIENT}}.md` |
 | **2. Google Ads** | `guimkt-google-ads` (Phases 2-4) | ICP | `google-ads-consolidado-{{CLIENT}}.md` |
-| **3. Wireframe** | `guimkt-wireframe-landing-page` | ICP | `wireframe-tabela-{{CLIENT}}.md` |
+| **3. Wireframe** | `guimkt-wireframe-landing-page` | ICP (+ Message Mining) | `wireframe-tabela-{{CLIENT}}.md` |
 | **4. Landing Page** | `guimkt-landing-page` (Phase 2) | ICP + Wireframe | `landing-page-{{CLIENT}}.html` |
 | **5. Meta Ads** | `guimkt-meta-ads` | ICP | `meta-ads-conceitos-{{CLIENT}}.md` |
 | **6. Creatives** | `guimkt-classic-advertising-creative` | ICP + Meta Ads | `criativos-classicos-{{CLIENT}}.md` |
+| **7. Measurement Plan** | `guimkt-measurement-plan-architect` | ICP + LP | `measurement-plan-{{CLIENT}}.md` |
+| **8. Conversion QA** | `guimkt-conversion-qa-auditor` | LP + Measurement Plan | `conversion-qa-{{CLIENT}}.md` |
 
+> \* Pre: optional — runs if Voice of Customer material is available (reviews, calls, transcripts, Reddit, CRM).
+> \*\* Step 0: mandatory, but skippable on explicit user request.
 > Each step has a **mandatory checkpoint** — the agent presents the output and waits for your approval before proceeding.
 
 ---
 
 ### ⭐ Why Star This Repo?
 
-- 🆓 **74+ AI marketing skills, free and open** — years of methodology packed into ready-to-use modules
+- 🆓 **83+ AI marketing skills, free and open** — years of methodology packed into ready-to-use modules
 - 🧪 **Battle-tested** — built from real campaigns with 100+ clients across B2B and B2C
 - 🔄 **Frequently updated** — new AI marketing skills added as the marketing and dev landscape evolves
 - 🔔 **Star = notifications** — get notified when new skills drop
@@ -261,10 +304,19 @@ flowchart LR
 | **skill-creator** | Create, test, benchmark, and optimize new AI skills from scratch |
 | **ui-ux-pro-max** | UI/UX design intelligence — 50 styles, 21 palettes, 50 font pairings, 9 tech stacks |
 | **guimkt-wireframe-landing-page** | Complete landing page wireframes for lead generation (SQL) in 2 phases: Wireframe-Table (copywriting frameworks) + Sketch HTML wireframe for client validation |
+| **guimkt-offer-diagnosis** | Guard-rail that analyzes offer strength BEFORE generating ICP, ads, or landing pages. 8 dimensions: promise clarity, specificity, proof, unique mechanism, perceived risk, objections, real vs. cosmetic differentials |
+| **guimkt-measurement-plan-architect** | Transforms briefing + ICP + LP into a complete measurement plan: tracking architecture, GA4 taxonomy, dataLayer schema, GTM web + server-side, offline conversions, enhanced conversions, consent mode v2, lead quality schema. Includes WhatsApp-first scenarios (CTWA, WABA) |
+| **guimkt-conversion-qa-auditor** | Go/no-go audit in two modes: Pre-Launch (validates plan + LP) and Post-Implementation (validates live technical execution). 11 categories, 70+ checks, scoring system |
+| **guimkt-sales-page-message-mining** | Extracts real customer language from reviews, Reddit, calls, transcripts, CRM, and surveys. Produces Pain Map, Objection Map, Swipe File, Language Map, and segment-specific angles |
+| **guimkt-executive-performance-report** | Transforms raw data (GA4, Google Ads, Meta Ads, LinkedIn, TikTok, Pinterest, CRM, Search Console) into profit-first executive report with Brandformance Flywheel, Unit Economics, and per-channel verdicts |
+| **guimkt-consent-mode-audit** | Deep LGPD + Consent Mode v2 + CMP audit with 0-100 score system across 4 areas. Tag compliance matrix, dark pattern detection, legal basis mapping |
+| **guimkt-experimentation-engine** | CRO experimentation with FACT&ACT methodology, ROAR gate, PIPE prioritization, sample size calculation, behavioral science toolkit. Turns hypotheses into prioritized experiment backlogs |
+| **guimkt-utm-governance** | UTM operational governance: naming conventions, per-channel templates with dynamic macros, inconsistency auditing, CRM integration for end-to-end attribution. WhatsApp-first scenarios (CTWA, WABA, BSUID) |
+| **guimkt-nano-banana-prompts** | 874+ curated image generation prompts across 17 categories (product photography, food, 3D miniatures, fashion, cinematic posters, anime, portraits, branding). Supports Midjourney, DALL-E, Gemini, Flux, Stable Diffusion |
 
 ---
 
-### 📦 All Available Skills (74+)
+### 📦 All Available Skills (83+)
 
 | Skill | Description |
 |-------|-------------|
@@ -296,7 +348,11 @@ flowchart LR
 | **gh-fix-ci** | Debug and fix failing GitHub Actions CI checks |
 | **gsap** | GSAP — timelines, ScrollTrigger, stagger, transforms |
 | **guimkt-classic-advertising-creative** | Creative concepts for paid media — classic advertising principles adapted to the feed |
+| **guimkt-consent-mode-audit** | LGPD + Consent Mode v2 + CMP audit with 0-100 score system across 4 areas. Tag compliance matrix, CMP review, legal basis mapping |
+| **guimkt-conversion-qa-auditor** | Go/no-go conversion audit in two modes: Pre-Launch and Post-Implementation. 11 QA categories, 70+ checks, scoring system |
 | **guimkt-design-system-extractor** | Extract complete design systems from websites |
+| **guimkt-executive-performance-report** | Profit-first executive report from GA4, Google Ads, Meta Ads, LinkedIn, TikTok, Pinterest, CRM, Search Console. Brandformance Flywheel + Unit Economics |
+| **guimkt-experimentation-engine** | CRO experimentation engine — FACT&ACT, ROAR gate, PIPE prioritization, sample size calculation, behavioral science toolkit |
 | **guimkt-google-ads** | Google Ads Search for lead generation (SQLs). 3-phase pipeline: Keywords, Negatives, RSA (requires ICP). Multi-brand |
 | **guimkt-icp-ideal-customer-profile** | Consolidate Ideal Customer Profile — 9 dimensions, psychographic profile, real vs. aspirational, mental models. HTML + MD output |
 | **guimkt-gmp-cli-mcp-skill** | Operate the gmp-cli (Google Marketing Platform CLI) — GA4, Search Console, Google Ads, GTM via CLI. Reports, GAQL queries, output formatting |
@@ -304,11 +360,17 @@ flowchart LR
 | **guimkt-gtm-expert-template** | GTM Leads 2025 template for new clients |
 | **guimkt-landing-page** | Full premium landing pages for lead gen — Wireframe-Table + Premium HTML with liquid glass, micro-animations |
 | **guimkt-landing-page-optimization** | Landing Page Optimization (LPO) — audits, copy, conversion formula |
+| **guimkt-linkedin-autoreply** | LinkedIn automated reply workflows for lead nurturing and engagement |
 | **guimkt-make-blueprint-expert** | Create, debug, and optimize Make.com blueprints via JSON |
+| **guimkt-measurement-plan-architect** | Complete measurement plan: tracking architecture, GA4 taxonomy, dataLayer schema, GTM web + server-side, offline conversions, enhanced conversions, consent mode v2, WhatsApp-first scenarios |
 | **guimkt-meta-ads** | 6 complete creative concepts for Meta Ads (Facebook/Instagram) — strategy, copy, visual concept, image prompt |
+| **guimkt-nano-banana-prompts** | 874+ curated image generation prompts across 17 categories. Supports Midjourney, DALL-E, Gemini, Flux, Stable Diffusion |
+| **guimkt-offer-diagnosis** | Guard-rail that analyzes offer strength before generating assets. 8 dimensions, verdict system, MECLABS-based |
+| **guimkt-sales-page-message-mining** | Voice of Customer extraction from reviews, Reddit, calls, transcripts, CRM. Produces Pain Map, Objection Map, Swipe File, Language Map |
 | **guimkt-hero-videos** | Premium hero sections with background video + AI video prompt generation for Runway, Sora, Kling |
 | **guimkt-threads-mcp-skill** | Maintain and operate the Threads MCP Server — token renewal, troubleshooting, scheduling, configuration |
 | **guimkt-threads-viral-content** | Viral ethical content for Threads (Meta) — 307+ viral posts analyzed, proven templates, 4 thread subtypes, 4 post subtypes |
+| **guimkt-utm-governance** | UTM operational governance: naming conventions, per-channel templates, inconsistency auditing, CRM integration, WhatsApp-first (CTWA, WABA, BSUID) |
 | **interaction-design** | Microinteractions, motion design, transitions |
 | **javascript-typescript** | JS/TS with ES6+, Node.js, React, modern frameworks |
 | **jira-assistant** | Jira operations via Atlassian MCP |
@@ -403,13 +465,13 @@ Any agent that supports file reading: Gemini, Claude Code, Cursor, GPT, Windsurf
 
 Run `curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash` in any project directory. The script copies all skills into your `.agent/skills/` folder, ready for your AI agent to use.
 
-**Do I need to use all 74+ skills?**
+**Do I need to use all 83+ skills?**
 
 No. Each skill is independent — pick only what you need. However, running the ICP (Ideal Customer Profile) skill first makes every downstream skill better by providing audience context.
 
 **What is the `/esc-start` workflow?**
 
-`/esc-start` orchestrates 6 AI marketing skills in sequence — from ICP definition to Google Ads, landing page wireframe, premium HTML page, Meta Ads concepts, and classic ad creatives. Each step feeds context to the next, ensuring structured context handoff and maximum consistency.
+`/esc-start` orchestrates 10 AI marketing skills in sequence — from Voice of Customer research, Offer Diagnosis, ICP definition, Google Ads, wireframe, premium landing page, Meta Ads, classic creatives, measurement planning, to conversion QA. Each step feeds context to the next, ensuring structured context handoff and maximum consistency.
 
 **Can these AI marketing skills generate real campaign assets?**
 
@@ -453,7 +515,7 @@ The update command shows exactly what changed, including version diffs and ⚠�
 
 ## 🇧🇷 Português
 
-Coleção de 74+ skills para agentes AI (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, etc.) para profissionais de marketing digital: CRO, SEO, Google Ads, Meta Ads, Marketing de Performance, Google Tag Manager & Tracking Avançado, Design, Desenvolvimento Web, Segurança & Arquitetura e DevOps.
+Coleção de 83+ skills para agentes AI (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, etc.) para profissionais de marketing digital: CRO, SEO, Google Ads, Meta Ads, Marketing de Performance, Google Tag Manager & Tracking Avançado, Design, Desenvolvimento Web, Segurança & Arquitetura e DevOps.
 
 Criado pelo [Estrategista Social Club](https://comunidade.gui.marketing/esc) — o clube onde profissionais de marketing aprendem a pensar, testar e converter como estrategistas — não como apertadores de botões.
 
@@ -470,7 +532,7 @@ Conteúdo estratégico, análises reais, discussões de alto nível e zero bulls
 - [Workflow: /esc-start](#-workflow-esc-start-1)
 - [Por que dar Star neste Repo?](#-por-que-dar-star-neste-repo)
 - [Skills em Destaque](#-skills-em-destaque)
-- [Todas as Skills Disponíveis (74+)](#-todas-as-skills-disponíveis-74)
+- [Todas as Skills Disponíveis (83+)](#-todas-as-skills-disponíveis-83)
 - [Instalação Rápida](#-instalação-rápida)
 - [Configuração para Agentes AI](#-configuração-para-agentes-ai)
 - [Atualizações](#-atualizações)
@@ -578,11 +640,14 @@ graph TD
 
 ### 🚀 Workflow: /esc-start
 
-Não quer rodar skill por skill? O workflow **`/esc-start`** orquestra o **pipeline completo de marketing** em 6 etapas sequenciais — da definição do ICP aos criativos finais. Cada etapa produz um arquivo `.md` consolidado que alimenta a próxima, garantindo **consistência de contexto** e **handoff estruturado de contexto** entre etapas.
+Não quer rodar skill por skill? O workflow **`/esc-start`** orquestra o **pipeline completo de marketing** em 10 etapas sequenciais — da pesquisa de Voice of Customer e Diagnóstico de Oferta, passando por ICP, ads, landing pages, plano de mensuração, até QA de conversão. Cada etapa produz um arquivo `.md` consolidado que alimenta a próxima, garantindo **consistência de contexto** e **handoff estruturado de contexto** entre etapas.
 
 ```mermaid
 flowchart LR
-    B["📋 Briefing do Cliente"] --> S1
+    B["📋 Briefing do Cliente"] --> SPre
+
+    SPre["🔍 Pré. Message Mining*\nguimkt-sales-page-message-mining"] --> S0
+    S0["🛡️ 0. Offer Diagnosis**\nguimkt-offer-diagnosis"] --> S1
 
     S1["1️⃣ ICP\nguimkt-icp-ideal-customer-profile"] --> S2
     S1 --> S3
@@ -591,21 +656,28 @@ flowchart LR
     S2["2️⃣ Google Ads\nguimkt-google-ads"] --> |keywords + RSA| OUT2["google-ads-consolidado.md"]
 
     S3["3️⃣ Wireframe LP\nguimkt-wireframe-landing-page"] --> S4
-    S4["4️⃣ Landing Page\nguimkt-landing-page"] --> OUT4["landing-page.html"]
+    S4["4️⃣ Landing Page\nguimkt-landing-page"] --> S7
 
     S5["5️⃣ Meta Ads\nguimkt-meta-ads"] --> S6
     S6["6️⃣ Criativos Clássicos\nguimkt-classic-advertising-creative"] --> OUT6["criativos-classicos.md"]
+
+    S7["7️⃣ Measurement Plan\nguimkt-measurement-plan-architect"] --> S8
+    S8["8️⃣ Conversion QA\nguimkt-conversion-qa-auditor"] --> OUT8["conversion-qa.md"]
 
     S1 --> |icp-consolidado.md| BRIDGE(("📄 ICP\nPonte\nUniversal"))
     BRIDGE --> S2 & S3 & S4 & S5 & S6
 
     style BRIDGE fill:#864df9,stroke:#6b3cc9,color:#fff
+    style SPre fill:#1a1a2e,stroke:#f9c74f,color:#fff
+    style S0 fill:#1a1a2e,stroke:#e63946,color:#fff
     style S1 fill:#1a1a2e,stroke:#864df9,color:#fff
     style S2 fill:#1a1a2e,stroke:#4ea8de,color:#fff
     style S3 fill:#1a1a2e,stroke:#f9844a,color:#fff
     style S4 fill:#1a1a2e,stroke:#f9844a,color:#fff
     style S5 fill:#1a1a2e,stroke:#43aa8b,color:#fff
     style S6 fill:#1a1a2e,stroke:#43aa8b,color:#fff
+    style S7 fill:#1a1a2e,stroke:#577590,color:#fff
+    style S8 fill:#1a1a2e,stroke:#577590,color:#fff
 ```
 
 <details open><summary>📖 Visualização rápida (ASCII)</summary>
@@ -613,6 +685,18 @@ flowchart LR
 ```
         │
         ▼
+┌──────────────────────────────────────────────────────────────────┐
+│  🔍  Pré. Message Mining* (opcional — se houver material VoC)   │
+│      guimkt-sales-page-message-mining                           │
+│      → produz: message-mining.md  ◄── enriquece etapas abaixo   │
+└───────────────────────┬──────────────────────────────────────────┘
+                        ↓
+┌──────────────────────────────────────────────────────────────────┐
+│  🛡️  0. Offer Diagnosis** (obrigatória, skip permitido)         │
+│      guimkt-offer-diagnosis                                      │
+│      → produz: offer-diagnosis.md                                │
+└───────────────────────┬──────────────────────────────────────────┘
+                        ↓
 ┌──────────────────────────────────────────────────────────────────┐
 │  1️⃣  ICP Deep Profile                                          │
 │      guimkt-icp-ideal-customer-profile                          │
@@ -633,8 +717,23 @@ flowchart LR
                    │    Page    │ │   Clássicos    │
                    │ → HTML     │ │ → ads multi-   │
                    │   premium  │ │   plataforma   │
-                   └────────────┘ └────────────────┘
+                   └─────┬──────┘ └────────────────┘
+                         ↓
+              ┌─────────────────────┐
+              │ 7️⃣  Measurement Plan│
+              │ → arq. tracking    │
+              │ → consent mode     │
+              │ → lead quality     │
+              └─────────┬──────────┘
+                        ↓
+              ┌─────────────────────┐
+              │ 8️⃣  Conversion QA   │
+              │ → veredito go/no-go│
+              │ → 70+ checks       │
+              └─────────────────────┘
 
+*  Pré: opcional — roda se houver material de VoC disponível
+** Etapa 0: obrigatória, skip sob solicitação explícita
 ✅ Cada etapa tem um checkpoint obrigatório — o agente aguarda sua aprovação.
 ```
 
@@ -644,20 +743,26 @@ flowchart LR
 
 | Etapa | Skill | Input | Output |
 |-------|-------|-------|--------|
-| **1. ICP** | `guimkt-icp-ideal-customer-profile` | Briefing do cliente | `icp-consolidado-{{CLIENTE}}.md` |
+| **Pré. Message Mining*** | `guimkt-sales-page-message-mining` | Reviews, calls, transcrições, Reddit, CRM | `message-mining-{{CLIENTE}}.md` |
+| **0. Offer Diagnosis**** | `guimkt-offer-diagnosis` | Briefing (+ Message Mining) | `offer-diagnosis-{{CLIENTE}}.md` |
+| **1. ICP** | `guimkt-icp-ideal-customer-profile` | Briefing + Offer (+ Message Mining) | `icp-consolidado-{{CLIENTE}}.md` |
 | **2. Google Ads** | `guimkt-google-ads` (Fases 2-4) | ICP | `google-ads-consolidado-{{CLIENTE}}.md` |
-| **3. Wireframe** | `guimkt-wireframe-landing-page` | ICP | `wireframe-tabela-{{CLIENTE}}.md` |
+| **3. Wireframe** | `guimkt-wireframe-landing-page` | ICP (+ Message Mining) | `wireframe-tabela-{{CLIENTE}}.md` |
 | **4. Landing Page** | `guimkt-landing-page` (Fase 2) | ICP + Wireframe | `landing-page-{{CLIENTE}}.html` |
 | **5. Meta Ads** | `guimkt-meta-ads` | ICP | `meta-ads-conceitos-{{CLIENTE}}.md` |
 | **6. Criativos** | `guimkt-classic-advertising-creative` | ICP + Meta Ads | `criativos-classicos-{{CLIENTE}}.md` |
+| **7. Measurement Plan** | `guimkt-measurement-plan-architect` | ICP + LP | `measurement-plan-{{CLIENTE}}.md` |
+| **8. Conversion QA** | `guimkt-conversion-qa-auditor` | LP + Measurement Plan | `conversion-qa-{{CLIENTE}}.md` |
 
+> \* Pré: opcional — roda se houver material de Voice of Customer disponível (reviews, calls, transcrições, Reddit, CRM).
+> \*\* Etapa 0: obrigatória, mas skip permitido sob solicitação explícita.
 > Cada etapa tem um **checkpoint obrigatório** — o agente apresenta o output e aguarda sua aprovação antes de avançar.
 
 ---
 
 ### ⭐ Por que dar Star neste Repo?
 
-- 🆓 **74+ skills, grátis e abertas** — anos de metodologia empacotados em módulos prontos para uso
+- 🆓 **83+ skills, grátis e abertas** — anos de metodologia empacotados em módulos prontos para uso
 - 🧪 **Testado em batalha** — construído a partir de campanhas reais com 100+ clientes B2B e B2C
 - 🔄 **Atualizado frequentemente** — novas skills adicionadas conforme o cenário de marketing e dev evolui
 - 🔔 **Star = notificações** — receba alertas quando novas skills forem publicadas
@@ -688,10 +793,19 @@ flowchart LR
 | **skill-creator** | Criar, testar, benchmarkar e otimizar novas skills AI do zero |
 | **ui-ux-pro-max** | Inteligência UI/UX — 50 estilos, 21 paletas, 50 font pairings, 9 stacks tecnológicos |
 | **guimkt-wireframe-landing-page** | Wireframes completos de landing pages para leads (SQL) em 2 fases: Wireframe-Tabela (frameworks de copywriting) + Wireframe-Sketch HTML de baixa fidelidade para validação com clientes |
+| **guimkt-offer-diagnosis** | Guard-rail que analisa força da oferta ANTES de gerar ICP, ads ou landing pages. 8 dimensões: clareza da promessa, especificidade, prova, mecanismo único, risco percebido, objeções, diferenciais |
+| **guimkt-measurement-plan-architect** | Plano completo de mensuração: arquitetura de tracking, taxonomia GA4, dataLayer schema, GTM web + server-side, offline conversions, enhanced conversions, consent mode v2, lead quality schema. Cenários WhatsApp-first (CTWA, WABA) |
+| **guimkt-conversion-qa-auditor** | Auditoria go/no-go em dois modos: Pre-Launch (valida plano + LP) e Post-Implementation (valida execução técnica ao vivo). 11 categorias, 70+ checks, sistema de scoring |
+| **guimkt-sales-page-message-mining** | Extrai linguagem real de clientes a partir de reviews, Reddit, calls, transcrições, CRM e pesquisas qualitativas. Produz Mapa de Dores, Mapa de Objeções, Swipe File, Mapa de Linguagem |
+| **guimkt-executive-performance-report** | Relatório executivo profit-first a partir de GA4, Google Ads, Meta Ads, LinkedIn, TikTok, Pinterest, CRM, Search Console. Brandformance Flywheel + Unit Economics + vereditos por canal |
+| **guimkt-consent-mode-audit** | Auditoria LGPD + Consent Mode v2 + CMP com score 0-100 em 4 áreas. Matriz de compliance por tag, dark patterns, mapeamento de bases legais |
+| **guimkt-experimentation-engine** | Engine de experimentação CRO — FACT&ACT, ROAR gate, priorização PIPE, cálculo de sample size, behavioral science toolkit. Transforma hipóteses em backlog priorizado |
+| **guimkt-utm-governance** | Governança operacional de UTMs: naming conventions, templates por canal com macros dinâmicos, auditoria de inconsistências, integração CRM. WhatsApp-first (CTWA, WABA, BSUID) |
+| **guimkt-nano-banana-prompts** | 874+ prompts curados para geração de imagens em 17 categorias (product photography, food, 3D miniatures, fashion, pôsteres cinematográficos, anime, retratos, branding). Suporta Midjourney, DALL-E, Gemini, Flux, Stable Diffusion |
 
 ---
 
-### 📦 Todas as Skills Disponíveis (74+)
+### 📦 Todas as Skills Disponíveis (83+)
 
 | Skill | Descrição |
 |-------|-----------|
@@ -723,7 +837,11 @@ flowchart LR
 | **gh-fix-ci** | Debug e fix de checks de CI falhando no GitHub Actions |
 | **gsap** | GSAP — timelines, ScrollTrigger, stagger, transforms |
 | **guimkt-classic-advertising-creative** | Conceitos criativos para mídia paga — princípios da publicidade clássica adaptados ao feed |
+| **guimkt-consent-mode-audit** | Auditoria LGPD + Consent Mode v2 + CMP com score 0-100 em 4 áreas. Matriz de compliance por tag, revisão CMP, mapeamento de bases legais |
+| **guimkt-conversion-qa-auditor** | Auditoria go/no-go de conversão em dois modos: Pre-Launch e Post-Implementation. 11 categorias de QA, 70+ checks, sistema de scoring |
 | **guimkt-design-system-extractor** | Extrai design systems completos de websites |
+| **guimkt-executive-performance-report** | Relatório executivo profit-first a partir de GA4, Google Ads, Meta Ads, LinkedIn, TikTok, Pinterest, CRM, Search Console. Brandformance Flywheel + Unit Economics |
+| **guimkt-experimentation-engine** | Engine de experimentação CRO — FACT&ACT, ROAR gate, priorização PIPE, cálculo de sample size, behavioral science toolkit |
 | **guimkt-google-ads** | Google Ads Search para geração de leads (SQLs). Pipeline de 3 fases: Keywords, Negativas, RSA (requer ICP). Multi-marca |
 | **guimkt-icp-ideal-customer-profile** | Consolida o Ideal Customer Profile — 9 dimensões, perfil psicográfico, ICP real vs. aspiracional, modelos mentais. Output HTML + MD |
 | **guimkt-gmp-cli-mcp-skill** | Operar o gmp-cli (Google Marketing Platform CLI) — GA4, Search Console, Google Ads, GTM via CLI. Relatórios, queries GAQL, formatação de output |
@@ -731,11 +849,17 @@ flowchart LR
 | **guimkt-gtm-expert-template** | Template GTM Leads 2025 para novos clientes |
 | **guimkt-landing-page** | Landing pages premium para geração de leads — Wireframe-Tabela + HTML premium com liquid glass, micro-animations |
 | **guimkt-landing-page-optimization** | Landing Page Optimization (LPO) — auditorias, copy, frameworks de conversão |
+| **guimkt-linkedin-autoreply** | Workflows de resposta automatizada no LinkedIn para nutrição de leads e engajamento |
 | **guimkt-make-blueprint-expert** | Criar, debugar e otimizar blueprints Make.com via JSON |
+| **guimkt-measurement-plan-architect** | Plano completo de mensuração: arquitetura de tracking, taxonomia GA4, dataLayer schema, GTM web + server-side, offline conversions, enhanced conversions, consent mode v2, cenários WhatsApp-first |
 | **guimkt-meta-ads** | 6 conceitos criativos completos para Meta Ads (Facebook/Instagram) — estratégia, copy, conceito visual, prompt de imagem |
+| **guimkt-nano-banana-prompts** | 874+ prompts curados para geração de imagens em 17 categorias. Suporta Midjourney, DALL-E, Gemini, Flux, Stable Diffusion |
+| **guimkt-offer-diagnosis** | Guard-rail que analisa força da oferta antes de gerar ativos. 8 dimensões, sistema de vereditos, baseado em MECLABS |
+| **guimkt-sales-page-message-mining** | Extração de Voice of Customer a partir de reviews, Reddit, calls, transcrições, CRM. Produz Mapa de Dores, Mapa de Objeções, Swipe File, Mapa de Linguagem |
 | **guimkt-hero-videos** | Hero sections premium com vídeo no background + geração de prompts de vídeo por IA para Runway, Sora, Kling |
 | **guimkt-threads-mcp-skill** | Manutenção e operação do Threads MCP Server — renovação de token, troubleshooting, scheduling, configuração |
 | **guimkt-threads-viral-content** | Conteúdo viral ético para Threads (Meta) — 307+ posts virais analisados, templates comprovados, 4 subtipos de thread, 4 subtipos de post |
+| **guimkt-utm-governance** | Governança operacional de UTMs: naming conventions, templates por canal, auditoria de inconsistências, integração CRM, WhatsApp-first (CTWA, WABA, BSUID) |
 | **interaction-design** | Microinterações, motion design, transições |
 | **javascript-typescript** | JS/TS com ES6+, Node.js, React, frameworks modernos |
 | **jira-assistant** | Operações Jira via Atlassian MCP |

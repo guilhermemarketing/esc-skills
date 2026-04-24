@@ -5,6 +5,39 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/). Skills segue
 
 ---
 
+## [2.1.0] - 2026-04-24
+
+### Sprint 2 — Skills Independentes (4 novas)
+
+- **Adicionado:** `guimkt-executive-performance-report` — relatório executivo profit-first com Brandformance Flywheel, Unit Economics e vereditos por canal. Markdown + HTML premium
+- **Adicionado:** `guimkt-consent-mode-audit` — auditoria LGPD + Consent Mode v2 + CMP com score system 0-100 em 4 áreas
+- **Adicionado:** `guimkt-experimentation-engine` — codifica disciplina de CRO com FACT&ACT, ROAR gate, PIPE scoring, behavioral science, sample size calculation
+- **Adicionado:** `guimkt-utm-governance` — governança operacional de UTMs, naming conventions, templates por canal, auditoria de inconsistências, integração CRM, cenários WhatsApp-first (CTWA, WABA)
+- **Atualizado:** `manifest.json` — 79 → 83 skills
+- **Atualizado:** `README.md` — contagens 74+ → 83+, pipeline 6 → 10 etapas, tabelas Featured e All Skills expandidas
+- **Atualizado:** `CHANGELOG.md` — este arquivo
+- **Tipo:** MINOR
+- **Impacto em agentes:** 4 novas skills disponíveis para uso imediato. Independentes — não alteram pipeline existente
+- **Migração necessária:** Não
+
+---
+
+## [2.0.0] - 2026-04-24
+
+### Sprint 1 — Pipeline v2 (10 etapas) + 4 Skills Core
+
+- **Adicionado:** `guimkt-offer-diagnosis` — guard-rail fundacional (Etapa 0 do pipeline). Diagnostica 8 dimensões da oferta antes de gerar ativos
+- **Adicionado:** `guimkt-measurement-plan-architect` — plano completo de mensuração com tracking architecture, consent mode, lead quality schema, offline conversions, enhanced conversions, WhatsApp-first scenarios (Etapa 7)
+- **Adicionado:** `guimkt-conversion-qa-auditor` — auditoria go/no-go em dois modos: Pre-Launch e Post-Implementation. 11 categorias de QA, 70+ checks (Etapa 8)
+- **Adicionado:** `guimkt-sales-page-message-mining` — Voice of Customer e review mining. Etapa Pré (-1) opcional que alimenta todas as skills downstream
+- **Atualizado:** Pipeline `/esc-start` — expandido de 6 para 10 etapas (Pré, 0, 1-8)
+- **Atualizado:** `manifest.json` — 74 → 79 skills (4 novas + 1 outra)
+- **Tipo:** MAJOR
+- **Impacto em agentes:** Pipeline `/esc-start` agora tem 10 etapas. Agentes que referenciam "6 etapas" devem atualizar
+- **Migração necessária:** Atualizar referências ao pipeline de 6 para 10 etapas. Skills existentes não mudaram
+
+---
+
 ## [1.1.0] - 2026-03-17
 
 ### Infraestrutura de Distribuição
