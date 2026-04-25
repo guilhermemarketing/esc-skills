@@ -1,7 +1,13 @@
-<!-- skill: guimkt-gtm-expert-template | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-gtm-expert-template
-description: Customize the guimarketing GTM Leads 2025 template for new clients. Use when onboarding a new client that needs a GTM Web container with GA4, Meta Pixel, Google Ads, VisitorAPI geolocation, UTM tracking, and server-side transport (sGTM). Triggers on "new client GTM", "customize GTM template", "onboard GTM", "GTM template guimarketing", or "setup GTM for client".
+description: >
+  Customize the guimarketing GTM Leads 2025 template for new clients. Use when onboarding
+  a new client that needs a GTM Web container with GA4, Meta Pixel, Google Ads, VisitorAPI
+  geolocation, UTM tracking, and server-side transport (sGTM). Triggers on "new client GTM",
+  "customize GTM template", "onboard GTM", "GTM template guimarketing", "setup GTM for client",
+  "configurar GTM", "criar container GTM", "GTM para cliente", "GTM leadgen",
+  "container de tracking", "setup GTM", "tags do GTM", "GTM web", "container GTM para leads".
+  Esta skill é a FUNDAÇÃO de todo container GTM de lead generation no ecossistema gui.marketing.
 ---
 
 # GTM Expert — Template guimarketing (Leads 2025)
@@ -16,6 +22,46 @@ Output: Ready-to-import GTM JSON file
 ```
 
 Run: `python3 scripts/customize_template.py`
+
+---
+
+## ⚡ Quando esta skill é ativada automaticamente
+
+> **Esta skill DEVE ser consultada por qualquer outra skill do ecossistema gui.marketing que envolva GTM para lead generation.**
+
+| Skill que aciona | Contexto |
+|-----------------|----------|
+| `guimkt-gtm-expert` | Sempre que o cenário for leadgen (Regra de Ouro) |
+| `guimkt-measurement-plan-architect` | Ao especificar plano GTM (Etapa 3.3) |
+| `guimkt-conversion-qa-auditor` | Ao verificar conformidade do container (Etapa 1.5) |
+| `guimkt-lead-scoring-architecture` | Ao definir variáveis GTM para conversion value mapping |
+
+**Regra:** O template é a fundação. **Personalização é a regra. Criação do zero é a exceção.**
+
+---
+
+## Intake Ativo — Perguntas que o agente DEVE fazer
+
+> **⚠️ OBRIGATÓRIO:** O agente deve solicitar TODOS os 5 IDs antes de iniciar a customização.
+
+| # | ID Necessário | Formato | Exemplo | Obrigatório |
+|---|--------------|---------|----------|:-----------:|
+| 1 | **GA4 Measurement ID** | `G-XXXXXXXXXX` | `G-518CMPFCXK` | ✅ |
+| 2 | **Meta Pixel ID** | Numérico (string) | `445192670100758` | ✅ |
+| 3 | **Google Ads ID** | `AW-XXXXXXXXX` | `AW-410539258` | ✅ |
+| 4 | **sGTM Transport URL** | `https://data.dominio.com.br` | `https://data.cliente.com.br` | ✅ |
+| 5 | **Domínio do cliente** | `dominio.com.br` | `cliente.com.br` | ✅ |
+| 6 | **Google Ads Conversion Label** | Alfanumérico | `AbC1dEfGhI` | ⬜ Opcional |
+| 7 | **LinkedIn Insight Tag ID** | Numérico | `1234567` | ⬜ Opcional |
+| 8 | **TikTok Pixel ID** | Alfanumérico | `CXXXXXXXXX` | ⬜ Opcional |
+| 9 | **Bing UET Tag ID** | Numérico | `12345678` | ⬜ Opcional |
+
+**Perguntas adicionais obrigatórias:**
+- "O cliente já tem um container GTM existente? Se sim, importar e comparar com o template para identificar gaps."
+- "Existe um `measurement-plan-{{CLIENTE}}.md`? Se sim, ler e extrair IDs automaticamente."
+- "Quais plataformas além de Google e Meta? (LinkedIn, TikTok, Bing — para ativar tags do Standby)"
+
+**Regra:** Se o usuário não fornecer os 5 IDs obrigatórios, **perguntar explicitamente**. Não usar os IDs de exemplo do template. Não inventar valores.
 
 ## Template Architecture
 

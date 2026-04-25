@@ -78,6 +78,7 @@ Se o usuário fornecer briefings em PDF, DOCX, PPTX ou XLSX, sugerir `docling` M
 | 9 | **WhatsApp é canal de vendas?** Se sim: LP→WA, CTWA, ou ambos | ✅ |
 | 10 | **Tem BSP contratado?** Qual? (Umbler, Z-API, Treble, outro) | Se WA = sim |
 | 11 | **WABA referral ativo?** BSP retorna referral nos webhooks? | Se CTWA |
+| 12 | **Container GTM foi gerado via template guimarketing?** (verificar folder '📊 guimarketing data-stack') | ⬜ Opcional |
 
 **Regras do Intake:**
 - Se `measurement-plan-{{CLIENTE}}.md` existir, extrair automaticamente IDs e specs
@@ -100,6 +101,36 @@ Antes de auditar, ler o measurement plan do cliente para extrair:
 9. **Campos CRM WhatsApp-first** (referral, BSUID) — se aplicável
 
 > Se o measurement plan não existir, recomendar rodar `guimkt-measurement-plan-architect` primeiro.
+
+---
+
+### Etapa 1.5 — Verificação de Conformidade com Template guimarketing
+
+> **⚡ Se o container GTM foi gerado pelo ecossistema gui.marketing, verificar conformidade com o template.**
+
+**Como detectar:** Verificar presença do folder `📊 guimarketing data-stack` no container. Se presente, o container foi baseado no template.
+
+**Checklist de Conformidade (8 itens):**
+
+| # | Componente Esperado | Como verificar | Status |
+|---|--------------------|-----------------|---------|
+| 1 | **9 folders** com naming correto | 📊, 📍, 🔹, 🛑, 🔸, 🟢, 🔵, ⏸, 🔗 | ✅/❌ |
+| 2 | **5 constantes** no folder 🛑 APIs, IDs & Tokens | GA4, Pixel Meta, Google ADs Tag, URL de Transporte, Domínio | ✅/❌ |
+| 3 | **UTM Tracking system** (FC + LC + organic_influenced) | Tags `UTM_Tracking_localStorage` + `UTM_DataLayer_Push` + variáveis `fc_*` e `lc_*` | ✅/❌ |
+| 4 | **LeadDataCollector** tag | Tag no folder 📊 que scrape form fields + enhanced_conversion_data | ✅/❌ |
+| 5 | **VisitorAPI integration** | Tags `VisitorAPI.io - Geolocation` + cookies | ✅/❌ |
+| 6 | **Enhanced Conversions variables** | `enhanced_conversion_data.email`, `.phone_number`, `.firstname`, `.lastname` | ✅/❌ |
+| 7 | **GA4 Event Settings com user_data** | Variáveis `Parâmetros GA4 + cAPI` com email, phone, city, fbp, fbc | ✅/❌ |
+| 8 | **Tags Standby pausadas** (se não ativadas intencionalmente) | Folder ⏸: TikTok, Bing, LinkedIn com `paused: true` | ✅/❌ |
+
+**Resultados:**
+- **8/8 conforme:** Container segue o padrão → prosseguir com QA normal
+- **≤7/8 conforme:** Sinalizar como **"⚠️ Container fora do padrão gui.marketing"** no relatório
+  - Incluir recomendação: "Reconstruir a partir do template usando `guimkt-gtm-expert-template` + `scripts/customize_template.py`"
+  - Itens faltantes contam como **❌ Fail** no score final
+- **Sem folder 📊:** Container não foi gerado pelo ecossistema → auditar normalmente, mas incluir nota: "Container não segue o padrão gui.marketing. Considerar migração."
+
+Referência completa: `guimkt-gtm-expert-template/references/template_inventory.md`
 
 ---
 
@@ -402,6 +433,7 @@ HTML auto-contido com design system gui.marketing.
 ❌ Assumir que UTMs existem em CTWA — CTWA puro NÃO tem UTMs, verificar pipeline WABA
 ❌ Ignorar BSUID — não verificar se CRM armazena BSUID além do telefone
 ❌ Testar CTWA sem BSP — sem acesso ao dashboard do BSP, impossível validar referral
+❌ Auditar container sem verificar conformidade com template — se foi gerado pelo ecossistema gui.marketing (folder 📊 presente), DEVE seguir o padrão. Componentes faltantes = ❌ Fail
 ```
 
 ---

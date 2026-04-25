@@ -328,6 +328,13 @@ Variáveis GTM (Data Layer Variables):
 - Cada plataforma de ads DEVE ter sua própria Conversion Action com o valor correto
 - **O valor dinâmico é o que faz o algoritmo aprender.** Valor fixo = algoritmo cego.
 
+> **⚡ TEMPLATE FIRST:** As variáveis GTM listadas acima (DLV - conversion_value, DLV - lead_type, etc.)
+> DEVEM ser adicionadas ao container GTM via template guimarketing. Consultar
+> `guimkt-gtm-expert-template/references/template_inventory.md` para verificar quais já existem
+> no template base. Ao gerar specs de GTM para lifecycle events, usar a **mesma nomenclatura
+> de variáveis** do template (ex: `{{DLV - conversion_value}}`, não `{{conversionValue}}`).
+> Novas variáveis devem seguir o padrão `DLV - nome_do_campo` para consistência.
+
 ---
 
 ### Etapa 4 — Routing & Automação
@@ -545,6 +552,11 @@ HTML auto-contido com design system gui.marketing.
 11. SIMPLICIDADE > COMPLEXIDADE
     Começar simples (5-6 dimensões de fit, 8-10 ações de engagement).
     Complexificar APENAS com dados que justifiquem.
+
+12. TEMPLATE GTM É O CANAL
+    Specs de GTM para lifecycle events DEVEM referenciar o template guimarketing
+    (GTM-Web_Modelo_Leads_2025_guimarketing.json). Variáveis e naming conventions
+    devem ser compatíveis com o template existente. Usar `DLV - nome` como padrão.
 ```
 
 ---

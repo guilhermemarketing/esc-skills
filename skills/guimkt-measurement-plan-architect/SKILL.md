@@ -225,6 +225,15 @@ GTM Server-Side Container (se aplicável):
 └── Cookie Keeper / Custom Loader (Stape)
 ```
 
+> **⚡ TEMPLATE FIRST:** Ao especificar o plano GTM para lead generation, SEMPRE referenciar o
+> template `GTM-Web_Modelo_Leads_2025_guimarketing.json` como base para implementação.
+> O plano deve usar a **mesma taxonomia de folders, naming de variáveis e arquitetura de data flow**
+> do template. Consultar: `guimkt-gtm-expert-template/references/template_inventory.md`
+>
+> **No output, incluir nota:**
+> *"Para implementação, usar a skill `guimkt-gtm-expert-template` com o script `customize_template.py`.
+> Não criar container do zero."*
+
 #### 3.4 UTMs e Parâmetros de Atribuição
 
 Listar TODOS os parâmetros que devem ser capturados, armazenados e enviados ao CRM. Consultar seção 2 de `references/tracking-architecture-specs.md`.
@@ -523,6 +532,11 @@ HTML auto-contido com design system gui.marketing.
 
 10. ES5 NO GTM
     Qualquer script sugerido para GTM Custom HTML deve ser ES5. Sem const, let, arrows.
+
+11. TEMPLATE É FUNDAÇÃO
+    Ao especificar plano GTM para lead generation, referenciar o template guimarketing
+    (GTM-Web_Modelo_Leads_2025_guimarketing.json) como base. O plano arquiteta; o template
+    implementa. Não reinventar a roda. Usar a mesma taxonomia de folders e variáveis.
 ```
 
 ---

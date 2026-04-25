@@ -1,12 +1,80 @@
-<!-- skill: guimkt-gtm-expert | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-gtm-expert
-description: Create, edit, validate, and manage Google Tag Manager container JSON files for import/export. Use when the user wants to create a GTM container from scratch, modify an existing GTM JSON (rename tags, add variables, inject scripts, swap IDs), bulk-edit tags/triggers/variables, templatize containers for multi-client use, or troubleshoot GTM import errors. Also triggers for tasks involving GTM Custom HTML tags, dataLayer variable setup, conversion tracking configuration (Google Ads, Meta Pixel, GA4), or server-side GTM transport configuration. Covers both GTM Web and sGTM container types.
+description: >
+  Create, edit, validate, and manage Google Tag Manager container JSON files for import/export.
+  Use when the user wants to create a GTM container from scratch, modify an existing GTM JSON
+  (rename tags, add variables, inject scripts, swap IDs), bulk-edit tags/triggers/variables,
+  templatize containers for multi-client use, or troubleshoot GTM import errors. Also triggers
+  for tasks involving GTM Custom HTML tags, dataLayer variable setup, conversion tracking
+  configuration (Google Ads, Meta Pixel, GA4), or server-side GTM transport configuration.
+  Covers both GTM Web and sGTM container types. Para cenários de lead generation, SEMPRE
+  consultar primeiro a skill guimkt-gtm-expert-template e o template
+  GTM-Web_Modelo_Leads_2025_guimarketing.json como base. Triggers adicionais: "configurar GTM",
+  "criar container GTM", "GTM para cliente", "GTM leadgen", "container de tracking",
+  "setup GTM", "tags do GTM", "editar container GTM", "GTM web".
 ---
 
 # GTM Expert
 
 Create and manipulate Google Tag Manager container JSON files programmatically.
+
+---
+
+## ⚡ Regra de Ouro — Template First
+
+> **ANTES de criar ou editar QUALQUER container GTM, verificar se o cenário é de lead generation.**
+> Se sim, a PRIMEIRA ação é consultar a skill `guimkt-gtm-expert-template` e usar o template
+> `GTM-Web_Modelo_Leads_2025_guimarketing.json` como base.
+
+```
+┌─────────────────────────────────────────────────────┐
+│ O cenário envolve geração de leads (formulário,     │
+│ WhatsApp, telefone, agendamento)?                   │
+├──────────┬──────────────────────────────────────────┤
+│ SIM      │ → Usar template guimarketing como base   │
+│          │   1. Ler guimkt-gtm-expert-template       │
+│          │   2. Rodar scripts/customize_template.py  │
+│          │   3. Personalizar constantes + standby    │
+│          │   4. Validar com scripts/validate_gtm.py  │
+├──────────┼──────────────────────────────────────────┤
+│ NÃO      │ → Criar container do zero com esta skill │
+│ (e-comm, │   (seguir Workflow abaixo)                │
+│  app,    │                                          │
+│  outro)  │                                          │
+└──────────┴──────────────────────────────────────────┘
+```
+
+**Links diretos:**
+- Template JSON: `../guimkt-gtm-expert-template/templates/GTM-Web_Modelo_Leads_2025_guimarketing.json`
+- Script de customização: `../guimkt-gtm-expert-template/scripts/customize_template.py`
+- Inventário completo: `../guimkt-gtm-expert-template/references/template_inventory.md`
+
+> **⚠️ NUNCA gerar um container leadgen do zero quando o template existe.**
+> O template contém 6.493 linhas de configuração testada em produção — UTM tracking (FC/LC),
+> VisitorAPI geolocation, enhanced conversions, lead scoring, dataLayer architecture, e cAPI.
+> Recriar isso manualmente é erro garantido.
+
+---
+
+## Intake Obrigatório — 5 IDs Antes de Tudo
+
+> **⚠️ OBRIGATÓRIO:** Sem estes 5 valores, NÃO iniciar manipulação de container.
+
+| # | ID Necessário | Formato | Exemplo |
+|---|--------------|---------|----------|
+| 1 | **GA4 Measurement ID** | `G-XXXXXXXXXX` | `G-518CMPFCXK` |
+| 2 | **Meta Pixel ID** | Numérico (string) | `445192670100758` |
+| 3 | **Google Ads ID** | `AW-XXXXXXXXX` | `AW-410539258` |
+| 4 | **sGTM Transport URL** | `https://data.dominio.com.br` | `https://data.cliente.com.br` |
+| 5 | **Domínio do cliente** | `dominio.com.br` | `cliente.com.br` |
+
+**Regras do Intake:**
+- Se o usuário não fornecer os 5 IDs, **perguntar**. Não inventar. Não usar placeholders sem avisar.
+- Se `measurement-plan-{{CLIENTE}}.md` existir, **ler e extrair IDs automaticamente**.
+- Se o cliente não tem sGTM, aceitar "não tem" e desabilitar tags de transporte.
+- Pergunta extra obrigatória: "Existe um measurement plan do cliente? Se sim, forneça o arquivo."
+- IDs opcionais (perguntar se aplicável): Google Ads Conversion Label, LinkedIn Insight Tag ID, TikTok Pixel ID, Bing UET ID.
+
 
 ## Critical Rules
 
@@ -170,6 +238,29 @@ Replace **ALL** hardcoded usages with `{{Variable Name}}` — including inside C
 
 ---
 
+## Validação Anti-Genérico
+
+> **⚡ OBRIGATÓRIO antes de entregar qualquer container de lead generation.**
+
+Todo container GTM para lead generation gerado pelo ecossistema gui.marketing DEVE conter os 8 componentes abaixo. Se algum estiver ausente, o container é considerado **genérico e incompleto** — voltar ao template.
+
+### Checklist de Completude (8 componentes)
+
+| # | Componente | Como verificar |
+|---|-----------|----------------|
+| 1 | **Script UTM Tracking** (first-click + last-click + organic influence) | Tag `UTM_Tracking_localStorage` + variáveis `fc_*` e `lc_*` |
+| 2 | **Script LeadDataCollector** (scrape de formulário + enhanced conversions) | Tag `LeadDataCollector` no folder 📊 data-stack |
+| 3 | **VisitorAPI geolocation** | Tags `VisitorAPI.io - Geolocation` + `VisitorAPI - Cookie Setup` |
+| 4 | **5 variáveis constantes** (GA4, Pixel, GAds, sGTM, Domínio) | Folder 🛑 APIs, IDs & Tokens com 5 constants |
+| 5 | **GA4 Event Settings com user_data + cAPI** | Variáveis `Parâmetros GA4 + cAPI` com email, phone, city, etc. |
+| 6 | **Enhanced Conversions data layer variables** | Variáveis `enhanced_conversion_data.*` (email, phone, firstname, lastname) |
+| 7 | **Conversion Linker tag** | Tag tipo `gclidw` ativa em All Pages |
+| 8 | **9 folders organizacionais** | 📊, 📍, 🔹, 🛑, 🔸, 🟢, 🔵, ⏸, 🔗 |
+
+**Regra:** Se o output não contém esses 8 componentes, **NÃO entregar**. Consultar o template e reconstruir.
+
+---
+
 ## Output HTML (Apresentação ao Cliente)
 
 Além do output em JSON (container GTM), **gerar versão HTML estilizada** quando solicitado para apresentação ao cliente:
@@ -182,13 +273,3 @@ Além do output em JSON (container GTM), **gerar versão HTML estilizada** quand
 5. Salvar como `gtm-container-{{CLIENTE}}.html`
 
 > **IMPORTANTE:** O output principal continua sendo o JSON do container GTM. O HTML é um output adicional para exibição/documentação.
-
----
-
-## ⚠️ Known Limitations
-
-1. **Não publica containers automaticamente:** A skill gera o JSON do container GTM mas não faz upload via GTM API. O usuário precisa importar manualmente no Google Tag Manager.
-2. **Sem validação de tags em runtime:** O JSON gerado é sintaticamente válido mas a skill não pode testar se as tags disparam corretamente no site. Recomenda-se usar GTM Preview Mode e Tag Assistant após importação.
-3. **Compatibilidade de versões:** O JSON é gerado para GTM Web v2 format. Containers de server-side GTM (sGTM) têm estrutura diferente e podem precisar de ajustes manuais.
-4. **Pixel e IDs são placeholders:** Valores como GTM-XXXXXX, AW-XXXXXXX/XXXXX, META-PIXEL-ID são placeholders que devem ser substituídos pelos IDs reais do cliente. A skill sinaliza mas não valida se a substituição foi feita.
-5. **Consent Mode não configurado por padrão:** O container gerado não inclui configuração de Consent Mode v2 (GDPR/LGPD). Para sites que precisam de compliance, a configuração de consent deve ser adicionada manualmente.
