@@ -1,4 +1,4 @@
-<!-- skill: guimkt-lead-scoring-architecture | version: 1.0.0 | updated: 2026-04-24 -->
+<!-- skill: guimkt-lead-scoring-architecture | version: 1.1.0 | updated: 2026-04-25 -->
 ---
 name: guimkt-lead-scoring-architecture
 description: >

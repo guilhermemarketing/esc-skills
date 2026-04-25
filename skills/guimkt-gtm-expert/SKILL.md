@@ -1,3 +1,4 @@
+<!-- skill: guimkt-gtm-expert | version: 1.1.0 | updated: 2026-04-25 -->
 ---
 name: guimkt-gtm-expert
 description: >

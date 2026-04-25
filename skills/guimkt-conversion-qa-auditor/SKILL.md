@@ -1,4 +1,4 @@
-<!-- skill: guimkt-conversion-qa-auditor | version: 1.1.0 | updated: 2026-04-24 -->
+<!-- skill: guimkt-conversion-qa-auditor | version: 1.2.0 | updated: 2026-04-25 -->
 ---
 name: guimkt-conversion-qa-auditor
 description: >

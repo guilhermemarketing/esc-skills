@@ -1,3 +1,4 @@
+<!-- skill: guimkt-linkedin-autoreply | version: 1.0.1 | updated: 2026-04-25 -->
 ---
 name: guimkt-linkedin-autoreply
 description: >

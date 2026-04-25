@@ -177,9 +177,9 @@
       "breaking": false
     },
     "guimkt-conversion-qa-auditor": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "skills/guimkt-conversion-qa-auditor/SKILL.md",
-      "hash": "33415f804ecb8b7704a56f34a46a9eb136b4d29eca5eceed6145b03b471f2732",
+      "hash": "60e90649982c272810526ada3763c51f8e6503a74dc0c2a6ee781909eefdc3e8",
       "breaking": false
     },
     "guimkt-design-system-extractor": {
@@ -213,15 +213,15 @@
       "breaking": false
     },
     "guimkt-gtm-expert": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/guimkt-gtm-expert/SKILL.md",
-      "hash": "6ba400f9951c24aa0c2af131a8f9be52b96485b83609797be836af7bbfb047a6",
+      "hash": "15d7fe5b2211b4244ded6cd3ba872620e44a78e87bdeb9deac2a124fac1809d7",
       "breaking": false
     },
     "guimkt-gtm-expert-template": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/guimkt-gtm-expert-template/SKILL.md",
-      "hash": "8a848b82bcc2a00d8dbd9f854cdf095c2566f9afb59cc328b78b5acd0bacf57a",
+      "hash": "94b662a431809c2845b75aed1d607eaebe55ba71a973cf85848751956b50d11f",
       "breaking": false
     },
     "guimkt-hero-videos": {
@@ -249,15 +249,15 @@
       "breaking": false
     },
     "guimkt-lead-scoring-architecture": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/guimkt-lead-scoring-architecture/SKILL.md",
-      "hash": "97d9eef7cb5e0aff19b75a5a1b6398d262d74bc2c51c1c9bc53e47b6a5c829ea",
+      "hash": "351c3b92704dddce74d583e03363252db20b05b12197d1f2555c00dfb5913dd2",
       "breaking": false
     },
     "guimkt-linkedin-autoreply": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "skills/guimkt-linkedin-autoreply/SKILL.md",
-      "hash": "91ad28a3c3a7cc54b67c0f139057a3096d7a5ee01646b7005e38c82bcf1f30e3",
+      "hash": "000fd63bc41fe9283870e214bd323dd8995431b03899192a80ec6a12f491f40f",
       "breaking": false
     },
     "guimkt-make-blueprint-expert": {
@@ -267,9 +267,9 @@
       "breaking": false
     },
     "guimkt-measurement-plan-architect": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "skills/guimkt-measurement-plan-architect/SKILL.md",
-      "hash": "d1e30edfcc1419643173cb174d4acfdfecd9fb7cb434ff38af619006f9eaecca",
+      "hash": "6281c496fc8f8e29b189f3cef3a79eec50606f385187d2d6abc963c1dce99b65",
       "breaking": false
     },
     "guimkt-meta-ads": {
