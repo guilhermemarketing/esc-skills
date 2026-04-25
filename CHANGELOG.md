@@ -5,6 +5,22 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/). Skills segue
 
 ---
 
+## [2.2.0] - 2026-04-25
+
+### Q3 Sprint 1 — Pipeline v3 (11 etapas) + 2 Skills Estratégicas
+
+- **Adicionado:** `guimkt-lead-scoring-architecture` — arquitetura completa de lead scoring e lifecycle stages (Lead → MQL → SAL → SQL → Opportunity → Customer → Evangelist) com scoring explícito (fit) + implícito (engagement) + intent signals, conversion value mapping para value-based bidding, routing rules, integration specs (HubSpot, Pipedrive, RD Station, Salesforce), e calibração periódica. Etapa 9 do pipeline `/esc-start` v3
+- **Adicionado:** `guimkt-brandformance-planner` — planejamento estratégico de mix Branding vs. Performance com diagnóstico de maturidade de marca (1-5), mix awareness/consideration/conversion, cenários conservador/moderado/agressivo, KPIs por fase, brand signals map. Baseado em Les Binet & Peter Field, Byron Sharp, Ehrenberg-Bass + metodologia proprietária gui.marketing (Micro-Bolhas, Funil Invertido, Janelas de Impacto). Etapa 3.5 condicional do pipeline `/esc-report` v2
+- **Atualizado:** Pipeline `/esc-start` — v2 → **v3** (10 → 11 etapas, Lead Scoring como Etapa 9, Etapa 5 como hub de ads com suporte futuro para LinkedIn/TikTok)
+- **Atualizado:** Pipeline `/esc-report` — v1 → **v2** (nova Etapa 3.5 Brandformance Planning condicional, 5 skills orquestradas)
+- **Atualizado:** `references/esc-start-output-formats.md` — v2 → **v3** (novo template Etapa 9 Lead Scoring)
+- **Atualizado:** `manifest.json` — 83 → 85 skills
+- **Tipo:** MINOR
+- **Impacto em agentes:** Pipeline `/esc-start` agora tem 11 etapas. Agentes que referenciam "10 etapas" devem atualizar. `/esc-report` tem nova etapa condicional 3.5
+- **Migração necessária:** Atualizar referências ao pipeline de 10 para 11 etapas
+
+---
+
 ## [2.1.0] - 2026-04-24
 
 ### Sprint 2 — Skills Independentes (4 novas)

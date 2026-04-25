@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0",
-  "updated_at": "2026-04-24",
+  "updated_at": "2026-04-25",
   "skills": {
     "3d-web-experience": {
       "version": "1.0.0",
@@ -158,6 +158,12 @@
       "hash": "2f3777f1742e42425118e38f171ee70cad7a171d59d9c879b7fe4ed71e8c72f7",
       "breaking": false
     },
+    "guimkt-brandformance-planner": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-brandformance-planner/SKILL.md",
+      "hash": "08f7a44cc469b52022bf8d487eed8db77e7bde4014c022b48be070016682c17c",
+      "breaking": false
+    },
     "guimkt-classic-advertising-creative": {
       "version": "1.0.0",
       "path": "skills/guimkt-classic-advertising-creative/SKILL.md",
@@ -240,6 +246,12 @@
       "version": "1.0.0",
       "path": "skills/guimkt-landing-page-optimization/SKILL.md",
       "hash": "93945aa590b8dca8f9bbc03667c1f75a17a8fbdd9782801dd95702b55d5ee736",
+      "breaking": false
+    },
+    "guimkt-lead-scoring-architecture": {
+      "version": "1.0.0",
+      "path": "skills/guimkt-lead-scoring-architecture/SKILL.md",
+      "hash": "97d9eef7cb5e0aff19b75a5a1b6398d262d74bc2c51c1c9bc53e47b6a5c829ea",
       "breaking": false
     },
     "guimkt-linkedin-autoreply": {
