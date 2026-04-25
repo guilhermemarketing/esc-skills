@@ -1,7 +1,7 @@
 <p align="center">
   <h1 align="center">🧠 ESC Skills — AI Marketing Skills for Agents</h1>
   <p align="center">
-    <strong>83+ battle-tested AI marketing skills for digital marketing professionals who think like strategists.</strong>
+    <strong>85+ battle-tested AI marketing skills for digital marketing professionals who think like strategists.</strong>
   </p>
 </p>
 
@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/skills-83%2B-blueviolet?style=for-the-badge" alt="Skills">
+  <img src="https://img.shields.io/badge/skills-85%2B-blueviolet?style=for-the-badge" alt="Skills">
   <img src="https://img.shields.io/github/stars/guilhermemarketing/esc-skills?style=for-the-badge&color=gold" alt="Stars">
   <img src="https://img.shields.io/badge/license-internal-informational?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/ESC-Estrategista%20Social%20Club-ff6b35?style=for-the-badge" alt="ESC">
@@ -39,7 +39,7 @@ Strategic content, real-world analysis, high-level discussions, and zero bullshi
 - [Workflow: /esc-start](#-workflow-esc-start)
 - [Why Star This Repo?](#-why-star-this-repo)
 - [Featured AI Marketing Skills](#-featured-ai-marketing-skills)
-- [All Available Skills (83+)](#-all-available-skills-83)
+- [All Available Skills (85+)](#-all-available-skills-85)
 - [Quick Start](#-quick-start)
 - [AI Agent Setup](#-ai-agent-setup)
 - [Updates](#-updates)
@@ -272,7 +272,7 @@ flowchart LR
 
 ### ⭐ Why Star This Repo?
 
-- 🆓 **83+ AI marketing skills, free and open** — years of methodology packed into ready-to-use modules
+- 🆓 **85+ AI marketing skills, free and open** — years of methodology packed into ready-to-use modules
 - 🧪 **Battle-tested** — built from real campaigns with 100+ clients across B2B and B2C
 - 🔄 **Frequently updated** — new AI marketing skills added as the marketing and dev landscape evolves
 - 🔔 **Star = notifications** — get notified when new skills drop
@@ -313,10 +313,12 @@ flowchart LR
 | **guimkt-experimentation-engine** | CRO experimentation with FACT&ACT methodology, ROAR gate, PIPE prioritization, sample size calculation, behavioral science toolkit. Turns hypotheses into prioritized experiment backlogs |
 | **guimkt-utm-governance** | UTM operational governance: naming conventions, per-channel templates with dynamic macros, inconsistency auditing, CRM integration for end-to-end attribution. WhatsApp-first scenarios (CTWA, WABA, BSUID) |
 | **guimkt-nano-banana-prompts** | 874+ curated image generation prompts across 17 categories (product photography, food, 3D miniatures, fashion, cinematic posters, anime, portraits, branding). Supports Midjourney, DALL-E, Gemini, Flux, Stable Diffusion |
+| **guimkt-brandformance-planner** | Strategic Branding vs. Performance mix planning with budget allocation, cadence, and metrics by funnel stage. Proprietary gui.marketing methodology (Micro-Bolhas 70/30, Funil Invertido, Janelas de Impacto). Based on Binet & Field, Byron Sharp, Ehrenberg-Bass |
+| **guimkt-lead-scoring-architecture** | Complete lead scoring architecture and lifecycle stages for CRM ↔ Ads integration. Scoring model (fit + engagement + intent), lifecycle stages (Lead → MQL → SQL → Customer), GTM custom conversion events, value-based bidding, and offline conversion feedback loop |
 
 ---
 
-### 📦 All Available Skills (83+)
+### 📦 All Available Skills (85+)
 
 | Skill | Description |
 |-------|-------------|
@@ -404,6 +406,8 @@ flowchart LR
 | **vercel-deploy** | Deploy to Vercel |
 | **web-quality-audit** | Full web quality audit (performance, a11y, SEO) |
 | **guimkt-wireframe-landing-page** | Complete landing page wireframes for lead gen — Wireframe-Table + Sketch HTML for client validation |
+| **guimkt-brandformance-planner** | Strategic Branding vs. Performance mix planning — budget allocation, cadence, metrics by funnel stage. Micro-Bolhas 70/30, Funil Invertido, Janelas de Impacto |
+| **guimkt-lead-scoring-architecture** | Lead scoring architecture and lifecycle stages for CRM ↔ Ads. Scoring model, GTM custom conversion events, value-based bidding, offline conversions |
 
 ---
 
@@ -465,9 +469,13 @@ Any agent that supports file reading: Gemini, Claude Code, Cursor, GPT, Windsurf
 
 Run `curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash` in any project directory. The script copies all skills into your `.agent/skills/` folder, ready for your AI agent to use.
 
-**Do I need to use all 83+ skills?**
+**Do I need to use all 85+ skills?**
 
 No. Each skill is independent — pick only what you need. However, running the ICP (Ideal Customer Profile) skill first makes every downstream skill better by providing audience context.
+
+**What are the `/esc-cro` and `/esc-report` workflows?**
+
+`/esc-cro` orchestrates the CRO (Conversion Rate Optimization) cycle: LPO Audit → Message Mining → Experimentation Engine → Implementation → Conversion QA. `/esc-report` orchestrates the analytics and accountability cycle: UTM Governance → Data Collection (gmp-cli) → Executive Performance Report → Consent Mode Audit → Conversion QA.
 
 **What is the `/esc-start` workflow?**
 
@@ -515,7 +523,7 @@ The update command shows exactly what changed, including version diffs and ⚠�
 
 ## 🇧🇷 Português
 
-Coleção de 83+ skills para agentes AI (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, etc.) para profissionais de marketing digital: CRO, SEO, Google Ads, Meta Ads, Marketing de Performance, Google Tag Manager & Tracking Avançado, Design, Desenvolvimento Web, Segurança & Arquitetura e DevOps.
+Coleção de 85+ skills para agentes AI (Gemini, Claude, Cursor, GPT, Windsurf, Cline, Antigravity, Trae, Manus, etc.) para profissionais de marketing digital: CRO, SEO, Google Ads, Meta Ads, Marketing de Performance, Google Tag Manager & Tracking Avançado, Design, Desenvolvimento Web, Segurança & Arquitetura e DevOps.
 
 Criado pelo [Estrategista Social Club](https://comunidade.gui.marketing/esc) — o clube onde profissionais de marketing aprendem a pensar, testar e converter como estrategistas — não como apertadores de botões.
 
@@ -532,7 +540,7 @@ Conteúdo estratégico, análises reais, discussões de alto nível e zero bulls
 - [Workflow: /esc-start](#-workflow-esc-start-1)
 - [Por que dar Star neste Repo?](#-por-que-dar-star-neste-repo)
 - [Skills em Destaque](#-skills-em-destaque)
-- [Todas as Skills Disponíveis (83+)](#-todas-as-skills-disponíveis-83)
+- [Todas as Skills Disponíveis (85+)](#-todas-as-skills-disponíveis-85)
 - [Instalação Rápida](#-instalação-rápida)
 - [Configuração para Agentes AI](#-configuração-para-agentes-ai)
 - [Atualizações](#-atualizações)
@@ -762,7 +770,7 @@ flowchart LR
 
 ### ⭐ Por que dar Star neste Repo?
 
-- 🆓 **83+ skills, grátis e abertas** — anos de metodologia empacotados em módulos prontos para uso
+- 🆓 **85+ skills, grátis e abertas** — anos de metodologia empacotados em módulos prontos para uso
 - 🧪 **Testado em batalha** — construído a partir de campanhas reais com 100+ clientes B2B e B2C
 - 🔄 **Atualizado frequentemente** — novas skills adicionadas conforme o cenário de marketing e dev evolui
 - 🔔 **Star = notificações** — receba alertas quando novas skills forem publicadas
@@ -802,10 +810,12 @@ flowchart LR
 | **guimkt-experimentation-engine** | Engine de experimentação CRO — FACT&ACT, ROAR gate, priorização PIPE, cálculo de sample size, behavioral science toolkit. Transforma hipóteses em backlog priorizado |
 | **guimkt-utm-governance** | Governança operacional de UTMs: naming conventions, templates por canal com macros dinâmicos, auditoria de inconsistências, integração CRM. WhatsApp-first (CTWA, WABA, BSUID) |
 | **guimkt-nano-banana-prompts** | 874+ prompts curados para geração de imagens em 17 categorias (product photography, food, 3D miniatures, fashion, pôsteres cinematográficos, anime, retratos, branding). Suporta Midjourney, DALL-E, Gemini, Flux, Stable Diffusion |
+| **guimkt-brandformance-planner** | Planejamento estratégico de mix Branding vs. Performance com alocação de budget, cadência e métricas por fase do funil. Metodologia proprietária gui.marketing (Micro-Bolhas 70/30, Funil Invertido, Janelas de Impacto). Baseada em Binet & Field, Byron Sharp, Ehrenberg-Bass |
+| **guimkt-lead-scoring-architecture** | Arquitetura completa de lead scoring e lifecycle stages para integração CRM ↔ Ads. Modelo de scoring (fit + engagement + intent), lifecycle stages (Lead → MQL → SQL → Customer), eventos customizados de conversão GTM, value-based bidding e feedback loop de offline conversions |
 
 ---
 
-### 📦 Todas as Skills Disponíveis (83+)
+### 📦 Todas as Skills Disponíveis (85+)
 
 | Skill | Descrição |
 |-------|-----------|
@@ -893,6 +903,8 @@ flowchart LR
 | **vercel-deploy** | Deploy em Vercel |
 | **web-quality-audit** | Audit completo de qualidade web (performance, a11y, SEO) |
 | **guimkt-wireframe-landing-page** | Wireframes completos de landing pages para leads — Wireframe-Tabela + Wireframe-Sketch HTML para validação com clientes |
+| **guimkt-brandformance-planner** | Planejamento de mix Branding vs. Performance — alocação de budget, cadência, métricas por fase do funil. Micro-Bolhas 70/30, Funil Invertido, Janelas de Impacto |
+| **guimkt-lead-scoring-architecture** | Arquitetura de lead scoring e lifecycle stages para CRM ↔ Ads. Modelo de scoring, eventos customizados GTM, value-based bidding, offline conversions |
 
 ---
 
@@ -976,13 +988,17 @@ Qualquer agente que suporte leitura de arquivos: Gemini, Claude Code, Cursor, GP
 
 Execute `curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash` em qualquer diretório de projeto. O script copia todas as skills para a pasta `.agent/skills/`, prontas para uso.
 
-**Preciso usar todas as 70+ skills?**
+**Preciso usar todas as 85+ skills?**
 
 Não. Cada skill é independente — use só o que precisar. Porém, rodar a skill de ICP (Ideal Customer Profile) primeiro torna todas as skills downstream mais eficazes, pois fornece contexto de audiência.
 
 **O que é o workflow `/esc-start`?**
 
-`/esc-start` orquestra 6 AI marketing skills em sequência — da definição do ICP até Google Ads, wireframe de landing page, HTML premium, conceitos de Meta Ads e criativos clássicos. Cada etapa alimenta contexto para a próxima, garantindo handoff estruturado de contexto e máxima consistência.
+`/esc-start` orquestra 10 AI marketing skills em sequência — da pesquisa de Voice of Customer e Diagnóstico de Oferta, passando por ICP, Google Ads, wireframe, landing page premium, Meta Ads, criativos clássicos, plano de mensuração até QA de conversão. Cada etapa alimenta contexto para a próxima, garantindo handoff estruturado de contexto e máxima consistência.
+
+**O que são os workflows `/esc-cro` e `/esc-report`?**
+
+`/esc-cro` orquestra o ciclo de CRO (Conversion Rate Optimization): LPO Audit → Message Mining → Experimentation Engine → Implementação → Conversion QA. `/esc-report` orquestra o ciclo de analytics e accountability: UTM Governance → Coleta de Dados (gmp-cli) → Executive Performance Report → Consent Mode Audit → Conversion QA.
 
 **Essas AI marketing skills geram ativos reais de campanha?**
 
