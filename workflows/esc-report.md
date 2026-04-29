@@ -4,7 +4,7 @@ description: Pipeline de Análise & Report (v2) — ciclo de accountability pós
 
 # /esc-report — Pipeline de Análise & Report (v2)
 
-Pipeline de **accountability pós-campanha** para clientes com operação ativa. Coleta dados reais de todas as plataformas, gera relatório executivo profit-first, audita compliance de consent e valida integridade do tracking. Ciclo recorrente (mensal/quinzenal) que garante que cada real investido é rastreado, analisado e decidido.
+Pipeline de **accountability pós-campanha** para clientes com operação ativa. Coleta dados reais, gera relatório executivo profit-first, audita compliance e valida tracking. Ciclo recorrente (mensal/quinzenal).
 
 ```
 ┌───────────────────────────────────────────────────────────────────────┐
@@ -45,8 +45,6 @@ Pipeline de **accountability pós-campanha** para clientes com operação ativa.
 
 ## Pré-requisitos
 
-Antes de iniciar o `/esc-report`, o cliente DEVE ter:
-
 | Requisito | Por quê | Verificação |
 |-----------|---------|-------------|
 | Campanhas ativas (≥ 1 plataforma) | Sem dados, sem relatório | Account IDs disponíveis |
@@ -56,13 +54,11 @@ Antes de iniciar o `/esc-report`, o cliente DEVE ter:
 
 **Se o cliente passou pelo `/esc-start`:** os pré-requisitos já estão atendidos. Usar `measurement-plan-{{CLIENTE}}.md` como blueprint.
 
-**Se NÃO passou pelo `/esc-start`:** verificar manualmente e coletar IDs no intake.
-
 ---
 
 ## Pre-flight: Intake do Ciclo
 
-Antes de cada iteração do relatório, coletar:
+Antes de cada iteração, coletar:
 
 ```yaml
 intake:
@@ -100,48 +96,17 @@ intake:
 
 **Skill:** `guimkt-utm-governance`
 
-**Comportamento:** Na **primeira iteração**, executar setup completo (Etapas 0-5 da skill). Em **iterações subsequentes**, executar apenas auditoria rápida (Etapa 3 da skill).
+**Comportamento dual:**
+- **Primeira iteração → Modo Setup:** Executar skill integralmente (Etapas 0-5). Output: `utm-governance-{{CLIENTE}}.md` + `.html`
+- **Iterações seguintes → Auditoria Rápida:** Verificar GA4 Traffic Acquisition — "(Unassigned)" < 5%, sources/mediums consistentes, campaigns recentes conforme naming. Output: seção "UTM Health Check" no relatório.
 
-### Modo A: Primeira Iteração (Setup)
-
-**Input:** Respostas do intake + `measurement-plan-{{CLIENTE}}.md` (se existir)
-
-**Execução:**
-1. Invocar a skill `guimkt-utm-governance`
-2. Executar **Etapa 0 — Intake** (plataformas, CRM, naming atual, WhatsApp)
-3. Executar **Etapa 1 — Convenção de Naming** (source, medium, campaign taxonomia)
-4. Executar **Etapa 2 — Templates por Plataforma** (URL Suffix com macros dinâmicos)
-5. Executar **Etapa 3 — Auditoria** (GA4 Traffic Acquisition, CRM fields, plataformas)
-6. Executar **Etapa 4 — Integração CRM** (hidden fields, gclid/fbclid, persistência)
-7. Se WhatsApp é canal → Executar **Etapa 4.5 — WhatsApp-First**
-8. Executar **Etapa 5 — Gerar Outputs**
-9. Apresentar ao usuário → aprovação
-
-**Output:** `utm-governance-{{CLIENTE}}.md` + `utm-governance-{{CLIENTE}}.html`
-
-### Modo B: Iteração Recorrente (Auditoria Rápida)
-
-**Input:** `utm-governance-{{CLIENTE}}.md` (do setup anterior) + acesso GA4
-
-**Execução:**
-1. Abrir GA4 Traffic Acquisition report
-2. Verificar % de tráfego "(Unassigned)" — deve ser < 5%
-3. Verificar se sources/mediums estão consistentes com a convenção
-4. Verificar se campaigns recentes seguem o naming
-5. Se inconsistências → listar e recomendar correção
-6. Se tudo OK → marcar como "✅ UTMs compliance" e avançar
-
-**Output:** Seção "UTM Health Check" no relatório executivo (Etapa 3)
-
-**Checkpoint:** Aguardar aprovação antes de avançar.
+**Checkpoint:** Aguardar aprovação.
 
 ---
 
 ## Etapa 2 — Coleta de Dados (gmp-cli + APIs)
 
 **Skill:** `guimkt-gmp-cli-mcp-skill` (ferramenta de coleta)
-
-**Objetivo:** Coletar dados brutos de todas as plataformas de forma automatizada.
 
 ### 2.1 Verificar Autenticação
 
@@ -182,20 +147,15 @@ time_range={URL_ENCODED_RANGE}&\
 access_token=$META_ACCESS_TOKEN"
 ```
 
-**LinkedIn Ads:** Solicitar dados manuais (CSV export) se API não disponível.
-
-**TikTok / Pinterest:** Solicitar dados manuais (CSV export).
+**LinkedIn / TikTok / Pinterest:** Solicitar dados manuais (CSV export) se API não disponível.
 
 ### 2.3 Fallback Manual
 
-Se `gmp auth status` falhar ou dados não estiverem disponíveis via API:
+Se `gmp auth status` falhar ou dados indisponíveis via API:
 - Aceitar dados colados em texto, CSV, PDF ou exports de plataforma
-- Usar `docling` MCP para conversão de documentos se necessário
 - Extrair métricas manualmente e normalizar
 
-**Output:** Dados brutos coletados (em memória / variáveis do contexto — não salvar como arquivo separado)
-
-> ⚠️ Não apresentar dados brutos ao usuário. Avançar direto para a análise (Etapa 3).
+**Output:** Dados em memória — não salvar como arquivo separado. Não apresentar dados brutos ao usuário.
 
 ---
 
@@ -203,39 +163,15 @@ Se `gmp auth status` falhar ou dados não estiverem disponíveis via API:
 
 **Skill:** `guimkt-executive-performance-report`
 
-**Objetivo:** Transformar dados brutos em decisões executivas com visão profit-first.
+**Input:** Dados coletados (Etapa 2) + `icp-consolidado-{{CLIENTE}}.md` + Unit Economics do intake + CRM (se disponível) + `utm-governance-{{CLIENTE}}.md`
+**Output:** `executive-report-{{CLIENTE}}-{{YYYY-MM-DD}}.md` + `.html`
 
-**Input:**
-- Dados coletados na Etapa 2
-- `icp-consolidado-{{CLIENTE}}.md` (contexto de negócio)
-- Dados de Unit Economics do intake (ticket, ciclo, LTV, meta CAC)
-- Dados de CRM (se disponíveis — SQLs, vendas, receita real)
-- `utm-governance-{{CLIENTE}}.md` (para contexto de UTM health)
+Executar a skill integralmente. Determinar modo de operação automaticamente:
+- 🟢 Completo (ticket + ciclo + LTV + meta CAC) → Unit Economics reais
+- 🟡 Parcial (apenas ticket) → ROI estimado
+- 🔴 Tático (sem dados de negócio) → CPL como proxy + disclaimer
 
-**Execução:**
-1. Invocar a skill `guimkt-executive-performance-report`
-2. Determinar **modo de operação**:
-   - 🟢 Completo (ticket + ciclo + LTV + meta CAC) → Unit Economics reais
-   - 🟡 Parcial (apenas ticket) → ROI estimado
-   - 🔴 Tático (sem dados de negócio) → CPL como proxy + disclaimer
-3. Executar **Etapa 2 — Normalização Cross-Platform** (tabela padronizada, hierarquia de métricas)
-4. Executar **Etapa 3.1 — Resumo Executivo** (3-5 bullets profit-first)
-5. Executar **Etapa 3.2 — Unit Economics Dashboard** (CAC, LTV, ROI, Payback, Margem)
-6. Executar **Etapa 3.3 — Análise por Plataforma** (performance + anomalias + veredito)
-7. Executar **Etapa 3.4 — Análise Flywheel** (Atrair → Engajar → Encantar)
-8. Executar **Etapa 3.5 — Desperdício** (campanhas com CPL > 2x, frequência > 5, keywords sem conversão)
-9. Executar **Etapa 3.6 — Oportunidades** (CPL baixo + budget limitado, remarketing subutilizado)
-10. Executar **Etapa 3.7 — Decisões** (Escalar / Manter / Otimizar / Pausar por canal/campanha)
-11. Executar **Etapa 3.8 — Próximos Passos** (7 / 30 / 90 dias — concretos, não vagos)
-12. Incluir **UTM Health Check** da Etapa 1 (se Modo B)
-13. Executar **Etapa 4 — Gerar Outputs** (Markdown + HTML premium)
-14. Apresentar ao usuário → aprovação
-
-**Output:**
-- `executive-report-{{CLIENTE}}-{{YYYY-MM-DD}}.md`
-- `executive-report-{{CLIENTE}}-{{YYYY-MM-DD}}.html`
-
-**Checkpoint:** Aguardar aprovação do usuário. Avaliar se Etapa 3.5 (Brandformance) é relevante.
+**Checkpoint:** Aguardar aprovação. Avaliar se Etapa 3.5 (Brandformance) é relevante.
 
 ---
 
@@ -243,36 +179,20 @@ Se `gmp auth status` falhar ou dados não estiverem disponíveis via API:
 
 **Skill:** `guimkt-brandformance-planner`
 
-**Condição:** Rodar quando:
-- O cliente precisa decidir **mix de investimento branding vs. performance**
-- Há budget significativo (> R$ 15k/mês) e dúvida sobre alocação awareness vs. conversão
-- O relatório executivo (Etapa 3) revelou **CAC crescente** ou **dependência excessiva de performance**
-- É a **primeira iteração** e o cliente nunca fez planejamento de brandformance
-- O cliente questionou "devo investir em marca?" ou "awareness é vaidade?"
+**Condição — rodar quando:**
+- Budget significativo (> R$ 15k/mês) e dúvida sobre alocação awareness vs. conversão
+- Relatório executivo revelou **CAC crescente** ou **dependência excessiva de performance**
+- Primeira iteração e cliente nunca fez planejamento de brandformance
+- Cliente questionou "devo investir em marca?" ou "awareness é vaidade?"
 
-Se nenhuma condição for atendida → **pular para Etapa 4** (ou finalizar).
+Se nenhuma condição → **pular para Etapa 4** (ou finalizar).
 
-**Input:**
-- `executive-report-{{CLIENTE}}-{{YYYY-MM-DD}}.md` (dados de performance reais)
-- `icp-consolidado-{{CLIENTE}}.md` (contexto de negócio)
-- Dados de Unit Economics do intake (ticket, ciclo, LTV, meta CAC)
-- Dados de branded search, direct traffic, SOV (se disponíveis)
+**Input:** `executive-report-{{CLIENTE}}-{{YYYY-MM-DD}}.md` + `icp-consolidado-{{CLIENTE}}.md` + Unit Economics + branded search/SOV (se disponíveis)
+**Output:** `brandformance-plan-{{CLIENTE}}-{{YYYY-MM-DD}}.md` + `.html`
 
-**Execução:**
-1. Invocar a skill `guimkt-brandformance-planner`
-2. Executar **Fase 1 — Brand Maturity Diagnostic** (escala 1-5: mental availability, physical availability, brand assets, branded search, SOV)
-3. Executar **Fase 2 — Mix Recommendation** (% awareness vs. consideration vs. conversion baseado na maturidade)
-4. Executar **Fase 3 — Cadência e Budget** (alocação mensal por fase do funil, cenários conservador/moderado/agressivo)
-5. Executar **Fase 4 — KPIs por Fase** (separar métricas de brand de métricas de performance — nunca misturar)
-6. Executar **Fase 5 — Brand Signals Map** (sinais que indicam se investimento em marca está funcionando: search lift, direct traffic, branded queries, SOV)
-7. Executar **Fase 6 — Gerar Outputs** (Markdown + HTML premium)
-8. Apresentar ao usuário → aprovação
+Executar a skill integralmente (Fases 1-6).
 
-**Output:**
-- `brandformance-plan-{{CLIENTE}}-{{YYYY-MM-DD}}.md`
-- `brandformance-plan-{{CLIENTE}}-{{YYYY-MM-DD}}.html`
-
-**Checkpoint:** Aguardar aprovação do usuário.
+**Checkpoint:** Aguardar aprovação.
 
 ---
 
@@ -280,75 +200,42 @@ Se nenhuma condição for atendida → **pular para Etapa 4** (ou finalizar).
 
 **Skill:** `guimkt-consent-mode-audit`
 
-**Condição:** Rodar quando:
-- É a **primeira iteração** do `/esc-report` para este cliente
-- Houve **mudança de CMP, GTM, ou adição de nova tag** desde a última auditoria
-- O último consent audit tem **mais de 3 meses**
-- O relatório executivo revelou **anomalias de dados** que podem indicar consent issues
+**Condição — rodar quando:**
+- Primeira iteração do `/esc-report` para este cliente
+- Mudança de CMP, GTM, ou adição de nova tag desde a última auditoria
+- Último consent audit tem mais de 3 meses
+- Relatório executivo revelou anomalias que podem indicar consent issues
 
-Se nenhuma condição for atendida → **pular para Etapa 5** (ou finalizar se Etapa 5 também for skip).
+Se nenhuma condição → **pular para Etapa 5** (ou finalizar).
 
-**Input:**
-- URL do site/LP
-- GTM Container ID
-- Lista de tags configuradas
-- `measurement-plan-{{CLIENTE}}.md` (se existir)
-- `consent-audit-{{CLIENTE}}-anterior.md` (se existir — comparar com auditoria anterior)
+**Input:** URL do site/LP + GTM Container ID + lista de tags + `measurement-plan-{{CLIENTE}}.md` (se existir)
+**Output:** `consent-audit-{{CLIENTE}}-{{YYYY-MM-DD}}.md` + `.html`
 
-**Execução:**
-1. Invocar a skill `guimkt-consent-mode-audit`
-2. Executar **Etapa 0 — Intake** (CMP, GTM, tags, sGTM, região)
-3. Executar **Etapa 1 — Consent Mode v2** (detectar status, verificar default/update, 3 cenários)
-4. Executar **Etapa 2 — CMP Review** (presença, certificação Google Partner, dark patterns)
-5. Executar **Etapa 3 — Tags por Estado de Consent** (matriz de compliance, teste de disparos)
-6. Executar **Etapa 4 — LGPD Compliance** (requisitos, dark patterns proibidos)
-7. Executar **Etapa 5 — Data Retention** (GA4, Google Ads settings)
-8. Se sGTM → Executar **Etapa 6 — Server-Side** (consent signals repassados)
-9. Executar **Etapa 7 — Gerar Outputs** (score 0-100, 4 áreas)
-10. Apresentar ao usuário → aprovação
+Executar a skill integralmente (Etapas 0-7). Score 0-100 em 4 áreas.
 
-**Output:**
-- `consent-audit-{{CLIENTE}}-{{YYYY-MM-DD}}.md`
-- `consent-audit-{{CLIENTE}}-{{YYYY-MM-DD}}.html`
-
-**Checkpoint:** Aguardar aprovação do usuário.
+**Checkpoint:** Aguardar aprovação.
 
 ---
 
 ## Etapa 5 — Conversion QA Re-Audit (Condicional)
 
-**Skill:** `guimkt-conversion-qa-auditor` → **Modo 2: Post-Implementation**
+**Skill:** `guimkt-conversion-qa-auditor` → **Modo Post-Implementation**
 
-**Condição:** Rodar quando:
-- É a **primeira iteração** e nunca houve QA
-- Houve **mudança de tags, LP, formulário, ou CRM** desde o último QA
-- O consent audit (Etapa 4) revelou **issues críticos** que afetam tracking
-- O relatório executivo (Etapa 3) revelou **discrepâncias de dados** entre plataformas
-- O último QA tem **mais de 3 meses**
+**Condição — rodar quando:**
+- Primeira iteração e nunca houve QA
+- Mudança de tags, LP, formulário, ou CRM desde o último QA
+- Consent audit (Etapa 4) revelou issues críticos
+- Relatório executivo revelou discrepâncias de dados entre plataformas
+- Último QA tem mais de 3 meses
 
-Se nenhuma condição for atendida → **finalizar o ciclo**.
+Se nenhuma condição → **finalizar o ciclo**.
 
-**Input:**
-- URL da LP publicada
-- `measurement-plan-{{CLIENTE}}.md`
-- `consent-audit-{{CLIENTE}}-{{YYYY-MM-DD}}.md` (se Etapa 4 rodou)
-- `utm-governance-{{CLIENTE}}.md`
+**Input:** URL da LP + `measurement-plan-{{CLIENTE}}.md` + consent audit (se Etapa 4 rodou) + `utm-governance-{{CLIENTE}}.md`
+**Output:** `conversion-qa-{{CLIENTE}}-{{YYYY-MM-DD}}.md` + `.html`
 
-**Execução:**
-1. Invocar a skill `guimkt-conversion-qa-auditor` no **Modo Post-Implementation**
-2. Executar **Etapa 1 — Carregar Blueprint** (measurement plan)
-3. Executar **Etapa 2 — Checklist QA** (dataLayer, GA4, conversions, consent, sGTM, UTMs)
-4. Executar **Etapa 3 — Testes End-to-End** (formulário com UTMs, WhatsApp, consent)
-5. Verificar se **UTMs da governança** estão chegando ao CRM
-6. Verificar se **offline conversions pipeline** está funcionando
-7. Executar **Etapa 4 — Scoring e Veredicto**
-8. Apresentar ao usuário → aprovação
+Executar a skill integralmente no Modo Post-Implementation. Verificar UTMs da governança no CRM e pipeline de offline conversions.
 
-**Output:**
-- `conversion-qa-{{CLIENTE}}-{{YYYY-MM-DD}}.md`
-- `conversion-qa-{{CLIENTE}}-{{YYYY-MM-DD}}.html`
-
-> ✅ **Pipeline completo.** Após a Etapa 5 (ou após a Etapa 3 se Etapas 4-5 forem skip), o ciclo de report está concluído. Agendar próxima iteração.
+> ✅ **Pipeline completo.** Após a Etapa 5 (ou Etapa 3 se Etapas 4-5 forem skip), o ciclo de report está concluído. Agendar próxima iteração.
 
 ---
 
@@ -410,9 +297,8 @@ Etapa 5: Conversion QA* ──→ conversion-qa-{{CLIENTE}}-{{DATA}}.md (condici
 3. **Token Meta:** Expira frequentemente — validar com `curl https://graph.facebook.com/v21.0/me?access_token=$TOKEN`
 4. **Modo Comparativo é padrão:** Sempre comparar com período anterior. Modo Snapshot apenas no primeiro report
 5. **Relatório anterior como baseline:** Se `executive-report-{{CLIENTE}}-anterior.md` existir, comparar tendências
-6. **UTM audit mensal:** Verificar GA4 Traffic Acquisition → "(Unassigned)" < 5% como rotina
-7. **Consent re-audit:** Após mudança de CMP, GTM, ou adição de tag nova
-8. **QA re-audit:** Após mudança de LP, formulário, CRM, ou pipeline de offline conversions
-9. **Branding como investimento:** Campanhas de awareness não são "desperdício" — avaliar com nuance no Flywheel. Usar `guimkt-brandformance-planner` (Etapa 3.5) para decisão estruturada
-10. **Integração com /esc-cro:** Se o relatório identificar problemas de conversão, recomendar ciclo de `/esc-cro`
-11. **Brandformance é decisão estratégica:** Não rodar Etapa 3.5 em todo ciclo — apenas quando há decisão de alocação brand vs. performance pendente
+6. **Consent re-audit:** Após mudança de CMP, GTM, ou adição de tag nova
+7. **QA re-audit:** Após mudança de LP, formulário, CRM, ou pipeline de offline conversions
+8. **Branding como investimento:** Campanhas de awareness não são "desperdício" — avaliar com nuance. Usar Etapa 3.5 para decisão estruturada
+9. **Integração com /esc-cro:** Se o relatório identificar problemas de conversão, recomendar ciclo de `/esc-cro`
+10. **Brandformance é decisão estratégica:** Não rodar Etapa 3.5 em todo ciclo — apenas quando há decisão de alocação brand vs. performance pendente

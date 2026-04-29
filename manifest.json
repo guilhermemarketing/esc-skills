@@ -273,10 +273,10 @@
       "breaking": false
     },
     "guimkt-meta-ads": {
-      "version": "2.0.0",
+      "version": "3.1.0",
       "path": "skills/guimkt-meta-ads/SKILL.md",
-      "hash": "295770f5e59a4a06e70ce77de110377dc604a419cf11ed1a1f9cf9925fd2205d",
-      "breaking": true
+      "hash": "115d0a0cb5ff5fbc85f756b613bd7810d7a47268b77250e3f974537617d54c9f",
+      "breaking": false
     },
     "guimkt-nano-banana-prompts": {
       "version": "1.0.0",

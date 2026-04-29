@@ -1,6 +1,8 @@
 # Especificações Técnicas Meta Ads
 
-Referência completa de formatos, limites e boas práticas da plataforma Meta Ads (Facebook + Instagram).
+Referência de formatos, limites, benchmarks e boas práticas da plataforma Meta Ads (Facebook + Instagram).
+
+> Complementa o SKILL.md principal — aqui ficam specs de **plataforma** (limites, dimensões, benchmarks). Para **estratégia criativa** (hooks, creative types, emotions), ver `creative-types-hooks.md`.
 
 ## Limites de Texto
 
@@ -93,34 +95,57 @@ Para vídeos, capturar atenção nos primeiros 3 segundos:
 - Rosto humano (se aplicável)
 - Pattern interrupt visual
 - Texto com gancho
-- Teste do mudo: funciona sem áudio? (maioria assiste sem som)
+- Teste do mudo: funciona sem áudio? (85% assiste sem som)
 - Texto na tela é obrigatório em todo o vídeo
 
-## Variações por Objetivo de Campanha
+## Benchmarks de Performance
 
-### Awareness
+| Métrica | Benchmark | Como calcular | Notas |
+|---------|-----------|--------------|-------|
+| **Hook Rate** | 30-50% | 3sec video views / impressions | Abaixo de 30% = hook fraco |
+| **A/B Winner** | ≥25% improvement | (B - A) / A × 100 | Menos que 25% = inconclusivo |
+| **Duração mínima de teste** | 5 dias | — | Cortar antes invalida o teste |
+| **Budget mínimo de teste** | 3× AOV | AOV × 3 = ad spend mín. para teste | Ex: produto R$100 → R$300 de spend |
+| **Promoção mínima** | 5 dias | — | Menos que isso não tem dados suficientes |
+| **Atenção média** | 1.7 segundos | — | Hook precisa funcionar ANTES disso |
 
-| Aspecto | Recomendação |
-|---------|--------------|
-| Ângulo | Curiosidade, benefício amplo |
-| Copy | Educativa, sem pressão |
-| Visual | Impactante, memorável |
-| CTA | Saiba mais, Ver mais |
+## Composição do Ad Set
 
-### Consideração
+Rodar **todos os tipos de criativo** no mesmo ad set para utilizar 100% dos ad placements:
 
-| Aspecto | Recomendação |
-|---------|--------------|
-| Ângulo | Benefício específico, diferencial |
-| Copy | Comparativa, prova social |
-| Visual | Demonstração de uso |
-| CTA | Saiba mais, Fale conosco |
+| Tipo | Placements que ativa |
+|------|---------------------|
+| **Imagem** | Feed, Right Column, Marketplace, Search |
+| **Vídeo** | Feed, Stories, Reels, In-stream |
+| **Carrossel** | Feed, Stories, Marketplace |
 
-### Conversão
+> Rodar apenas imagem = perder placements de vídeo. Combinar garante cobertura total.
 
-| Aspecto | Recomendação |
-|---------|--------------|
-| Ângulo | Urgência, oferta clara |
-| Copy | Direta, benefício + CTA |
-| Visual | Produto em destaque |
-| CTA | Cadastre-se, Obter oferta, Agendar |
+## Social Validation & CPMs
+
+O algoritmo do Meta recompensa engajamento com **CPMs mais baixos**:
+
+```
+Mais engagement (comments, saves, shares)
+    → Meta entrega mais impressões
+    → CPM cai (ex: $20 → $10 = 2× alcance pelo mesmo custo)
+    → Mais social proof visível
+    → Loop: mais engagement
+```
+
+**Regras operacionais:**
+- Responder TODOS os comentários — adicionar links para produto/FAQ nas respostas
+- Criar ads que geram comentários (controversos, relatable, provocativos)
+- Ads com 400+ comments performam significativamente melhor
+- Não ignorar comentários negativos — responder com dados/prova
+
+## Copy: Escaneabilidade
+
+| Técnica | Exemplo |
+|---------|---------|
+| **Emojis** | ✅ Durável ✅ Leve ✅ Respira |
+| **Parágrafos curtos** | 1-2 frases por bloco |
+| **Bullet points** | Lista de 3-5 benefícios |
+| **Números** | "7 razões...", "Em 30 dias..." |
+| **Linguagem conversacional** | Falar como humano, não como marca |
+| **Industry lingo** | Usar termos do setor do cliente |

@@ -4,7 +4,7 @@ description: Pipeline de CRO (Conversion Rate Optimization) — ciclo contínuo 
 
 # /esc-cro — Pipeline de CRO (Ciclo Contínuo)
 
-Pipeline **cíclico** de otimização de conversão para clientes com operação já rodando (pós-`/esc-start`). Diferente do `/esc-start` que é linear (etapa 0→8 uma vez), o `/esc-cro` é um **ciclo recorrente**: cada iteração descobre problemas, gera hipóteses, testa e valida.
+Pipeline **cíclico** de otimização de conversão para clientes com operação já rodando (pós-`/esc-start`). Diferente do `/esc-start` que é linear (etapa 0→9 uma vez), o `/esc-cro` é um **ciclo recorrente**: cada iteração descobre problemas, gera hipóteses, testa e valida.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -35,8 +35,6 @@ Pipeline **cíclico** de otimização de conversão para clientes com operação
 
 ## Pré-requisitos
 
-Antes de iniciar o `/esc-cro`, o cliente DEVE ter:
-
 | Requisito | Por quê | Verificação |
 |-----------|---------|-------------|
 | LP publicada e recebendo tráfego | Sem dados, sem CRO | URL acessível + GA4 com dados |
@@ -46,13 +44,11 @@ Antes de iniciar o `/esc-cro`, o cliente DEVE ter:
 | GTM conforme template gui.marketing | Tracking robusto | Folder 📊 guimarketing data-stack presente no container |
 | ≥ 30 dias de dados | Baseline estatístico | GA4 com ≥ 1 mês de tráfego |
 
-**Se o cliente não passou pelo `/esc-start`:** verificar se os pré-requisitos estão atendidos de outra forma. O `/esc-cro` é independente — não exige `/esc-start`, mas exige dados.
-
 ---
 
 ## Pre-flight: Intake do Ciclo
 
-Antes de cada iteração do ciclo CRO, coletar:
+Antes de cada iteração, coletar:
 
 1. **Nome do cliente** (slug `{{CLIENTE}}`)
 2. **URL(s) da(s) LP(s)** a otimizar
@@ -67,7 +63,7 @@ Antes de cada iteração do ciclo CRO, coletar:
 7. **Tráfego mensal** e **conversões/mês** (para ROAR Gate)
 8. **Ticket médio / LTV** (para calcular impacto financeiro)
 
-Se for a **primeira iteração**, não haverá ciclo anterior. Se for iteração subsequente, carregar `experiment-backlog-{{CLIENTE}}.md` do ciclo anterior.
+Se iteração subsequente, carregar `experiment-backlog-{{CLIENTE}}.md` do ciclo anterior.
 
 ---
 
@@ -75,33 +71,12 @@ Se for a **primeira iteração**, não haverá ciclo anterior. Se for iteração
 
 **Skill:** `guimkt-landing-page-optimization`
 
-**Objetivo:** Identificar problemas e oportunidades de conversão na LP atual com dados, não opinião.
-
-**Input:**
-- URL da LP publicada
-- `icp-consolidado-{{CLIENTE}}.md` (contexto de público)
-- `measurement-plan-{{CLIENTE}}.md` (se existir — entender tracking)
-- `message-mining-{{CLIENTE}}.md` (se existir — enriquecer com VoC)
-- Dados de GA4 (bounce rate, scroll depth, device split, conversion rate por segmento)
-- Heatmaps/recordings (se disponíveis)
-
-**Execução:**
-1. Invocar a skill `guimkt-landing-page-optimization`
-2. Ler `references/ux-conversion-dimensions.md`
-3. Aplicar as **6 Características de LP Eficaz** como framework de análise
-4. Diagnosticar usando as **5 Dimensões de UX** (Motivação, Proposta de Valor, Incentivo, Fricção, Incerteza)
-5. Avaliar **nível de consciência** do público vs. conteúdo da página
-6. Categorizar findings por **tipo de fricção** (interação, cognitiva, emocional)
-7. Aplicar a **fórmula C=4m+3v+2(i-f)-2a** para priorizar
-8. Aplicar **7 Níveis de Conversão** (André Morys) para avaliação complementar
-9. Gerar lista de problemas priorizados com evidência (dados VIEW + VOICE)
-10. Apresentar ao usuário → aprovação
-
+**Input:** URL da LP + `icp-consolidado-{{CLIENTE}}.md` + `measurement-plan-{{CLIENTE}}.md` (se existir) + `message-mining-{{CLIENTE}}.md` (se existir) + dados de GA4 + heatmaps (se disponíveis)
 **Output:** `lpo-audit-{{CLIENTE}}-ciclo{{N}}.md` (+ HTML se solicitado)
 
-> 💡 Este output é o **input primário** para a Etapa 3 (Experimentation Engine). Cada problema identificado é candidato a hipótese de teste.
+Executar a skill integralmente. O output é o **input primário** para a Etapa 3 — cada problema identificado é candidato a hipótese de teste.
 
-**Checkpoint:** Aguardar aprovação do usuário antes de avançar.
+**Checkpoint:** Aguardar aprovação do usuário.
 
 ---
 
@@ -109,20 +84,14 @@ Se for a **primeira iteração**, não haverá ciclo anterior. Se for iteração
 
 **Skill:** `guimkt-sales-page-message-mining`
 
-**Condição:** Roda se houver **novas fontes de VoC** desde o último ciclo (ou desde o `/esc-start`). Se não houver material novo, **pular para Etapa 3** e usar o `message-mining-{{CLIENTE}}.md` anterior (se existir).
+**Condição:** Roda se houver **novas fontes de VoC** desde o último ciclo (ou desde o `/esc-start`). Se não → **pular para Etapa 3** e usar `message-mining-{{CLIENTE}}.md` anterior (se existir).
 
-**Input:** Material de VoC novo fornecido pelo usuário
-
-**Execução:**
-1. Invocar a skill `guimkt-sales-page-message-mining`
-2. Se `message-mining-{{CLIENTE}}.md` anterior existir, usar como base e **enriquecer** (não substituir)
-3. Executar Fases 0-3 conforme workflow da skill
-4. Cruzar novos verbatims com problemas identificados na Etapa 1 (LPO Audit)
-5. Apresentar ao usuário → aprovação
-
+**Input:** Material de VoC novo
 **Output:** `message-mining-{{CLIENTE}}.md` (atualizado ou novo)
 
-**Checkpoint:** Aguardar aprovação do usuário antes de avançar para Etapa 3.
+Executar a skill integralmente. Se versão anterior existir, **enriquecer** (não substituir). Cruzar novos verbatims com problemas da Etapa 1.
+
+**Checkpoint:** Aguardar aprovação do usuário.
 
 ---
 
@@ -130,37 +99,18 @@ Se for a **primeira iteração**, não haverá ciclo anterior. Se for iteração
 
 **Skill:** `guimkt-experimentation-engine`
 
-**Objetivo:** Transformar os problemas da LPO Audit em hipóteses testáveis, priorizar e planejar estatisticamente.
+**Input:** `lpo-audit-{{CLIENTE}}-ciclo{{N}}.md` + `icp-consolidado-{{CLIENTE}}.md` + `message-mining-{{CLIENTE}}.md` (se existir) + `experiment-backlog-{{CLIENTE}}.md` (do ciclo anterior, se existir) + dados de tráfego/conversões
+**Output:** `experiment-backlog-{{CLIENTE}}.md` + `.html`
 
-**Input:**
-- `lpo-audit-{{CLIENTE}}-ciclo{{N}}.md` (problemas priorizados)
-- `icp-consolidado-{{CLIENTE}}.md` (segmentos para testes)
-- `message-mining-{{CLIENTE}}.md` (se existir — verbatims para fundamentar hipóteses)
-- `experiment-backlog-{{CLIENTE}}.md` (do ciclo anterior, se existir — learnings acumulados)
-- Dados de tráfego e conversões (para ROAR Gate e sample size)
+Executar a skill integralmente. Pontos críticos pipeline-level:
 
-**Execução:**
-1. Invocar a skill `guimkt-experimentation-engine`
-2. Executar **Etapa 0 — Intake** (tráfego, baseline, ferramenta de teste)
-3. Aplicar **ROAR Gate** — determinar se A/B testing é viável:
-   - < 100 conv/mês → NÃO fazer A/B, usar métodos alternativos (Etapa 2B da skill)
+1. **ROAR Gate** — determinar viabilidade ANTES de gerar hipóteses:
+   - < 100 conv/mês → **NÃO fazer A/B**, usar métodos alternativos (Etapa 2B da skill)
    - 100-1.000 → Testes simples, MDE alto
    - 1.000+ → Programa completo
-4. Executar **Etapa 1 — Pesquisa** (5V's: VIEW, VOICE, VALIDATED, VERIFIED, VALUE)
-   - VIEW: dados de analytics da LPO Audit
-   - VOICE: dados do Message Mining
-   - VALIDATED: resultados de testes anteriores (se ciclo > 1)
-5. Executar **Etapa 2A — Análise Heurística** (7 Níveis + LIFT + MECLABS)
-6. Executar **Etapa 3 — Geração de Hipóteses** no formato estruturado:
-   - "Se [mudança] entre [segmento], então [comportamento] porque [fundamento]."
-7. Executar **Etapa 4 — Priorização** (PIPE e/ou PXL)
-8. Executar **Etapa 5 — Planejamento Estatístico** (sample size, duração, tipo de teste)
-9. Marcar **top 3 hipóteses** como "próximo sprint"
-10. Apresentar backlog priorizado ao usuário → aprovação
+2. Marcar **top 3 hipóteses** como "próximo sprint"
 
-**Output:** `experiment-backlog-{{CLIENTE}}.md` + `experiment-backlog-{{CLIENTE}}.html`
-
-**Checkpoint:** Aguardar aprovação do usuário. Após aprovação:
+**Checkpoint:** Aguardar aprovação. Após aprovação:
 
 ### 🔧 Etapa 3.5 — Implementação dos Testes
 
@@ -171,40 +121,18 @@ Se for a **primeira iteração**, não haverá ciclo anterior. Se for iteração
 3. **NÃO fazer peeking** — esperar conclusão completa
 4. Quando o teste concluir, voltar ao pipeline para Etapa 4
 
-**Outputs esperados da implementação:**
-- Screenshot das variações implementadas
-- Confirmação de que tracking está capturando dados do teste
-- Dados brutos de resultados (quando o teste concluir)
-
 ---
 
 ## Etapa 4 — Conversion QA (Pós-Implementação)
 
-**Skill:** `guimkt-conversion-qa-auditor` → **Modo 2: Post-Implementation**
+**Skill:** `guimkt-conversion-qa-auditor` → **Modo Post-Implementation**
 
-**Objetivo:** Validar que o teste e/ou as mudanças implementadas não quebraram o tracking existente, e que os resultados são confiáveis.
+**Input:** URL da LP (com teste ativo ou mudança implementada) + `measurement-plan-{{CLIENTE}}.md` + `experiment-backlog-{{CLIENTE}}.md` + resultados do teste (se A/B concluído)
+**Output:** `conversion-qa-{{CLIENTE}}-ciclo{{N}}.md` + `.html`
 
-**Input:**
-- URL da LP (com teste ativo ou mudança implementada)
-- `measurement-plan-{{CLIENTE}}.md`
-- `experiment-backlog-{{CLIENTE}}.md` (para saber o que foi testado)
-- Resultados do teste (se A/B concluído)
-
-**Execução:**
-1. Invocar a skill `guimkt-conversion-qa-auditor` no **Modo Post-Implementation**
-2. Executar **Etapa 1.5 — Verificação de Conformidade com Template** (se container gui.marketing)
-3. Executar **Etapa 2 — Checklist QA** (dataLayer, GA4, tags, consent, sGTM, UTMs)
-4. Executar **Etapa 3 — Testes End-to-End** (formulário com UTMs, WhatsApp, consent denied)
-4. Verificar que o **tracking do teste** está funcionando (eventos de variação, GA4 Audiences)
-5. Se teste A/B concluiu, validar interpretação dos resultados:
-   - Significância ≥ 95%?
-   - Sample size atingido?
-   - Duração ≥ 7 dias (2 business cycles)?
-   - Novelty effect descartado?
-6. Executar **Etapa 4 — Scoring e Veredicto**
-7. Apresentar relatório ao usuário → aprovação
-
-**Output:** `conversion-qa-{{CLIENTE}}-ciclo{{N}}.md` + `conversion-qa-{{CLIENTE}}-ciclo{{N}}.html`
+Executar a skill integralmente no Modo Post-Implementation. Adicionalmente, validar:
+- Tracking do teste está funcionando (eventos de variação, GA4 Audiences)
+- Se teste A/B concluiu: significância ≥ 95%, sample size atingido, duração ≥ 7 dias (2 business cycles), novelty effect descartado
 
 **Checkpoint:** Aguardar aprovação do usuário.
 
@@ -214,37 +142,15 @@ Se for a **primeira iteração**, não haverá ciclo anterior. Se for iteração
 
 **Skill:** `guimkt-experimentation-engine` → **Etapas 6-7 (ANALYZE + COMBINE + TELL)**
 
-**Objetivo:** Documentar resultados, extrair aprendizados e alimentar o próximo ciclo.
-
-**Input:**
-- Resultados do teste (dados brutos)
-- `experiment-backlog-{{CLIENTE}}.md`
-- `conversion-qa-{{CLIENTE}}-ciclo{{N}}.md`
-
-**Execução:**
-1. Retomar a skill `guimkt-experimentation-engine`
-2. Executar **Etapa 6 — Análise de Resultados**:
-   - Interpretar significância (≥95% → implementar, 90-95% → considerar, <90% → flat)
-   - Verificar armadilhas (confirmation bias, peeking, novelty effect, Simpson's paradox)
-   - Segmentar resultados (device, source, new/returning)
-3. Executar **Etapa 7 — Documentação**:
-   - Preencher template de experimento por hipótese testada
-   - Status: 🟢 Vencedor / 🔴 Perdedor / ⚪ Flat
-   - Aprendizado: o que explica o resultado
-4. Atualizar `experiment-backlog-{{CLIENTE}}.md` com:
-   - Resultados dos testes deste ciclo
-   - Próximas hipóteses priorizadas para o ciclo seguinte
-   - Knowledge base acumulada
-5. **Decisão de próximo ciclo:**
-   - Se vencedor → implementar em produção → agendar próximo ciclo
-   - Se flat → implementar o mais simples → testar próxima hipótese
-   - Se perdedor → documentar aprendizado → repensar abordagem
-6. Apresentar ao usuário → aprovação
-
+**Input:** Resultados do teste + `experiment-backlog-{{CLIENTE}}.md` + `conversion-qa-{{CLIENTE}}-ciclo{{N}}.md`
 **Output:**
 - `experiment-backlog-{{CLIENTE}}.md` (atualizado com resultados + próximas hipóteses)
-- `experiment-backlog-{{CLIENTE}}.html` (atualizado)
 - `experiment-results-{{CLIENTE}}-ciclo{{N}}.md` (resultados isolados deste ciclo)
+
+Retomar a skill para documentar resultados. Decisão de próximo ciclo:
+- Se vencedor → implementar em produção → agendar próximo ciclo
+- Se flat → implementar o mais simples → testar próxima hipótese
+- Se perdedor → documentar aprendizado → repensar abordagem
 
 > ✅ **Ciclo completo.** Após a Etapa 5, o backlog está atualizado e o próximo ciclo pode iniciar da Etapa 1.
 
@@ -262,7 +168,7 @@ Se for a **primeira iteração**, não haverá ciclo anterior. Se for iteração
 8. **NAMING CONSISTENTE** — Todos os arquivos: `[tipo]-{{CLIENTE}}-ciclo{{N}}.md`
 9. **ACUMULAR, NÃO SUBSTITUIR** — Cada ciclo enriquece o backlog, nunca apaga.
 10. **DOCUMENTAR TUDO** — Vitória sem documentação é acidente. Derrota sem documentação é desperdício.
-11. **TEMPLATE É GUARD-RAIL** — Na Etapa 4 (QA), verificar conformidade do container GTM com o template `guimkt-gtm-expert-template`. Container fora do padrão = tracking não confiável = resultados de teste duvidosos.
+11. **TEMPLATE É GUARD-RAIL** — Na Etapa 4, verificar conformidade do container GTM com template gui.marketing.
 
 ---
 

@@ -1,4 +1,4 @@
-<!-- skill: guimkt-meta-ads | version: 2.0.0 | updated: 2026-04-29 -->
+<!-- skill: guimkt-meta-ads | version: 3.1.0 | updated: 2026-04-29 -->
 ---
 name: guimkt-meta-ads
 description: >
@@ -6,12 +6,13 @@ description: >
   usando framework Hook → Hold → Offer e 40+ Creative Types com mapeamento de
   emoção e estágio de funil. Cada conceito inclui estratégia direct response,
   copy com limites de caracteres, conceito visual funcional, variações A/B de hook,
-  prompt de imagem e adaptações por placement. Orientado por design system quando
-  disponível. Use quando precisar criar anúncios de conversão para Instagram ou
-  Facebook, gerar conceitos criativos de performance para Meta Ads, criar peças
-  direct response para feed, stories ou reels, desenvolver campanhas de lead
-  generation ou vendas no Meta, ou qualquer variação de "criativos para Meta",
-  "anúncios para Instagram", "campanha Facebook Ads", "peças para feed",
+  prompt de imagem e adaptações por placement. Orientado por design system —
+  quando não fornecido, EXTRAI automaticamente de referências visuais do cliente.
+  Sem design system = SLOP. Use quando precisar criar anúncios de conversão para
+  Instagram ou Facebook, gerar conceitos criativos de performance para Meta Ads,
+  criar peças direct response para feed, stories ou reels, desenvolver campanhas
+  de lead generation ou vendas no Meta, ou qualquer variação de "criativos para
+  Meta", "anúncios para Instagram", "campanha Facebook Ads", "peças para feed",
   "criativos de performance".
 ---
 
@@ -60,9 +61,13 @@ Todo criativo de performance opera neste ciclo:
 
 ## Workflow
 
-### Etapa 0 — Design System (se disponível)
+### Etapa 0 — Design System (OBRIGATÓRIA)
 
-Verificar se existe `design-system-{{CLIENTE}}.md`. Se sim, ler e extrair:
+> **⚠️ SEM DESIGN SYSTEM = SLOP.** Criativos sem identidade visual coerente são genéricos e descartáveis. Esta etapa é **obrigatória** — o agente DEVE ter um design system antes de criar conceitos.
+
+#### Cenário A — Design System já existe
+
+Se `design-system-{{CLIENTE}}.md` já existir, **ler e extrair tokens visuais**:
 
 ```yaml
 design_system:
@@ -73,7 +78,159 @@ design_system:
   componentes: [estilos de botões, cards]
 ```
 
-Tokens DEVEM ser respeitados em todos os conceitos. Se NÃO existir, seguir com cores do briefing.
+Tokens DEVEM ser respeitados em todos os conceitos. → **Pular para Etapa 1.**
+
+---
+
+#### Cenário B — Design System NÃO existe → EXTRAIR
+
+Se NÃO existir design system, executar as 2 fases abaixo **antes** de criar qualquer conceito.
+
+##### Fase 0.1 — Coletar Referências Visuais do Cliente
+
+**Objetivo:** Obter imagens que representem a identidade visual do cliente.
+
+1. **Perguntar ao usuário:**
+
+> "Para extrair o design system da marca, preciso de **imagens de referência da identidade visual** do cliente (site, materiais gráficos, redes sociais, apresentações, etc.).
+>
+> Você pode:
+> - **Enviar as imagens** diretamente aqui, ou
+> - **Indicar uma pasta** onde as imagens já estão salvas.
+>
+> Mínimo recomendado: 3-5 imagens que mostrem cores, tipografia e estilo visual da marca."
+
+2. **Salvar/copiar** as imagens fornecidas em:
+
+```
+entregas/{{CLIENTE}}/05-criativos-meta/referencias-visuais/
+```
+
+3. **PARAR e aguardar** o usuário fornecer as referências antes de prosseguir.
+
+##### Fase 0.2 — Extrair Design System de TODAS as Referências
+
+**Objetivo:** Analisar **cada imagem** e gerar um `DESIGN.md` no formato Google design.md spec.
+
+**0.2.1 — Inventário Obrigatório de Referências**
+
+> **REGRA INEGOCIÁVEL:** O agente DEVE analisar CADA IMAGEM da pasta de referências. Não basta ver uma — é obrigatório ver TODAS.
+
+1. **Listar** todos os arquivos na pasta `referencias-visuais/` usando `list_dir`
+2. **Contar** o total de imagens e registrar: `"Encontradas N imagens de referência. Analisando todas..."`
+3. **Para CADA imagem** (sem exceção), executar `view_file` individualmente:
+   - Anotar: cores dominantes, tipografia, estilo visual, componentes, mood, texturas, layout
+   - Se houver mais de 5 imagens, processar em lotes de até 3 chamadas paralelas de `view_file`
+4. **Após analisar TODAS**, consolidar um resumo de padrões visuais recorrentes:
+   - Cores que aparecem em 50%+ das referências
+   - Tipografia predominante
+   - Estilo visual consistente (fotográfico, flat, glassmorphism, etc.)
+   - Componentes visuais recorrentes (botões, shapes, cards, ícones)
+   - Mood e atmosfera geral
+5. **Validar completude:** Confirmar ao usuário: `"Analisei N/N imagens de referência. Padrões identificados: [resumo]"`
+
+> **⚠️ Se o agente analisar menos imagens do que existem na pasta, a extração é INVÁLIDA e deve ser refeita.**
+
+**0.2.2 — Gerar o DESIGN.md**
+
+Gerar o design system no formato **Google design.md spec** (YAML frontmatter + Markdown descritivo), seguindo estas instruções — **ipsis litteris, inegociável:**
+
+> Analyze the visual references with the goal of creating a DESIGN.md file.
+>
+> ### Reference material:
+>   Overview : https://stitch.withgoogle.com/docs/design-md/overview/
+>   Format : https://stitch.withgoogle.com/docs/design-md/format/
+>   Spec : https://github.com/google-labs-code/design.md
+>
+> ### Examples from the spec repo:
+> * https://github.com/google-labs-code/design.md/blob/main/examples/atmospheric-glass/DESIGN.md
+> * https://github.com/google-labs-code/design.md/blob/main/examples/paws-and-paths/DESIGN.md
+>
+> ### Requirements:
+> - Begin with YAML frontmatter containing all structured design tokens
+>   (colors, typography, spacing, elevation, motion, radii, shadows, etc.)
+> - Follow with free-form Markdown that describes the look & feel and
+>   captures design intent that token values alone cannot convey
+> - The file must be entirely self-contained — do not reference any
+>   files, variables, or paths from the codebase
+> - All token values must use valid YAML design token format
+>
+> ### Output structure:
+>
+> ```yaml
+> ---
+> name: [Brand Name]
+> colors:
+>   primary: "#hex"
+>   secondary: "#hex"
+>   surface: "#hex"
+>   on-surface: "#hex"
+>   accent: "#hex"
+>   error: "#hex"
+> typography:
+>   headline:
+>     fontFamily: [font]
+>     fontSize: [size]
+>     fontWeight: [weight]
+>   body-md:
+>     fontFamily: [font]
+>     fontSize: 16px
+>     fontWeight: 400
+>   label-sm:
+>     fontFamily: [font]
+>     fontSize: 12px
+>     fontWeight: 600
+> rounded:
+>   sm: [value]
+>   md: [value]
+>   lg: [value]
+> spacing:
+>   unit: 8px
+> components:
+>   button-primary:
+>     backgroundColor: "{colors.primary}"
+>     textColor: "#hex"
+>     rounded: "{rounded.md}"
+>   card:
+>     backgroundColor: "#hex"
+>     rounded: "{rounded.lg}"
+> ---
+>
+> # Design System
+>
+> ## Overview
+> [Brand personality, visual philosophy, mood]
+>
+> ## Colors
+> - **Primary** (#hex): [usage — CTAs, interactive elements]
+> - **Secondary** (#hex): [usage — supporting UI]
+> - **Surface** (#hex): [usage — backgrounds]
+> [etc.]
+>
+> ## Typography
+> - **Headlines**: [font, weight, sizes]
+> - **Body**: [font, weight, sizes]
+> - **Labels**: [font, weight, sizes]
+>
+> ## Components
+> - **Buttons**: [style, radius, colors]
+> - **Cards**: [style, elevation, borders]
+> [etc.]
+>
+> ## Do's and Don'ts
+> - Do [design guideline]
+> - Don't [anti-pattern]
+> ```
+
+**0.2.3 — Salvar e confirmar:**
+
+```
+entregas/{{CLIENTE}}/05-criativos-meta/design-system-{{CLIENTE}}.md
+```
+
+Confirmar ao usuário: `"Design system extraído e salvo. Tokens: [cores principais], [tipografia], [mood]. Posso prosseguir para os conceitos criativos?"`
+
+→ **PARAR e aguardar aprovação** antes de avançar para Etapa 1.
 
 ---
 
@@ -296,11 +453,12 @@ Cada conceito DEVE ter 3 variações para teste:
 - [ ] Sem promessas exageradas ou garantias absolutas
 - [ ] Visual e texto se complementam sem se repetir
 
-**Design System (se disponível):**
+**Design System (OBRIGATÓRIO — extraído ou fornecido):**
 
-- [ ] Paleta respeitada
-- [ ] Tipografia consistente
-- [ ] Mood alinhado
+- [ ] Design system existe (`design-system-{{CLIENTE}}.md`)
+- [ ] Paleta respeitada em todos os conceitos
+- [ ] Tipografia consistente com tokens
+- [ ] Mood alinhado com overview do design system
 
 **Testes de Qualidade:**
 
@@ -508,7 +666,7 @@ modern ad layout, professional typography hierarchy, 4:5 aspect ratio
 ## Notas Operacionais
 
 ```
-1. Nunca pular Etapa 0 — se design system existe, LER antes de criar
+1. Nunca pular Etapa 0 — SEM DESIGN SYSTEM = SLOP. Extrair de referências visuais se não existir
 2. Nunca pular Etapa 1 — briefing ruim → criativo ruim. Perguntar antes de criar
 3. Sempre gerar 10 conceitos com Creative Types diversos (mín. 6 tipos)
 4. Cada conceito NASCE com 3 variações A/B de hook — sem variação é achismo
