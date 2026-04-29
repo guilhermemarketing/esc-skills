@@ -133,8 +133,6 @@ Adicionalmente, salvar resumo do design system:
 ## Briefing Sintetizado
 [Extraído do ICP consolidado — máx 8 linhas]
 
-## Clichês Descartados
-> [3-5 visuais/abordagens comuns descartados]
 
 ## Insight Central
 > "[verdade humana — 1 frase]"
@@ -167,8 +165,6 @@ Adicionalmente, salvar resumo do design system:
 ## Briefing Sintetizado
 [Extraído do ICP consolidado — máx 8 linhas]
 
-## Clichês Descartados
-> [Inclui os já descartados em Meta Ads + novos]
 
 ## Insight Central
 > "[verdade humana — complementar ao insight de Meta Ads]"

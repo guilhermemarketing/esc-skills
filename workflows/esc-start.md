@@ -173,11 +173,11 @@ Executar a skill integralmente (Etapas 0-6). Se `design-system-{{CLIENTE}}.md` e
 
 **Input:** `icp-consolidado-{{CLIENTE}}.md` + `meta-ads-conceitos-{{CLIENTE}}.md`
 
-> O arquivo de Meta Ads é enviado como **referência de insights e clichês já descartados** — para que os criativos clássicos complementem (não repitam) os de Meta Ads.
+> O arquivo de Meta Ads é enviado como **referência de conceitos já criados** — para que os criativos clássicos complementem (não repitam) os ângulos e hooks já usados.
 
 **Output:** `criativos-classicos-{{CLIENTE}}.md`
 
-Executar a skill integralmente. Usar clichês já descartados em Meta Ads como anti-referência.
+Executar a skill integralmente. Usar conceitos de Meta Ads como referência para diversificar ângulos e formatos.
 
 **Checkpoint:** Aguardar aprovação do usuário.
 

@@ -1,4 +1,4 @@
-<!-- skill: guimkt-meta-ads | version: 3.1.0 | updated: 2026-04-29 -->
+<!-- skill: guimkt-meta-ads | version: 3.2.0 | updated: 2026-04-29 -->
 ---
 name: guimkt-meta-ads
 description: >
@@ -549,12 +549,6 @@ Consolidar todos os prompts em `prompts-imagens-{{CLIENTE}}.md`:
 
 ---
 
-## Anti-Clichê (simplificado)
-
-Antes de criar, listar 3-5 visuais que todo mundo no setor usa e descartá-los. Nenhum conceito pode usar clichês do setor como recurso principal (ex: dentista → sorriso perfeito, advogado → martelo de juiz, SaaS → dashboard com gráfico subindo). O clichê pode aparecer se for subvertido.
-
----
-
 ## Formato de Output
 
 ```markdown
@@ -578,8 +572,6 @@ Antes de criar, listar 3-5 visuais que todo mundo no setor usa e descartá-los. 
 - **Warm (MOF)**: [Creative Types planejados]
 - **Hot (BOF)**: [Creative Types planejados]
 
-## Clichês Descartados
-> [3-5 visuais do setor deliberadamente evitados]
 
 ---
 
