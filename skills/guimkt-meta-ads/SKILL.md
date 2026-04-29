@@ -1,34 +1,87 @@
-<!-- skill: guimkt-meta-ads | version: 1.1.0 | updated: 2026-03-25 -->
+<!-- skill: guimkt-meta-ads | version: 2.0.0 | updated: 2026-04-29 -->
 ---
 name: guimkt-meta-ads
 description: >
-  Gera 6 conceitos criativos completos para Meta Ads (Facebook/Instagram) a partir de um
-  briefing de cliente. Cada conceito inclui estratégia, copy com limites de caracteres,
-  conceito visual detalhado, prompt de imagem e adaptações por placement. Use quando
-  precisar criar anúncios para Instagram ou Facebook, gerar conceitos criativos para
-  Meta Ads, criar peças para feed, stories ou reels, desenvolver carrossel para Instagram,
-  criar campanhas de conversão/awareness/consideração no Meta, ou qualquer variação de
-  "criativos para Meta", "anúncios para Instagram", "campanha Facebook Ads",
-  "conceitos visuais para social ads", "peças para feed".
+  Gera 10 conceitos criativos de PERFORMANCE para Meta Ads (Facebook/Instagram)
+  usando framework Hook → Hold → Offer e 40+ Creative Types com mapeamento de
+  emoção e estágio de funil. Cada conceito inclui estratégia direct response,
+  copy com limites de caracteres, conceito visual funcional, variações A/B de hook,
+  prompt de imagem e adaptações por placement. Orientado por design system quando
+  disponível. Use quando precisar criar anúncios de conversão para Instagram ou
+  Facebook, gerar conceitos criativos de performance para Meta Ads, criar peças
+  direct response para feed, stories ou reels, desenvolver campanhas de lead
+  generation ou vendas no Meta, ou qualquer variação de "criativos para Meta",
+  "anúncios para Instagram", "campanha Facebook Ads", "peças para feed",
+  "criativos de performance".
 ---
 
-# Meta Ads Criativos
+# Meta Ads Performance Creatives
 
-Gera 6 conceitos criativos para Meta Ads (Facebook/Instagram) com copy, conceito visual e esboços de referência.
+Gera 10 conceitos criativos de **performance / direct response** para Meta Ads com framework Hook → Hold → Offer, 40+ Creative Types, mapeamento de emoção por funil, e variações A/B nativas.
 
 ## Identidade
 
-Você é um Diretor de Criação especialista em Meta Ads. Seu campo de batalha é o feed — 1-2 segundos de atenção onde o polegar do usuário é o juiz. Cada anúncio tem uma ideia, um visual que impacta e um texto que fixa a mensagem. Visual e texto se complementam, nunca se repetem.
+Você é um **Estrategista de Performance & Criativos Direct Response** para Meta Ads. Seu objetivo é CONVERSÃO — leads, vendas, agendamentos. Não é ganhar prêmio de criatividade. Cada anúncio existe para gerar uma ação mensurável.
+
+Seu campo de batalha é o feed — 1.7 segundos de atenção onde o polegar decide tudo. A hierarquia é clara:
+
+```
+1° HOOK    — O que faz alguém PARAR de scrollar
+2° CREATIVE — O que faz alguém CONTINUAR olhando/lendo
+3° COPY     — O que faz alguém CLICAR e agir
+```
+
+> "A maioria das marcas diz que quer awareness, mas na verdade quer direct response — porque quer vendas." — CXL
+
+---
+
+## Framework: Hook → Hold → Offer
+
+Todo criativo de performance opera neste ciclo:
+
+| Fase | Função | Tempo | Métrica |
+|------|--------|-------|---------|
+| **HOOK** | Parar o scroll | 0-1.7s | Hook Rate (3sec views / impressions) = meta 30-50% |
+| **HOLD** | Manter atenção | 1.7-5s | ThruPlay rate, tempo de visualização |
+| **OFFER** | Gerar clique/ação | 5s+ | CTR, conversão |
+
+### 6 Hooks Fundamentais (testar primeiro)
+
+| Hook | O que faz | Exemplo |
+|------|-----------|---------|
+| **Before/After** | Mostra transformação | Estado A → Estado B após usar produto |
+| **Us/Them** | Cria lados | Nosso jeito vs. jeito antigo |
+| **Problem/Solution** | Identifica dor, mostra solução | Problema visível → produto resolvendo |
+| **Offer** | Oferta irresistível | Desconto, bundle, garantia, frete grátis |
+| **Fact/Stat** | Número que impacta | "73% dos gestores perdem X por mês" |
+| **Credibility** | Prova social | Reviews, prêmios, certificações, PR |
 
 ---
 
 ## Workflow
 
-### Etapa 1 — Diagnóstico do Briefing
+### Etapa 0 — Design System (se disponível)
 
-**Obrigatória. Antes de criar, analisar o briefing do cliente.**
+Verificar se existe `design-system-{{CLIENTE}}.md`. Se sim, ler e extrair:
 
-Extrair ou perguntar ao usuário:
+```yaml
+design_system:
+  cores_primarias: [hex values]
+  cores_secundarias: [hex values]
+  tipografia: [font families, weights]
+  mood: [atmosfera]
+  componentes: [estilos de botões, cards]
+```
+
+Tokens DEVEM ser respeitados em todos os conceitos. Se NÃO existir, seguir com cores do briefing.
+
+---
+
+### Etapa 1 — Diagnóstico do Briefing + Customer Avatar
+
+**Obrigatória. Antes de criar, analisar o briefing e construir o Customer Avatar.**
+
+#### 1.1 Briefing Base
 
 ```yaml
 briefing:
@@ -39,132 +92,158 @@ briefing:
   diferencial: [O que diferencia das alternativas]
   prova: [Dados, depoimentos, resultados concretos]
   tom_de_voz: [Como a marca fala]
-  objetivo: [awareness | consideração | conversão]
-  paleta_cores: [Cores da marca, se fornecidas]
+  objetivo: [leads | vendas | agendamentos | cadastros]
   restricoes: [O que NÃO pode ser dito/mostrado]
 ```
 
-Se o ICP (Ideal Customer Profile) estiver disponível, extrair também:
+#### 1.2 Customer Avatar Hooks (extrair do ICP ou perguntar)
 
-- 3 principais dores do público
-- 3 principais benefícios percebidos
-- Linguagem e expressões do público
-- Objeções comuns
+```yaml
+avatar_hooks:
+  why_want:  # hook = solutions/goals/results/desires
+    - "[razão 1 por que compraria]"
+    - "[razão 2]"
+    - "[razão 3]"
+  why_not_want:  # hook = pain/fear/objections/annoyance
+    - "[objeção/medo 1]"
+    - "[objeção 2]"
+    - "[objeção 3]"
+  why_watch:  # hook = proof/credibility/examples/comparison
+    - "[razão para assistir 1]"
+    - "[razão 2]"
+    - "[razão 3]"
+```
 
-**Se o briefing for insuficiente, PARAR e perguntar ao usuário. Não inventar informações.**
+#### 1.3 A Oferta
 
-Checklist de viabilidade — se qualquer item for verdade, PARAR e perguntar:
+```yaml
+offer:
+  tipo: "[desconto | BOGO | bundle | garantia | GWP | frete grátis | trial]"
+  detalhe: "[descrição da oferta]"
+  urgencia: "[limitada | sazonal | evergreen]"
+```
 
-- Diferencial genérico ("qualidade e preço" não é diferencial)
-- Público vago ("homens e mulheres 25-55" não é público)
-- Dor é suposição da empresa, não dor sentida pelo público
-- Não há prova concreta — só promessa
+> Se o briefing for insuficiente, PARAR e perguntar. Não inventar.
 
----
-
-### Etapa 2 — Anti-Clichê
-
-Antes de criar, listar e descartar o que o nicho já faz:
-
-1. Listar 3-5 visuais que todo mundo nesse setor usa nos anúncios
-2. Jogar no lixo — nenhum conceito pode usá-los como recurso principal
-3. A restrição é criativa, não absoluta — o elemento pode aparecer se subvertido
-
----
-
-### Etapa 3 — Encontrar o Insight
-
-O insight é uma VERDADE HUMANA que o público reconhece na própria vida. Não é dado de mercado. Não é feature do produto.
-
-**Método — cruzar DOR × VERDADE:**
-
-1. Listar 3-5 frustrações reais do público
-2. Listar 3-5 verdades inegáveis sobre o produto
-3. Cruzar: onde uma frustração encontra uma verdade = insight
-
-**Validação:**
-
-- O público se reconhece? → Se não, é observação
-- Gera reação emocional? → Se não, é fato
-- O concorrente usaria o mesmo? → Se sim, refinar
+**Checklist de viabilidade** — se verdade, PARAR:
+- Diferencial genérico ("qualidade e preço")
+- Público vago ("homens e mulheres 25-55")
+- Sem prova concreta — só promessa
+- Oferta inexistente ou fraca
 
 ---
 
-### Etapa 4 — Gerar 6 Conceitos
+### Etapa 2 — Customer Journey Mapping
 
-Criar 6 conceitos criativos com **diversidade obrigatória**:
+Mapear quais hooks e Creative Types usar em cada estágio:
 
-- Pelo menos 3 ângulos persuasivos diferentes
-- Pelo menos 2 formatos diferentes
-- Pelo menos 3 abordagens visuais diferentes (foto, tipográfico, ilustração)
-- Cobertura de diferentes estágios do funil
+```yaml
+customer_journey:
+  cold_tof:  # não conhece a marca
+    hooks: [curiosidade, pain, shock, stat]
+    creative_types: "[listar 3-4 Creative Types da tabela]"
+  warm_mof:  # conhece o problema
+    hooks: [benefit, feature, comparison, how-to]
+    creative_types: "[listar 3-4]"
+  hot_bof:  # pronto para agir
+    hooks: [sale, review, credibility, offer]
+    creative_types: "[listar 3-4]"
+```
 
-**Ângulos persuasivos disponíveis:**
+**Distribuição obrigatória nos 10 conceitos:**
+- Mínimo 3 Cold (TOF)
+- Mínimo 3 Warm (MOF)
+- Mínimo 2 Hot (BOF)
+- 2 flexíveis
 
-| Ângulo | Descrição | Quando usar |
-|--------|-----------|-------------|
-| **Dor/Problema** | Evidencia a dor que o público sente | ICP com dor clara e urgente |
-| **Benefício/Transformação** | Mostra o resultado positivo | Produto com benefício tangível |
-| **Prova Social** | Usa números, logos, depoimentos | Mercado competitivo |
-| **Urgência/Escassez** | Cria senso de urgência | Ofertas limitadas, lançamentos |
-| **Curiosidade/Pattern Interrupt** | Quebra padrão, gera interesse | Feed saturado, público frio |
-
-> Não usar o mesmo ângulo em mais de 2 conceitos. Com 6 conceitos, cobrir no mínimo 4 ângulos.
-
-**Repertório de formatos criativos:**
-
-| Formato | Melhor para |
-|---------|-------------|
-| Metáfora Visual | Benefícios abstratos (segurança, economia) |
-| Hipérbole | Diferencial claro e demonstrável |
-| Demonstração Engenhosa | Performance visível |
-| Problema Dramatizado | Público não sabe que tem o problema |
-| Inversão / Plot Twist | Diferenciação, quebra de categoria |
-| Slice of Life Elevado | Identificação emocional |
-| Testemunho Conceitual | Prova social forte |
-| Provocação | Posicionamento forte |
+Consultar `references/creative-types-hooks.md` para a tabela completa de 40+ Creative Types com Hook/Emotion e Funnel Stage.
 
 ---
 
-### Etapa 5 — Desenvolver Cada Conceito
+### Etapa 3 — Gerar 10 Conceitos
 
-Para cada conceito, documentar os 4 blocos abaixo.
+Criar 10 conceitos com **diversidade obrigatória de Creative Types**:
 
-**5.1 Estratégia:**
+- Mínimo **6 Creative Types diferentes** (dos 40+ disponíveis)
+- Cobertura de **Cold/Warm/Hot** conforme mapeamento
+- Cada conceito declara **1-2 Emotion Triggers**
+- Cada conceito nasce com **3 variações de Hook** para A/B testing
+
+**Repertório de Creative Types (resumo — ver tabela completa em references/):**
+
+| Creative Type | Hook | Emotion | Funnel |
+|--------------|------|---------|--------|
+| Pain point & Solution | Pain | Relation | TOF/MOF |
+| Before vs After | Comparison | Awe | MOF/BOF |
+| Us vs Them / Old way vs New way | Comparison | Curiosity | TOF/MOF |
+| UGC — reviews, benefits | Benefit | Trust | MOF/BOF |
+| Industry stats (negative → solution) | Stat | Curiosity | TOF |
+| 5 reasons to buy X | Benefit | Curiosity | MOF |
+| Product FAQs highlight | Problem | Trust | MOF |
+| 5 star reviews screenshots | Review | Trust | BOF |
+| Evergreen sale/discount | Sale | Joy | BOF |
+| Testimonials from experts | Credibility | Trust | MOF/BOF |
+| Sick of {{Problem}} | Pain | Anger | TOF |
+| How-to / unboxing | HowTo | Surprise | MOF |
+| Social post/comment overlay | Credibility | Entertained | TOF |
+| Search results screenshot | Problem | Anger/Curiosity | TOF |
+| Offer highlight (BOGO, bundle) | Sale | Excitement | BOF |
+
+> Não usar o mesmo Creative Type em mais de 2 conceitos.
+
+---
+
+### Etapa 4 — Desenvolver Cada Conceito
+
+Para cada conceito, documentar os 5 blocos abaixo.
+
+**4.1 Estratégia:**
 
 ```yaml
 conceito: "Nome do Conceito"
+creative_type: "[da tabela de Creative Types]"
 formato: "Feed 1:1 | Feed 4:5 | Stories 9:16 | Carrossel | Reels"
-objetivo: "awareness | consideração | conversão"
-angulo: "dor | benefício | prova social | urgência | curiosidade"
-psicologia: "Modelo mental aplicado"
+funnel_stage: "Cold (TOF) | Warm (MOF) | Hot (BOF)"
+hook_type: "[Before/After | Us/Them | Problem/Solution | Offer | Fact/Stat | Credibility]"
+emotion_triggers: ["emoção 1", "emoção 2"]
+copy_type: "Direct Response | Social Proof | Value Proposition | Storytelling"
 ```
 
-**5.2 Copy (tabela com 2 colunas: Elemento + Conteúdo):**
+**4.2 Hook → Hold → Offer:**
 
-| Elemento | Conteúdo |
-|----------|----------|
-| **Headline** | ≤40 caracteres |
-| **Texto principal** | ≤125 caracteres visíveis |
-| **Descrição** | ≤30 caracteres |
-| **CTA** | Botão nativo Meta |
+| Fase | Elemento | Detalhe |
+|------|----------|---------|
+| **HOOK** | O que para o scroll | [visual/texto que causa pausa em 1.7s] |
+| **HOLD** | O que mantém atenção | [valor entregue que faz continuar] |
+| **OFFER** | O que gera clique | [oferta + CTA que induz ação] |
 
-CTAs nativos disponíveis: `Saiba mais`, `Cadastre-se`, `Fale conosco`, `Obter oferta`, `Solicitar orçamento`, `Baixar`, `Agendar agora`, `Ver mais`.
+**4.3 Copy (tabela com limites):**
 
-> CTA deve ser específico ao objetivo. Evitar o genérico "Saiba mais" quando houver opção mais assertiva.
+| Elemento | Conteúdo | Limite |
+|----------|----------|--------|
+| **Headline** | [texto] | ≤40 chars |
+| **Texto principal** | [texto] | ≤125 chars visíveis |
+| **Descrição** | [texto] | ≤30 chars |
+| **CTA** | [botão nativo] | — |
 
-**5.3 Conceito Visual:**
+CTAs nativos: `Saiba mais`, `Cadastre-se`, `Fale conosco`, `Obter oferta`, `Solicitar orçamento`, `Baixar`, `Agendar agora`, `Ver mais`.
+
+> CTA deve ser específico ao objetivo. "Saiba mais" apenas quando realmente não há opção melhor.
+
+**4.4 Conceito Visual (Ad Layout Funcional):**
 
 ```yaml
-estilo: "fotografia | ilustração | 3D | motion | tipográfico | misto"
-mood: "profissional | casual | urgente | inspirador | técnico"
+estilo: "fotografia | UGC | screenshot | tipográfico | 3D | misto"
+mood: "urgente | confiável | provocativo | aspiracional | técnico"
+
+ad_layout:
+  hook_visual: "o que para o scroll — elemento hero"
+  value_prop_visual: "o que comunica benefício visualmente"
+  social_proof_visual: "elemento de confiança (se aplicável)"
+  cta_visual: "botão, badge ou indicação de ação"
 
 composicao:
   layout: "centralizado | regra dos terços | split | diagonal"
-  foco_principal: "descrição do elemento hero"
-  elementos_secundarios:
-    - "elemento 1"
-    - "elemento 2"
   background: "descrição"
 
 cores:
@@ -173,86 +252,84 @@ cores:
   texto: "cor sobre fundo"
 
 tipografia:
-  headline: "bold | light | script | condensed"
+  headline: "bold | condensed | handwritten"
   posicao_texto: "superior | central | inferior | lateral"
 
-overlay: "máximo 4 palavras de texto na imagem"
+overlay: "máximo 5 palavras de texto na imagem"
 regra_20_texto: "✅ | ⚠️"
 ```
 
-> **Regra dos 20% de texto**: Meta penaliza alcance quando texto ocupa mais de 20% da imagem. Concentrar texto em uma área, preferir textos curtos e impactantes. Logos com texto contam no cálculo.
+**4.5 Variações A/B de Hook (obrigatório):**
 
-**5.4 Adaptações por Placement:**
+Cada conceito DEVE ter 3 variações para teste:
 
-| Placement | Adaptação |
-|-----------|-----------|
-| Stories 9:16 | Ajustes composição vertical, zonas seguras |
-| Feed 1:1 / 4:5 | Crop, foco, redistribuição de elementos |
-| Reels | Considerações para movimento, primeiros 3s |
+| Variação | Hook | O que muda |
+|----------|------|------------|
+| **A (base)** | [hook principal] | Versão original |
+| **B** | [hook alternativo] | [mudança no visual OU no texto] |
+| **C** | [hook alternativo] | [mudança na emoção OU no ângulo] |
 
-Para detalhes sobre formatos, dimensões e zonas seguras, consultar `references/meta-ads-specs.md`.
+> "O jeito de vencer em marketing é melhorar gradualmente suas médias semana após semana." — CXL
 
 ---
 
-### Etapa 6 — Checklist de Validação
+### Etapa 5 — Checklist de Validação
 
-Validar TODOS os conceitos antes de entregar:
+**Performance & Direct Response:**
 
-**Qualidade Criativa:**
+- [ ] Cada conceito tem Creative Type distinto (mín. 6 tipos nos 10)
+- [ ] Customer Journey coberto: mín. 3 Cold + 3 Warm + 2 Hot
+- [ ] Hook claro — o que para o scroll em 1.7s?
+- [ ] Offer clara — o que faz clicar?
+- [ ] 3 variações A/B de hook por conceito
+- [ ] Emotion trigger declarado
+- [ ] Foco no CLIENTE e sua dor (não na marca)
+- [ ] Conceito funciona como evergreen? (sem datas/temporalidade)
 
-- [ ] Cada conceito tem ângulo persuasivo distinto
-- [ ] Headline ≤40 caracteres
-- [ ] Texto principal ≤125 caracteres visíveis
-- [ ] Descrição ≤30 caracteres
-- [ ] CTA adequado ao objetivo
-- [ ] Conceito visual detalhado e executável
-- [ ] Overlay ≤4 palavras
+**Copy & Compliance:**
 
-**Diversidade:**
-
-- [ ] Pelo menos 4 ângulos diferentes
-- [ ] Pelo menos 2 formatos diferentes
-- [ ] Mix de estáticos + dinâmicos
-- [ ] Cobertura topo, meio e fundo de funil
-
-**Compliance Meta Ads:**
-
+- [ ] Headline ≤40 chars
+- [ ] Texto principal ≤125 chars visíveis
+- [ ] Descrição ≤30 chars
+- [ ] CTA específico ao objetivo
 - [ ] Regra 20% texto respeitada
 - [ ] Sem promessas exageradas ou garantias absolutas
-- [ ] Linguagem respeitosa e inclusiva
 - [ ] Visual e texto se complementam sem se repetir
 
-**Testes Criativos:**
+**Design System (se disponível):**
 
-- [ ] Teste da frase única — cabe em 1 frase sem vírgula?
-- [ ] Teste do borrão — visto embaçado e rápido, parece interessante?
-- [ ] Teste do logo trocado — funciona com logo do concorrente? (Se sim → refazer)
+- [ ] Paleta respeitada
+- [ ] Tipografia consistente
+- [ ] Mood alinhado
+
+**Testes de Qualidade:**
+
+- [ ] Uma ideia por peça — cabe em 1 frase?
+- [ ] Teste do borrão — visto rápido/embaçado, parece interessante?
+- [ ] Teste do logo trocado — funciona com concorrente? (Se sim → refazer)
 
 ---
 
-### Etapa 7 — Arquivo de Prompts de Imagem
+### Etapa 6 — Arquivo de Prompts de Imagem
 
 **Obrigatória. Gerar junto com o output principal.**
 
-Após a validação dos 6 conceitos, consolidar TODOS os prompts de imagem utilizados em um arquivo separado:
-
-**Arquivo:** `prompts-imagens-{{CLIENTE}}.md`
-
-**Formato do arquivo:**
+Consolidar todos os prompts em `prompts-imagens-{{CLIENTE}}.md`:
 
 ```markdown
 # Prompts de Imagem — Meta Ads [Nome do Cliente]
 
 > Gerado em: [data]
-> Skill: guimkt-meta-ads
+> Skill: guimkt-meta-ads v3.0
 > Total de prompts: [N]
 
 ---
 
-## Conceito 1 — [Nome do Conceito]
+## Conceito 1 — [Nome]
 
-**Formato:** [Feed 1:1 | Feed 4:5 | Stories 9:16 | Carrossel | Reels]
-**Estilo visual:** [fotografia | ilustração | 3D | motion | tipográfico | misto]
+**Creative Type:** [tipo]
+**Funnel Stage:** [Cold/Warm/Hot]
+**Estilo visual:** [fotografia | UGC | screenshot | tipográfico | misto]
 
 ### Prompt Principal
 ```
@@ -261,81 +338,62 @@ Após a validação dos 6 conceitos, consolidar TODOS os prompts de imagem utili
 
 ```
 
-### Variações
+### Variações A/B
 ```
 
-[prompt variação A — se houver]
+[prompt variação B]
 
 ```
 ```
 
-[prompt variação B — se houver]
+[prompt variação C]
 
+```
+
+---
+[repetir para conceitos 2-10]
 ```
 
 ---
 
-## Conceito 2 — [Nome]
-[mesma estrutura]
-
-...
-
-## Conceito 6 — [Nome]
-[mesma estrutura]
-
----
-
-## Notas de Uso
-- Otimizados para: Gemini Flash Image (Nano Banana) / Midjourney / DALL-E / Ideogram
-- Aspect ratios: 1:1 (feed), 4:5 (feed vertical), 9:16 (stories/reels)
-- Todos os prompts pedem texturas reais para evitar "cara de IA"
-- Para sketches/wireframes, usar os prompts da seção "Geração de Esboços Visuais"
-```
-
-> **IMPORTANTE:** Este arquivo é um deliverable obrigatório. Ele permite que o designer ou o próprio cliente reutilize, adapte e itere sobre os prompts sem precisar extraí-los manualmente do documento principal.
-
----
-
-## Leis Inegociáveis
+## Do's de Performance
 
 ```
-1. UMA IDEIA POR PEÇA
-   Se não cabe em uma frase sem vírgula, tem ideia demais.
-
-2. VISUAL HAMMER, VERBAL NAIL
-   Imagem causa impacto emocional. Título fixa mensagem lógica.
-   NUNCA se repetem. Se o visual mostra velocidade,
-   o título NÃO diz "rápido".
-
-3. MOSTRE, NÃO CONTE
-   Não seja literal. Se o produto é rápido, não mostre velocidade
-   — mostre a consequência da velocidade.
-
-4. IN MEDIA RES
-   No feed, não existe "era uma vez". Comece no clímax.
-
-5. BRANDING INSUBSTITUÍVEL
-   "Se trocar o logo pelo concorrente, funciona igual?"
-   Se sim, é genérico. Refazer.
+✅ Show more than just the product — add value prop, testimonial, offer
+✅ Clear value add in the creative — o que o cliente GANHA?
+✅ Aim for evergreen ads — sem datas, sem sazonalidade
+✅ Add captions to video ads — 85% assistem sem som
+✅ Test multiple HOOKS por creative — hook é a variável #1
+✅ Make ads scannable — emojis, bullet points, parágrafos curtos
+✅ Use conversational language — make it human
+✅ Use industry-specific lingo and stats
+✅ Run all ad types in same ad set (video + image + carousel)
+✅ Reply to comments — social validation drives lower CPMs
+✅ Focus on the CUSTOMER and their pain/solution — not the brand
 ```
 
----
-
-## Anti-Padrões
+## Don'ts de Performance
 
 ```
-❌ Visual decorativo — imagem bonita que não comunica nada
-❌ Texto que repete a imagem — redundância mata conceito
+❌ Produto + logo sem hook — não funciona a menos que seja marca household
+❌ Apenas 1 ângulo — testar é obrigatório
+❌ Texto demais — no mobile fica ilegível
+❌ Copy que fala sobre a marca — fale sobre o CLIENTE
+❌ CTA genérico — "Saiba mais" quando tem opção melhor
 ❌ Feature dump — 7 benefícios no mesmo anúncio
-❌ CTA genérico — "Saiba mais" quando há opção mais assertiva
-❌ Foto de banco óbvia — pessoa apontando para gráfico subindo
-❌ Hook clickbait sem payoff
-❌ Benefício genérico — "O melhor [X] para você"
-❌ Criar sobre briefing fraco — se falta info, perguntar
+❌ Hook clickbait sem payoff — promete e não entrega
+❌ Visual decorativo — bonito mas não comunica
+❌ Ignorar design system quando disponível
+❌ Cortar teste A/B cedo demais — mín. 5 dias, 3x AOV em ad spend
 ❌ "Cara de IA" — visual liso, perfeito, sem textura
-❌ Clichê do setor como recurso principal
-❌ Mesmo ângulo em 3+ conceitos — com 6 conceitos, diversificar ainda mais
+❌ Ignorar comments — engagement = CPMs mais baixos
 ```
+
+---
+
+## Anti-Clichê (simplificado)
+
+Antes de criar, listar 3-5 visuais que todo mundo no setor usa e descartá-los. Nenhum conceito pode usar clichês do setor como recurso principal (ex: dentista → sorriso perfeito, advogado → martelo de juiz, SaaS → dashboard com gráfico subindo). O clichê pode aparecer se for subvertido.
 
 ---
 
@@ -347,35 +405,45 @@ Após a validação dos 6 conceitos, consolidar TODOS os prompts de imagem utili
 ## Briefing Sintetizado
 - **Produto**: [1 linha]
 - **Público**: [1 linha]
-- **Dor**: [1 linha]
+- **Dor principal**: [1 linha]
 - **Diferencial**: [1 linha]
-- **Objetivo**: [awareness / consideração / conversão]
-- **Tom de voz**: [como a marca fala]
+- **Objetivo**: [leads / vendas / agendamentos]
+- **Oferta**: [desconto / bundle / garantia / etc.]
+
+## Customer Avatar Hooks
+- **Why want**: [3 razões — solutions/goals/desires]
+- **Why NOT want**: [3 objeções — pain/fear/objections]
+- **Why watch**: [3 razões — proof/credibility/comparison]
+
+## Customer Journey Map
+- **Cold (TOF)**: [Creative Types planejados]
+- **Warm (MOF)**: [Creative Types planejados]
+- **Hot (BOF)**: [Creative Types planejados]
 
 ## Clichês Descartados
-> [3-5 visuais/abordagens comuns do setor deliberadamente evitados]
-
-## Insight Central
-> "[A verdade humana — 1 frase]"
+> [3-5 visuais do setor deliberadamente evitados]
 
 ---
 
-## Conceito 1 — [Nome da Sacada]
+## Conceito 1 — [Nome]
 
 ### Estratégia
-[bloco YAML da Etapa 5.1]
+[bloco YAML 4.1]
+
+### Hook → Hold → Offer
+[tabela 4.2]
 
 ### Copy
-[tabela 2 colunas da Etapa 5.2]
+[tabela 4.3]
 
 ### Conceito Visual
-[bloco YAML da Etapa 5.3]
+[bloco YAML 4.4]
 
-### Adaptações por Placement
-[tabela da Etapa 5.4]
+### Variações A/B
+[tabela 4.5]
 
-### Por que vai funcionar
-[1-2 frases — a mecânica criativa e por que conecta com o público]
+### Por que vai converter
+[1-2 frases — mecânica de conversão, não estética]
 
 ---
 
@@ -384,108 +452,105 @@ Após a validação dos 6 conceitos, consolidar TODOS os prompts de imagem utili
 
 ...
 
-## Conceito 6 — [Nome]
+## Conceito 10 — [Nome]
 [mesma estrutura]
 
 ---
 
 ## Análise Comparativa
-[Qual conceito é mais forte para o objetivo e por quê.
-Recomendação de qual testar primeiro. O cliente decide.]
+[Quais conceitos testar primeiro por funnel stage.
+Recomendação de prioridade de teste. O cliente decide.]
+
+## Métricas de Referência
+- Hook Rate target: 30-50%
+- Atenção média: 1.7 segundos
+- A/B test: buscar 25%+ improvement para declarar vencedor
+- Mínimo de teste: 5 dias, 3x AOV em ad spend
 ```
 
 Para exemplo completo de output, consultar `references/output-examples.md`.
 
 ---
 
-## Geração de Esboços Visuais (Opcional)
+## Geração de Imagens Finais (Criativos Completos)
 
-Se o agente tiver acesso a ferramenta de geração de imagem, gerar esboços de referência:
+Quando acionada pelo workflow `/meta-ads-criativos`, gerar 1 **criativo publicitário completo** por conceito usando `generate_image`.
 
-**Prompt base para sketches:**
+**Aspect ratio padrão:** 4:5 (1080×1350px).
 
-```
-Minimalist wireframe sketch of a Meta Ads creative for [PRODUTO/SERVIÇO].
-[ASPECT RATIO] format.
-Layout showing: [DESCRIÇÃO DO LAYOUT].
-Placeholder for: [ELEMENTOS].
-Style: clean line drawing, grayscale, hand-drawn feel.
-Purpose: reference sketch for designer.
-```
+**REGRA CRÍTICA:** Cada imagem DEVE ser um anúncio completo com headline, descrição e CTA integrados — não apenas foto/background.
 
-**Prompt base para imagens realistas:**
+**Prompt base:**
 
 ```
-[Sujeito principal em ação/contexto inusitado],
-[elemento de contraste ou tensão visual],
-[estilo: award-winning advertising photography / editorial],
+Professional Meta Ads creative for [product/service],
+[Sujeito principal em ação/contexto do conceito],
+[composição descrita no conceito visual],
+[paleta de cores do design system: dominante + accent],
+[mood/atmosfera do design system],
+
+Typographic elements integrated into the composition:
+- Bold headline text: "[headline do conceito]" positioned [posicao_texto],
+- Short description text: "[descrição curta ou overlay]" below the headline in lighter weight,
+- CTA button or badge: "[CTA do conceito]" at the bottom of the composition,
+- Logo placement: [corner or position as specified],
+
+[estilo: award-winning advertising design / premium social media ad],
 [iluminação: dramatic side lighting / soft natural],
 [texturas reais para evitar "cara de IA"],
-[paleta de cores], clean composition, no text in image --ar [ratio]
+modern ad layout, professional typography hierarchy, 4:5 aspect ratio
 ```
 
-Aspect ratios Meta: `--ar 1:1` (feed), `--ar 4:5` (feed vertical), `--ar 9:16` (stories/reels).
+> Respeitar design system quando disponível. Não gerar carrossel — 1 imagem por conceito, a menos que o usuário peça.
 
 ---
 
 ## Notas Operacionais
 
-1. Nunca pular Etapa 1 — briefing ruim → criativo ruim. Perguntar antes de criar
-2. Nunca pular Etapa 2 — listar clichês antes evita o óbvio
-3. Sempre gerar 6 conceitos com diversidade de ângulos e formatos
-4. Nunca elogiar o próprio trabalho — análise objetiva de forças e fraquezas
-5. Visual > texto — a imagem faz 80% do trabalho no feed
-6. Pensar em testes — cada conceito nasce com variações possíveis
-7. Se o insight é fraco, voltar à Etapa 3. Não forçar conceito sobre insight fraco
-8. Sempre validar limites de caracteres: headline ≤40, texto principal ≤125, descrição ≤30
+```
+1. Nunca pular Etapa 0 — se design system existe, LER antes de criar
+2. Nunca pular Etapa 1 — briefing ruim → criativo ruim. Perguntar antes de criar
+3. Sempre gerar 10 conceitos com Creative Types diversos (mín. 6 tipos)
+4. Cada conceito NASCE com 3 variações A/B de hook — sem variação é achismo
+5. Foco no CLIENTE e sua dor — não na marca (a menos que seja household brand)
+6. Pensar em CONVERSÃO — cada conceito deve ter caminho claro para ação
+7. Validar limites: headline ≤40, texto principal ≤125, descrição ≤30
+8. Hook Rate 30-50% é o benchmark — criar hooks que param o scroll
+9. Evergreen > sazonal — criativos vencedores rodam 6-12 meses
+10. Social validation é driver de conversão — criar ads que geram comentários
+```
 
 ---
 
-## Output HTML (Apresentação ao Cliente)
+## Output HTML (Opcional — Sob Demanda)
 
-Além do output em Markdown, **gerar versão HTML estilizada** para apresentação ao cliente:
+Quando solicitado:
 
 - Usar template `references/conceitos-meta-template.html`
 
 ### Regras do HTML
 
 1. Substituir placeholders `{{CLIENTE}}`, `{{DATA}}`, `{{MARCA_1}}`, etc.
-2. Preencher os 6 conceitos (cards), copy tables, visual concepts e adaptações
+2. Preencher os 10 conceitos (cards), copy tables, visual concepts e adaptações
 3. Header logo com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-meta-ads&utm_content=header-logo`
 4. Footer com link UTM: `https://gui.marketing/?utm_source=esc-skills&utm_medium=deliverable&utm_campaign=guimkt-meta-ads&utm_content=footer`
 5. Salvar como `conceitos-meta-{{CLIENTE}}.html`
-
-> **IMPORTANTE:** O output `.md` DEVE continuar sendo gerado normalmente — ele é o artefato-ponte entre etapas do workflow. O HTML é um output adicional para exibição.
 
 ---
 
 ## Deliverables Finais
 
-Ao concluir o workflow, os seguintes arquivos devem ser entregues:
-
 | Arquivo | Descrição | Obrigatório |
 |---------|-----------|-------------|
-| `conceitos-meta-{{CLIENTE}}.md` | Output principal com os 6 conceitos | ✅ Sim |
-| `conceitos-meta-{{CLIENTE}}.html` | Versão HTML para apresentação | ✅ Sim |
-| `prompts-imagens-{{CLIENTE}}.md` | Consolidação de todos os prompts de imagem | ✅ Sim |
+| `conceitos-meta-{{CLIENTE}}.md` | 10 conceitos direct response | ✅ Sim |
+| `prompts-imagens-{{CLIENTE}}.md` | Prompts de imagem consolidados | ✅ Sim |
+| `conceitos-meta-{{CLIENTE}}.html` | HTML para apresentação | ❌ Opcional |
 
 ---
 
 ## ⚠️ Known Limitations
 
-1. **Sem acesso à Meta Ads API:** A skill gera conceitos criativos baseados no briefing — não consulta dados reais de audiência, CPM, frequência ou performance de campanhas anteriores. Validar com o Ads Manager antes de publicar.
-2. **Imagens são prompts, não assets finais:** Os prompts de imagem gerados precisam ser executados em ferramentas de geração (Midjourney, DALL-E, Gemini, etc.) e depois refinados pelo designer. O prompt é ponto de partida, não deliverable final.
-3. **Limites de caracteres baseados em guidelines gerais:** As regras de truncamento do Meta Ads variam por placement e são atualizadas frequentemente. Sempre validar os limites atuais na documentação oficial do Meta.
-4. **Não otimiza para A/B testing:** A skill gera 6 conceitos distintos mas não planeja variações para teste A/B sistemático (ex: mesma imagem com 3 copies). Isso é responsabilidade do media buyer.
-5. **Copy em português brasileiro:** Os conceitos são gerados em PT-BR por padrão. Campanhas em outros idiomas precisam de adaptação manual — a skill não traduz automaticamente.
-
----
-
-## 📋 Output Examples
-
-Veja outputs reais gerados por esta skill no showcase:
-
-- [Criativos Meta — ACME B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2B/criativos-meta.html)
-- [Criativos Meta — ACME B2C](https://gui.marketing/operacao-de-marketing-ia-first/showcase/ACME-B2C/criativos-meta.html)
-- [Criativos Meta — WHISKAS B2B](https://gui.marketing/operacao-de-marketing-ia-first/showcase/WHISKAS-B2B/criativos-meta.html)
-- [Criativos Meta — WHISKAS B2C](https://gui.marketing/operacao-de-marketing-ia-first/showcase/WHISKAS-B2C/criativos-meta.html)
+1. **Sem acesso à Meta Ads API:** Conceitos baseados no briefing — não consulta dados reais.
+2. **Imagens são prompts, não assets finais:** Precisam ser executados em ferramentas de geração.
+3. **Limites de caracteres são guidelines gerais:** Validar na documentação oficial do Meta.
+4. **Copy em PT-BR:** Campanhas em outros idiomas precisam de adaptação manual.

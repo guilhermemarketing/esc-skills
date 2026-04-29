@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0",
-  "updated_at": "2026-04-25",
+  "updated_at": "2026-04-29",
   "skills": {
     "3d-web-experience": {
       "version": "1.0.0",
@@ -273,10 +273,10 @@
       "breaking": false
     },
     "guimkt-meta-ads": {
-      "version": "1.1.0",
+      "version": "2.0.0",
       "path": "skills/guimkt-meta-ads/SKILL.md",
-      "hash": "e684656c2cca2dccbb0f28c6acbe54e34520c4af39047e14d990279ecef3a5dd",
-      "breaking": false
+      "hash": "295770f5e59a4a06e70ce77de110377dc604a419cf11ed1a1f9cf9925fd2205d",
+      "breaking": true
     },
     "guimkt-nano-banana-prompts": {
       "version": "1.0.0",
