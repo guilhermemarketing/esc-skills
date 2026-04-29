@@ -75,7 +75,7 @@ graph TD
     PSY["💡 marketing-psychology<br/><i>70+ mental models & cognitive biases</i>"]
 
     ICP -->|feeds| GA["📊 guimkt-google-ads<br/><i>Keywords → Negatives → RSA</i>"]
-    ICP -->|feeds| MA["📱 guimkt-meta-ads<br/><i>6 creative concepts</i>"]
+    ICP -->|feeds| MA["📱 guimkt-meta-ads<br/><i>10 performance creatives</i>"]
     ICP -->|feeds| CAC["🎨 guimkt-classic-advertising-creative<br/><i>Classic ad principles for feed</i>"]
     ICP -->|feeds| WF["📐 guimkt-wireframe-landing-page<br/><i>Wireframe-Table + Sketch</i>"]
     ICP -->|feeds| LP["✨ guimkt-landing-page<br/><i>Premium HTML with effects</i>"]
@@ -259,7 +259,7 @@ flowchart LR
 | **2. Google Ads** | `guimkt-google-ads` (Phases 2-4) | ICP | `google-ads-consolidado-{{CLIENT}}.md` |
 | **3. Wireframe** | `guimkt-wireframe-landing-page` | ICP (+ Message Mining) | `wireframe-tabela-{{CLIENT}}.md` |
 | **4. Landing Page** | `guimkt-landing-page` (Phase 2) | ICP + Wireframe | `landing-page-{{CLIENT}}.html` |
-| **5. Meta Ads** | `guimkt-meta-ads` | ICP | `meta-ads-conceitos-{{CLIENT}}.md` |
+| **5. Meta Ads** | `guimkt-meta-ads` | ICP + Design System | `meta-ads-conceitos-{{CLIENT}}.md` + `prompts-imagens-{{CLIENT}}.md` |
 | **6. Creatives** | `guimkt-classic-advertising-creative` | ICP + Meta Ads | `criativos-classicos-{{CLIENT}}.md` |
 | **7. Measurement Plan** | `guimkt-measurement-plan-architect` | ICP + LP | `measurement-plan-{{CLIENT}}.md` |
 | **8. Conversion QA** | `guimkt-conversion-qa-auditor` | LP + Measurement Plan | `conversion-qa-{{CLIENT}}.md` |
@@ -297,7 +297,7 @@ flowchart LR
 | **guimkt-landing-page** | Full premium landing pages for lead generation (SQL) in 2 phases: Wireframe-Table (copywriting frameworks) + Premium HTML with liquid glass, micro-animations and scroll effects |
 | **guimkt-landing-page-optimization** | Landing Page Optimization — audits, copy frameworks (AIDA, PAS, FAB, BAB), conversion formula C=4m+3v+2(i-f)-2a |
 | **guimkt-make-blueprint-expert** | Create, debug, and optimize Make.com scenario blueprints via JSON |
-| **guimkt-meta-ads** | 6 complete creative concepts for Meta Ads (Facebook/Instagram) — strategy, copy, visual concept, image prompt and placement adaptations |
+| **guimkt-meta-ads** | 10 performance / direct response creative concepts for Meta Ads (Facebook/Instagram) — Hook → Hold → Offer framework, 40+ Creative Types, A/B hook variations, funnel mapping |
 | **guimkt-hero-videos** | Premium hero sections with background video and AI video prompt generation. Two modules: hero-pages-videobg (HTML/CSS code) + video-for-hero-pages (video prompt for Runway, Sora, Kling) |
 | **guimkt-threads-mcp-skill** | Maintain and operate the Threads MCP Server — token renewal, troubleshooting, tool usage, scheduling, and configuration across AI agents |
 | **guimkt-threads-viral-content** | Viral content for Threads (Meta) with proven templates (307+ viral posts analyzed) and ethical guidelines. Threads, posts, one-liners, listicles, provocations |
@@ -365,7 +365,7 @@ flowchart LR
 | **guimkt-linkedin-autoreply** | LinkedIn automated reply workflows for lead nurturing and engagement |
 | **guimkt-make-blueprint-expert** | Create, debug, and optimize Make.com blueprints via JSON |
 | **guimkt-measurement-plan-architect** | Complete measurement plan: tracking architecture, GA4 taxonomy, dataLayer schema, GTM web + server-side, offline conversions, enhanced conversions, consent mode v2, WhatsApp-first scenarios |
-| **guimkt-meta-ads** | 6 complete creative concepts for Meta Ads (Facebook/Instagram) — strategy, copy, visual concept, image prompt |
+| **guimkt-meta-ads** | 10 performance / direct response creative concepts for Meta Ads — Hook → Hold → Offer, 40+ Creative Types, A/B variations |
 | **guimkt-nano-banana-prompts** | 874+ curated image generation prompts across 17 categories. Supports Midjourney, DALL-E, Gemini, Flux, Stable Diffusion |
 | **guimkt-offer-diagnosis** | Guard-rail that analyzes offer strength before generating assets. 8 dimensions, verdict system, MECLABS-based |
 | **guimkt-sales-page-message-mining** | Voice of Customer extraction from reviews, Reddit, calls, transcripts, CRM. Produces Pain Map, Objection Map, Swipe File, Language Map |
@@ -575,7 +575,7 @@ graph TD
     PSY["💡 marketing-psychology<br/><i>70+ modelos mentais e vieses cognitivos</i>"]
 
     ICP -->|alimenta| GA["📊 guimkt-google-ads<br/><i>Keywords → Negativas → RSA</i>"]
-    ICP -->|alimenta| MA["📱 guimkt-meta-ads<br/><i>6 conceitos criativos</i>"]
+    ICP -->|alimenta| MA["📱 guimkt-meta-ads<br/><i>10 criativos de performance</i>"]
     ICP -->|alimenta| CAC["🎨 guimkt-classic-advertising-creative<br/><i>Publicidade clássica para feed</i>"]
     ICP -->|alimenta| WF["📐 guimkt-wireframe-landing-page<br/><i>Wireframe-Tabela + Sketch</i>"]
     ICP -->|alimenta| LP["✨ guimkt-landing-page<br/><i>HTML premium com efeitos</i>"]
@@ -757,7 +757,7 @@ flowchart LR
 | **2. Google Ads** | `guimkt-google-ads` (Fases 2-4) | ICP | `google-ads-consolidado-{{CLIENTE}}.md` |
 | **3. Wireframe** | `guimkt-wireframe-landing-page` | ICP (+ Message Mining) | `wireframe-tabela-{{CLIENTE}}.md` |
 | **4. Landing Page** | `guimkt-landing-page` (Fase 2) | ICP + Wireframe | `landing-page-{{CLIENTE}}.html` |
-| **5. Meta Ads** | `guimkt-meta-ads` | ICP | `meta-ads-conceitos-{{CLIENTE}}.md` |
+| **5. Meta Ads** | `guimkt-meta-ads` | ICP + Design System | `meta-ads-conceitos-{{CLIENTE}}.md` + `prompts-imagens-{{CLIENTE}}.md` |
 | **6. Criativos** | `guimkt-classic-advertising-creative` | ICP + Meta Ads | `criativos-classicos-{{CLIENTE}}.md` |
 | **7. Measurement Plan** | `guimkt-measurement-plan-architect` | ICP + LP | `measurement-plan-{{CLIENTE}}.md` |
 | **8. Conversion QA** | `guimkt-conversion-qa-auditor` | LP + Measurement Plan | `conversion-qa-{{CLIENTE}}.md` |
@@ -794,7 +794,7 @@ flowchart LR
 | **guimkt-landing-page** | Landing pages premium completas para geração de leads (SQL) em 2 fases: Wireframe-Tabela (frameworks de copywriting) + HTML premium com liquid glass, micro-animations e scroll effects |
 | **guimkt-landing-page-optimization** | Landing Page Optimization — auditorias, frameworks de copy (AIDA, PAS, FAB, BAB), fórmula de conversão C=4m+3v+2(i-f)-2a |
 | **guimkt-make-blueprint-expert** | Criar, debugar e otimizar blueprints de cenários Make.com via JSON |
-| **guimkt-meta-ads** | 6 conceitos criativos completos para Meta Ads (Facebook/Instagram) — estratégia, copy, conceito visual, prompt de imagem e adaptações por placement |
+| **guimkt-meta-ads** | 10 conceitos criativos de performance / direct response para Meta Ads (Facebook/Instagram) — framework Hook → Hold → Offer, 40+ Creative Types, variações A/B de hook, mapeamento de funil |
 | **guimkt-hero-videos** | Hero sections premium com vídeo no background e geração de prompts de vídeo por IA. Dois módulos: hero-pages-videobg (código HTML/CSS) + video-for-hero-pages (prompt de vídeo para Runway, Sora, Kling) |
 | **guimkt-threads-mcp-skill** | Manutenção e operação do Threads MCP Server — renovação de token, troubleshooting, scheduling, configuração em agentes AI |
 | **guimkt-threads-viral-content** | Conteúdo viral ético para Threads (Meta) com templates comprovados (307+ posts virais analisados) e diretrizes éticas. Threads, posts, one-liners, listicles, provocações |
@@ -862,7 +862,7 @@ flowchart LR
 | **guimkt-linkedin-autoreply** | Workflows de resposta automatizada no LinkedIn para nutrição de leads e engajamento |
 | **guimkt-make-blueprint-expert** | Criar, debugar e otimizar blueprints Make.com via JSON |
 | **guimkt-measurement-plan-architect** | Plano completo de mensuração: arquitetura de tracking, taxonomia GA4, dataLayer schema, GTM web + server-side, offline conversions, enhanced conversions, consent mode v2, cenários WhatsApp-first |
-| **guimkt-meta-ads** | 6 conceitos criativos completos para Meta Ads (Facebook/Instagram) — estratégia, copy, conceito visual, prompt de imagem |
+| **guimkt-meta-ads** | 10 conceitos criativos de performance / direct response para Meta Ads — Hook → Hold → Offer, 40+ Creative Types, variações A/B |
 | **guimkt-nano-banana-prompts** | 874+ prompts curados para geração de imagens em 17 categorias. Suporta Midjourney, DALL-E, Gemini, Flux, Stable Diffusion |
 | **guimkt-offer-diagnosis** | Guard-rail que analisa força da oferta antes de gerar ativos. 8 dimensões, sistema de vereditos, baseado em MECLABS |
 | **guimkt-sales-page-message-mining** | Extração de Voice of Customer a partir de reviews, Reddit, calls, transcrições, CRM. Produz Mapa de Dores, Mapa de Objeções, Swipe File, Mapa de Linguagem |
