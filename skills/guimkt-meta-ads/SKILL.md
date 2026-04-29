@@ -1,4 +1,4 @@
-<!-- skill: guimkt-meta-ads | version: 3.2.0 | updated: 2026-04-29 -->
+<!-- skill: guimkt-meta-ads | version: 3.3.0 | updated: 2026-04-29 -->
 ---
 name: guimkt-meta-ads
 description: >
@@ -374,18 +374,83 @@ copy_type: "Direct Response | Social Proof | Value Proposition | Storytelling"
 | **HOLD** | O que mantém atenção | [valor entregue que faz continuar] |
 | **OFFER** | O que gera clique | [oferta + CTA que induz ação] |
 
-**4.3 Copy (tabela com limites):**
+**4.3 Copy (tabela com limites + texto-legenda):**
 
 | Elemento | Conteúdo | Limite |
 |----------|----------|--------|
 | **Headline** | [texto] | ≤40 chars |
-| **Texto principal** | [texto] | ≤125 chars visíveis |
-| **Descrição** | [texto] | ≤30 chars |
+| **Texto-legenda** | [body copy completo — ver regras abaixo] | 400-600 chars |
+| **Texto principal** | [preview — primeiras 2 linhas do texto-legenda] | ≤125 chars visíveis |
+| **Descrição** | [micro-copy de reforço] | ≤30 chars |
 | **CTA** | [botão nativo] | — |
 
 CTAs nativos: `Saiba mais`, `Cadastre-se`, `Fale conosco`, `Obter oferta`, `Solicitar orçamento`, `Baixar`, `Agendar agora`, `Ver mais`.
 
 > CTA deve ser específico ao objetivo. "Saiba mais" apenas quando realmente não há opção melhor.
+
+#### Regras do Texto-legenda (Campo Principal — CXL Framework)
+
+O texto-legenda é o body copy completo que acompanha a imagem no feed. É a TERCEIRA prioridade (depois de Hook e Creative), mas é o que faz alguém CLICAR. Deve ser escrito como um copywriter de direct response, não como um redator institucional.
+
+**Estrutura obrigatória (3 blocos):**
+
+```
+ABERTURA (Hook textual)  → 1-2 linhas que espelham a emoção do hook visual
+                            Deve funcionar como as primeiras 125 chars visíveis (preview)
+                            Se o preview não gera curiosidade → ninguém clica em "ver mais"
+
+CORPO (Hold textual)     → Entrega valor real: dados, proof, lista de benefícios/dores
+                            Formato scannable: bullet points, emojis, numeração, espaçamento
+                            Cada linha deve ter UMA ideia — não parágrafos longos
+
+CTA (Offer textual)      → Transição clara para ação com ↳ ou →
+                            Reforça a oferta e reduz risco percebido
+                            Alinha com o botão CTA nativo
+```
+
+**5 Copy Triggers (escolher 1-2 por conceito, alinhados com emotion_triggers):**
+
+| Trigger | Quando usar | Exemplo de abertura |
+|---------|-------------|---------------------|
+| **Emoção** | Público frustrado, esperançoso ou com medo | "Cansado de [dor]? Não é só você." |
+| **Dor/Problema** | Problema reconhecível pelo avatar | "Seu [X] tá [sintoma]? O problema não é [óbvio]." |
+| **Benefício/Solução** | Produto resolve algo específico | "[Resultado concreto] — com [mecanismo diferente]." |
+| **Fato/Estatística** | Dado impactante do setor | "[número]% das empresas [dado chocante]." |
+| **Prova/Credibilidade** | Depoimento, case, certificação | "★★★★★ '[quote real do cliente]'" |
+
+**Regras de Formatação (inegociáveis):**
+
+```
+✅ Parágrafos curtos — máximo 2 linhas por bloco
+✅ Espaçamento entre blocos — quebra de linha dupla (visual de respiração)
+✅ Emojis como marcadores — 👇 🔴 ✅ ↳ → ① ② ③ 📦 📉 📈 💰 ⚠️ 🔬
+✅ Bullet points ou listas numeradas para features/benefícios/dores
+✅ Números concretos > adjetivos vagos ("47 dias → 90 dias" > "aumento significativo")
+✅ Linguagem conversacional — "tá", "pra", "a gente" (PT-BR falado, não formal)
+✅ Industry-specific lingo — usar termos que o avatar reconhece
+✅ Pergunta retórica antes do CTA — engaja e cria micro-compromisso
+```
+
+**Anti-patterns de Copy (NUNCA fazer):**
+
+```
+❌ Copy institucional — "A [Marca] é líder em [setor] com X anos de experiência"
+❌ Feature dump — listar 7 benefícios sem hierarquia
+❌ Fluff — "soluções inovadoras", "excelência em qualidade", "compromisso com resultados"
+❌ Copy genérica — se trocar o nome da marca e funcionar igual, está genérica
+❌ Falar sobre a marca — fale sobre o CLIENTE e a DOR dele
+❌ Parágrafos de 5+ linhas — no mobile vira muro de texto
+❌ Abertura fraca — as 2 primeiras linhas (preview) DEVEM gerar curiosidade
+❌ CTA vago — "Entre em contato" sem motivo claro
+❌ Cara de IA — frases perfeitas demais, estrutura previsível, zero personalidade
+```
+
+**Texto-legenda vs. Texto principal (clarificação):**
+
+- **Texto-legenda** = body copy COMPLETO (400-600 chars). É o que aparece quando o usuário clica "ver mais"
+- **Texto principal** = as primeiras ~125 chars do texto-legenda (preview visível sem clicar)
+- O preview (Texto principal) deve funcionar como um **segundo hook** — se não gera curiosidade, o copy inteiro falha
+- A Descrição (≤30 chars) é micro-copy de reforço que aparece abaixo do link. Deve ecoar a oferta ou o CTA
 
 **4.4 Conceito Visual (Ad Layout Funcional):**
 
@@ -446,10 +511,17 @@ Cada conceito DEVE ter 3 variações para teste:
 **Copy & Compliance:**
 
 - [ ] Headline ≤40 chars
-- [ ] Texto principal ≤125 chars visíveis
-- [ ] Descrição ≤30 chars
+- [ ] Texto-legenda 400-600 chars com estrutura Abertura → Corpo → CTA
+- [ ] Texto principal (preview) = primeiras ~125 chars do texto-legenda — gera curiosidade?
+- [ ] Descrição ≤30 chars — ecoa a oferta ou CTA
 - [ ] CTA específico ao objetivo
-- [ ] Regra 20% texto respeitada
+- [ ] Abertura espelha o emotion trigger do hook visual
+- [ ] Corpo tem formato scannable (emojis, bullets, espaçamento)
+- [ ] Linguagem conversacional — soa humano, não institucional
+- [ ] Números concretos no lugar de adjetivos vagos
+- [ ] Zero fluff ("soluções inovadoras", "compromisso com resultados")
+- [ ] Foco no CLIENTE e DOR — não na marca
+- [ ] Regra 20% texto respeitada (criativo visual)
 - [ ] Sem promessas exageradas ou garantias absolutas
 - [ ] Visual e texto se complementam sem se repetir
 
