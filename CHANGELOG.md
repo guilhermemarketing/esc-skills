@@ -5,6 +5,31 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/). Skills segue
 
 ---
 
+## [2.3.0] - 2026-04-29
+
+### guimkt-meta-ads v3.1.0 — Design System Extraction + Performance Refactor
+
+- **Atualizado:** `guimkt-meta-ads` — **v2.0.0 → v3.1.0**
+  - v3.0.0: Performance / Direct Response Refactor (Hook → Hold → Offer framework, 40+ Creative Types, emotion triggers, A/B variations)
+  - v3.1.0: Mandatory Design System Extraction Pipeline (Etapa 0 rewritten — 2-phase visual reference collection + DESIGN.md output in Google design.md spec format)
+- **Atualizado:** `references/meta-ads-specs.md` — enriched with CXL benchmarks (hook rate 30-50%, A/B threshold 25%, CPM mechanics, ad set composition)
+- **Tipo:** MINOR
+- **Impacto em agentes:** Meta Ads skill now requires design system (extracted or provided) before generating concepts. Without it = SLOP
+
+### Workflow Optimization — Thin Orchestrator Pattern
+
+- **Atualizado:** All 4 pipelines rewritten as thin orchestrators — delegate 100% of creative/analytical logic to skills, keep only pipeline-level content (handoff, conditions, dependency maps, cadence, operational notes)
+  - `/esc-meta-ads-creatives`: 281 → 109 lines (-61%)
+  - `/esc-start`: 369 → 269 lines (-27%)
+  - `/esc-report`: 419 → 304 lines (-27%)
+  - `/esc-cro`: 310 → 215 lines (-31%)
+- **Total savings:** 1,379 → 897 lines (-35%, ~4.8K tokens per invocation)
+- **Tipo:** Refactor (no behavioral change)
+- **Impacto em agentes:** Workflows consume fewer tokens. Skill logic unchanged. All pipeline-level rules (skip conditions, dependency maps, checkpoints) preserved
+- **Migração necessária:** Não
+
+---
+
 ## [2.2.0] - 2026-04-25
 
 ### Q3 Sprint 1 — Pipeline v3 (11 etapas) + 2 Skills Estratégicas
