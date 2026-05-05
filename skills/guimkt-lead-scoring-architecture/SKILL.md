@@ -1,4 +1,3 @@
-<!-- skill: guimkt-lead-scoring-architecture | version: 1.1.0 | updated: 2026-04-25 -->
 ---
 name: guimkt-lead-scoring-architecture
 description: >
@@ -13,6 +12,8 @@ description: >
   conversion value schema, integração CRM com ads, calibração de scoring, ou qualquer variação
   de "como qualificar leads", "scoring de leads", "lifecycle stages", "MQL vs SQL",
   "lead scoring architecture", "routing de leads", "value-based bidding setup".
+version: "1.1.0"
+updated: "2026-04-25"
 ---
 
 # Lead Scoring Architecture

@@ -1,4 +1,3 @@
-<!-- skill: guimkt-classic-advertising-creative | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-classic-advertising-creative
 description: >
@@ -16,6 +15,8 @@ metadata:
   updated: 2025-02-12
   output-formats: markdown, image-prompts, storyboards, carousel-scripts
   platforms: Meta-Ads, Google-Ads, TikTok-Ads, YouTube-Ads, LinkedIn-Ads
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Classic Ad Creative — Final

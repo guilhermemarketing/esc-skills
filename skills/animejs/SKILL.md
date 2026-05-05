@@ -1,4 +1,3 @@
-<!-- skill: animejs | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: animejs
 description: |
@@ -8,6 +7,8 @@ description: |
   JavaScript-based animation on the web. Triggers on: "anime.js", "animejs", "animate elements", 
   "CSS animation with JS", "timeline animation", "stagger animation", "SVG morphing", 
   "motion path", "scroll animation", "draggable", "spring animation", "keyframe animation".
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Anime.js v4 Skill

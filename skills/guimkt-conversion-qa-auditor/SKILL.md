@@ -1,4 +1,3 @@
-<!-- skill: guimkt-conversion-qa-auditor | version: 1.2.0 | updated: 2026-04-25 -->
 ---
 name: guimkt-conversion-qa-auditor
 description: >
@@ -15,6 +14,8 @@ description: >
   tags", "auditoria de conversão", "validar implementação", "conversion QA", "tag audit",
   "verificar se as tags estão disparando", "debug de tracking", "QA de WhatsApp",
   "CTWA tracking funciona?", "referral chegando no CRM?".
+version: "1.2.0"
+updated: "2026-04-25"
 ---
 
 # Conversion QA Auditor

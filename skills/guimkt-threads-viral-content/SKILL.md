@@ -1,4 +1,3 @@
-<!-- skill: guimkt-threads-viral-content | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-threads-viral-content
 description: >
@@ -11,6 +10,8 @@ metadata:
   updated: 2026-03-11
   output-formats: markdown, plain-text
   platforms: Threads (Meta), compatível com X/Twitter
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Skill: Threads Viral Content — Conteúdo Viral Ético para Threads

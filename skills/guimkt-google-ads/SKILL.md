@@ -1,4 +1,3 @@
-<!-- skill: guimkt-google-ads | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-google-ads
 description: >
@@ -11,6 +10,8 @@ description: >
   "search ads", "keywords Google", "anúncios responsivos", "negativar palavras-chave",
   "ICP para tráfego pago", "gerar leads com Google", "campanha de busca".
   Suporta múltiplas marcas por cliente.
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # guimkt-google-ads

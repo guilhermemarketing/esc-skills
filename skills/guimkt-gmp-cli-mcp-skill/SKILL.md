@@ -1,7 +1,8 @@
-<!-- skill: guimkt-gmp-cli-mcp-skill | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-gmp-cli-mcp-skill
 description: Operate the gmp-cli (Google Marketing Platform CLI) installed at ~/mcp-servers/gmp-cli/. Covers GA4 analytics, Google Search Console, Google Ads, and Google Tag Manager via terminal commands. Includes authentication setup, GAQL queries, report generation, output formatting, and agent best practices. Use when the user mentions "gmp-cli", "gmp ga", "gmp gsc", "gmp ads", "gmp gtm", "Google Marketing Platform CLI", "relatório GA4 via CLI", "search console report", "Google Ads CLI", "campaign performance", "keyword report", "search terms", "GTM tags", "GAQL query", or any operation involving the gmp command-line tool.
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # GMP-CLI — Google Marketing Platform CLI

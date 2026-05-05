@@ -1,10 +1,11 @@
-<!-- skill: sentry | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: sentry
 description: Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry API; perform read-only queries with the bundled script and require `SENTRY_AUTH_TOKEN`.
 metadata:
   author: github.com/openai/skills
   version: '1.0.0'
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Sentry (Read-only Observability)

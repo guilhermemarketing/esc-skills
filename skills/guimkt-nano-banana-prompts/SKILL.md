@@ -1,4 +1,3 @@
-<!-- skill: guimkt-nano-banana-prompts | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-nano-banana-prompts
 description: >
@@ -12,6 +11,8 @@ description: >
   pôsteres cinematográficos, ou qualquer variação de "gerar imagem", "prompt de imagem",
   "criar visual", "foto de produto IA", "image generation prompts", "creative assets",
   "product shots", "nano banana prompts", "AI image prompts".
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Nano Banana Prompts — Biblioteca de Image Generation

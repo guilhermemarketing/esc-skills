@@ -1,13 +1,16 @@
 #!/bin/bash
 # ─────────────────────────────────────────────────
 # esc-skills installer & updater
-# Install or update all skills in the current project
+# Install or update all skills in the current project or globally for Codex
 #
 # Usage:
 #   curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash
-#   bash install.sh              # Install (first time)
-#   bash install.sh update       # Update existing skills
+#   bash install.sh              # Install in .agent/skills/ (first time)
+#   bash install.sh update       # Update existing skills in .agent/skills/
 #   bash install.sh check        # Check for updates (no changes)
+#   bash install.sh --codex      # Install globally for Codex app (~/.codex/skills/)
+#   bash install.sh --codex update  # Update Codex skills (per-skill rsync --delete)
+#   bash install.sh --codex check   # Check for Codex skill updates
 # ─────────────────────────────────────────────────
 
 set -e
@@ -15,8 +18,6 @@ set -e
 REPO="https://github.com/guilhermemarketing/esc-skills.git"
 RAW_BASE="https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main"
 TMP_DIR="/tmp/esc-skills-$$"
-SKILLS_DIR=".agent/skills"
-MODE="${1:-install}"
 
 # Colors
 RED='\033[0;31m'
@@ -26,18 +27,36 @@ CYAN='\033[0;36m'
 BOLD='\033[1m'
 NC='\033[0m'
 
-echo ""
-echo -e "${BOLD}🧠 esc-skills${NC} — AI Marketing Skills for Agents"
-echo "──────────────────────────────────────────"
+# ─── Parse Arguments ─────────────────────────────────────────
+CODEX_MODE=false
+MODE="install"
 
-# Detect agent skills directory
-if [ -d ".cursor/skills" ]; then
+for arg in "$@"; do
+  case "$arg" in
+    --codex) CODEX_MODE=true ;;
+    install|update|check) MODE="$arg" ;;
+  esac
+done
+
+# ─── Determine Skills Directory ──────────────────────────────
+if [ "$CODEX_MODE" = true ]; then
+  SKILLS_DIR="$HOME/.codex/skills"
+elif [ -d ".cursor/skills" ]; then
   SKILLS_DIR=".cursor/skills"
 elif [ -d ".agent/skills" ]; then
   SKILLS_DIR=".agent/skills"
+else
+  SKILLS_DIR=".agent/skills"
 fi
 
-# ─── Check Mode ──────────────────────────────────────────
+echo ""
+echo -e "${BOLD}🧠 esc-skills${NC} — AI Marketing Skills for Agents"
+echo "──────────────────────────────────────────"
+if [ "$CODEX_MODE" = true ]; then
+  echo -e "🎯 Mode: ${CYAN}Codex (global)${NC}"
+fi
+
+# ─── Check Mode ──────────────────────────────────────────────
 
 if [ "$MODE" = "check" ]; then
   echo -e "${CYAN}🔍 Checking for updates...${NC}"
@@ -49,9 +68,14 @@ if [ "$MODE" = "check" ]; then
     exit 1
   fi
 
-  LOCAL_MANIFEST="$SKILLS_DIR/../manifest.json"
+  # Find local manifest
+  if [ "$CODEX_MODE" = true ]; then
+    LOCAL_MANIFEST="$SKILLS_DIR/manifest.json"
+  else
+    LOCAL_MANIFEST="$SKILLS_DIR/../manifest.json"
+  fi
+
   if [ ! -f "$LOCAL_MANIFEST" ]; then
-    # Try skills dir parent or check current manifest
     if [ -f "manifest.json" ]; then
       LOCAL_MANIFEST="manifest.json"
     else
@@ -99,7 +123,7 @@ print(f'\nRun \"bash install.sh update\" to update.')
   exit 0
 fi
 
-# ─── Install / Update Mode ───────────────────────────────
+# ─── Install / Update Mode ───────────────────────────────────
 
 echo -e "📁 Skills directory: ${CYAN}$SKILLS_DIR${NC}"
 echo ""
@@ -127,9 +151,9 @@ if [ "$MODE" = "update" ] && [ -d "$SKILLS_DIR" ]; then
       if diff -q "$skill/SKILL.md" "$target/SKILL.md" > /dev/null 2>&1; then
         SKIPPED=$((SKIPPED + 1))
       else
-        # Extract versions from headers
-        OLD_VER=$(head -1 "$target/SKILL.md" 2>/dev/null | grep -oP 'version:\s*\K[0-9]+\.[0-9]+\.[0-9]+' || echo "?.?.?")
-        NEW_VER=$(head -1 "$skill/SKILL.md" 2>/dev/null | grep -oP 'version:\s*\K[0-9]+\.[0-9]+\.[0-9]+' || echo "?.?.?")
+        # Extract versions from YAML frontmatter
+        OLD_VER=$(grep -m1 '^version:' "$target/SKILL.md" 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' || echo "?.?.?")
+        NEW_VER=$(grep -m1 '^version:' "$skill/SKILL.md" 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' || echo "?.?.?")
 
         # Check for breaking change (major version bump)
         OLD_MAJOR=$(echo "$OLD_VER" | cut -d. -f1)
@@ -142,22 +166,36 @@ if [ "$MODE" = "update" ] && [ -d "$SKILLS_DIR" ]; then
           echo -e "  ${GREEN}↑${NC}  $skill_name: $OLD_VER → $NEW_VER"
         fi
 
-        cp -r "$skill"/* "$target/"
+        if [ "$CODEX_MODE" = true ]; then
+          # Per-skill rsync with --delete to avoid 'references 2' etc.
+          mkdir -p "$target"
+          rsync -a --delete "$skill/" "$target/"
+        else
+          cp -r "$skill"/* "$target/"
+        fi
         UPDATED=$((UPDATED + 1))
       fi
     else
       # New skill
       echo -e "  ${GREEN}+${NC}  $skill_name (new)"
       mkdir -p "$target"
-      cp -r "$skill"/* "$target/"
+      if [ "$CODEX_MODE" = true ]; then
+        rsync -a --delete "$skill/" "$target/"
+      else
+        cp -r "$skill"/* "$target/"
+      fi
       NEW=$((NEW + 1))
     fi
   done
 
   # Copy manifest
   if [ -f "$TMP_DIR/manifest.json" ]; then
-    cp "$TMP_DIR/manifest.json" "$SKILLS_DIR/../manifest.json" 2>/dev/null || \
-    cp "$TMP_DIR/manifest.json" "manifest.json" 2>/dev/null || true
+    if [ "$CODEX_MODE" = true ]; then
+      cp "$TMP_DIR/manifest.json" "$SKILLS_DIR/manifest.json"
+    else
+      cp "$TMP_DIR/manifest.json" "$SKILLS_DIR/../manifest.json" 2>/dev/null || \
+      cp "$TMP_DIR/manifest.json" "manifest.json" 2>/dev/null || true
+    fi
   fi
 
 else
@@ -166,22 +204,63 @@ else
 
   for skill in "$TMP_DIR"/skills/*/; do
     skill_name=$(basename "$skill")
+    target="$SKILLS_DIR/$skill_name"
     echo -e "  ${GREEN}✅${NC} $skill_name"
-    cp -r "$skill" "$SKILLS_DIR/"
+
+    if [ "$CODEX_MODE" = true ]; then
+      mkdir -p "$target"
+      rsync -a --delete "$skill/" "$target/"
+    else
+      cp -r "$skill" "$SKILLS_DIR/"
+    fi
     INSTALLED=$((INSTALLED + 1))
   done
 
   # Copy manifest for future updates
   if [ -f "$TMP_DIR/manifest.json" ]; then
-    cp "$TMP_DIR/manifest.json" "$SKILLS_DIR/../manifest.json" 2>/dev/null || \
-    cp "$TMP_DIR/manifest.json" "manifest.json" 2>/dev/null || true
+    if [ "$CODEX_MODE" = true ]; then
+      cp "$TMP_DIR/manifest.json" "$SKILLS_DIR/manifest.json"
+    else
+      cp "$TMP_DIR/manifest.json" "$SKILLS_DIR/../manifest.json" 2>/dev/null || \
+      cp "$TMP_DIR/manifest.json" "manifest.json" 2>/dev/null || true
+    fi
   fi
 fi
 
 # Cleanup
 rm -rf "$TMP_DIR"
 
-# Summary
+# ─── Post-install Validation (Codex) ─────────────────────────
+
+if [ "$CODEX_MODE" = true ]; then
+  echo ""
+  echo -e "${CYAN}🔍 Codex validation...${NC}"
+
+  # Check for duplicate directories
+  dupes=$(find "$SKILLS_DIR" -maxdepth 3 -type d \( -name 'references 2' -o -name 'scripts 2' -o -name 'assets 2' \) -print 2>/dev/null)
+  if [ -n "$dupes" ]; then
+    echo -e "  ${RED}⚠️  Duplicate directories found:${NC}"
+    echo "$dupes" | while read -r d; do echo "    $d"; done
+  else
+    echo -e "  ${GREEN}✅${NC} No duplicate directories"
+  fi
+
+  # Check frontmatter validity
+  invalid_fm=0
+  for f in "$SKILLS_DIR"/*/SKILL.md; do
+    [ -f "$f" ] || continue
+    if [ "$(sed -n '1p' "$f")" != "---" ]; then
+      echo -e "  ${RED}⚠️  Invalid frontmatter: $f${NC}"
+      invalid_fm=$((invalid_fm + 1))
+    fi
+  done
+  if [ $invalid_fm -eq 0 ]; then
+    echo -e "  ${GREEN}✅${NC} All SKILL.md have valid frontmatter"
+  fi
+fi
+
+# ─── Summary ─────────────────────────────────────────────────
+
 echo ""
 echo "──────────────────────────────────────────"
 
@@ -209,3 +288,8 @@ fi
 echo ""
 echo -e "💡 Tip: Run ${CYAN}bash install.sh check${NC} anytime to check for updates"
 echo -e "📖 Docs: ${CYAN}https://gui.marketing/skills/${NC}"
+
+if [ "$CODEX_MODE" = true ]; then
+  echo ""
+  echo -e "${YELLOW}⚡ Restart the Codex app to reload the skills menu.${NC}"
+fi

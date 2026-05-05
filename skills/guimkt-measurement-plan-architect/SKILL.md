@@ -1,4 +1,3 @@
-<!-- skill: guimkt-measurement-plan-architect | version: 1.2.0 | updated: 2026-04-25 -->
 ---
 name: guimkt-measurement-plan-architect
 description: >
@@ -17,6 +16,8 @@ description: >
   architecture, ou qualquer variação de "o que rastrear", "plano de tags", "measurement plan",
   "tracking architecture", "como medir conversões", "plano de GA4", "server-side tagging",
   "como medir WhatsApp", "tracking CTWA".
+version: "1.2.0"
+updated: "2026-04-25"
 ---
 
 # Measurement Plan Architect

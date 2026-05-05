@@ -1,7 +1,8 @@
-<!-- skill: skill-creator | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: skill-creator
 description: Guide for creating effective AI agent skills. Use when users want to create a new skill (or update an existing skill) that extends an AI agent's capabilities with specialized knowledge, workflows, or tool integrations. Works with any agent that supports the SKILL.md format (Claude Code, Cursor, Roo, Cline, Windsurf, etc.). Triggers on "create skill", "new skill", "package knowledge", "skill for".
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Skill Creator

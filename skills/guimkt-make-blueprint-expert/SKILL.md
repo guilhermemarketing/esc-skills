@@ -1,7 +1,8 @@
-<!-- skill: guimkt-make-blueprint-expert | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-make-blueprint-expert
 description: Interpret, create, edit, validate, and optimize Make.com (formerly Integromat) scenario blueprint JSON files. Use when the user wants to create a Make scenario from scratch via blueprint, modify an existing blueprint JSON (fix field mappings, add modules, change body content, swap API endpoints), debug Make execution errors (InvalidConfigurationError, HTTP 400, field mapping issues), understand Make scenario structure, fix jsonStringBodyContent encoding issues, or generate correct Make expressions ({{module.field}}) inside JSON bodies. Also triggers for tasks involving Make HTTP modules, router/filter configuration, Facebook Lead Ads integration with CRM APIs, DataCrazy CRM integration, webhook configuration, variable modules (Set Variable, roleta/round-robin), or any Make.com automation troubleshooting. Use this skill whenever the user mentions "Make.com", "Make scenario", "blueprint JSON", "Make blueprint", "cenário Make", "módulo HTTP Make", "jsonStringBodyContent", "Make expressions", "InvalidConfigurationError Make", or any variation of creating, editing, debugging, or optimizing Make.com automations via blueprint files.
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Make.com Blueprint Expert

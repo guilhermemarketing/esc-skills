@@ -1,7 +1,8 @@
-<!-- skill: domain-identification-grouping | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: domain-identification-grouping
 description: Groups components into logical domains for service-based architecture. Use when creating component domains, grouping components by business functionality, planning domain services, analyzing component relationships, or when the user asks about domain grouping, component domains, or domain identification.
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Domain Identification and Grouping

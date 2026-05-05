@@ -1,4 +1,3 @@
-<!-- skill: guimkt-offer-diagnosis | version: 1.0.0 | updated: 2026-04-24 -->
 ---
 name: guimkt-offer-diagnosis
 description: >
@@ -15,6 +14,8 @@ description: >
   mecanismo único, mapear objeções da oferta, ou qualquer variação de "minha oferta é boa?",
   "oferta fraca", "diagnóstico de oferta", "offer diagnosis", "avaliar proposta de valor",
   "oferta pronta para tráfego", "offer audit", "força da oferta", "guard-rail de oferta".
+version: "1.0.0"
+updated: "2026-04-24"
 ---
 
 # Offer Diagnosis — Guard-Rail Fundacional

@@ -1,7 +1,8 @@
-<!-- skill: perf-lighthouse | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: perf-lighthouse
 description: "Run Lighthouse audits locally via CLI or Node API, parse and interpret reports, set performance budgets. Use when measuring site performance, understanding Lighthouse scores, setting up budgets, or integrating audits into CI. Triggers on: lighthouse, run lighthouse, lighthouse score, performance audit, performance budget."
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Lighthouse Audits

@@ -1,4 +1,3 @@
-<!-- skill: guimkt-landing-page | version: 1.1.0 | updated: 2026-03-25 -->
 ---
 name: guimkt-landing-page
 description: >
@@ -13,6 +12,8 @@ description: >
   ou Meta Ads, página de captura com design sofisticado, ou qualquer variação de "cria uma LP
   premium", "landing page moderna", "página com glassmorphism", "LP com design sofisticado",
   "landing page profissional para leads".
+version: "1.1.0"
+updated: "2026-03-25"
 ---
 
 # Landing Page Premium

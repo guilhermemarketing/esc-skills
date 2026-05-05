@@ -1,4 +1,3 @@
-<!-- skill: guimkt-sales-page-message-mining | version: 1.0.0 | updated: 2026-04-24 -->
 ---
 name: guimkt-sales-page-message-mining
 description: >
@@ -16,6 +15,8 @@ description: >
   ou qualquer variação de "o que meus clientes dizem?", "linguagem real do mercado",
   "mineração de reviews", "VoC", "message mining", "pesquisa de voz do cliente", "como meu cliente
   fala", "reviews dos concorrentes", "linguagem para copy", "dores reais do público".
+version: "1.0.0"
+updated: "2026-04-24"
 ---
 
 # Sales Page Message Mining — Pré-etapa do Pipeline

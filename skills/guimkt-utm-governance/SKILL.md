@@ -1,4 +1,3 @@
-<!-- skill: guimkt-utm-governance | version: 1.1.0 | updated: 2026-04-24 -->
 ---
 name: guimkt-utm-governance
 description: >
@@ -20,6 +19,8 @@ description: >
   "template de UTM", "auditoria de UTM", "tráfego unassigned", "UTM para CRM",
   "atribuição de campanha", "tracking de WhatsApp", "CTWA tracking", "WABA referral",
   "como rastrear vendas do WhatsApp", "atribuição WhatsApp CRM".
+version: "1.1.0"
+updated: "2026-04-24"
 ---
 
 # UTM Governance — Disciplina Operacional de Atribuição

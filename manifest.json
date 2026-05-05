@@ -5,511 +5,511 @@
     "3d-web-experience": {
       "version": "1.0.0",
       "path": "skills/3d-web-experience/SKILL.md",
-      "hash": "e0186471fa9a4f48c1db88e5a3f593468c7927a80293343aa720b4f75899ce7c",
+      "hash": "d706597367c09714210b63b9ae4b501a447632691427de88595194b50085f07b",
       "breaking": false
     },
     "animation-systems": {
       "version": "1.0.0",
       "path": "skills/animation-systems/SKILL.md",
-      "hash": "368fdec14d4e3398d19bbc3046f99982a4acc0a63b8fe62eb2dad11a3a5c1525",
+      "hash": "d2fd01c443af9729e552a0d587569c5b4057ef875410f2d26f56f44d2be9e34d",
       "breaking": false
     },
     "animejs": {
       "version": "1.0.0",
       "path": "skills/animejs/SKILL.md",
-      "hash": "928ed79c80a95278e5e181bf0561c148a5896514c59b7f3bb30f7ec6512c9958",
+      "hash": "d3bc8e9511554658ac04dba0d9e1dde5b0b1c10678a720d3cbbeed5a18b11381",
       "breaking": false
     },
     "aws-advisor": {
       "version": "1.0.0",
       "path": "skills/aws-advisor/SKILL.md",
-      "hash": "13cc9facf6033e7e9f466688e259568b7154586c679456015d38b57831312298",
+      "hash": "0211cdd5edba7e754c16d31edd2e752024c2d556c8b767ca4e5e94534aad19e5",
       "breaking": false
     },
     "best-practices": {
       "version": "1.0.0",
       "path": "skills/best-practices/SKILL.md",
-      "hash": "ed5c7e134527bf5df3e3b230b44a5866327c94e380bf7c07d66fd3972bfa88e3",
+      "hash": "764cb89ce195fd389fe14efe71f4c7ef83a7c6fc88239fa2e61c4a25ebf2bbb2",
       "breaking": false
     },
     "cloudflare-deploy": {
       "version": "1.0.0",
       "path": "skills/cloudflare-deploy/SKILL.md",
-      "hash": "60aacef7e4cc0d5c1ce8ace07487a23b831bb598a7afd75f1fd2bc6cbbe8cf76",
+      "hash": "ebf49ba9d6fe26886275bd9457446355a188883968f3d1909e863c01e3b9298e",
       "breaking": false
     },
     "coding-guidelines": {
       "version": "1.0.0",
       "path": "skills/coding-guidelines/SKILL.md",
-      "hash": "af6d64db202e3ee3f2880ecbc1be8be3248c4264708f6d8b85972bc5db40e75f",
+      "hash": "e1110c269ae159576086753626928124c2eb32cbf3af34a72f872b053c059508",
       "breaking": false
     },
     "component-common-domain-detection": {
       "version": "1.0.0",
       "path": "skills/component-common-domain-detection/SKILL.md",
-      "hash": "81cfb3728118c172776c8fd2b5c8ccbece76686b2a61f2df6b615d80aa08d0ba",
+      "hash": "98b6df64fee6235c0da3bc683f82a40765126def4d8fc1b71547a97985609d57",
       "breaking": false
     },
     "component-flattening-analysis": {
       "version": "1.0.0",
       "path": "skills/component-flattening-analysis/SKILL.md",
-      "hash": "fc040e62536e88fe641cd5f02e322f0d9815d8a6ea4a68e77a7e5b55864f286c",
+      "hash": "78e05b9998916213bc0734ed310c7c56311d721effe0387f697ef0c9424b4309",
       "breaking": false
     },
     "component-identification-sizing": {
       "version": "1.0.0",
       "path": "skills/component-identification-sizing/SKILL.md",
-      "hash": "f844f0c17d4b1b133bface1e28c61c965d8d3a6ccfc84417347294d73fb9d9d8",
+      "hash": "a237735e612f7f202765c3eade5c217a5bb282d3fdb1ddfb0c9b72737426bc67",
       "breaking": false
     },
     "confluence-assistant": {
       "version": "1.0.0",
       "path": "skills/confluence-assistant/SKILL.md",
-      "hash": "ce2c5f5894bd8de6540a3812472fe4277154fe885308532fa713ee43f45c7d0d",
+      "hash": "20520e5ee03d7d096ae7fbbcadd5e8d26779a90b94d5813e90df8074d932d190",
       "breaking": false
     },
     "core-web-vitals": {
       "version": "1.0.0",
       "path": "skills/core-web-vitals/SKILL.md",
-      "hash": "162b52beaaf144e28efe11416f20a4c2a7476958bce06f194e6da3260dad346c",
+      "hash": "34f17388291f78e3a392ef12d9479f2fafb6244968ae0e102992db5df6812a18",
       "breaking": false
     },
     "css-border-gradient": {
       "version": "1.0.0",
       "path": "skills/css-border-gradient/SKILL.md",
-      "hash": "033d0fb2e4b31b2a6a7fe5e59bdfe1aaf0af755db2abb57c47f7838554b82c69",
+      "hash": "33cabaf63396c44a9c12525508bc9033a22e890930c3a5c73ba24a6a6b1c59dc",
       "breaking": false
     },
     "cursor-subagent-creator": {
       "version": "1.0.0",
       "path": "skills/cursor-subagent-creator/SKILL.md",
-      "hash": "c4d48d6210e0a2b6d157022aca54cb2ad8692f5827d64b1f82c62167e0cedc0c",
+      "hash": "62904c605f64728203b64fa9033fcd818fff4b2ae149b159e0c4fb4c13babd96",
       "breaking": false
     },
     "decomposition-planning-roadmap": {
       "version": "1.0.0",
       "path": "skills/decomposition-planning-roadmap/SKILL.md",
-      "hash": "c6562e4fdc44ecb65edde2daea3cf2f32f768ce9ad74225b9579d8e47710f10c",
+      "hash": "a0c0bc2a0569255dfcac4713c0ec8eb3935cbb0e15cfb76cbaad81ba6d4380a0",
       "breaking": false
     },
     "docs-writer": {
       "version": "1.0.0",
       "path": "skills/docs-writer/SKILL.md",
-      "hash": "8ef3e1fbe8045464f0bcb16d8e24c24bd6b6b62fb12ddd18104e26ef745aa6cf",
+      "hash": "7d7b6fead88f132c67ce61f991bb63a809efc3892aebb7b7e4535d2cd88200a7",
       "breaking": false
     },
     "domain-analysis": {
       "version": "1.0.0",
       "path": "skills/domain-analysis/SKILL.md",
-      "hash": "6a2157343ee6460b629f602bcc2ad007dc748faac877210bd9f84100f7e2b1d6",
+      "hash": "e977fc3bb00a94c07205da396ceaa6d49e3cd622ef3bdd808764d721a51d7d6e",
       "breaking": false
     },
     "domain-identification-grouping": {
       "version": "1.0.0",
       "path": "skills/domain-identification-grouping/SKILL.md",
-      "hash": "79385e482969623682d30fc32f502e482460b3c8900e0f3c9f6b70c5ba421b32",
+      "hash": "3002b6126acc089f6754898fbace9f998dd8c9ddda0356181e10e3a7c5b2376e",
       "breaking": false
     },
     "feedback-interpreter": {
       "version": "1.0.0",
       "path": "skills/feedback-interpreter/SKILL.md",
-      "hash": "d5b51ee5fc67ded8561598cba4c687b4edb32a78c0dc1d987ff93437bba0b709",
+      "hash": "9ab8c369dd44b8a10f56fa6417deb2253fdbce392e888b16920a985dc4f8f9c3",
       "breaking": false
     },
     "figma": {
       "version": "1.0.0",
       "path": "skills/figma/SKILL.md",
-      "hash": "1eb045bdf56158257fcf56d28460def4873450cf2b6f6d5d8a656d803a856642",
+      "hash": "5af5efcac46e02be44ae48dd64ac08be8138207871f80361f71f7d695a80476f",
       "breaking": false
     },
     "figma-implement-design": {
       "version": "1.0.0",
       "path": "skills/figma-implement-design/SKILL.md",
-      "hash": "31a0531082d34f16247b2b1a3788bc3e4d8827f4c541bb7d895251ad261e3124",
+      "hash": "c790aa927d31b0b4e1a17f06cc24affcb745e4292c75af6338cc2664545f0acf",
       "breaking": false
     },
     "frontend-design": {
       "version": "1.0.0",
       "path": "skills/frontend-design/SKILL.md",
-      "hash": "832f803fead85869268640868e50dd8d45e7ae6ec23deaeb35194b5c2eee9f17",
+      "hash": "31f29d1d867ddeeeba012338ec796beb8c15969294f75a65c8d22ed9ea4a6712",
       "breaking": false
     },
     "frontend-ui-ux": {
       "version": "1.0.0",
       "path": "skills/frontend-ui-ux/SKILL.md",
-      "hash": "da32251a4dc392a55aad798a4585e9fdeb708c33cdd6e2b7a34ee2fa69c41972",
+      "hash": "b2b6cd07ea5c9074a10307021173e3129c2df3db166f2933133b4024cefe5860",
       "breaking": false
     },
     "gh-address-comments": {
       "version": "1.0.0",
       "path": "skills/gh-address-comments/SKILL.md",
-      "hash": "61988401ecb4405e151367d89e8ad3e54ac669880079dfa115a635b01ef4e0c6",
+      "hash": "36d6d1e7ecf298c3af810deebc8148d7ad86cf3a0f6d8626f4fb1014da94f774",
       "breaking": false
     },
     "gh-fix-ci": {
       "version": "1.0.0",
       "path": "skills/gh-fix-ci/SKILL.md",
-      "hash": "f52c93116350b55f3b7482124d05602e6f67393c3f5cf09f7d8ff76ba7b12d9e",
+      "hash": "4dee1814a0d06afee656ee5b435c431501202142579f8265b2a7d733661290a8",
       "breaking": false
     },
     "gsap": {
       "version": "1.0.0",
       "path": "skills/gsap/SKILL.md",
-      "hash": "2f3777f1742e42425118e38f171ee70cad7a171d59d9c879b7fe4ed71e8c72f7",
+      "hash": "10799399c18b2c65756645e6a7966da351064519bb9d13a721725d8f9d81e1b6",
       "breaking": false
     },
     "guimkt-brandformance-planner": {
       "version": "1.0.0",
       "path": "skills/guimkt-brandformance-planner/SKILL.md",
-      "hash": "08f7a44cc469b52022bf8d487eed8db77e7bde4014c022b48be070016682c17c",
+      "hash": "04632e0a3ad633418b251356dcbcc895325402bd5a22b45069c07bdeaada09b1",
       "breaking": false
     },
     "guimkt-classic-advertising-creative": {
       "version": "1.0.0",
       "path": "skills/guimkt-classic-advertising-creative/SKILL.md",
-      "hash": "0d4bccb154b159af16e586ae0dc48abbd09e678969ac977f64e8745928b45566",
+      "hash": "dc820e1d35f3fcad12afda148568118698b05a14555d57f017a2fcbb71d07536",
       "breaking": false
     },
     "guimkt-consent-mode-audit": {
       "version": "1.0.0",
       "path": "skills/guimkt-consent-mode-audit/SKILL.md",
-      "hash": "d4fac02ea4299247c8220db3b97f55b8832d09c3a5b9bc8d41cc470876f40950",
+      "hash": "2b427d5b7ec25e301f87d3e13ad4cae9c7350982c87f5c660cafd8a915675eca",
       "breaking": false
     },
     "guimkt-conversion-qa-auditor": {
       "version": "1.2.0",
       "path": "skills/guimkt-conversion-qa-auditor/SKILL.md",
-      "hash": "60e90649982c272810526ada3763c51f8e6503a74dc0c2a6ee781909eefdc3e8",
+      "hash": "f3e25f1a48968ac51c7be4764246b19884f8ebe3f5c1a74710abf7e00f01eac2",
       "breaking": false
     },
     "guimkt-design-system-extractor": {
       "version": "1.0.0",
       "path": "skills/guimkt-design-system-extractor/SKILL.md",
-      "hash": "cf357ad10d236c1d6f6ff85e9082b7c541e3f76b1d8fcecabb3a06d21aa7caea",
+      "hash": "50f62220790d0d3a756a211500fe25f68be0da83d057fe16c825eb0cbda36d97",
       "breaking": false
     },
     "guimkt-executive-performance-report": {
       "version": "1.0.0",
       "path": "skills/guimkt-executive-performance-report/SKILL.md",
-      "hash": "18b886d2dc34d68940f445079edf351c75e3a18bb6431d21203a4b402525781e",
+      "hash": "458a298aa707a4deb17e24d5a3e5d7f9f555f904cd2f5de79f51b170e9a0dd00",
       "breaking": false
     },
     "guimkt-experimentation-engine": {
       "version": "1.0.0",
       "path": "skills/guimkt-experimentation-engine/SKILL.md",
-      "hash": "bf5c4271725eba92fcdf4a1f417aaa90987f048142c5f1975636604b720ca580",
+      "hash": "fcc72a4cb225eaa42cd0c9291498e37b631b3a45e644cef8bc0d5bb271a9c6b5",
       "breaking": false
     },
     "guimkt-gmp-cli-mcp-skill": {
       "version": "1.0.0",
       "path": "skills/guimkt-gmp-cli-mcp-skill/SKILL.md",
-      "hash": "5487b24ef1035642400c76e7b4a03b857c0dba432242f13782d65c61d5367812",
+      "hash": "bc8bd7191be21279c7825fbadd77306ce3735de4196b700823e03f77f0551ec4",
       "breaking": false
     },
     "guimkt-google-ads": {
       "version": "1.0.0",
       "path": "skills/guimkt-google-ads/SKILL.md",
-      "hash": "b9fd1e006cd5da616dc3ca419563c7bc178752b4e0e5f63e22b2666cb3e72b18",
+      "hash": "e4110f4e4cd63ccbfa93ab92ec6db8b805d3a852a6637e45599a61baadd7196d",
       "breaking": false
     },
     "guimkt-gtm-expert": {
       "version": "1.1.0",
       "path": "skills/guimkt-gtm-expert/SKILL.md",
-      "hash": "15d7fe5b2211b4244ded6cd3ba872620e44a78e87bdeb9deac2a124fac1809d7",
+      "hash": "84bf7809869588a95e138a03b756f90b08724740a0c97af90e40058bd2aa6893",
       "breaking": false
     },
     "guimkt-gtm-expert-template": {
       "version": "1.1.0",
       "path": "skills/guimkt-gtm-expert-template/SKILL.md",
-      "hash": "94b662a431809c2845b75aed1d607eaebe55ba71a973cf85848751956b50d11f",
+      "hash": "7ff239768febeb0d3482d5dde75ca5ea92c92b4c02d9f9dc7d91eec7d188ad68",
       "breaking": false
     },
     "guimkt-hero-videos": {
       "version": "1.0.0",
       "path": "skills/guimkt-hero-videos/SKILL.md",
-      "hash": "2d90c59c777f640ba48b49bedc75532eed1d748b56c6cd262f09f4deb9abfa7e",
+      "hash": "8b7dd542be0b1466a185a79c747283fb9af3e3d4c807050ff5e90070d0f3ec79",
       "breaking": false
     },
     "guimkt-icp-ideal-customer-profile": {
       "version": "1.0.0",
       "path": "skills/guimkt-icp-ideal-customer-profile/SKILL.md",
-      "hash": "8bbfbdd778bfa2018f569d267359414f19cebab1c39d9a2491da1fb22a4e81a6",
+      "hash": "8a5ca60131417772281ca8176184fe0ef104fabd3146d2226e11b664335c05af",
       "breaking": false
     },
     "guimkt-landing-page": {
       "version": "1.1.0",
       "path": "skills/guimkt-landing-page/SKILL.md",
-      "hash": "4abc7300bd7bcb8f44c80e03ea8d4fc242d5525f401e0a7bf2ddd9194286b52e",
+      "hash": "631e759246b3434a44ac7b740472091d28eecce21ad7e1bb80f3f3a9bf93729d",
       "breaking": false
     },
     "guimkt-landing-page-optimization": {
       "version": "1.0.0",
       "path": "skills/guimkt-landing-page-optimization/SKILL.md",
-      "hash": "93945aa590b8dca8f9bbc03667c1f75a17a8fbdd9782801dd95702b55d5ee736",
+      "hash": "bd64fe1c102d7261bf22aa75fc4559a70cb2707ecbac52d89964d9ed4e0efd75",
       "breaking": false
     },
     "guimkt-lead-scoring-architecture": {
       "version": "1.1.0",
       "path": "skills/guimkt-lead-scoring-architecture/SKILL.md",
-      "hash": "351c3b92704dddce74d583e03363252db20b05b12197d1f2555c00dfb5913dd2",
+      "hash": "8082f8d1a5cfae9a58225d9bbac3ec1cb0e39db673299dad2a3ecf0dd17be10c",
       "breaking": false
     },
     "guimkt-linkedin-autoreply": {
       "version": "1.0.1",
       "path": "skills/guimkt-linkedin-autoreply/SKILL.md",
-      "hash": "000fd63bc41fe9283870e214bd323dd8995431b03899192a80ec6a12f491f40f",
+      "hash": "32debfae678a6d259b7e3bc6c6b134580af1181d827f5cba72493311d9010256",
       "breaking": false
     },
     "guimkt-make-blueprint-expert": {
       "version": "1.0.0",
       "path": "skills/guimkt-make-blueprint-expert/SKILL.md",
-      "hash": "907aa9ae685f311eba0c82d1bbc2e8df1a308e9db37d97b9d3ec7a2ccb443961",
+      "hash": "b3269d6f23fbee7f2ec704535b5b5eff526a6508683d4d9c6dc053a7cb4cfd66",
       "breaking": false
     },
     "guimkt-measurement-plan-architect": {
       "version": "1.2.0",
       "path": "skills/guimkt-measurement-plan-architect/SKILL.md",
-      "hash": "6281c496fc8f8e29b189f3cef3a79eec50606f385187d2d6abc963c1dce99b65",
+      "hash": "329c69e635c43a6ae1eb820314a8f207626fd9f5474e9adff5837b7f6167ebd7",
       "breaking": false
     },
     "guimkt-meta-ads": {
       "version": "3.4.1",
       "path": "skills/guimkt-meta-ads/SKILL.md",
-      "hash": "cb5bb49c7cfa4083caeddd0ce70cf61a8ebb304a301483814434ff80bb55d02c",
+      "hash": "9bc5b4e2b36d3955a04e85356c20be795d162db8250996f788c643620997bc5b",
       "breaking": false
     },
     "guimkt-nano-banana-prompts": {
       "version": "1.0.0",
       "path": "skills/guimkt-nano-banana-prompts/SKILL.md",
-      "hash": "24a903162b683e555c2fa557676ebe1ba86dd0f4f209f6bad17432a249a4f5c5",
+      "hash": "10bc5bd18b54ee1a54654f05f941ba2b01f5ef01f68b1e844ad2007298b31788",
       "breaking": false
     },
     "guimkt-offer-diagnosis": {
       "version": "1.0.0",
       "path": "skills/guimkt-offer-diagnosis/SKILL.md",
-      "hash": "1db1d14aaa94cbf3354641f2eaa5e7b7351e15ee9d6b5f497b33c4b75ccfb1e5",
+      "hash": "4ccde489defa24c9fa42d08a059621c35aa63a77e3cf35ecb1ab874c53750a4f",
       "breaking": false
     },
     "guimkt-sales-page-message-mining": {
       "version": "1.0.0",
       "path": "skills/guimkt-sales-page-message-mining/SKILL.md",
-      "hash": "ac117016250df3edd09f13d11000e89aca0c8c7e0635d0db24d3f516d785c0f5",
+      "hash": "e1b19603feb937ebf1c1d27a3c919d883c59da4d57dede2c2fe4de1ee6388a3b",
       "breaking": false
     },
     "guimkt-threads-mcp-skill": {
       "version": "1.0.0",
       "path": "skills/guimkt-threads-mcp-skill/SKILL.md",
-      "hash": "539a582c7256552130b2484f538f5fb468e67a6a68e3f1dec6559e934a1f299e",
+      "hash": "5e3a0b91350fde51cefe1c89156fac2e784e7c8fef0d041ec7cc840b6b15ecd2",
       "breaking": false
     },
     "guimkt-threads-viral-content": {
       "version": "1.0.0",
       "path": "skills/guimkt-threads-viral-content/SKILL.md",
-      "hash": "bdaf083db82feb61c69378691fe8833462ffd0d40674e37d13a1f233a56163a1",
+      "hash": "090a5d4f21f93b4a384bc4caa4bd8aeacf784c697fad6ed9294a494ab6c53a85",
       "breaking": false
     },
     "guimkt-utm-governance": {
       "version": "1.1.0",
       "path": "skills/guimkt-utm-governance/SKILL.md",
-      "hash": "5a1913716d4d32008decfdb286ce7535716a3eb64e918aae803e6baff32f9dc2",
+      "hash": "4abc059beb272fb8dea32a4b117901de0558384128e72bdf5f5c88a10117d97f",
       "breaking": false
     },
     "guimkt-wireframe-landing-page": {
       "version": "1.1.0",
       "path": "skills/guimkt-wireframe-landing-page/SKILL.md",
-      "hash": "a80a05c8b25ff6ac5b2e3653450f96857241a7ac78ea5f29228c46166ec6e30d",
+      "hash": "95611f8d4dcb11abf04f9fbcb1a96640a9251747712e0373fcffc15d0e0c73ab",
       "breaking": false
     },
     "interaction-design": {
       "version": "1.0.0",
       "path": "skills/interaction-design/SKILL.md",
-      "hash": "7ae09d6ac8b2490c682379a55ca3962f6668f5954445da267c7aa6ae1ca971cd",
+      "hash": "072f02f4741ab79c0123c7e3f13e0de3e164837ac5736073016b883d57ab643f",
       "breaking": false
     },
     "javascript-typescript": {
       "version": "1.0.0",
       "path": "skills/javascript-typescript/SKILL.md",
-      "hash": "bd27d3a4f4ac99379ca57ff4cbde61185d082f186fcdb0c9970a0b3bfa62e9f6",
+      "hash": "2b4434229560209ac843a532b6c132aa988dc9e3cc502cd7483adeb420f3d9de",
       "breaking": false
     },
     "jira-assistant": {
       "version": "1.0.0",
       "path": "skills/jira-assistant/SKILL.md",
-      "hash": "8c3d2694657c4a38e465994ecb8033555bdac60b38761a5bb2c072629db50131",
+      "hash": "1a22f27c73ef674f6fc36e6d967c63d41fb693ac2087df8ac961f1baf22ddd07",
       "breaking": false
     },
     "matterjs": {
       "version": "1.0.0",
       "path": "skills/matterjs/SKILL.md",
-      "hash": "25b86e2f329eac8b55bb48af310e244008077272489a98b4dae6cb7ba6363e3e",
+      "hash": "33a8fa5d57b02f4d7e4bce7e64f887598f4edcba703be26481e4b9d02a2f2fa7",
       "breaking": false
     },
     "netlify-deploy": {
       "version": "1.0.0",
       "path": "skills/netlify-deploy/SKILL.md",
-      "hash": "18da2c1031fb21280f6bd26079b11307d4775827c7c65615e52c1c9a2162a576",
+      "hash": "709ba80f368eec9a5ec2f0d0a6170f21f81bf40ae6e86650faaec1661f71cfe8",
       "breaking": false
     },
     "nx-ci-monitor": {
       "version": "1.0.0",
       "path": "skills/nx-ci-monitor/SKILL.md",
-      "hash": "009025fd97aadaea39e91a3395110d717659c7194cbd131e700da76acc945d36",
+      "hash": "a70b74fe639e95ce10eb8df6af1816ba97f5596d41512c598ea2dd5b11240fd5",
       "breaking": false
     },
     "nx-generate": {
       "version": "1.0.0",
       "path": "skills/nx-generate/SKILL.md",
-      "hash": "6c4457410882bedba6b257ed1a454ec4600f99cd02737f10ac82ed318548bab3",
+      "hash": "e1d6510073335d3c9367d9ffa90782d76db653e6b1028fde3bdc8c116ad193b5",
       "breaking": false
     },
     "nx-run-tasks": {
       "version": "1.0.0",
       "path": "skills/nx-run-tasks/SKILL.md",
-      "hash": "0436ec562b31cff4d23ee629939603cdc9ae8861dfc50fcfa101a400def97752",
+      "hash": "a0d05fbbf3771dab9c259b3fa45884457aec34e306274242071c04cd533d76aa",
       "breaking": false
     },
     "nx-workspace": {
       "version": "1.0.0",
       "path": "skills/nx-workspace/SKILL.md",
-      "hash": "7427697d4dd295ec65308ee9b24b15e1cf77c496664c948ec9531ab6ee83abab",
+      "hash": "645e461d04aa120ce8372dc6b1b85ae27cda57adb6a857a9407d6ece09ac0ee0",
       "breaking": false
     },
     "perf-astro": {
       "version": "1.0.0",
       "path": "skills/perf-astro/SKILL.md",
-      "hash": "502116f0a65207c6e5bbecabd44c37f5eb37224d70a29d443bab6fbc6ed5d047",
+      "hash": "f86a1564cd44341a8654aa489262885b652fa78075c858558ac1eedab3dac327",
       "breaking": false
     },
     "perf-lighthouse": {
       "version": "1.0.0",
       "path": "skills/perf-lighthouse/SKILL.md",
-      "hash": "31f60d4031e470e630e36977b7bf38a344ce72a06b43dcbbeced5c4ef2dab202",
+      "hash": "7f1462d4c7ba29db954f0458e7df0d7499e561396e521df1e5e4d82a1e1b4538",
       "breaking": false
     },
     "perf-web-optimization": {
       "version": "1.0.0",
       "path": "skills/perf-web-optimization/SKILL.md",
-      "hash": "53901d462edda8480c272856b944e7db8160d2955efa73235290451fcbd7bc4b",
+      "hash": "118f19c28c9a1f427b35a2712ad8a17b9c33ac99b0d756c0ae92f842e0469045",
       "breaking": false
     },
     "playwright-skill": {
       "version": "1.0.0",
       "path": "skills/playwright-skill/SKILL.md",
-      "hash": "4519eae9523879fcc4c273688a80d179938f1ef211c040aa6a941d76d7fcd704",
+      "hash": "2cd8ccecdfaad7131602ca21ee5d17f9f740899085d401a20bda078df4b64c9e",
       "breaking": false
     },
     "pricing-page": {
       "version": "1.0.0",
       "path": "skills/pricing-page/SKILL.md",
-      "hash": "823e9ac68c6b435cee1dcd8e7931db9d785b113eb0cc6194932df704765ec41e",
+      "hash": "3773efd0ea11124f4e021fd1762531e515db98897d085f6bbd54c6a05ba7b3a6",
       "breaking": false
     },
     "progressive-blur": {
       "version": "1.0.0",
       "path": "skills/progressive-blur/SKILL.md",
-      "hash": "4696d516230e2a1159112bc3814e959544defe4ee19d7db29dd821f13ec067f5",
+      "hash": "8a15fd1f7f433db291c49074c09cca3558cbf7ef8b19e06504ebecb6132f281b",
       "breaking": false
     },
     "render-deploy": {
       "version": "1.0.0",
       "path": "skills/render-deploy/SKILL.md",
-      "hash": "0a993bedcf0abe2e30e9e24db12f94a4ad9b666edf3c9d5621051479a3bf983c",
+      "hash": "fe6671c19456210afe20825b33cd481763c91e59dc090620a65ab77335a4512d",
       "breaking": false
     },
     "responsive-design": {
       "version": "1.0.0",
       "path": "skills/responsive-design/SKILL.md",
-      "hash": "5eda36028012fcf774099cf310f6c70faa8eb8c321e68b2712075b14d6dd6a3d",
+      "hash": "aa0b2f100444a3ab0c5920272affc46ad10796da211a28c757b511e8fbc0a739",
       "breaking": false
     },
     "run-nx-generator": {
       "version": "1.0.0",
       "path": "skills/run-nx-generator/SKILL.md",
-      "hash": "1922d2239b18f946a60f65b7b654437a995070ed14e39aaf40c84eee0571e575",
+      "hash": "b6cf4296573484074602662889fcfe9e532bcc74cbd46f09ff3c55bcd74620ed",
       "breaking": false
     },
     "security-best-practices": {
       "version": "1.0.0",
       "path": "skills/security-best-practices/SKILL.md",
-      "hash": "f983ebba885cc0715f17d27e08a4985b8990f9301d16c013cf48956cc3a1385e",
+      "hash": "18847293b59cb75197368897000c81c4dd765a7c229a6c3fb7b58cb606750aa1",
       "breaking": false
     },
     "security-ownership-map": {
       "version": "1.0.0",
       "path": "skills/security-ownership-map/SKILL.md",
-      "hash": "e58df6491231d35467349e4b70a67d49e77e140a3ff3fa3bd2fd4982cea46975",
+      "hash": "16df8c15bfd4c44bc27b80de29155af59bfb9dcd436f5ce2f8a07e0ca00b23eb",
       "breaking": false
     },
     "security-threat-model": {
       "version": "1.0.0",
       "path": "skills/security-threat-model/SKILL.md",
-      "hash": "81a02adfd094522eac6ec07616c9df30d30e94b4c6c19af2a8bf1b672049f248",
+      "hash": "12297c660d099e3ab6d987ae5e1b232fc5978474f75fcf2c354fb2086607a127",
       "breaking": false
     },
     "sentry": {
       "version": "1.0.0",
       "path": "skills/sentry/SKILL.md",
-      "hash": "c27b0f444b6184cfa2f8e26de41cda920b412b2e53e8cc67b4e2a1beb11522af",
+      "hash": "121e45973120825f3f244077faad4e9ca4293fdd6664038b48757732e15bbf78",
       "breaking": false
     },
     "seo": {
       "version": "1.0.0",
       "path": "skills/seo/SKILL.md",
-      "hash": "7540ed24d494c8831b71bf5342e865a092a05276a56ea940aa450ad9b81a28f4",
+      "hash": "a11390ca765aa999226e0fc525c44f05c8b3b0d4070a608f2b0d2e81b7ccb469",
       "breaking": false
     },
     "skill-creator": {
       "version": "1.0.0",
       "path": "skills/skill-creator/SKILL.md",
-      "hash": "1e2ad7c9427f921b0133ae3905b661d74ad49adda0bc8e80271456000e6ebfec",
+      "hash": "e9e5bd9555c9c84994ccdab854ef4ca038df53ba0af64632c66d4a11ebd5dc5c",
       "breaking": false
     },
     "subagent-creator": {
       "version": "1.0.0",
       "path": "skills/subagent-creator/SKILL.md",
-      "hash": "1e3d3dc20ac6c8d350f5dec1ebef159b1346bbf7d5812af63d8780fbd93b94c1",
+      "hash": "f8bbae254468c09bb58adb44f9f8a4f17315e739d04091f35050fbbe8e3463b9",
       "breaking": false
     },
     "technical-design-doc-creator": {
       "version": "1.0.0",
       "path": "skills/technical-design-doc-creator/SKILL.md",
-      "hash": "966194eec3f925387c1b2470b45b83180165e4a0a76708c6430d8164e557f691",
+      "hash": "dbae3af965fadb7e1b9dfcc56c119e3b15bd3f2b55d61aca0b9a2d46b0321615",
       "breaking": false
     },
     "threejs-animation": {
       "version": "1.0.0",
       "path": "skills/threejs-animation/SKILL.md",
-      "hash": "1576f03d929e17e80d44895a51acde33e8249131fdfe5ed3d05bc667612d1908",
+      "hash": "49284c9664305530435fce4e2861458c9eb94ab38cd5db9029ac314d9bbbff6c",
       "breaking": false
     },
     "tlc-spec-driven": {
       "version": "1.0.0",
       "path": "skills/tlc-spec-driven/SKILL.md",
-      "hash": "631a419f81c1f0d796a364a3f09d93cf04809f9a1d41a4dda9b569be3c9cc5e4",
+      "hash": "582e8503a233147f20bd0f77679a959538a405800bf2a0c3bc8a379948fd71ac",
       "breaking": false
     },
     "ui-ux-pro-max": {
       "version": "1.0.0",
       "path": "skills/ui-ux-pro-max/SKILL.md",
-      "hash": "b5c55d701b33cd4ec812f37199a0d29f6dfca1733297b9b451308c50999f0d51",
+      "hash": "19b03b2c9d6606d61b983063266e3a9b5c1b34ee165d5fd67c291d3bb5d5ece5",
       "breaking": false
     },
     "vantajs": {
       "version": "1.0.0",
       "path": "skills/vantajs/SKILL.md",
-      "hash": "6c71405dd25794495a7f36e556a7e0f37bcb1c6f95c4e513645396d8865ebe93",
+      "hash": "5600ec25d288be4a262d4fc76e174f9a7a886af29e537d78bd9ce3e6b6c590d0",
       "breaking": false
     },
     "vercel-deploy": {
       "version": "1.0.0",
       "path": "skills/vercel-deploy/SKILL.md",
-      "hash": "091bc72d1e1edf77152d6c586d2cb6e6e2de14923313e3d6ded8a61c23618c0d",
+      "hash": "e4a91dc55ab882766fb84bfb708961d9e8e68d2b14a3abbca83dd7bae66fcb48",
       "breaking": false
     },
     "web-quality-audit": {
       "version": "1.0.0",
       "path": "skills/web-quality-audit/SKILL.md",
-      "hash": "b66eab3bd00912a6ca646b2eab4ce0a9a0bc747029dc43c0d53a253aae723aea",
+      "hash": "1bc40e446e52a659add7da5c6c6c9510c2403f9deacfa40bb43e043d115aa835",
       "breaking": false
     }
   }

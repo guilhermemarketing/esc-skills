@@ -1,8 +1,9 @@
-<!-- skill: guimkt-hero-videos | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-hero-videos
 description: >
   Cria hero sections premium de websites e landing pages com vídeos no background — e, quando nenhum vídeo é fornecido, também gera o prompt de vídeo ideal para a seção. Use SEMPRE que o usuário pedir hero section com vídeo, hero section com videobg, landing page com vídeo de fundo, "seção hero cinematográfica", "hero com vídeo rodando atrás", "página com vídeo no background", "hero videobg", ou qualquer variação de hero + vídeo. Use também quando o usuário pedir apenas "crie o vídeo para o hero" ou "me dá o prompt de vídeo para o hero" sem fornecer URL — nesse caso ative apenas o módulo video-for-hero-pages. Os dois módulos desta skill funcionam juntos ou separados.
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # HERO VIDEOS — Skill Completa

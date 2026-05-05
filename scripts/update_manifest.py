@@ -7,7 +7,7 @@ Usage:
     python3 scripts/update_manifest.py --init          # Generate manifest.json from scratch
     python3 scripts/update_manifest.py --verify        # Verify all hashes and headers
     python3 scripts/update_manifest.py --bump <skill> <MAJOR|MINOR|PATCH>  # Bump version
-    python3 scripts/update_manifest.py --add-headers   # Add version headers to all SKILL.md
+    python3 scripts/update_manifest.py --add-headers   # Add version/updated to all SKILL.md frontmatter
 """
 
 from __future__ import annotations
@@ -28,7 +28,8 @@ MANIFEST_PATH = REPO_ROOT / "manifest.json"
 
 TODAY = date.today().isoformat()
 
-HEADER_PATTERN = re.compile(
+# Legacy HTML comment pattern (for backward compat during migration)
+LEGACY_HEADER_PATTERN = re.compile(
     r"^<!--\s*skill:\s*(?P<name>[^\|]+?)\s*\|\s*version:\s*(?P<version>\d+\.\d+\.\d+)\s*\|\s*updated:\s*(?P<date>\d{4}-\d{2}-\d{2})(?:\s*\|\s*status:\s*(?P<status>\w+))?\s*-->"
 )
 
@@ -54,13 +55,54 @@ def get_all_skills() -> list[tuple[str, Path]]:
     return skills
 
 
-def parse_header(filepath: Path) -> dict | None:
-    """Parse the version header from a SKILL.md file."""
+def parse_yaml_frontmatter(filepath: Path) -> dict | None:
+    """Parse version/updated from YAML frontmatter in a SKILL.md file.
+
+    Supports both new format (version inside YAML frontmatter) and
+    legacy format (HTML comment on line 1) for backward compatibility.
+    """
     with open(filepath, "r", encoding="utf-8") as f:
-        first_line = f.readline().strip()
-    match = HEADER_PATTERN.match(first_line)
-    if match:
+        content = f.read()
+
+    lines = content.split("\n")
+
+    # Check for legacy HTML comment format first (line 1)
+    if lines and LEGACY_HEADER_PATTERN.match(lines[0]):
+        match = LEGACY_HEADER_PATTERN.match(lines[0])
         return match.groupdict()
+
+    # New format: YAML frontmatter with version: and updated: fields
+    if not lines or lines[0].strip() != "---":
+        return None
+
+    # Find the closing ---
+    closing_idx = None
+    for i in range(1, len(lines)):
+        if lines[i].strip() == "---":
+            closing_idx = i
+            break
+
+    if closing_idx is None:
+        return None
+
+    # Parse frontmatter fields
+    frontmatter_lines = lines[1:closing_idx]
+    result = {}
+
+    for line in frontmatter_lines:
+        # Match key: value (simple single-line YAML parsing)
+        m = re.match(r'^(\w+):\s*"?([^"]*?)"?\s*$', line)
+        if m:
+            key, value = m.group(1), m.group(2)
+            if key == "name":
+                result["name"] = value
+            elif key == "version":
+                result["version"] = value
+            elif key == "updated":
+                result["date"] = value
+
+    if "version" in result:
+        return result
     return None
 
 
@@ -77,22 +119,83 @@ def bump_version(current: str, bump_type: str) -> str:
         raise ValueError(f"Invalid bump type: {bump_type}. Use MAJOR, MINOR, or PATCH.")
 
 
+def update_frontmatter_field(filepath: Path, field: str, value: str):
+    """Update a field in the YAML frontmatter, or insert it before closing ---."""
+    with open(filepath, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    # Ensure file starts with ---
+    if not lines or lines[0].strip() != "---":
+        return False
+
+    # Find closing ---
+    closing_idx = None
+    for i in range(1, len(lines)):
+        if lines[i].strip() == "---":
+            closing_idx = i
+            break
+
+    if closing_idx is None:
+        return False
+
+    # Check if field already exists in frontmatter
+    field_pattern = re.compile(rf'^{field}:\s')
+    field_idx = None
+    for i in range(1, closing_idx):
+        if field_pattern.match(lines[i]):
+            field_idx = i
+            break
+
+    new_line = f'{field}: "{value}"\n'
+
+    if field_idx is not None:
+        # Replace existing field
+        lines[field_idx] = new_line
+    else:
+        # Insert before closing ---
+        lines.insert(closing_idx, new_line)
+
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+
+    return True
+
+
 def update_header(filepath: Path, name: str, version: str, updated: str, status: str | None = None):
-    """Update or insert the version header in a SKILL.md file."""
+    """Update version and updated fields in YAML frontmatter.
+
+    Handles both new format (YAML frontmatter) and legacy format (HTML comment).
+    If file has legacy format, migrates to new format.
+    """
     with open(filepath, "r", encoding="utf-8") as f:
         content = f.read()
 
-    status_part = f" | status: {status}" if status else ""
-    new_header = f"<!-- skill: {name} | version: {version} | updated: {updated}{status_part} -->"
-
     lines = content.split("\n")
-    if HEADER_PATTERN.match(lines[0]):
-        lines[0] = new_header
-    else:
-        lines.insert(0, new_header)
 
-    with open(filepath, "w", encoding="utf-8") as f:
-        f.write("\n".join(lines))
+    # If file starts with legacy HTML comment, migrate it
+    if lines and LEGACY_HEADER_PATTERN.match(lines[0]):
+        # Remove the HTML comment line
+        lines = lines[1:]
+        content = "\n".join(lines)
+
+        # If there's no frontmatter after removing comment, add one
+        if not lines or lines[0].strip() != "---":
+            lines.insert(0, "---")
+            lines.insert(1, f'name: {name}')
+            lines.insert(2, f'version: "{version}"')
+            lines.insert(3, f'updated: "{updated}"')
+            lines.insert(4, "---")
+            with open(filepath, "w", encoding="utf-8") as f:
+                f.write("\n".join(lines))
+            return
+
+        # Write the file without the HTML comment first
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write("\n".join(lines))
+
+    # Now update fields in YAML frontmatter
+    update_frontmatter_field(filepath, "version", version)
+    update_frontmatter_field(filepath, "updated", updated)
 
 
 # ─── Commands ───────────────────────────────────────────────────────────
@@ -107,7 +210,7 @@ def cmd_init():
     }
 
     for name, skill_md in skills:
-        header = parse_header(skill_md)
+        header = parse_yaml_frontmatter(skill_md)
         version = header["version"] if header else "1.0.0"
 
         manifest["skills"][name] = {
@@ -158,12 +261,12 @@ def cmd_verify():
         if actual_hash != entry["hash"]:
             errors.append(f"❌ Hash mismatch: {name} (manifest: {entry['hash'][:12]}... actual: {actual_hash[:12]}...)")
 
-        # Check header
-        header = parse_header(skill_md)
+        # Check header (supports both YAML frontmatter and legacy HTML comment)
+        header = parse_yaml_frontmatter(skill_md)
         if not header:
-            errors.append(f"❌ Missing version header: {name}")
+            errors.append(f"❌ Missing version in frontmatter: {name}")
         elif header["version"] != entry["version"]:
-            errors.append(f"❌ Version mismatch: {name} (header: {header['version']}, manifest: {entry['version']})")
+            errors.append(f"❌ Version mismatch: {name} (frontmatter: {header['version']}, manifest: {entry['version']})")
 
     if errors:
         print(f"\n{'='*60}")
@@ -173,7 +276,7 @@ def cmd_verify():
         print(f"\n{'='*60}")
         return 1
     else:
-        print(f"✅ All {len(skills)} skills verified — hashes match, headers present")
+        print(f"✅ All {len(skills)} skills verified — hashes match, versions present")
         return 0
 
 
@@ -204,7 +307,7 @@ def cmd_bump(skill_name: str, bump_type: str):
     old_version = entry["version"]
     new_version = bump_version(old_version, bump_type)
 
-    # Update SKILL.md header
+    # Update SKILL.md frontmatter
     update_header(skill_md, skill_name, new_version, TODAY)
 
     # Update manifest
@@ -225,22 +328,23 @@ def cmd_bump(skill_name: str, bump_type: str):
 
 
 def cmd_add_headers():
-    """Add version headers to all SKILL.md files that don't have one."""
+    """Add version/updated fields to all SKILL.md frontmatter that don't have them."""
     skills = get_all_skills()
     added = 0
     skipped = 0
 
     for name, skill_md in skills:
-        header = parse_header(skill_md)
-        if header:
+        header = parse_yaml_frontmatter(skill_md)
+        if header and "version" in header:
             skipped += 1
             continue
 
+        # Add version and updated to frontmatter
         update_header(skill_md, name, "1.0.0", TODAY)
         added += 1
         print(f"  + {name}")
 
-    print(f"\n✅ Headers added: {added} | Already had header: {skipped}")
+    print(f"\n✅ Headers added: {added} | Already had version: {skipped}")
     return 0
 
 
@@ -252,7 +356,7 @@ def main():
     group.add_argument("--init", action="store_true", help="Generate manifest.json from all skills")
     group.add_argument("--verify", action="store_true", help="Verify manifest integrity")
     group.add_argument("--bump", nargs=2, metavar=("SKILL", "TYPE"), help="Bump version (MAJOR/MINOR/PATCH)")
-    group.add_argument("--add-headers", action="store_true", help="Add version headers to all SKILL.md")
+    group.add_argument("--add-headers", action="store_true", help="Add version/updated to all SKILL.md frontmatter")
 
     args = parser.parse_args()
 

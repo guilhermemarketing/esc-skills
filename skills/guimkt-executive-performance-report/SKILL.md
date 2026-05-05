@@ -1,4 +1,3 @@
-<!-- skill: guimkt-executive-performance-report | version: 1.0.0 | updated: 2026-04-24 -->
 ---
 name: guimkt-executive-performance-report
 description: >
@@ -12,6 +11,8 @@ description: >
   de campanhas, report de mídia paga, performance report, análise de ROI/CAC/LTV,
   relatório comparativo, ou qualquer variação de "como está performando", "relatório de
   ads", "executive report", "análise de campanhas", "relatório para o cliente".
+version: "1.0.0"
+updated: "2026-04-24"
 ---
 
 # Executive Performance Report — Análise Profit-First

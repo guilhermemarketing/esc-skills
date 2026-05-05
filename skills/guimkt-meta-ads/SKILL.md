@@ -1,4 +1,3 @@
-<!-- skill: guimkt-meta-ads | version: 3.4.1 | updated: 2026-05-05 -->
 ---
 name: guimkt-meta-ads
 description: >
@@ -14,6 +13,8 @@ description: >
   de lead generation ou vendas no Meta, ou qualquer variação de "criativos para
   Meta", "anúncios para Instagram", "campanha Facebook Ads", "peças para feed",
   "criativos de performance".
+version: "3.4.1"
+updated: "2026-05-05"
 ---
 
 # Meta Ads Performance Creatives

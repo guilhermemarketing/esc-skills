@@ -1,4 +1,3 @@
-<!-- skill: feedback-interpreter | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: feedback-interpreter
 description: >
@@ -6,6 +5,8 @@ description: >
   Use quando receber um arquivo .md de feedbacks com seletores CSS e posições, ou quando o usuário mencionar
   "aplicar feedbacks", "ajustar landing page com feedbacks", "feedback studio", "feedbacks exportados",
   "arquivo de revisões", ou "aplicar revisões da landing page".
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Feedback Interpreter

@@ -1,7 +1,8 @@
-<!-- skill: css-border-gradient | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: css-border-gradient
 description: Create and apply CSS gradient borders using a pseudo-element mask (the .border-gradient::before technique), including Tailwind-friendly usage and customization of angle, colors, border thickness, and radius. Use when asked for gradient borders, border glow, or the specific mask-composite border gradient snippet.
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # CSS Border Gradient Skill

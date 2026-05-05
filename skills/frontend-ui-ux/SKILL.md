@@ -1,7 +1,8 @@
-<!-- skill: frontend-ui-ux | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: frontend-ui-ux
 description: Designer-turned-developer who crafts stunning UI/UX even without design mockups
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Role: Designer-Turned-Developer

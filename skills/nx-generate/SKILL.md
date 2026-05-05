@@ -1,7 +1,8 @@
-<!-- skill: nx-generate | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: nx-generate
 description: Generate code using nx generators. USE WHEN scaffolding code or transforming existing code - for example creating libraries or applications, or anything else that is boilerplate code or automates repetitive tasks. ALWAYS use this first when generating code with Nx instead of calling MCP tools or running nx generate immediately.
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Run Nx Generator

@@ -1,4 +1,3 @@
-<!-- skill: seo | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: seo
 description: Optimize for search engine visibility and ranking. Use when asked to "improve SEO", "optimize for search", "fix meta tags", "add structured data", "sitemap optimization", or "search engine optimization".
@@ -6,6 +5,8 @@ license: MIT
 metadata:
   author: web-quality-skills
   version: '1.0'
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # SEO optimization

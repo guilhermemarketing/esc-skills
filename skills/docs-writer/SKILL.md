@@ -1,7 +1,8 @@
-<!-- skill: docs-writer | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: docs-writer
 description: Use this skill for writing, reviewing, and editing documentation (`/docs` directory or any .md file).
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # `docs-writer` skill instructions

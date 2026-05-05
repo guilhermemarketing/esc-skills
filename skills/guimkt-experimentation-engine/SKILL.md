@@ -1,4 +1,3 @@
-<!-- skill: guimkt-experimentation-engine | version: 1.0.0 | updated: 2026-04-24 -->
 ---
 name: guimkt-experimentation-engine
 description: >
@@ -12,6 +11,8 @@ description: >
   testes, calcular sample size, planejar experimento, análise heurística para teste, ou
   qualquer variação de "o que testar primeiro", "hipótese de teste", "backlog CRO",
   "plano de experimentação", "teste A/B", "CRO roadmap", "priorização de testes".
+version: "1.0.0"
+updated: "2026-04-24"
 ---
 
 # Experimentation Engine — CRO como Método Científico

@@ -1,9 +1,10 @@
-<!-- skill: javascript-typescript | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: javascript-typescript
 description: JavaScript and TypeScript development with ES6+, Node.js, React, and modern web frameworks. Use for frontend, backend, or full-stack JavaScript/TypeScript projects.
 source: wshobson/agents
 license: MIT
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # JavaScript/TypeScript Development

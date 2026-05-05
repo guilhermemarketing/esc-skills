@@ -1,7 +1,8 @@
-<!-- skill: nx-workspace | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: nx-workspace
 description: Configure, explore, and optimize Nx monorepo workspaces. Use when setting up Nx, exploring workspace structure, configuring project boundaries, running tasks, analyzing affected projects, optimizing build caching, or implementing CI/CD with affected commands. Keywords - nx, monorepo, workspace, projects, targets, affected, build, lint, test.
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Nx Workspace Management

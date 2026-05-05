@@ -1,4 +1,3 @@
-<!-- skill: guimkt-gtm-expert | version: 1.1.0 | updated: 2026-04-25 -->
 ---
 name: guimkt-gtm-expert
 description: >
@@ -13,6 +12,8 @@ description: >
   GTM-Web_Modelo_Leads_2025_guimarketing.json como base. Triggers adicionais: "configurar GTM",
   "criar container GTM", "GTM para cliente", "GTM leadgen", "container de tracking",
   "setup GTM", "tags do GTM", "editar container GTM", "GTM web".
+version: "1.1.0"
+updated: "2026-04-25"
 ---
 
 # GTM Expert

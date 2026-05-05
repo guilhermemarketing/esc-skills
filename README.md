@@ -420,6 +420,19 @@ curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/in
 <details>
 <summary><strong>Other installation methods</strong></summary>
 
+#### Codex App (global install)
+
+```bash
+# Install all skills globally for Codex
+curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash -s -- --codex
+
+# Update later
+bash install.sh --codex update
+```
+
+> ⚡ Restart the Codex app after installing/updating to reload the skills menu.
+> Skills will be accessible as `$guimkt-meta-ads`, `$guimkt-landing-page`, etc.
+
 #### Git Submodule
 
 ```bash
@@ -452,6 +465,8 @@ Custom skills are available in `.agent/skills/` (or `.agent/external-skills/skil
 Before starting any task, check if a relevant skill exists.
 Load skills with `view_file` on the corresponding SKILL.md file.
 ```
+
+**Codex users:** Skills installed via `bash install.sh --codex` are automatically available in the skills menu. Access any skill with `$skill-name` (e.g., `$guimkt-meta-ads`). No additional configuration needed.
 
 ---
 
@@ -917,6 +932,19 @@ curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/in
 <details>
 <summary><strong>Outros métodos de instalação</strong></summary>
 
+#### Codex App (instalação global)
+
+```bash
+# Instalar todas as skills globalmente para o Codex
+curl -sL https://raw.githubusercontent.com/guilhermemarketing/esc-skills/main/install.sh | bash -s -- --codex
+
+# Atualizar no futuro
+bash install.sh --codex update
+```
+
+> ⚡ Reinicie o Codex app após instalar/atualizar para recarregar o menu de skills.
+> Skills ficam acessíveis como `$guimkt-meta-ads`, `$guimkt-landing-page`, etc.
+
 #### Git Submodule
 
 ```bash
@@ -949,6 +977,8 @@ Custom skills estão disponíveis em `.agent/skills/` (ou `.agent/external-skill
 Antes de iniciar qualquer tarefa, verifique se existe uma skill relevante.
 Carregue skills com `view_file` no arquivo SKILL.md correspondente.
 ```
+
+**Usuários Codex:** Skills instaladas via `bash install.sh --codex` ficam automaticamente disponíveis no menu de skills. Acesse qualquer skill com `$nome-da-skill` (ex: `$guimkt-meta-ads`). Nenhuma configuração adicional necessária.
 
 ---
 

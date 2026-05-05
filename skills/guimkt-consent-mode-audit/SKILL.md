@@ -1,4 +1,3 @@
-<!-- skill: guimkt-consent-mode-audit | version: 1.0.0 | updated: 2026-04-24 -->
 ---
 name: guimkt-consent-mode-audit
 description: >
@@ -12,6 +11,8 @@ description: >
   verificar cookie policy, auditoria de CMP, compliance de dados, LGPD audit, ou qualquer
   variação de "meu consent está funcionando?", "tags sem consentimento", "auditoria LGPD",
   "consent mode audit", "CMP review", "privacidade do site".
+version: "1.0.0"
+updated: "2026-04-24"
 ---
 
 # Consent Mode Audit — Privacidade como Infraestrutura

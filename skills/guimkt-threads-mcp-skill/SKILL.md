@@ -1,7 +1,8 @@
-<!-- skill: guimkt-threads-mcp-skill | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-threads-mcp-skill
 description: Maintain and operate the Threads MCP Server installed at ~/mcp-servers/threads-mcp-server/. Covers token renewal (every 60 days via cloudflared + OAuth), troubleshooting, tool usage, and configuration across Antigravity and Claude Desktop. Use when the user mentions "Threads MCP", "renovar token Threads", "threads-mcp-server", "Threads API", "postar no Threads", "analytics Threads", "manutenção Threads MCP", or any operation involving the Threads social network MCP integration.
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Threads MCP Server — Maintenance & Operations

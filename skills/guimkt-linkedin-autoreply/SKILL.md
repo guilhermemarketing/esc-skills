@@ -1,4 +1,3 @@
-<!-- skill: guimkt-linkedin-autoreply | version: 1.0.1 | updated: 2026-04-25 -->
 ---
 name: guimkt-linkedin-autoreply
 description: >
@@ -9,6 +8,8 @@ description: >
   ou qualquer variação de "responda esse post", "gere comentário pro LinkedIn",
   "reply pro LinkedIn", "linkedin autoreply", "comentar post do LinkedIn",
   "o que responder nesse post", "gera resposta pra esse link".
+version: "1.0.1"
+updated: "2026-04-25"
 ---
 
 # LinkedIn AutoReply

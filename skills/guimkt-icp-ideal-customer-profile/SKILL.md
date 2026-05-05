@@ -1,4 +1,3 @@
-<!-- skill: guimkt-icp-ideal-customer-profile | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: guimkt-icp-ideal-customer-profile
 description: >
@@ -11,6 +10,8 @@ description: >
   perfil de decisor, ou qualquer variação de "quem é o cliente ideal", "ICP para campanha",
   "definir público-alvo", "perfil de persona", "ICP para Google Ads", "ICP para Meta Ads",
   "perfil de cliente para landing page", "ideal customer profile".
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # ICP — Ideal Customer Profile

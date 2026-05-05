@@ -1,7 +1,8 @@
-<!-- skill: interaction-design | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: interaction-design
 description: Design and implement microinteractions, motion design, transitions, and user feedback patterns. Use when adding polish to UI interactions, implementing loading states, or creating delightful user experiences.
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Interaction Design

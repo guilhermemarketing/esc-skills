@@ -1,7 +1,8 @@
-<!-- skill: pricing-page | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: pricing-page
 description: Use when designing or rewriting a high-converting SaaS pricing page (structure, plan design, copywriting, SEO/AEO, FAQs, layout patterns, experiments). Includes checklists, templates, and common pitfalls.
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Pricing Page (High‑Conversion) — Web Design Skill

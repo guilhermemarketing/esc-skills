@@ -1,4 +1,3 @@
-<!-- skill: guimkt-wireframe-landing-page | version: 1.1.0 | updated: 2026-03-25 -->
 ---
 name: guimkt-wireframe-landing-page
 description: >
@@ -12,6 +11,8 @@ description: >
   criar sketch de landing page, prototipar página de vendas, wireframe de squeeze page,
   wireframe de página de captura, ou qualquer variação de "cria uma LP", "wireframe de landing
   page", "estrutura de página de vendas", "protótipo HTML de LP", "sketch de landing page".
+version: "1.1.0"
+updated: "2026-03-25"
 ---
 
 # Wireframe de Landing Page

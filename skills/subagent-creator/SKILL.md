@@ -1,7 +1,8 @@
-<!-- skill: subagent-creator | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: subagent-creator
 description: Guide for creating AI subagents with isolated context for complex multi-step workflows. Use when users want to create a subagent, specialized agent, verifier, debugger, or orchestrator that requires isolated context and deep specialization. Works with any agent that supports subagent delegation. Triggers on "create subagent", "new agent", "specialized assistant", "create verifier".
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Subagent Creator

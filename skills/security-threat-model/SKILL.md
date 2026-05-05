@@ -1,10 +1,11 @@
-<!-- skill: security-threat-model | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: security-threat-model
 description: Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work.
 metadata:
   author: github.com/openai/skills
   version: '1.0.0'
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Threat Model Source Code Repo

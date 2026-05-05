@@ -1,4 +1,3 @@
-<!-- skill: guimkt-brandformance-planner | version: 1.0.0 | updated: 2026-04-24 -->
 ---
 name: guimkt-brandformance-planner
 description: >
@@ -14,6 +13,8 @@ description: >
   planejar awareness, equilibrar curto e longo prazo, ou qualquer variação de "quanto investir
   em marca", "brand vs performance", "brandformance", "plano de awareness", "mix de funil",
   "SOV strategy", "branded search strategy", "como medir branding".
+version: "1.0.0"
+updated: "2026-04-24"
 ---
 
 # Brandformance Planner

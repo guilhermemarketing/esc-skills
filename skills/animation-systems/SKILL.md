@@ -1,7 +1,8 @@
-<!-- skill: animation-systems | version: 1.0.0 | updated: 2026-03-17 -->
 ---
 name: animation-systems
 description: Use when designing or implementing product-grade web motion like Stripe, Linear, Apple, and Vercel. Covers motion principles, easing/duration defaults, choreography patterns, scroll/hover interactions, performance, accessibility (reduced motion), and implementation guidance.
+version: "1.0.0"
+updated: "2026-03-17"
 ---
 
 # Animation Systems (Stripe × Linear × Apple × Vercel)

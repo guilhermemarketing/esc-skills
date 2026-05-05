@@ -1,4 +1,3 @@
-<!-- skill: guimkt-gtm-expert-template | version: 1.1.0 | updated: 2026-04-25 -->
 ---
 name: guimkt-gtm-expert-template
 description: >
@@ -9,6 +8,8 @@ description: >
   "configurar GTM", "criar container GTM", "GTM para cliente", "GTM leadgen",
   "container de tracking", "setup GTM", "tags do GTM", "GTM web", "container GTM para leads".
   Esta skill é a FUNDAÇÃO de todo container GTM de lead generation no ecossistema gui.marketing.
+version: "1.1.0"
+updated: "2026-04-25"
 ---
 
 # GTM Expert — Template guimarketing (Leads 2025)
