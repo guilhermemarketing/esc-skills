@@ -1,4 +1,4 @@
-<!-- skill: guimkt-meta-ads | version: 3.3.0 | updated: 2026-04-29 -->
+<!-- skill: guimkt-meta-ads | version: 3.4.1 | updated: 2026-05-05 -->
 ---
 name: guimkt-meta-ads
 description: >
@@ -32,6 +32,8 @@ Seu campo de batalha é o feed — 1.7 segundos de atenção onde o polegar deci
 3° COPY     — O que faz alguém CLICAR e agir
 ```
 
+> **🔴 PRINCÍPIO VISUAL-FIRST:** O criativo deve se explicar sozinho na imagem — sem depender do texto-legenda. 65% das pessoas são aprendizes visuais. 90% da informação processada pelo cérebro é visual. No Reels/Stories a tela inteira é visual e o copy mal aparece. Se alguém vê o criativo por 1.7 segundos SEM ler uma palavra da legenda, deve entender: (1) qual é o problema/oportunidade, (2) o que está sendo oferecido, e (3) o que fazer. O texto-legenda REFORÇA e EXPANDE — nunca é o veículo principal da mensagem.
+
 > "A maioria das marcas diz que quer awareness, mas na verdade quer direct response — porque quer vendas." — CXL
 
 ---
@@ -45,6 +47,8 @@ Todo criativo de performance opera neste ciclo:
 | **HOOK** | Parar o scroll | 0-1.7s | Hook Rate (3sec views / impressions) = meta 30-50% |
 | **HOLD** | Manter atenção | 1.7-5s | ThruPlay rate, tempo de visualização |
 | **OFFER** | Gerar clique/ação | 5s+ | CTR, conversão |
+
+> **Visual-First:** As 3 fases devem ser comunicadas VISUALMENTE na imagem. O Hook é visual (não textual). O Hold é visual (layout, composição, informação visual). O Offer aparece no CTA visual integrado. O texto-legenda é a camada de expansão — não o veículo.
 
 ### 6 Hooks Fundamentais (testar primeiro)
 
@@ -374,7 +378,9 @@ copy_type: "Direct Response | Social Proof | Value Proposition | Storytelling"
 | **HOLD** | O que mantém atenção | [valor entregue que faz continuar] |
 | **OFFER** | O que gera clique | [oferta + CTA que induz ação] |
 
-**4.3 Copy (tabela com limites + texto-legenda):**
+**4.3 Copy (tabela com limites + texto-legenda — complemento do visual):**
+
+> O copy é a TERCEIRA prioridade. Ele EXPANDE e REFORÇA o que o visual já comunicou — nunca introduz informação nova que deveria estar no criativo. Se o conceito depende da legenda para fazer sentido, o visual está fraco.
 
 | Elemento | Conteúdo | Limite |
 |----------|----------|--------|
@@ -435,6 +441,7 @@ CTA (Offer textual)      → Transição clara para ação com ↳ ou →
 
 ```
 ❌ Copy institucional — "A [Marca] é líder em [setor] com X anos de experiência"
+❌ Copy que carrega a mensagem sozinha — se a legenda for necessária para entender o anúncio, o VISUAL está fraco (refazer o visual, não a legenda)
 ❌ Feature dump — listar 7 benefícios sem hierarquia
 ❌ Fluff — "soluções inovadoras", "excelência em qualidade", "compromisso com resultados"
 ❌ Copy genérica — se trocar o nome da marca e funcionar igual, está genérica
@@ -452,17 +459,32 @@ CTA (Offer textual)      → Transição clara para ação com ↳ ou →
 - O preview (Texto principal) deve funcionar como um **segundo hook** — se não gera curiosidade, o copy inteiro falha
 - A Descrição (≤30 chars) é micro-copy de reforço que aparece abaixo do link. Deve ecoar a oferta ou o CTA
 
-**4.4 Conceito Visual (Ad Layout Funcional):**
+**4.4 Conceito Visual (Ad Layout Funcional — Visual-First):**
+
+> **🔴 REGRA:** O visual deve carregar a mensagem completa sozinho. Teste: se cobrir a legenda inteira, o criativo comunica problema → solução → ação? Se não → refazer o conceito visual.
 
 ```yaml
 estilo: "fotografia | UGC | screenshot | tipográfico | 3D | misto"
 mood: "urgente | confiável | provocativo | aspiracional | técnico"
+
+# ─── Visual-First Communication ───────────────────────
+# O visual DEVE comunicar autonomamente estes 3 elementos:
+visual_message:
+  problem_or_opportunity: "O que o viewer entende que está em jogo — SEM ler legenda"
+  value_proposition: "O que está sendo oferecido/resolvido — comunicado por imagem, layout, iconografia ou texto-overlay mínimo"
+  action_signal: "O que induz ação — CTA visual, badge, seta, botão integrado"
 
 ad_layout:
   hook_visual: "o que para o scroll — elemento hero"
   value_prop_visual: "o que comunica benefício visualmente"
   social_proof_visual: "elemento de confiança (se aplicável)"
   cta_visual: "botão, badge ou indicação de ação"
+
+# ─── Visual Storytelling Layer ─────────────────────────
+visual_storytelling:
+  narrative_type: "before/after | cause/effect | problem→solution | comparison | demonstration | social proof visual"
+  information_hierarchy: "1° [o que o olho vê primeiro] → 2° [segundo elemento] → 3° [CTA]"
+  value_without_text: "SIM/NÃO — o visual comunica sem nenhum texto overlay?"
 
 composicao:
   layout: "centralizado | regra dos terços | split | diagonal"
@@ -477,7 +499,9 @@ tipografia:
   headline: "bold | condensed | handwritten"
   posicao_texto: "superior | central | inferior | lateral"
 
-overlay: "máximo 5 palavras de texto na imagem"
+overlay:
+  text_on_image: "máximo 5-7 palavras — complementa, não substitui o visual"
+  visual_elements_on_image: "ícones, setas, badges, números, indicadores visuais que comunicam sem texto"
 regra_20_texto: "✅ | ⚠️"
 ```
 
@@ -496,6 +520,14 @@ Cada conceito DEVE ter 3 variações para teste:
 ---
 
 ### Etapa 5 — Checklist de Validação
+
+**Visual-First (obrigatório):**
+
+- [ ] Teste da legenda coberta — sem ler texto-legenda, o criativo comunica o conceito?
+- [ ] visual_message preenchido: problem/opportunity + value proposition + action signal
+- [ ] Visual storytelling declarado: narrative_type + information_hierarchy
+- [ ] Elementos visuais comunicam mais que o texto overlay
+- [ ] Overlay ≤7 palavras — complementa o visual, não substitui
 
 **Performance & Direct Response:**
 
@@ -590,6 +622,9 @@ Consolidar todos os prompts em `prompts-imagens-{{CLIENTE}}.md`:
 
 ```
 ✅ Show more than just the product — add value prop, testimonial, offer
+✅ VISUAL-FIRST — the image must tell the complete story without caption (65% visual learners, 90% info is visual)
+✅ Use visual storytelling: before/after, problem→solution, comparison, demonstration — not just pretty photos
+✅ Add visual proof elements: icons, badges, numbers, graphs, visual metaphors inside the creative
 ✅ Clear value add in the creative — o que o cliente GANHA?
 ✅ Aim for evergreen ads — sem datas, sem sazonalidade
 ✅ Add captions to video ads — 85% assistem sem som
@@ -613,6 +648,8 @@ Consolidar todos os prompts em `prompts-imagens-{{CLIENTE}}.md`:
 ❌ Feature dump — 7 benefícios no mesmo anúncio
 ❌ Hook clickbait sem payoff — promete e não entrega
 ❌ Visual decorativo — bonito mas não comunica
+❌ Visual dependente de legenda — se precisa ler a copy para entender, o criativo falhou
+❌ "Moldura estética" — visual que é só background bonito com headline genérica por cima
 ❌ Ignorar design system quando disponível
 ❌ Cortar teste A/B cedo demais — mín. 5 dias, 3x AOV em ad spend
 ❌ "Cara de IA" — visual liso, perfeito, sem textura
@@ -711,16 +748,21 @@ Professional Meta Ads creative for [product/service],
 [paleta de cores do design system: dominante + accent],
 [mood/atmosfera do design system],
 
+Visual storytelling elements (the image must tell the story WITHOUT caption):
+- Clear visual narrative: [narrative_type do conceito — ex: before/after split, problem→solution contrast],
+- Visual hierarchy: [information_hierarchy — o que o olho vê primeiro → segundo → terceiro],
+- Visual proof/data elements if applicable: [icons, badges, numbers, graphs, visual metaphors],
+
 Typographic elements integrated into the composition:
 - Bold headline text: "[headline do conceito]" positioned [posicao_texto],
-- Short description text: "[descrição curta ou overlay]" below the headline in lighter weight,
+- Short supporting text: "[overlay.text_on_image — máx 5-7 palavras]" as complement to the visual,
 - CTA button or badge: "[CTA do conceito]" at the bottom of the composition,
 - Logo placement: [corner or position as specified],
 
 [estilo: award-winning advertising design / premium social media ad],
 [iluminação: dramatic side lighting / soft natural],
 [texturas reais para evitar "cara de IA"],
-modern ad layout, professional typography hierarchy, 4:5 aspect ratio
+modern ad layout, professional typography hierarchy, self-explanatory visual (must communicate without caption), 4:5 aspect ratio
 ```
 
 > Respeitar design system quando disponível. Não gerar carrossel — 1 imagem por conceito, a menos que o usuário peça.
