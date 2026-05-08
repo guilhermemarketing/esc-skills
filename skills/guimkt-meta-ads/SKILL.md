@@ -13,8 +13,8 @@ description: >
   de lead generation ou vendas no Meta, ou qualquer variação de "criativos para
   Meta", "anúncios para Instagram", "campanha Facebook Ads", "peças para feed",
   "criativos de performance".
-version: "3.4.1"
-updated: "2026-05-05"
+version: "3.5.0"
+updated: "2026-05-08"
 ---
 
 # Meta Ads Performance Creatives
@@ -322,14 +322,64 @@ Consultar `references/creative-types-hooks.md` para a tabela completa de 40+ Cre
 
 ---
 
+### Etapa 2.5 — Pré-Seleção de Hooks & Ângulos (OBRIGATÓRIA)
+
+> **Antes de criar qualquer conceito, o agente DEVE pré-selecionar as 10 melhores combinações de Creative Type × Hook × Ângulo × Emotion Trigger.** Isso evita repetição, garante diversidade e força pensamento estratégico antes da execução.
+
+**Processo:**
+
+1. **Listar candidatos** — A partir do Customer Journey Map (Etapa 2), cruzar:
+   - Creative Types elegíveis por funnel stage (Cold/Warm/Hot)
+   - 6 Hooks Fundamentais aplicáveis ao briefing
+   - Ângulos do `avatar_hooks` (why_want, why_not_want, why_watch)
+   - Emotion Triggers compatíveis com cada combinação
+
+2. **Gerar matriz de 15-20 combinações candidatas** no formato:
+
+```yaml
+candidatos:
+  - id: 1
+    creative_type: "[tipo]"
+    hook: "[Before/After | Us/Them | Problem/Solution | ...]"
+    angulo: "[ângulo específico do avatar — ex: medo de perder tempo, desejo de escalar]"
+    emotion: "[emoção primária]"
+    funnel: "Cold | Warm | Hot"
+    rationale: "[1 frase — por que essa combinação funciona para este cliente]"
+  - id: 2
+    ...
+```
+
+3. **Selecionar as 10 melhores** aplicando estes critérios de corte:
+   - ✅ Cobertura de funil: mín. 3 Cold + 3 Warm + 2 Hot
+   - ✅ Diversidade de Creative Type: mín. 6 tipos diferentes
+   - ✅ Diversidade de hook: mín. 4 hooks diferentes
+   - ✅ Diversidade de ângulo: não repetir o mesmo ângulo do avatar em mais de 2 conceitos
+   - ✅ Diversidade de emoção: mín. 4 emoções diferentes
+   - ❌ Eliminar combinações redundantes (mesmo ângulo + mesmo hook = redundante)
+   - ❌ Eliminar combinações fracas (sem prova concreta, sem diferencial claro)
+
+4. **Apresentar a seleção final** em tabela resumo:
+
+| # | Creative Type | Hook | Ângulo | Emoção | Funil |
+|---|--------------|------|--------|--------|-------|
+| 1 | [tipo] | [hook] | [ângulo] | [emoção] | Cold |
+| 2 | ... | ... | ... | ... | ... |
+| ... | ... | ... | ... | ... | ... |
+| 10 | [tipo] | [hook] | [ângulo] | [emoção] | Hot |
+
+> **PARAR e aguardar aprovação** do usuário antes de avançar para Etapa 3. O usuário pode trocar, reordenar ou substituir combinações.
+
+---
+
 ### Etapa 3 — Gerar 10 Conceitos
 
-Criar 10 conceitos com **diversidade obrigatória de Creative Types**:
+Criar os 10 conceitos **na ordem aprovada na Etapa 2.5**, com **diversidade obrigatória de Creative Types**:
 
 - Mínimo **6 Creative Types diferentes** (dos 40+ disponíveis)
 - Cobertura de **Cold/Warm/Hot** conforme mapeamento
 - Cada conceito declara **1-2 Emotion Triggers**
 - Cada conceito nasce com **3 variações de Hook** para A/B testing
+- Cada conceito segue a combinação pré-selecionada (Creative Type + Hook + Ângulo + Emoção)
 
 **Repertório de Creative Types (resumo — ver tabela completa em references/):**
 
@@ -385,7 +435,7 @@ copy_type: "Direct Response | Social Proof | Value Proposition | Storytelling"
 
 | Elemento | Conteúdo | Limite |
 |----------|----------|--------|
-| **Headline** | [texto] | ≤40 chars |
+| **Headline** | [texto] | ≤90 chars |
 | **Texto-legenda** | [body copy completo — ver regras abaixo] | 400-600 chars |
 | **Texto principal** | [preview — primeiras 2 linhas do texto-legenda] | ≤125 chars visíveis |
 | **Descrição** | [micro-copy de reforço] | ≤30 chars |
@@ -543,7 +593,7 @@ Cada conceito DEVE ter 3 variações para teste:
 
 **Copy & Compliance:**
 
-- [ ] Headline ≤40 chars
+- [ ] Headline ≤90 chars
 - [ ] Texto-legenda 400-600 chars com estrutura Abertura → Corpo → CTA
 - [ ] Texto principal (preview) = primeiras ~125 chars do texto-legenda — gera curiosidade?
 - [ ] Descrição ≤30 chars — ecoa a oferta ou CTA
@@ -779,7 +829,7 @@ modern ad layout, professional typography hierarchy, self-explanatory visual (mu
 4. Cada conceito NASCE com 3 variações A/B de hook — sem variação é achismo
 5. Foco no CLIENTE e sua dor — não na marca (a menos que seja household brand)
 6. Pensar em CONVERSÃO — cada conceito deve ter caminho claro para ação
-7. Validar limites: headline ≤40, texto principal ≤125, descrição ≤30
+7. Validar limites: headline ≤90, texto principal ≤125, descrição ≤30
 8. Hook Rate 30-50% é o benchmark — criar hooks que param o scroll
 9. Evergreen > sazonal — criativos vencedores rodam 6-12 meses
 10. Social validation é driver de conversão — criar ads que geram comentários
